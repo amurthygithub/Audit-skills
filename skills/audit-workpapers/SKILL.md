@@ -282,6 +282,60 @@ When relying on information produced by the company (IPE) as audit evidence, the
 *   **Data Integrity and ITGC Risk:** The risk that unauthorized changes were made to the underlying data or application logic due to deficient Information Technology General Controls (ITGCs).
 *   **End-User Computing (EUC) Risk:** The risk of manual manipulation, broken links, or formula errors in user-defined spreadsheets (e.g., Excel, Access) provided by the client.
 
+#### IPE Input Gating: What the Agent Needs Before It Can Work
+
+**Agent behavior: DO NOT proceed with IPE procedures until you have verified you have the minimum evidence bundle.** If any required item is missing, STOP and ask the auditor for it. Do not guess, assume, or skip.
+
+**STEP 1: Classify the IPE by source and purpose.**
+
+```
+Classify the IPE on two dimensions:
+
+DIMENSION A — Source:
+  SYSTEM-GENERATED: Extracted directly from an ERP/database
+    (e.g., SAP aging report, Oracle GL extract, Workday payroll file)
+  END-USER COMPUTING (EUC): Built or manipulated by a person
+    (e.g., Excel accrual schedule, Access database maintained by a controller)
+
+DIMENSION B — Purpose:
+  POPULATION: The IPE is the set of items you will test
+    (e.g., AR aging used to select confirmations, inventory list used for counts)
+  ANALYTICAL INPUT: The IPE feeds a calculation or expectation
+    (e.g., depreciation schedule plugged into analytics, FX rate table)
+  SUPPORTING EVIDENCE: The IPE backs a single assertion or disclosure
+    (e.g., board minutes, lease schedule, legal letter)
+```
+
+**STEP 2: Derive the minimum evidence bundle from the classification.**
+
+For each classification, the mandatory minimum items are:
+
+| Classification | Minimum Evidence Required |
+|---|---|
+| **System-generated + Population** | (a) The IPE report itself (full extract, not summary), (b) GL trial balance or sub-ledger to reconcile totals, (c) ITGC workpapers for the source system (or confirmation ITGCs were tested), (d) System documentation or query parameters used to generate the report |
+| **System-generated + Analytical Input** | (a) The IPE report, (b) The formula/methodology the auditor is applying to it, (c) ITGC workpapers for the source system, (d) GL tie-out for any balance-based inputs |
+| **System-generated + Supporting Evidence** | (a) The IPE document, (b) Confirmation of source (system name, report name, date generated), (c) ITGC reference or basis for relying on system controls |
+| **EUC + Population** | (a) The EUC file in native format (Excel, Access — not PDF), (b) GL trial balance or sub-ledger for reconciliation, (c) Description of who built/maintains the EUC and how, (d) If the EUC sources from a system: the source report used as input |
+| **EUC + Analytical Input** | (a) The EUC file in native format, (b) The formula/methodology applied to it, (c) Documentation of EUC logic (who built it, what it calculates, when last updated), (d) Source data feeding the EUC |
+| **EUC + Supporting Evidence** | (a) The EUC document, (b) Description of authorship and update cycle, (c) Any source inputs feeding the EUC |
+
+**STEP 3: Run the gap check.**
+
+```
+FOR each item in the minimum evidence bundle:
+  Item provided? → YES: note what was provided and its format
+                  → NO:  FLAG AS MISSING
+
+IF any items are flagged MISSING → STOP.
+Respond: "Before I can validate this IPE, I need: [list missing items].
+Here's why each is required: [one-line reason per item].
+What I have so far: [list what was provided]."
+
+IF all items are provided → PROCEED to Mandatory Procedures below.
+```
+
+**Important:** The minimum evidence bundle adapts to what the auditor gives you. A $50M manufacturer running SAP needs different evidence than a $2M startup running QuickBooks with Excel workpapers. The classification above covers both — the auditor provides what their environment produces, and the agent verifies it's enough to proceed.
+
 ### Mandatory Procedures for Testing the Accuracy and Completeness of IPE
 
 Before using IPE as a population or audit evidence for substantive procedures, the auditor must obtain audit evidence about the accuracy and completeness of the information. Perform and document the following procedures:
