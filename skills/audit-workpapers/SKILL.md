@@ -274,8 +274,29 @@ Documentation must be sufficient to enable an **experienced auditor** (having no
 4. **Original documents** > Photocopies/facsimiles
 5. Evidence from **effective IT controls** over data > Evidence from systems without controls
 6. **Written evidence** > Oral evidence (AS 1215.06: oral evidence alone does not provide sufficient documentation for an experienced auditor)
+7. ---
+💡 **Pujaa’s Recommendation (FY26 Process Improvement):** Added explicit guidance for evaluating Information Produced by Entity (IPE) to address data integrity gaps.
+### Risk Assessment and Evaluation of Information Produced by Entity (IPE)
+When relying on information produced by the company (IPE) as audit evidence, the engagement team must assess risks that could compromise the relevance and reliability of the data. In accordance with PCAOB AS 1105.10, risks must be evaluated across the following dimensions:
 
-**Decision rules:**
+*   **Extraction and Parameters Risk:** The risk that the report parameters, filters, or logic used to query the system are incorrect, leading to an incomplete or inaccurate data extraction (Nonsampling Risk per AS 2315.11).
+*   **Data Integrity and ITGC Risk:** The risk that unauthorized changes were made to the underlying data or application logic due to deficient Information Technology General Controls (ITGCs).
+*   **End-User Computing (EUC) Risk:** The risk of manual manipulation, broken links, or formula errors in user-defined spreadsheets (e.g., Excel, Access) provided by the client.
+
+💡 **Pujaa’s Recommendation (FY26 Process Improvement):**  ### Mandatory Procedures for Testing the Accuracy and Completeness of IPE
+Before using IPE as a population or audit evidence for substantive procedures, the auditor must obtain audit evidence about the accuracy and completeness of the information. Perform and document the following procedures:
+
+1.  **Establish Population Completeness:**
+    *   **Reconciliation:** Reconcile the total balance or record count of the IPE report directly to the General Ledger (GL) trial balance or appropriate sub-ledger.
+    *   **Sequence Testing:** For document populations (e.g., invoices, checks, shipping logs), test the numerical sequence to ensure no gaps or omissions exist in the provided data.
+2.  **Verify Data Accuracy:**
+    *   **Source Document Vouching:** Select a representative sample of line items from the IPE report and vouch them back to original, independent source documents (e.g., third-party bank statements, executed contracts, physical shipping notes).
+    *   **Logic and Formula Recalculation:** Independently re-perform any system or user-defined calculations within the report (e.g., aging buckets, mathematical totals, complex Excel formulas).
+3.  **Evaluate System Reliability:**
+    *   Verify if the report is "System-Generated." If so, cross-reference and document the testing of ITGCs and Automated Application Controls (refer to C-series workpapers) that restrict unauthorized access to the report writer or database.
+
+      
+  **Decision rules:**
 - If evidence conflicts, DO NOT disregard either piece. Document the conflict, perform additional procedures, and reach a conclusion (AS 1215.08; additional procedures per AS 1105.29)
 - If an assertion is addressed only by inquiry, OBTAIN additional corroborating evidence
 - When using company-produced information, test its accuracy and completeness (AS 1105.10)
@@ -1005,7 +1026,7 @@ TICKMARK: △ [Recomputed; see above]
 │ ASSERTION(S): [Existence/Completeness/Valuation/etc.]       │
 ├─────────────────────────────────────────────────────────────┤
 │ PROCEDURE:                                                 │
-│ [Step-by-step description of what was done]                 │
+│ [Step-by-step description of what was done]             │
 │                                                             │
 │ DATA / ANALYSIS:                                            │
 │ [Tables, computations, comparisons]                        │
@@ -1269,8 +1290,20 @@ Materiality Memo: B-3
 Internal Control Evaluation: C-1 through C-5
 Significant Risks: AS 2110, AS 2301
 ```
-
----
+## 11.8  IPE Reliability and Validation Log Template
+**
+| **IPE Validation Field** | **Auditor Documentation / Testing Results** |
+| :--- | :--- |
+| **Workpaper Index Reference** | [e.g., C-4.3] |
+| **Description of IPE** | [e.g., FY25 Inventory Ageing Report as of 12/31/25] |
+| **Source System & Report Name** | [e.g., SAP ECC 6.0 - ZINV_AGE_RPT] |
+| **Purpose of Use** | [e.g., Used as the base population for substantive testing in WP F-2] |
+| **Completeness Procedures** | `[ ]` Tied report total ($X,XXX,XXX) to GL Account #### (See WP F-1 for roll-forward reconciliation).<br>`[ ]` Verified sequential parameters from invoice #XXXX to #YYYY. |
+| **Accuracy Procedures** | `[ ]` Selected a sample of [XX] items and vouched to original supplier invoices.<br>`[ ]` Independently recalculated the client's Excel aging logic/formulas with zero variances noted. |
+| **ITGC Reference** | `[ ]` Confirmed ITGCs over report parameters are operating effectively (Refer to IT Audit WP IT-3.2). |
+| **Standard Tickmarks Used** | **✓** = Agreed report balance to General Ledger trial balance.<br>**Δ** = Independently re-performed spreadsheet formulas for accuracy. |
+| **Conclusion** | Based on the procedures performed above, the information produced by the entity is sufficient, accurate, and complete, and is deemed reliable for use as audit evidence. |
+---**
 
 ## 12. Opinion Determination Guide (Per AS 3105)
 
@@ -1417,7 +1450,11 @@ Every review note must include:
 
 **Agent behavior:** Track all review notes in M-series workpapers. Ensure every review note has a corresponding resolution and clearance.
 
----
+### 14.5 Reviewer Guidance for IPE Documentation
+When reviewing workpapers that utilize client-prepared reports or data extracts, the reviewer must verify that:
+*   [ ] The specific report name, system of origin, and file format are clearly documented.
+*   [ ] There is clear, visual evidence (tickmarks and cross-references) showing how the population was verified for completeness against the general ledger.
+*   [ ] The workpaper clearly concludes on the *reliability* of the data before drawing a conclusion on the primary audit objective.
 
 ## 15. Data Analytics in Audit (2024–2026 Trends)
 
