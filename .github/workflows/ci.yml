@@ -14,6 +14,24 @@ permissions:
   contents: read
 
 jobs:
+  pr-title:
+    name: PR title convention
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Check PR title matches conventional-commits pattern
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if ! echo "$PR_TITLE" | grep -qE '^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$'; then
+            echo "::error::PR title '$PR_TITLE' does not match required pattern"
+            echo "::error::Expected: type(skill-slug): description"
+            echo "::error::Types: feat, fix, docs, chore"
+            echo "::error::Example: feat(nist-800-53-rmf): add healthcare industry view"
+            exit 1
+          fi
+          echo "PR title OK: $PR_TITLE"
+
   lint:
     name: Lint skill structure
     runs-on: ubuntu-latest
