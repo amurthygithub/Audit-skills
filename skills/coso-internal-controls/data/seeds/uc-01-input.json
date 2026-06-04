@@ -1,0 +1,10 @@
+{
+  "entity_description": "Mid-cap public regional bank, accelerated filer, $12B assets. Three significant processes in scope for SOX 404 ICFR assessment: Loan Origination, Deposit Operations, Investment Securities. COSO 2013 ICIF framework applied.",
+  "processes": [
+    "Loan Origination",
+    "Deposit Operations",
+    "Investment Securities"
+  ],
+  "industry": "financial-services",
+  "fiscal_year": 2026
+}

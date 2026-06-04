@@ -1,0 +1,19 @@
+{
+  "deficiency_description": "IT access provisioning for ERP system not properly controlled. Terminated employees retain access average 45 days. No quarterly access review. Affects expenditure and payroll.",
+  "affected_accounts": [
+    "Operating Expenses",
+    "Payroll Expense",
+    "Accounts Payable"
+  ],
+  "affected_assertions": [
+    "Existence",
+    "Completeness"
+  ],
+  "compensating_controls_candidates": [
+    "Bank reconciliation (monthly, precise)",
+    "Payroll reconciliation (monthly, precise)",
+    "Budget variance analysis (monthly, low precision)"
+  ],
+  "preliminary_classification": "Significant Deficiency",
+  "industry": "financial-services"
+}
