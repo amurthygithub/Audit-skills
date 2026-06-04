@@ -1,0 +1,22 @@
+{
+  "title": "SOC 2 TSC to HIPAA Security Rule Crosswalk",
+  "version": "0.1.0",
+  "source_tsc": "AICPA TSP Section 100 (2017, 2022 Revised Points of Focus)",
+  "source_hipaa": "HIPAA Security Rule (45 CFR 164.302-318)",
+  "mappings": [
+    {"tsc_criterion": "CC1.1", "hipaa_section": "164.308(a)(1)(i)", "description": "Security management process"},
+    {"tsc_criterion": "CC1.2", "hipaa_section": "164.308(a)(2)", "description": "Assigned security responsibility"},
+    {"tsc_criterion": "CC5.2", "hipaa_section": "164.308(a)(3)", "description": "Workforce security"},
+    {"tsc_criterion": "CC6.1", "hipaa_section": "164.312(a)(1)", "description": "Unique user identification"},
+    {"tsc_criterion": "CC6.2", "hipaa_section": "164.312(a)(2)", "description": "Emergency access procedure"},
+    {"tsc_criterion": "CC6.3", "hipaa_section": "164.312(a)(2)(ii)", "description": "Automatic logoff / break-glass"},
+    {"tsc_criterion": "CC6.6", "hipaa_section": "164.312(d)", "description": "Person or entity authentication"},
+    {"tsc_criterion": "CC7.1", "hipaa_section": "164.312(b)", "description": "Audit controls"},
+    {"tsc_criterion": "CC7.2", "hipaa_section": "164.308(a)(1)(ii)(D)", "description": "Information system activity review"},
+    {"tsc_criterion": "CC7.3", "hipaa_section": "164.308(a)(5)(ii)(C)", "description": "Log-in monitoring"},
+    {"tsc_criterion": "CC8.1", "hipaa_section": "164.308(a)(5)(ii)(B)", "description": "Protection from malicious software"},
+    {"tsc_criterion": "CC9.1", "hipaa_section": "164.308(a)(7)", "description": "Contingency operations"},
+    {"tsc_criterion": "P1-P8", "hipaa_section": "164.500-534", "description": "HIPAA Privacy Rule (overlaps Privacy TSC)"}
+  ],
+  "notes": "This is a crosswalk seed. Mappings are NOT one-to-one; HIPAA requires additional analysis for addressable implementation specifications. Generated 2026-06-04."
+}

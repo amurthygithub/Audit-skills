@@ -1,0 +1,14 @@
+{
+  "prior_report": {
+    "period_end": "2025-12-31",
+    "issue_date": "2026-02-15",
+    "report_type": "SOC 2 Type II"
+  },
+  "gap_period": {
+    "start": "2026-01-01",
+    "end": "2026-06-30"
+  },
+  "next_report_expected": "2026-08-15",
+  "material_changes": "No material changes to system description or control design.",
+  "exceptions_in_prior": "No exceptions in prior SOC 2 Type II report."
+}

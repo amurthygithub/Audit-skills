@@ -1,0 +1,15 @@
+{
+  "system_description": "Multi-tenant SaaS platform on AWS, uses Stripe for payments, SendGrid for email. 200 enterprise customers.",
+  "tsc_categories": [
+    "Security",
+    "Availability",
+    "Confidentiality"
+  ],
+  "customer_count": 200,
+  "method": "carve-out",
+  "subservice_soc_reports": [
+    "AWS_SOC2",
+    "Stripe_SOC2",
+    "SendGrid_SOC2"
+  ]
+}

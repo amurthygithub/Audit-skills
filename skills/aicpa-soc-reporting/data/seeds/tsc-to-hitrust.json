@@ -1,0 +1,22 @@
+{
+  "title": "SOC 2 TSC to HITRUST CSF Crosswalk Seed",
+  "version": "0.1.0",
+  "source_tsc": "AICPA TSP Section 100 (2017, 2022 Revised Points of Focus)",
+  "source_hitrust": "HITRUST CSF v11",
+  "mappings": [
+    {"tsc_category": "CC1 Control Environment", "hitrust_domain": "Domain 1: Information Security Management Program"},
+    {"tsc_category": "CC2 Communication and Information", "hitrust_domain": "Domain 1: Information Security Management Program"},
+    {"tsc_category": "CC3 Risk Assessment", "hitrust_domain": "Domain 3: Risk Management"},
+    {"tsc_category": "CC4 Monitoring Activities", "hitrust_domain": "Domain 1: Information Security Management Program"},
+    {"tsc_category": "CC5 Control Activities", "hitrust_domain": "Domain 16: Business Continuity and Disaster Recovery"},
+    {"tsc_category": "CC6 Logical and Physical Access", "hitrust_domain": "Domain 7: Access Control"},
+    {"tsc_category": "CC7 System Operations", "hitrust_domain": "Domain 10: Communications and Operations Management"},
+    {"tsc_category": "CC8 Change Management", "hitrust_domain": "Domain 10: Communications and Operations Management"},
+    {"tsc_category": "CC9 Risk Mitigation", "hitrust_domain": "Domain 3: Risk Management"},
+    {"tsc_category": "A1-A3 Availability", "hitrust_domain": "Domain 16: Business Continuity and Disaster Recovery"},
+    {"tsc_category": "PI1-PI5 Processing Integrity", "hitrust_domain": "Domain 10: Communications and Operations Management"},
+    {"tsc_category": "C1-C2 Confidentiality", "hitrust_domain": "Domain 7: Access Control"},
+    {"tsc_category": "P1-P8 Privacy", "hitrust_domain": "Domain 17: Privacy Practices"}
+  ],
+  "notes": "HITRUST CSF maps to SOC 2 TSC, HIPAA Security Rule, and NIST 800-53 simultaneously. This crosswalk seed provides category-level mapping. Point-of-focus granularity requires HITRUST MyCSF tool for definitive mapping. The HITRUST validated assessment is separate from SOC 2 and produces a different opinion structure. Generated 2026-06-04."
+}

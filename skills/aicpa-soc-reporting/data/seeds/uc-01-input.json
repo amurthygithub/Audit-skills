@@ -1,0 +1,18 @@
+{
+  "system_description": "Multi-tenant SaaS platform, AWS IaaS, processes customer PII for 50k users.",
+  "tsc_categories": [
+    "Security",
+    "Availability",
+    "Confidentiality"
+  ],
+  "examination_period": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "subservice_orgs": [
+    "AWS (IaaS)"
+  ],
+  "customer_count": 50000,
+  "prior_engagement": true,
+  "engagement_year": 3
+}

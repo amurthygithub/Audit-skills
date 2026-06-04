@@ -1,0 +1,84 @@
+{
+  "service_description": "SaaS project management platform, AWS-hosted, PHI for healthcare tenants.",
+  "tsc_categories": [
+    "Security",
+    "Availability",
+    "Confidentiality"
+  ],
+  "control_inventory": [
+    {
+      "id": "CTRL-001",
+      "description": "Quarterly access reviews",
+      "tsc_criterion": "CC6.1",
+      "gap": false,
+      "evidence": "review_logs.pdf"
+    },
+    {
+      "id": "CTRL-002",
+      "description": "Background checks for all personnel",
+      "tsc_criterion": "CC1.4",
+      "gap": false
+    },
+    {
+      "id": "CTRL-003",
+      "description": "Annual risk assessment",
+      "tsc_criterion": "CC3.1",
+      "gap": false
+    },
+    {
+      "id": "CTRL-004",
+      "description": "Vendor risk management program",
+      "tsc_criterion": "CC9.2",
+      "gap": false
+    },
+    {
+      "id": "CTRL-005",
+      "description": "Change management approval workflow",
+      "tsc_criterion": "CC8.1",
+      "gap": false
+    },
+    {
+      "id": "CTRL-006",
+      "description": "Security incident response plan",
+      "tsc_criterion": "CC7.3",
+      "gap": true,
+      "priority": "high",
+      "timeline": "30 days"
+    },
+    {
+      "id": "CTRL-007",
+      "description": "Data classification policy",
+      "tsc_criterion": null,
+      "gap": true,
+      "priority": "medium",
+      "timeline": "60 days"
+    },
+    {
+      "id": "CTRL-008",
+      "description": "Continuous monitoring program",
+      "tsc_criterion": "CC4.1",
+      "gap": true,
+      "priority": "high",
+      "timeline": "45 days"
+    },
+    {
+      "id": "CTRL-009",
+      "description": "Encryption at rest for PHI",
+      "tsc_criterion": "CC6.6",
+      "gap": false
+    },
+    {
+      "id": "CTRL-010",
+      "description": "Customer notification of breaches",
+      "tsc_criterion": "CC7.3",
+      "gap": false
+    }
+  ],
+  "subservice_orgs": [
+    {
+      "name": "AWS",
+      "has_soc_report": true
+    }
+  ],
+  "first_time_engagement": true
+}
