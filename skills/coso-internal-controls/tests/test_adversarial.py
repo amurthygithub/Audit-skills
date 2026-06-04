@@ -1,6 +1,6 @@
 """Adversarial tests for coso-internal-controls."""
 from __future__ import annotations
-from skill_stub import run_skill
+from coso_internal_controls_stub import run_skill
 
 def test_unknown_use_case():
     out = run_skill("UC-99", {})

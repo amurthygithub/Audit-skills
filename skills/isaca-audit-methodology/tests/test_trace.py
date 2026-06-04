@@ -48,7 +48,7 @@ def test_use_cases_cite_skill_sections():
 
 
 def test_uc_01_stub_output_traceable():
-    from skill_stub import run_skill
+    from isaca_audit_methodology_stub import run_skill
     payload = _load("uc-01-input.json")
     out = run_skill("UC-01", payload)
     assessment = out.get("maturity_assessment", {})
@@ -62,7 +62,7 @@ def test_uc_01_stub_output_traceable():
 
 
 def test_uc_02_stub_output_traceable():
-    from skill_stub import run_skill
+    from isaca_audit_methodology_stub import run_skill
     payload = _load("uc-02-input.json")
     out = run_skill("UC-02", payload)
     obs = out.get("observation", {})
@@ -72,7 +72,7 @@ def test_uc_02_stub_output_traceable():
 
 
 def test_uc_03_stub_output_traceable():
-    from skill_stub import run_skill
+    from isaca_audit_methodology_stub import run_skill
     payload = _load("uc-03-input.json")
     out = run_skill("UC-03", payload)
     assessment = out.get("design_factor_assessment", {})

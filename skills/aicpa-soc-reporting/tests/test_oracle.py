@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-from skill_stub import run_skill
+from aicpa_soc_reporting_stub import run_skill
 
 SKILL = Path(__file__).resolve().parent.parent
 SEEDS = SKILL / "data" / "seeds"

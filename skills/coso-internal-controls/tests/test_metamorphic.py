@@ -1,6 +1,6 @@
 """Metamorphic tests for coso-internal-controls."""
 from __future__ import annotations
-from skill_stub import run_skill
+from coso_internal_controls_stub import run_skill
 
 def test_uc02_deficiency_removed():
     out = run_skill("UC-02", {"deficiency_description": "", "affected_accounts": [], "affected_assertions": [], "compensating_controls_candidates": [], "preliminary_classification": "D"})

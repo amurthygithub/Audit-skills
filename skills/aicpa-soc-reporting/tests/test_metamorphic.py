@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from skill_stub import run_skill
+from aicpa_soc_reporting_stub import run_skill
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "seeds"
 

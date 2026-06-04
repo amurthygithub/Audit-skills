@@ -2,7 +2,7 @@
 from __future__ import annotations
 import re
 from pathlib import Path
-from skill_stub import run_skill
+from coso_internal_controls_stub import run_skill
 
 SKILL_MD = Path(__file__).resolve().parent.parent / "SKILL.md"
 
