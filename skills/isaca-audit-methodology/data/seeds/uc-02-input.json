@@ -1,0 +1,37 @@
+{
+  "finding_context": {
+    "title": "Inadequate Access Recertification for Critical Applications",
+    "condition": "No periodic access recertification for 3 of 5 critical applications",
+    "actual_effect": "12% of terminated employees retained active access avg 45 days",
+    "application_category": "Core Banking Applications",
+    "itgc_category": "Access Controls"
+  },
+  "sample_results": [
+    {
+      "application": "CoreBank-LoanOrig",
+      "compliant": true,
+      "finding": null
+    },
+    {
+      "application": "CoreBank-WireTransfer",
+      "compliant": false,
+      "finding": "No recertification in 9 months"
+    },
+    {
+      "application": "CoreBank-DepositLedger",
+      "compliant": false,
+      "finding": "No recertification in 12 months"
+    },
+    {
+      "application": "CoreBank-FraudMonitor",
+      "compliant": false,
+      "finding": "No recertification in 6 months"
+    },
+    {
+      "application": "CoreBank-CustomerPortal",
+      "compliant": true,
+      "finding": null
+    }
+  ],
+  "industry": "financial-services"
+}

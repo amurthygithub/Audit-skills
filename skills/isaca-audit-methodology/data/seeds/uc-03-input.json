@@ -1,0 +1,17 @@
+{
+  "organization": "Regional commercial bank, $12B assets, 2,500 employees",
+  "enterprise_strategy": "Compliance-focused",
+  "risk_profile": {
+    "regulatory_risk": "High",
+    "technology_risk": "Moderate",
+    "vendor_risk": "High",
+    "threat_landscape": "Normal",
+    "compliance_requirements": "High"
+  },
+  "it_issues": [
+    "Legacy core banking platform",
+    "Vendor concentration risk",
+    "Manual compliance processes"
+  ],
+  "industry": "financial-services"
+}

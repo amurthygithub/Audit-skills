@@ -1,0 +1,16 @@
+{
+  "organization": "SaaS company with 500 employees, SOC 2 Type II in place, multi-tenant architecture",
+  "assessment_date": "2026-06-03",
+  "processes_in_scope": [
+    "APO13",
+    "BAI07",
+    "DSS01"
+  ],
+  "current_evidence": {
+    "APO13": 2.5,
+    "BAI07": 3.0,
+    "DSS01": 3.0
+  },
+  "target_maturity": 4.0,
+  "industry": "saas-technology"
+}
