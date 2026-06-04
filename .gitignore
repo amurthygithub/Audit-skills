@@ -21,6 +21,7 @@ __pycache__/
 # Local build / scratch scripts (not part of library)
 /_archive/
 /_*.py
+**/_*.py
 !/tools/
 
 # Editor / OS noise
