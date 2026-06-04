@@ -1,0 +1,87 @@
+{
+  "mappings": [
+    {
+      "pci_id": "Req 2.1",
+      "nist_800_53_id": "CM-6",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 4.1",
+      "nist_800_53_id": "SC-8",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 5.2",
+      "nist_800_53_id": "SI-3",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 7.1.1",
+      "nist_800_53_id": "AC-2, AC-6",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 7.2.1",
+      "nist_800_53_id": "AC-2, IA-2",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 8.2.1",
+      "nist_800_53_id": "IA-5",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 8.3.1",
+      "nist_800_53_id": "IA-2(1)",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 10.1",
+      "nist_800_53_id": "AU-2, AU-3",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 11.3",
+      "nist_800_53_id": "RA-5",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 12.10.1",
+      "nist_800_53_id": "IR-4, IR-8",
+      "strength": "exact"
+    },
+    {
+      "pci_id": "Req 3.4.1",
+      "nist_800_53_id": "SC-13",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 1.1.1",
+      "nist_800_53_id": "SC-7",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 9.1",
+      "nist_800_53_id": "PE-3",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 6.2",
+      "nist_800_53_id": "RA-5, SI-2",
+      "strength": "partial"
+    },
+    {
+      "pci_id": "Req 12.6.1",
+      "nist_800_53_id": "AT-2",
+      "strength": "partial"
+    }
+  ],
+  "_meta": {
+    "source": "PCI DSS v4.0 to NIST SP 800-53 Rev 5",
+    "version": "0.1.0"
+  },
+  "summary": {
+    "mappings_count": 15,
+    "covered_800_53_controls": 18
+  }
+}

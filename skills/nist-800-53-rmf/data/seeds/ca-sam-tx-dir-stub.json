@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "title": "CA SAM / TX DIR / TX-RAMP State RMF Variant Stub",
+    "description": "Seed for state-level RMF variant. California SAM (Statewide Administrative Manual) requires 800-53 Moderate + CA privacy overlay. Texas DIR (Department of Information Resources) uses TX-RAMP for cloud services, mapping to 800-53 with state-specific controls. This stub provides the crosswalk anchors.",
+    "version": "0.1.1",
+    "retrieval_date": "2026-06-03",
+    "authorities": [
+      "CA-SAM-5300",
+      "TX-DIR-Security",
+      "TX-RAMP-v1.0"
+    ]
+  },
+  "state_variant": "TX-RAMP",
+  "baseline": "Moderate",
+  "state_specific_controls": [
+    {
+      "control_id": "TX-AC-1",
+      "maps_to_800_53": "AC-2",
+      "description": "Texas-specific access control: requires annual LEO background check for CJIS-adjacent systems",
+      "gap_type": "state-enhancement"
+    },
+    {
+      "control_id": "TX-AU-1",
+      "maps_to_800_53": "AU-11",
+      "description": "Texas audit log retention: minimum 7 years for state agency systems",
+      "gap_type": "state-enhancement"
+    },
+    {
+      "control_id": "TX-SA-1",
+      "maps_to_800_53": "SA-22",
+      "description": "TX-RAMP requires vendor attestation of unsupported component remediation plan",
+      "gap_type": "state-enhancement"
+    }
+  ],
+  "ca_sam_anchors": [
+    {
+      "control_id": "CA-SAM-5305-A",
+      "maps_to_800_53": "PT-7",
+      "description": "CA SAM 5305-A: privacy notice required for all state systems processing PII",
+      "gap_type": "state-enhancement"
+    },
+    {
+      "control_id": "CA-SAM-5320",
+      "maps_to_800_53": "RA-5",
+      "description": "CA SAM 5320: quarterly vulnerability scanning for moderate systems",
+      "gap_type": "state-enhancement"
+    }
+  ],
+  "crosswalk_notes": "This stub provides anchor mappings for CA SAM Section 5300 (Information Security) and TX DIR / TX-RAMP Level 1-2 controls. Full mapping requires consultation with CA Department of Technology (CDT) and TX DIR published standards. The state-specific controls are additive to the 800-53 baseline; they do not replace federal controls."
+}

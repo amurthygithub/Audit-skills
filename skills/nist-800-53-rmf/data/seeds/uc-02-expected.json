@@ -1,0 +1,25 @@
+{
+  "sar": {
+    "total_findings": 22,
+    "severity_distribution": {"High": 3, "Moderate": 11, "Low": 8},
+    "risk_accepted_count": 14,
+    "conditions_count": 8
+  },
+  "poam": {
+    "poam_count": 22,
+    "risk_distribution": {"High": 3, "Moderate": 11, "Low": 8},
+    "milestones": {"30_days": 2, "60_days": 3, "90_days": 3, "ongoing": 14}
+  },
+  "ato_decision": {
+    "decision": "AUTHORIZE_WITH_CONDITIONS",
+    "duration": "1 year",
+    "conditions_count": 8,
+    "risk_accepted_count": 14,
+    "residual_risk": "MODERATE"
+  },
+  "next_continuous_monitoring": {
+    "annual_assessment_date": "2027-MM-DD",
+    "monthly_vuln_scans": true,
+    "significant_change_review": true
+  }
+}

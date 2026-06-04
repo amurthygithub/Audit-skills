@@ -1,0 +1,35 @@
+{
+  "system_name": "CaseFlow Cloud",
+  "system_description": "Multi-tenant case management SaaS for federal civilian agencies. Processes PII including names, contact information, agency-issued identifiers, and case notes for ~250,000 individuals per year. Hosted on AWS GovCloud (FedRAMP High authorized). Multi-tenant; per-tenant logical isolation.",
+  "information_types": [
+    {
+      "name": "Case Management Records",
+      "sp_800_60_info_type_code": "C.3.5.6",
+      "description": "PII, agency case notes, status, attachments",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "MODERATE",
+        "a": "LOW"
+      },
+      "rationale": "Confidentiality: serious adverse effect if disclosed (privacy, identity theft). Integrity: serious adverse effect if modified (case outcomes, due process). Availability: limited adverse effect (manual workaround for short outages)."
+    },
+    {
+      "name": "Authentication metadata",
+      "sp_800_60_info_type_code": "C.3.5.5",
+      "description": "Login IDs, MFA factor type, last-login timestamp",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "LOW",
+        "a": "LOW"
+      },
+      "rationale": "Confidentiality: serious if disclosed in aggregate. Integrity and availability: limited impact."
+    }
+  ],
+  "downstream_consumers": [
+    "Sponsoring federal agency (primary)",
+    "Other federal agencies via FedRAMP Marketplace P-ATO"
+  ],
+  "cloud_provider": "AWS GovCloud (US)",
+  "cloud_fedramp_id": "AGENCYID-CSP-AWS-GC-FEDRAMP-HIGH",
+  "pia_required": true
+}

@@ -1,0 +1,60 @@
+{
+  "inherited_provider": "AWS GovCloud (US)",
+  "inherited_fedramp_id": "AGENCYID-CSP-AWS-GC-FEDRAMP-HIGH",
+  "controls": [
+    {
+      "control_id": "AC-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud FedRAMP High + CaseFlow Cloud",
+      "narrative": "Cloud-layer IAM roles and federated identity provided by AWS. Application-layer accounts (per-tenant users, role assignment, MFA enrollment) implemented by CaseFlow Cloud."
+    },
+    {
+      "control_id": "SC-7",
+      "status": "inherited",
+      "source": "AWS GovCloud FedRAMP High",
+      "narrative": "VPC, security groups, and network ACLs provided by AWS. CaseFlow Cloud adds application-layer WAF rules and API gateway policies."
+    },
+    {
+      "control_id": "AU-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud FedRAMP High + CaseFlow Cloud",
+      "narrative": "CloudTrail provides cloud-side audit events. CaseFlow Cloud generates application events (login, case access, export) and forwards to central SIEM."
+    },
+    {
+      "control_id": "IA-2",
+      "status": "hybrid",
+      "source": "Customer IdP (federated) + CaseFlow Cloud",
+      "narrative": "Customer IdP via SAML/OIDC. CaseFlow Cloud enforces application-layer MFA."
+    },
+    {
+      "control_id": "CM-2",
+      "status": "inherited",
+      "source": "AWS GovCloud FedRAMP High",
+      "narrative": "Cloud-side configuration baselines provided by AWS. Application CI/CD configuration managed by CaseFlow Cloud."
+    },
+    {
+      "control_id": "SI-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud FedRAMP High + CaseFlow Cloud",
+      "narrative": "Cloud patching provided by AWS. Application patching and dependency scanning managed by CaseFlow Cloud."
+    },
+    {
+      "control_id": "IR-4",
+      "status": "hybrid",
+      "source": "AWS GovCloud FedRAMP High + CaseFlow Cloud",
+      "narrative": "Cloud-side incident detection provided by AWS. Application incident triage and customer notification by CaseFlow Cloud."
+    },
+    {
+      "control_id": "RA-5",
+      "status": "hybrid",
+      "source": "AWS GovCloud FedRAMP High + CaseFlow Cloud",
+      "narrative": "Cloud-side vulnerability scanning by AWS Inspector. Application-layer scans, dependency scans, and container scans by CaseFlow Cloud."
+    },
+    {
+      "control_id": "SC-13",
+      "status": "inherited",
+      "source": "AWS GovCloud FedRAMP High",
+      "narrative": "KMS and HSM provided by AWS (FIPS 140-3 validated). CaseFlow Cloud uses KMS for application-layer encryption."
+    }
+  ]
+}

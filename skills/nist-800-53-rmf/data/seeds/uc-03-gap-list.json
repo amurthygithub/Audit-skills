@@ -1,0 +1,1211 @@
+[
+  {
+    "gap_id": "GAP-001",
+    "control_id": "AT-2",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "HR / IT",
+    "target_date_days": 60,
+    "remediation_action": "Document quarterly security awareness training; track in LMS",
+    "evidence_refs": [
+      "docs/remediation/AT-2.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-002",
+    "control_id": "AT-3",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "HR",
+    "target_date_days": 90,
+    "remediation_action": "Role-based training for ISSO, developer, admin; track in LMS",
+    "evidence_refs": [
+      "docs/remediation/AT-3.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-003",
+    "control_id": "RA-3",
+    "gap_type": "operational",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 30,
+    "remediation_action": "Risk assessment per 800-30 Rev 1; update annually",
+    "evidence_refs": [
+      "docs/remediation/RA-3.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-004",
+    "control_id": "SI-4",
+    "gap_type": "operational",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Deploy SIEM with continuous monitoring; document in SSP \u00a713",
+    "evidence_refs": [
+      "docs/remediation/SI-4.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-005",
+    "control_id": "SI-4(2)",
+    "gap_type": "operational",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Add automated threat detection",
+    "evidence_refs": [
+      "docs/remediation/SI-4(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-006",
+    "control_id": "SI-4(7)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Add detected-events correlation",
+    "evidence_refs": [
+      "docs/remediation/SI-4(7).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-007",
+    "control_id": "SR-1",
+    "gap_type": "supply-chain",
+    "priority": "High",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Document SCRM policy",
+    "evidence_refs": [
+      "docs/remediation/SR-1.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-008",
+    "control_id": "SR-3",
+    "gap_type": "supply-chain",
+    "priority": "High",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Supply chain risk assessment",
+    "evidence_refs": [
+      "docs/remediation/SR-3.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-009",
+    "control_id": "SR-5",
+    "gap_type": "supply-chain",
+    "priority": "Medium",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Acquisition strategies and tools",
+    "evidence_refs": [
+      "docs/remediation/SR-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-010",
+    "control_id": "SR-6",
+    "gap_type": "supply-chain",
+    "priority": "Medium",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Supplier assessments and reviews",
+    "evidence_refs": [
+      "docs/remediation/SR-6.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-011",
+    "control_id": "PT-7",
+    "gap_type": "privacy",
+    "priority": "Medium",
+    "owner": "Privacy Officer",
+    "target_date_days": 60,
+    "remediation_action": "Document PIA; agency approval",
+    "evidence_refs": [
+      "docs/remediation/PT-7.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-012",
+    "control_id": "PT-5",
+    "gap_type": "privacy",
+    "priority": "Medium",
+    "owner": "Privacy Officer",
+    "target_date_days": 60,
+    "remediation_action": "Privacy notice on data collection",
+    "evidence_refs": [
+      "docs/remediation/PT-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-013",
+    "control_id": "AC-2(11)",
+    "gap_type": "enhancement",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Account usage conditions documented in handbook",
+    "evidence_refs": [
+      "docs/remediation/AC-2(11).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-014",
+    "control_id": "AC-2(13)",
+    "gap_type": "enhancement",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Disable accounts for high-risk users",
+    "evidence_refs": [
+      "docs/remediation/AC-2(13).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-015",
+    "control_id": "IR-4(1)",
+    "gap_type": "enhancement",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Automated IR playbook",
+    "evidence_refs": [
+      "docs/remediation/IR-4(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-016",
+    "control_id": "IR-5",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Incident monitoring",
+    "evidence_refs": [
+      "docs/remediation/IR-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-017",
+    "control_id": "IR-6(1)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Automated incident reporting",
+    "evidence_refs": [
+      "docs/remediation/IR-6(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-018",
+    "control_id": "PM-9",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Risk management strategy",
+    "evidence_refs": [
+      "docs/remediation/PM-9.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-019",
+    "control_id": "PM-10",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Authorization process",
+    "evidence_refs": [
+      "docs/remediation/PM-10.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-020",
+    "control_id": "PM-15",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Security and privacy groups and associations",
+    "evidence_refs": [
+      "docs/remediation/PM-15.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-021",
+    "control_id": "PM-16",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Threat awareness program",
+    "evidence_refs": [
+      "docs/remediation/PM-16.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-022",
+    "control_id": "PM-31",
+    "gap_type": "program-mgmt",
+    "priority": "Low",
+    "owner": "CISO",
+    "target_date_days": 180,
+    "remediation_action": "Continuous monitoring strategy",
+    "evidence_refs": [
+      "docs/remediation/PM-31.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-023",
+    "control_id": "PM-32",
+    "gap_type": "program-mgmt",
+    "priority": "Low",
+    "owner": "CISO",
+    "target_date_days": 180,
+    "remediation_action": "Purposing",
+    "evidence_refs": [
+      "docs/remediation/PM-32.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-024",
+    "control_id": "AU-6(3)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Correlate audit review, analysis, reporting",
+    "evidence_refs": [
+      "docs/remediation/AU-6(3).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-025",
+    "control_id": "AU-12",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Audit record generation",
+    "evidence_refs": [
+      "docs/remediation/AU-12.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-026",
+    "control_id": "CA-7(1)",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Independent assessment",
+    "evidence_refs": [
+      "docs/remediation/CA-7(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-027",
+    "control_id": "CA-7(4)",
+    "gap_type": "program-mgmt",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Risk monitoring",
+    "evidence_refs": [
+      "docs/remediation/CA-7(4).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-028",
+    "control_id": "CM-3(2)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Testing, training, and monitoring",
+    "evidence_refs": [
+      "docs/remediation/CM-3(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-029",
+    "control_id": "CM-4(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Automated configuration deviation detection",
+    "evidence_refs": [
+      "docs/remediation/CM-4(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-030",
+    "control_id": "CM-7(2)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Prevent program execution",
+    "evidence_refs": [
+      "docs/remediation/CM-7(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-031",
+    "control_id": "CP-2(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Coordinate with related plans",
+    "evidence_refs": [
+      "docs/remediation/CP-2(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-032",
+    "control_id": "IA-2(2)",
+    "gap_type": "enhancement",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Multi-factor authentication to privileged accounts",
+    "evidence_refs": [
+      "docs/remediation/IA-2(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-033",
+    "control_id": "IA-2(8)",
+    "gap_type": "enhancement",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Access to accounts \u2014 replay resistant",
+    "evidence_refs": [
+      "docs/remediation/IA-2(8).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-034",
+    "control_id": "IA-4(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Automated identifier management",
+    "evidence_refs": [
+      "docs/remediation/IA-4(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-035",
+    "control_id": "IA-5(2)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Public key-based authentication",
+    "evidence_refs": [
+      "docs/remediation/IA-5(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-036",
+    "control_id": "MA-3",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Maintenance tools",
+    "evidence_refs": [
+      "docs/remediation/MA-3.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-037",
+    "control_id": "MA-4(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Nonlocal maintenance logging",
+    "evidence_refs": [
+      "docs/remediation/MA-4(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-038",
+    "control_id": "MA-5",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 90,
+    "remediation_action": "Maintenance personnel",
+    "evidence_refs": [
+      "docs/remediation/MA-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-039",
+    "control_id": "MP-4",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Media storage",
+    "evidence_refs": [
+      "docs/remediation/MP-4.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-040",
+    "control_id": "MP-5(4)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Cryptographic protection",
+    "evidence_refs": [
+      "docs/remediation/MP-5(4).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-041",
+    "control_id": "PE-2(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Facilities",
+    "target_date_days": 90,
+    "remediation_action": "Automated facility access records",
+    "evidence_refs": [
+      "docs/remediation/PE-2(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-042",
+    "control_id": "PE-3(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Facilities",
+    "target_date_days": 90,
+    "remediation_action": "System access",
+    "evidence_refs": [
+      "docs/remediation/PE-3(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-043",
+    "control_id": "PE-6(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Facilities",
+    "target_date_days": 90,
+    "remediation_action": "Intrusion alarms / surveillance equipment",
+    "evidence_refs": [
+      "docs/remediation/PE-6(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-044",
+    "control_id": "PE-8",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Facilities",
+    "target_date_days": 90,
+    "remediation_action": "Visitor access records",
+    "evidence_refs": [
+      "docs/remediation/PE-8.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-045",
+    "control_id": "PL-2(3)",
+    "gap_type": "documentation",
+    "priority": "Low",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Plan update with significant changes",
+    "evidence_refs": [
+      "docs/remediation/PL-2(3).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-046",
+    "control_id": "PL-8(1)",
+    "gap_type": "documentation",
+    "priority": "Low",
+    "owner": "Enterprise Architect",
+    "target_date_days": 90,
+    "remediation_action": "Security and privacy architectures",
+    "evidence_refs": [
+      "docs/remediation/PL-8(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-047",
+    "control_id": "PL-10",
+    "gap_type": "documentation",
+    "priority": "Low",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Baseline selection",
+    "evidence_refs": [
+      "docs/remediation/PL-10.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-048",
+    "control_id": "PL-11",
+    "gap_type": "documentation",
+    "priority": "Low",
+    "owner": "CISO",
+    "target_date_days": 90,
+    "remediation_action": "Baseline tailoring",
+    "evidence_refs": [
+      "docs/remediation/PL-11.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-049",
+    "control_id": "PS-2",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 60,
+    "remediation_action": "Position risk designation",
+    "evidence_refs": [
+      "docs/remediation/PS-2.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-050",
+    "control_id": "PS-5",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 60,
+    "remediation_action": "Personnel transfer",
+    "evidence_refs": [
+      "docs/remediation/PS-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-051",
+    "control_id": "PS-6",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 60,
+    "remediation_action": "Access agreements",
+    "evidence_refs": [
+      "docs/remediation/PS-6.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-052",
+    "control_id": "PS-7",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 60,
+    "remediation_action": "External personnel security",
+    "evidence_refs": [
+      "docs/remediation/PS-7.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-053",
+    "control_id": "PS-8",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "HR",
+    "target_date_days": 60,
+    "remediation_action": "Personnel sanctions",
+    "evidence_refs": [
+      "docs/remediation/PS-8.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-054",
+    "control_id": "RA-2",
+    "gap_type": "operational",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 30,
+    "remediation_action": "Security categorization",
+    "evidence_refs": [
+      "docs/remediation/RA-2.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-055",
+    "control_id": "RA-5(2)",
+    "gap_type": "operational",
+    "priority": "High",
+    "owner": "CISO",
+    "target_date_days": 30,
+    "remediation_action": "Update tools",
+    "evidence_refs": [
+      "docs/remediation/RA-5(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-056",
+    "control_id": "RA-5(5)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Privileged access",
+    "evidence_refs": [
+      "docs/remediation/RA-5(5).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-057",
+    "control_id": "RA-5(8)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Review historic audit logs",
+    "evidence_refs": [
+      "docs/remediation/RA-5(8).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-058",
+    "control_id": "RA-5(11)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Public disclosure programs",
+    "evidence_refs": [
+      "docs/remediation/RA-5(11).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-059",
+    "control_id": "SA-4(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Functional properties of controls",
+    "evidence_refs": [
+      "docs/remediation/SA-4(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-060",
+    "control_id": "SA-4(2)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Design and implementation information",
+    "evidence_refs": [
+      "docs/remediation/SA-4(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-061",
+    "control_id": "SA-4(9)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Functions, ports, protocols, services in use",
+    "evidence_refs": [
+      "docs/remediation/SA-4(9).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-062",
+    "control_id": "SA-4(10)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Use of approved PIV products",
+    "evidence_refs": [
+      "docs/remediation/SA-4(10).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-063",
+    "control_id": "SA-9(2)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Procurement",
+    "target_date_days": 90,
+    "remediation_action": "Identification of functions, ports, protocols, services",
+    "evidence_refs": [
+      "docs/remediation/SA-9(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-064",
+    "control_id": "SA-10",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Developer configuration management",
+    "evidence_refs": [
+      "docs/remediation/SA-10.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-065",
+    "control_id": "SA-11(1)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Static code analysis",
+    "evidence_refs": [
+      "docs/remediation/SA-11(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-066",
+    "control_id": "SA-11(2)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Threat modeling and vulnerability analysis",
+    "evidence_refs": [
+      "docs/remediation/SA-11(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-067",
+    "control_id": "SA-15(1)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Attack surface review",
+    "evidence_refs": [
+      "docs/remediation/SA-15(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-068",
+    "control_id": "SA-15(3)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Criticality analysis",
+    "evidence_refs": [
+      "docs/remediation/SA-15(3).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-069",
+    "control_id": "SA-22",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Unsupported system components",
+    "evidence_refs": [
+      "docs/remediation/SA-22.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-070",
+    "control_id": "SC-2(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Restrict internal communications",
+    "evidence_refs": [
+      "docs/remediation/SC-2(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-071",
+    "control_id": "SC-3(1)",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Hardware enforcement",
+    "evidence_refs": [
+      "docs/remediation/SC-3(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-072",
+    "control_id": "SC-5",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Denial-of-service protection",
+    "evidence_refs": [
+      "docs/remediation/SC-5.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-073",
+    "control_id": "SC-7(8)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Route traffic to authenticated proxy servers",
+    "evidence_refs": [
+      "docs/remediation/SC-7(8).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-074",
+    "control_id": "SC-7(10)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Prevent exfiltration of information",
+    "evidence_refs": [
+      "docs/remediation/SC-7(10).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-075",
+    "control_id": "SC-7(18)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Fail secure",
+    "evidence_refs": [
+      "docs/remediation/SC-7(18).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-076",
+    "control_id": "SC-8(4)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Cryptographic protection of confidentiality \u2014 separate channels",
+    "evidence_refs": [
+      "docs/remediation/SC-8(4).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-077",
+    "control_id": "SC-10",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Network disconnect",
+    "evidence_refs": [
+      "docs/remediation/SC-10.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-078",
+    "control_id": "SC-15",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Collaborative computing devices",
+    "evidence_refs": [
+      "docs/remediation/SC-15.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-079",
+    "control_id": "SC-20",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Address name / address resolution service",
+    "evidence_refs": [
+      "docs/remediation/SC-20.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-080",
+    "control_id": "SC-21",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Secure name / address resolution service (recursive or caching resolver)",
+    "evidence_refs": [
+      "docs/remediation/SC-21.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-081",
+    "control_id": "SC-22",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Architecture and provisioning for name / address resolution service",
+    "evidence_refs": [
+      "docs/remediation/SC-22.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-082",
+    "control_id": "SC-39",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "IT",
+    "target_date_days": 90,
+    "remediation_action": "Process isolation",
+    "evidence_refs": [
+      "docs/remediation/SC-39.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-083",
+    "control_id": "SI-2(2)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Automated flaw remediation status",
+    "evidence_refs": [
+      "docs/remediation/SI-2(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-084",
+    "control_id": "SI-2(4)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Regression testing",
+    "evidence_refs": [
+      "docs/remediation/SI-2(4).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-085",
+    "control_id": "SI-4(4)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "Inbound and outbound communications traffic",
+    "evidence_refs": [
+      "docs/remediation/SI-4(4).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-086",
+    "control_id": "SI-4(5)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "CISO",
+    "target_date_days": 60,
+    "remediation_action": "System-generated alerts",
+    "evidence_refs": [
+      "docs/remediation/SI-4(5).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-087",
+    "control_id": "SI-6",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Security and privacy function verification",
+    "evidence_refs": [
+      "docs/remediation/SI-6.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-088",
+    "control_id": "SI-7(1)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Integrity checks",
+    "evidence_refs": [
+      "docs/remediation/SI-7(1).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-089",
+    "control_id": "SI-7(7)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Integration of detection and response",
+    "evidence_refs": [
+      "docs/remediation/SI-7(7).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-090",
+    "control_id": "SI-8(2)",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "IT",
+    "target_date_days": 60,
+    "remediation_action": "Updates",
+    "evidence_refs": [
+      "docs/remediation/SI-8(2).md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-091",
+    "control_id": "SI-10",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 60,
+    "remediation_action": "Information input validation",
+    "evidence_refs": [
+      "docs/remediation/SI-10.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-092",
+    "control_id": "SI-11",
+    "gap_type": "operational",
+    "priority": "Medium",
+    "owner": "Engineering",
+    "target_date_days": 60,
+    "remediation_action": "Error handling",
+    "evidence_refs": [
+      "docs/remediation/SI-11.md"
+    ],
+    "status": "Open"
+  },
+  {
+    "gap_id": "GAP-093",
+    "control_id": "SI-16",
+    "gap_type": "operational",
+    "priority": "Low",
+    "owner": "Engineering",
+    "target_date_days": 90,
+    "remediation_action": "Memory protection",
+    "evidence_refs": [
+      "docs/remediation/SI-16.md"
+    ],
+    "status": "Open"
+  }
+]

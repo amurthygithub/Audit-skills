@@ -1,0 +1,40 @@
+{
+  "controls": [
+    {
+      "id": "AC-2",
+      "family": "AC",
+      "title": "Account Management",
+      "baseline": "Moderate",
+      "enhancements": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "AC-6",
+      "family": "AC",
+      "title": "Least Privilege",
+      "baseline": "Moderate",
+      "enhancements": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "uc_id": "UC-03",
+  "system_name": "FinPay Treasury Cloud",
+  "baseline": "MODERATE",
+  "remediation_plan": {
+    "total_items": 94,
+    "with_owner": 94,
+    "with_target_date": 94,
+    "due_in_30d": 18,
+    "due_in_60d": 41,
+    "due_in_90d": 24,
+    "due_in_180d": 11
+  }
+}

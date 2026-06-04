@@ -1,0 +1,36 @@
+{
+  "system_name": "Agency Records System (ARS)",
+  "system_description": "Agency-operated records management system on-prem in agency data center. Processes PII for ~80,000 individuals and case files for agency adjudicatory proceedings.",
+  "information_types": [
+    {
+      "name": "Adjudicatory Case Files",
+      "sp_800_60_info_type_code": "C.3.5.6",
+      "description": "PII, case decisions, evidence, exhibits",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "MODERATE",
+        "a": "LOW"
+      },
+      "rationale": "Confidentiality: serious if disclosed (due process, privacy). Integrity: serious if modified (case outcomes). Availability: limited (manual workaround acceptable)."
+    },
+    {
+      "name": "System logs and audit records",
+      "sp_800_60_info_type_code": "C.3.5.7",
+      "description": "Audit events, access logs, system logs",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "MODERATE",
+        "a": "MODERATE"
+      },
+      "rationale": "All three: integrity required for forensic value, availability for incident response, confidentiality for PII embedded in logs."
+    }
+  ],
+  "downstream_consumers": [
+    "Agency Office of Inspector General",
+    "Agency Privacy Officer",
+    "Audit teams (internal and external)"
+  ],
+  "cloud_provider": "On-prem (agency data center)",
+  "cloud_fedramp_id": null,
+  "pia_required": true
+}

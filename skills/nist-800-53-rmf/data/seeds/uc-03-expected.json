@@ -1,0 +1,19 @@
+{
+  "crosswalk_summary": {
+    "soc2_common_criteria": 9,
+    "soc2_total_criteria_with_points_of_focus": 64,
+    "nist_800_53_mod_controls": 325,
+    "mapped_controls": 231,
+    "gap_controls": 94,
+    "overlap_pct": 71
+  },
+  "gap_summary": {
+    "total": 94,
+    "by_priority": {
+      "High": 28,
+      "Medium": 41,
+      "Low": 25
+    }
+  },
+  "baseline": "MODERATE"
+}

@@ -1,0 +1,36 @@
+{
+  "system_name": "FinPay Treasury Cloud",
+  "system_description": "B2B SaaS for commercial banks and credit unions; processes wire transfers, ACH origination, and fraud monitoring. SOC 2 Type II in place; PCI DSS v4.0 in scope for the wire transfer module.",
+  "information_types": [
+    {
+      "name": "Wire transfer and ACH records",
+      "sp_800_60_info_type_code": "D.1.1.1",
+      "description": "Wire details, ACH files, fraud signals",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "MODERATE",
+        "a": "MODERATE"
+      },
+      "rationale": "All three: wire windows are time-sensitive, integrity is critical, and financial PII is sensitive."
+    },
+    {
+      "name": "Account holder PII",
+      "sp_800_60_info_type_code": "D.1.1.2",
+      "description": "Names, account numbers, contact information",
+      "cia_baseline": {
+        "c": "MODERATE",
+        "i": "LOW",
+        "a": "LOW"
+      },
+      "rationale": "Confidentiality: serious if disclosed (financial PII). Integrity/availability: limited."
+    }
+  ],
+  "downstream_consumers": [
+    "Commercial banks (B2B customers)",
+    "Federal pilot agency (Treasury)",
+    "Card networks (PCI-DSS scope)"
+  ],
+  "cloud_provider": "AWS (US-East-1, US-West-2)",
+  "cloud_fedramp_id": null,
+  "pia_required": false
+}

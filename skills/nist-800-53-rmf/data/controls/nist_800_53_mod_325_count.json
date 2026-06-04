@@ -1,0 +1,27 @@
+{
+  "total_controls": 325,
+  "by_family": {
+    "AC": 24,
+    "AT": 4,
+    "AU": 14,
+    "CA": 9,
+    "CM": 14,
+    "CP": 13,
+    "IA": 11,
+    "IR": 10,
+    "MA": 7,
+    "MP": 8,
+    "PE": 20,
+    "PL": 10,
+    "PM": 28,
+    "PS": 9,
+    "PT": 8,
+    "RA": 9,
+    "SA": 22,
+    "SC": 49,
+    "SI": 22,
+    "SR": 13
+  },
+  "baseline": "Moderate",
+  "revision": "Rev 5"
+}
