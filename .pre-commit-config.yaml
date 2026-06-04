@@ -1,0 +1,23 @@
+# Pre-commit is optional. CI runs the same checks.
+# Install:  pip install pre-commit && pre-commit install
+# Run all:  pre-commit run --all-files
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  - repo: local
+    rev: v0.0.0
+    hooks:
+      - id: lint-skill
+        name: Tier 0a linter
+        entry: python tools/lint_skill.py
+        language: system
+        types_or: [markdown, json]
+        files: ^skills/
