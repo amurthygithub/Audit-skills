@@ -1,9 +1,7 @@
-"""Pytest configuration for coso-internal-controls."""
-
-from __future__ import annotations
-
+"""Per-skill conftest."""
 import sys
 from pathlib import Path
 
-SKILL_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(SKILL_ROOT))
+_DIR = Path(__file__).resolve().parent
+if str(_DIR) not in sys.path:
+    sys.path.insert(0, str(_DIR))

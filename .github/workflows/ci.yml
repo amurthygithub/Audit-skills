@@ -61,4 +61,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pytest pyyaml jsonschema
       - name: Run tests
-        run: pytest skills/ tests/ -q --import-mode=importlib
+        run: pytest skills/ tests/ -q

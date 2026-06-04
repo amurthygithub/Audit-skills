@@ -1,12 +1,11 @@
-"""Pytest configuration for nist-800-53-rmf.
+"""Per-skill conftest.
 
-Adds the skill root to sys.path so tests can import from telemetry/ directly.
+Adds this directory to sys.path so that ``from skill_stub import run_skill``
+in the test files resolves to the sibling ``skill_stub.py``.
 """
-
-from __future__ import annotations
-
 import sys
 from pathlib import Path
 
-SKILL_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(SKILL_ROOT))
+_DIR = Path(__file__).resolve().parent
+if str(_DIR) not in sys.path:
+    sys.path.insert(0, str(_DIR))
