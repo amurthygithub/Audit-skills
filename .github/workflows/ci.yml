@@ -23,11 +23,12 @@ jobs:
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          if ! echo "$PR_TITLE" | grep -qE '^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$'; then
+          if ! echo "$PR_TITLE" | grep -qE '^(feat|fix|docs|chore)(\([a-z0-9][a-z0-9-]+\))?: .+$'; then
             echo "::error::PR title '$PR_TITLE' does not match required pattern"
-            echo "::error::Expected: type(skill-slug): description"
+            echo "::error::Expected: type(skill-slug): description  (slug is optional for repo-wide changes)"
             echo "::error::Types: feat, fix, docs, chore"
             echo "::error::Example: feat(nist-800-53-rmf): add healthcare industry view"
+            echo "::error::Or:     chore: bump linter version"
             exit 1
           fi
           echo "PR title OK: $PR_TITLE"
@@ -40,7 +41,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
       - name: Run Tier 0a linter
         # TEMPLATE is the scaffold - it intentionally fails lint. Skip it.
         run: python tools/lint_skill.py skills/nist-800-53-rmf skills/isaca-audit-methodology skills/coso-internal-controls skills/aicpa-soc-reporting skills/audit-workpapers
@@ -54,7 +54,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
       - name: Install test deps
         run: |
           python -m pip install --upgrade pip
