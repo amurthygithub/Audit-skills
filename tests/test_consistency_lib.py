@@ -1,10 +1,14 @@
 """Shared consistency test library for Audit-skills.
 
 Each test function takes a ``skill_dir: Path`` and uses ``assert`` to verify
-invariants. Import from per-skill ``tests/test_consistency.py`` wrappers.
+invariants. Import from per-skill ``tests/test_<slug>_consistency.py``
+wrappers — they provide the ``skill_dir`` fixture and re-export each
+``test_*`` function from this module.
 
 All five sibling skill names are hardcoded.
 """
+
+__test__ = False  # not a test module — see per-skill wrappers
 
 import re
 from pathlib import Path
