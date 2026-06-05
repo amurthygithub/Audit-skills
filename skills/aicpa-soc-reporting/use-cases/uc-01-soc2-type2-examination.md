@@ -40,7 +40,7 @@ CloudStack SaaS Inc. provides a cloud-based project management platform. Their e
 ## Walk-through
 
 1. Engagement Classification (chunk 02): Subject matter is TSC (not ICFR, not entity-wide cybersecurity, not manufacturing). Restricted distribution acceptable under NDA. -> SOC 2.
-   
+
 2. Report Type (chunk 02): Established program -> Type II. 12-month examination period: Jan 1-Dec 31, 2025.
 
 3. TSC Scoping (chunk 03): Security always required. Availability included because CloudStack commits to 99.9% uptime SLA. Confidentiality included because customer project data is classified as confidential. Processing Integrity and Privacy not required for this engagement. Total: 33 CC + 3 A + 2 C = 38 criteria.
