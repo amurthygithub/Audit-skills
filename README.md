@@ -337,6 +337,8 @@ Contributions welcome — especially:
 - Translations to other languages
 - Integration guides for other LLM frameworks (Anthropic, Google, Bedrock, Azure OpenAI)
 
+**Adding a new skill?** First copy [`docs/skill-design-template.md`](docs/skill-design-template.md) to `docs/<your-skill-slug>-design.md` and fill in all 15 sections. The template is a checklist; see [`docs/csf-2-design.md`](docs/csf-2-design.md) for a fully-filled example. Designs that don't hit all 15 sections are bounced at Monday review.
+
 Before opening a PR, run:
 ```bash
 python tools/lint_skill.py skills/<your-skill>

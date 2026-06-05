@@ -17,7 +17,7 @@ the structural issues; you don't need to learn git terminology.
 - [ ] coso-internal-controls
 - [ ] aicpa-soc-reporting
 - [ ] audit-workpapers
-- [ ] new skill (slug: `__________`)
+- [ ] new skill (slug: `__________`) — **design doc required at `docs/<slug>-design.md` per [CONTRIBUTING.md](../CONTRIBUTING.md)**
 - [ ] repo-wide (CI, linter, README, no specific skill)
 
 ## Test evidence

@@ -7,7 +7,7 @@
 > **Reference architecture:** `skills/nist-800-53-rmf/` (v0.2.1, 29 tests, all linters green)
 > **Linter:** `tools/lint_skill.py` (Tier 0a, SOX-616)
 > **Consistency library:** `tests/test_consistency_lib.py`
-> **Template:** `skills/TEMPLATE/`
+> **Template:** `skills/TEMPLATE/` and `docs/skill-design-template.md` (this doc was the first fully-filled example)
 > **Companion document:** `docs/nist-collation.md` (CSF 2.0 listed as P2 next-move)
 
 ---
@@ -1320,7 +1320,7 @@ These are the design decisions we should discuss on Monday before locking the bu
 
 ## 15. Requirements parameters checklist (template for future skill designs)
 
-> This is the standardized list of parameters that **every** future skill design doc should hit. It becomes the template. Each item is a heading in this design doc; the design doc author must fill it in.
+> **This section is the canonical instance of the standardized template.** The standalone template lives at `docs/skill-design-template.md`. This design doc was the first fully-filled example; future skill design docs should copy the standalone template and fill it in.
 
 | # | Parameter | Section in this doc | Required? |
 |---|-----------|---------------------|-----------|
@@ -1373,7 +1373,7 @@ These are the design decisions we should discuss on Monday before locking the bu
 | 12 | **Build sequence** — day-by-day plan | §12 | Yes |
 | 13 | **File-by-file plan** — table of every file to create | §13 | Yes |
 | 14 | **Open questions for review** | §14 | Yes |
-| 15 | **Requirements parameters checklist** (this template) | §15 | Yes (for future designs) |
+| 15 | **Requirements parameters checklist** (canonical at `docs/skill-design-template.md`) | §15 | Yes (this template) |
 
 A future skill design doc that hits all 15 sections (with the same sub-structure) is reviewable in one sitting and convertible into a build plan without further clarification. The 800-53 RMF skill (the load-bearing reference) covered 12 of 15 sections; CSF 2.0 covers all 15. Future skills should aim for 15/15.
 
