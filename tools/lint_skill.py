@@ -290,6 +290,26 @@ def lint_skill(skill_dir: Path) -> Tuple[int, List[str]]:
     if todos:
         errors.append(f"TODO/FIXME found outside changelog ({len(todos)}): first 3: {todos[:3]}")
 
+    # Whitespace: no trailing whitespace in markdown files; files end with exactly one newline.
+    for p in skill_dir.rglob("*.md"):
+        rel = p.relative_to(skill_dir)
+        try:
+            text = p.read_text()
+        except Exception:
+            continue
+        offenders: List[str] = []
+        for i, line in enumerate(text.splitlines(), 1):
+            if line != line.rstrip(" \t"):
+                offenders.append(f"{rel}:{i}: trailing whitespace")
+                if len(offenders) >= 5:
+                    break
+        if text and not text.endswith("\n"):
+            offenders.append(f"{rel}: file does not end with newline")
+        elif text.endswith("\n\n"):
+            offenders.append(f"{rel}: file has multiple trailing newlines")
+        if offenders:
+            errors.append(f"whitespace: {offenders[0]}" + (f" (+{len(offenders)-1} more)" if len(offenders) > 1 else ""))
+
     # Citations vs manifest
     manifest = re.search(r"## 10\..*References & Citation Manifest(.*?)(?=\n## |\Z)", body, re.S)
     if manifest:
