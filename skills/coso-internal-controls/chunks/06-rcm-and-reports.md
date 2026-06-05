@@ -12,6 +12,7 @@ load_when: "user asks about RcM template, risk control matrix, COSO principle as
 | # | Column | Description | Example |
 |---|--------|-------------|---------|
 | 1 | Process / Sub-Process | Business process identifier | Revenue / Order-to-Cash |
+| 1.a | Risk ID | Unique Risk identifier | R-010 |
 | 2 | Risk Statement | What could go wrong | Invoices may be generated for fictitious sales |
 | 3 | COSO Component | Which of the 5 components | Control Activities |
 | 4 | COSO Principle | Which principle (P1-P17) | P10 |
