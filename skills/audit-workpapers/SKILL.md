@@ -91,6 +91,9 @@ AR = IR x CR x AP x TD. See `chunks/04-risk-and-opinion.md`.
 ### 3.7 Five-Part Finding Format
 C-C-C-E-R (Condition, Criteria, Cause, Effect, Recommendation). See `chunks/05-finding-and-workflow.md`.
 
+### 3.8 Substantive Analytical Procedures
+Expectation modeling, tolerable difference, variance analysis. See `chunks/09-substantive-analytical-procedures.md`.
+
 ## 4. Decision Logic (summary)
 
 Full logic in chunks. Quick-ref:
@@ -100,6 +103,7 @@ Full logic in chunks. Quick-ref:
 - Risk model -> compute TD from IR, CR, AP -> chunks/04-risk-and-opinion.md
 - Opinion -> scope limited? GAAP departure? material/pervasive? -> chunks/04-risk-and-opinion.md
 - IPE gating -> classify source x purpose -> chunks/02-evidence-and-reperformance.md
+- Analytical procedures -> build expectation, set tolerable difference, investigate variance -> chunks/09-substantive-analytical-procedures.md
 
 ## 5. Procedure Templates (summary)
 
@@ -107,6 +111,7 @@ Full logic in chunks. Quick-ref:
 - Sampling plan -> chunks/03-sampling.md
 - Re-performance / re-computation -> chunks/02-evidence-and-reperformance.md
 - Quality checklist -> chunks/07-qc-compliance-cross-refs.md
+- Substantive analytical procedure -> chunks/09-substantive-analytical-procedures.md
 
 ## 6. Output Templates (summary)
 
@@ -115,6 +120,7 @@ Full logic in chunks. Quick-ref:
 - Finding documentation template -> chunks/06-outputs-electronic-review.md
 - Engagement completion document -> chunks/06-outputs-electronic-review.md
 - IPE validation log -> chunks/06-outputs-electronic-review.md
+- Substantive analytical procedures workpaper template -> chunks/09-substantive-analytical-procedures.md
 
 ## 7. Cross-References (summary)
 
