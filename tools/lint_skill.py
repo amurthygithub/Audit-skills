@@ -276,7 +276,11 @@ def lint_skill(skill_dir: Path) -> Tuple[int, List[str]]:
     # Tests
     tests_dir = skill_dir / "tests"
     if tests_dir.is_dir():
-        required_tests = {"test_oracle.py", "test_lint.py"}
+        slug = skill_dir.name
+        required_tests = {
+            f"test_{slug.replace('-', '_')}_lint.py",
+            f"test_{slug.replace('-', '_')}_oracle.py",
+        }
         for t in required_tests:
             if not (tests_dir / t).exists():
                 errors.append(f"tests/{t} missing")
