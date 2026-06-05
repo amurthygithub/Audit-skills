@@ -10,24 +10,24 @@ Production-grade audit, compliance, and security skills for AI agents. Encode IS
 
 ---
 
-## What's in this release (v0.2.0)
+## What's in this release (v0.2.1)
 
-The library grew from "system-prompt-sized SKILL.md files" to a full **Tier 0 Spine** architecture: every skill ships as a router + on-demand chunks + industries + use cases + synthetic data + tests + telemetry + docs.
+The library has been production-hardened since v0.2.0. v0.2.1 adds CI/CD, branch protection, a whitespace rule that caught 22 latent issues, plus a new substantive-analytical-procedures chunk from an external contributor.
 
-| | v0.1.0 | **v0.2.0** |
+| | v0.2.0 | **v0.2.1** |
 |---|--------|------------|
-| Skills on the Spine | 1 (NIST) | **5 (NIST, ISACA, COSO, AICPA SOC, workpapers)** |
-| Chunks per skill | 0 (monolithic) | **7–8 (router + on-demand deep-dive)** |
-| Industry views | 4 (NIST only) | **3–4 per skill** |
-| Use cases (worked examples) | 3 (NIST only) | **3–4 per skill** |
-| Test files per skill | 7 | **9 (added grounding + trace consistency)** |
-| Total tests passing | 23 | **156** |
-| Shared consistency library | — | **`tests/test_consistency_lib.py` (6 functions)** |
-| Cross-framework crosswalks | 0 | **14 (HIPAA, PCI, ISO 27001, SOC 2, CSF, CMMC, CJIS, IRS 1075, …)** |
-| CAIQ / SIG Lite / VSAQ support | — | **`chunks/08-questionnaire-reuse.md` in every skill** |
-| Board-ready audit committee deck | — | **`aicpa-soc-reporting/assets/board_deck_template.md`** |
+| Skills on the Spine | 5 (NIST, ISACA, COSO, AICPA SOC, workpapers) | **5 (same)** |
+| Chunks per skill | 7–8 | **7–9 (audit-workpapers: +1 analytical procedures)** |
+| Industry views | 3–4 per skill | **3–4 per skill** |
+| Use cases (worked examples) | 3–4 per skill | **3–4 per skill** |
+| Total tests passing | 156 | **190** |
+| CI/CD | — | **`.github/workflows/ci.yml` + `nightly.yml`** |
+| Branch protection on `main` | — | **3 required status checks + 1 review + linear history** |
+| PR template + CONTRIBUTING | — | **`.github/pull_request_template.md` + `CONTRIBUTING.md`** |
+| Whitespace linter rule | — | **`tools/lint_skill.py` (catches trailing whitespace + missing newlines)** |
+| External contributors merged | — | **2 chunks from sambar-patrai (Risk ID, analytical procedures)** |
 
-**New library this release: NIST 800-53 RMF** — full Risk Management Framework (SP 800-37 Rev 2), FIPS 199 categorization, 800-53A assessment, FedRAMP authorization, 14-framework crosswalks.
+**v0.2.0 highlights (still accurate):** 5 skills on the Tier 0 Spine, 7–8 chunks per skill, 14-framework crosswalks, `chunks/08-questionnaire-reuse.md` (CAIQ/SIG Lite/VSAQ), `aicpa-soc-reporting/assets/board_deck_template.md`, 9 test files per skill, shared `test_consistency_lib.py` for cross-document drift.
 
 ---
 
@@ -35,13 +35,13 @@ The library grew from "system-prompt-sized SKILL.md files" to a full **Tier 0 Sp
 
 | Skill | Status | Tests | Framework | Top use cases |
 |-------|--------|-------|-----------|---------------|
-| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.2.0 on Spine | 23 | NIST 800-53 Rev 5/5.1.1, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
-| **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.2.0 on Spine | 37 | ISACA CISA CRM 28th Ed, COBIT 2019, ITAF, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
-| **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.2.0 on Spine | 31 | COSO 2013 ICIF, COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM |
-| **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.2.0 on Spine | 26 | AICPA SOC 1/2/3, TSP §100, SSAE 18/21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
-| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.2.0 on Spine | 39 | PCAOB AS 1215, AU-C 230, AICPA SAS | Workpaper documentation, evidence hierarchy, sampling, 5-part findings |
+| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.2.1 on Spine | 29 | NIST 800-53 Rev 5/5.1.1, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
+| **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.2.1 on Spine | 43 | ISACA CISA CRM 28th Ed, COBIT 2019, ITAF, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
+| **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.2.1 on Spine | 37 | COSO 2013 ICIF, COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM (with Risk ID) |
+| **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.2.1 on Spine | 32 | AICPA SOC 1/2/3, TSP §100, SSAE 18/21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
+| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.2.1 on Spine | 49 | PCAOB AS 1215, AU-C 230, AICPA SAS, AS 2305/AU-C 520/SA 520 | Workpaper documentation, evidence hierarchy, sampling, 5-part findings, substantive analytical procedures |
 
-**156 tests across the 5 skills, 0 failures. All pass the Tier 0a linter.**
+**190 tests across the 5 skills, 0 failures. All pass the Tier 0a linter.**
 
 ---
 
@@ -76,16 +76,17 @@ skills/<skill-name>/
 │   ├── seeds/                   # fixtures + crosswalks
 │   └── crosswalks/              # SOC 2 ↔ 800-53, etc.
 │
-├── tests/                       # 9 test files = 24–39 tests per skill
-│   ├── test_oracle.py           # UC outputs match expected
-│   ├── test_trace.py            # UC procedures cite real SKILL.md sections
-│   ├── test_grounding.py        # in-body citations resolve to manifest
-│   ├── test_metamorphic.py      # input mutations → expected output mutations
-│   ├── test_adversarial.py      # edge cases (dual classification, etc.)
-│   ├── test_telemetry.py        # schema validation + instrument emits events
-│   ├── test_lint.py             # Tier 0a linter
-│   ├── test_consistency.py      # routing/frontmatter/manifest/UC sync
-│   └── skill_stub.py            # deterministic reference executor
+├── tests/                       # per-skill test files (test_<skill>_<type>.py)
+│   ├── test_<skill>_lint.py     # Tier 0a linter
+│   ├── test_<skill>_oracle.py   # UC outputs match expected
+│   ├── test_<skill>_grounding.py # in-body citations resolve to manifest
+│   ├── test_<skill>_trace.py    # UC procedures cite real SKILL.md sections
+│   ├── test_<skill>_metamorphic.py # input mutations → expected output mutations
+│   ├── test_<skill>_adversarial.py # edge cases (dual classification, etc.)
+│   ├── test_<skill>_telemetry.py # schema validation + instrument emits events
+│   ├── test_<skill>_consistency.py # routing/frontmatter/manifest/UC sync
+│   ├── <skill>_stub.py          # deterministic reference executor
+│   └── conftest.py              # adds skill root to sys.path
 │
 ├── telemetry/
 │   ├── schema.json              # SkillInvocation JSON Schema
@@ -196,31 +197,65 @@ Wrap the skills in an HTTP API. Customers call `POST /v1/skills/<skill>/<use-cas
 
 ---
 
+## CI/CD and contribution workflow
+
+This repo is hardened for outside contributions.
+
+**Branch protection on `main`:**
+- 1 human approval required to merge
+- 3 required status checks: `PR title convention`, `Lint skill structure`, `pytest`
+- No force-push, no branch deletion
+- Linear history (squash-merge only)
+- All PR comments must be resolved before merge
+
+**On every PR (`.github/workflows/ci.yml`):**
+- `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
+- `Lint skill structure` — runs `tools/lint_skill.py` on all 5 skills
+- `pytest` — runs `pytest skills/ tests/ -q` (190 tests)
+
+**Nightly (`.github/workflows/nightly.yml`):**
+- Link rot check on every URL in the §10 References & Citation Manifest sections
+
+**For contributors:**
+- Use [the PR template](.github/pull_request_template.md) — 6 fields, ~30 seconds to fill out
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for the short version
+- Optional: `pip install pre-commit && pre-commit install` for local hooks
+
+**PR title convention** (enforced by CI): `type(skill-slug): description` where `type` is one of `feat`, `fix`, `docs`, `chore`. Examples: `feat(nist-800-53-rmf): add CSF 2.0 crosswalk`, `fix(audit-workpapers): correct AS 2305 citation`, `chore(ci): bump setup-python to v5`.
+
+---
+
 ## Project layout
 
 ```
 Audit-skills/
 ├── README.md                    # this file
 ├── LICENSE                      # MIT
-├── install.sh                   # opencode installer
+├── CONTRIBUTING.md              # contributor one-pager
 ├── .gitignore
 │
 ├── skills/                      # the skill library
 │   ├── SKILL.md                 # category pointer (lists all skills)
 │   ├── TEMPLATE/                # Tier 0 Spine scaffold — every new skill starts here
-│   ├── nist-800-53-rmf/         # v0.2.0 on Spine (23 tests)
-│   ├── isaca-audit-methodology/ # v0.2.0 on Spine (37 tests)
-│   ├── coso-internal-controls/  # v0.2.0 on Spine (31 tests)
-│   ├── aicpa-soc-reporting/     # v0.2.0 on Spine (26 tests)
-│   └── audit-workpapers/        # v0.2.0 on Spine (39 tests)
+│   ├── nist-800-53-rmf/         # v0.2.1 on Spine (29 tests)
+│   ├── isaca-audit-methodology/ # v0.2.1 on Spine (43 tests)
+│   ├── coso-internal-controls/  # v0.2.1 on Spine (37 tests)
+│   ├── aicpa-soc-reporting/     # v0.2.1 on Spine (32 tests)
+│   └── audit-workpapers/        # v0.2.1 on Spine (49 tests)
 │
 ├── tests/
-│   └── test_consistency_lib.py  # cross-skill consistency checks
+│   ├── test_consistency_lib.py  # cross-skill consistency library (6 functions)
+│   └── test_consistency.py      # per-skill wrapper
 │
-├── examples/                    # original scenario walkthroughs (1 per skill)
+├── tools/
+│   ├── lint_skill.py            # Tier 0a linter (validates Spine compliance)
+│   └── check_link_rot.py        # nightly URL health checker
 │
-└── tools/
-    └── lint_skill.py            # Tier 0a linter (validates Spine compliance)
+└── .github/
+    ├── workflows/
+    │   ├── ci.yml               # lint + pytest + PR title check
+    │   └── nightly.yml          # link rot scan
+    └── pull_request_template.md # 6-field PR template
 ```
 
 ---
@@ -266,7 +301,7 @@ python tools/lint_skill.py skills/audit-workpapers
 
 # 4. Run the test suite
 pytest skills/*/tests/ tests/test_consistency_lib.py -v
-# → 156 + 6 = 162 tests passed
+# → 190 tests passed across all 5 skills
 
 # 5. Use a skill (Path 1 — system prompt)
 python -c "
