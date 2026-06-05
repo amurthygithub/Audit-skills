@@ -140,7 +140,7 @@ These mention NIST/800-53 in their description:
 
 1. **This week:** no NIST work — user wants to plan next week fresh. (User said "let us keep it to next week.")
 2. **Next week, priority order:**
-   - **SOX-569 (P2, nist-csf-2):** build the skill. Reuses A1 data/ + crosswalks. 1–2 days. Ships Wk 5 drip.
+   - **SOX-569 (P2, nist-csf-2):** build the skill using the [`skill-design-template.md`](skill-design-template.md) template. Reuses A1 data/ + crosswalks. 1–2 days. Ships Wk 5 drip.
    - SOX-574 (P3, fedramp-authorization): defer to Wk 9 per the GTM schedule.
 3. **Cross-cutting:** when building CSF 2.0, do the crosswalks as JSON (CSF subcategory → 800-53 control, similar to existing SOC 2 → 800-53 crosswalk) so the data/ crosswalks/ folder grows consistently.
 
