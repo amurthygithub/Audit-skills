@@ -16,7 +16,7 @@
 ## 1. Architectural rules (apply to every file)
 
 1.1. **Tier 0 Spine compliance.** Every file conforms to the `skills/TEMPLATE/` shape. The linter enforces folder layout, frontmatter shape, section presence, and citation resolution.
-1.2. **Path consistency.** Cross-references to sibling skills use `../<sibling>/chunks/<file>.md` form. Cross-references to CSF 2.0 internal chunks use relative paths (`chunks/01-functions-categories.md`).
+1.2. **Path consistency.** Cross-references to sibling skills use the bare backticked form `<sibling>/chunks/<file>.md` (e.g., `` `nist-800-53-rmf/chunks/09-crosswalk.md` ``), as parsed by `tests/test_consistency_lib.py:test_cross_skill_references_resolve`. Cross-references to CSF 2.0 internal chunks use relative paths (`chunks/01-functions-categories.md`).
 1.3. **YAML frontmatter in every chunk.** Markdown-table frontmatter (as the contributor's PR #13 used) is **forbidden** — the linter and `test_consistency_lib.py` require parseable YAML.
 1.4. **No trailing whitespace.** Enforced by the whitespace rule (PR #15, in `tools/lint_skill.py`). Every file ends with exactly one newline.
 1.5. **No TODO/FIXME outside `docs/changelog.md`.** Enforced by the linter.
@@ -24,6 +24,7 @@
 1.7. **Routing table completeness.** Every chunk file in `chunks/` must be referenced in SKILL.md's §11 routing table, and every entry in §11 must point to a real file.
 1.8. **Determinism.** All Python generators must accept `--seed N` and produce byte-identical output for the same seed.
 1.9. **PII/NPI/PHI redaction.** All seeds and generators produce synthetic data only. No real organization names, real personal data, real account numbers. Use clearly-fake placeholders: `ACME-001`, `John Doe`, `XX-XXXX-1234`.
+1.10. **The root `conftest.py` `SKILLS` tuple MUST be updated** to include `'nist-csf-2'` before any test in `skills/nist-csf-2/tests/` is collected. This is a Day 1 task; without it, every test that imports `nist_csf_2_stub` will fail with `ModuleNotFoundError`.
 
 ## 2. `SKILL.md` — the router
 
@@ -42,7 +43,7 @@ The router is the first file any consumer reads. It must be ≤300 lines (hard l
 | `version` | YES | semver | `0.1.0` |
 | `status` | YES | enum | `production` (after Day 5 sign-off) |
 | `industries` | YES | array (≥3) | `[financial-services, public-sector, saas-technology, manufacturing]` |
-| `frameworks` | YES | array | `[NIST-CSF-2.0, NIST-SP-800-53, NIST-SP-800-37, NIST-SP-800-171, ISO-27001, HIPAA-Security-Rule, PCI-DSS-4.0.1]` |
+| `frameworks` | YES | array | `[NIST-CSF-2.0, NIST-SP-800-53-Rev5, NIST-SP-800-53-Rev5.1.1, NIST-SP-800-37, NIST-SP-800-171, ISO-27001, HIPAA-Security-Rule, PCI-DSS-4.0.1]` |
 | `telemetry_contract` | YES | string | `SkillInvocation v1` |
 | `context_budget` | YES | object | (see §2.2) |
 | `tags` | YES | array (≥5) | `[csf, cybersecurity-framework, govern, identify, protect, detect, respond, recover, profile, maturity, risk-management]` |
@@ -58,7 +59,7 @@ The router is the first file any consumer reads. It must be ≤300 lines (hard l
 
 ### 2.3. Top-level sections (in order)
 
-The SKILL.md must contain all 12 top-level sections (per TEMPLATE contract). Each is `## N. Section Name`.
+The SKILL.md must contain at minimum the 10 sections required by the TEMPLATE contract (§1-§10, see `skills/TEMPLATE/SKILL.md:113-129`). §11 Routing is required because `chunks/` will exist. §12 Quick Reference is recommended for the executive-legibility promise; add or omit per the build agent's judgment. Order:
 
 1. **When to Use** — 5-8 bullet triggers, 3-5 negative triggers (when NOT to use)
 2. **Framework Overview** — 2-3 paragraph intro to CSF 2.0, mention 6 Functions, Tiers, Profiles
@@ -80,6 +81,8 @@ The SKILL.md must contain all 12 top-level sections (per TEMPLATE contract). Eac
 
 | Intent / trigger | Chunk to load |
 |------------------|---------------|
+| "what is CSF" / "Functions/Categories" / "108 subcategories" / "structure of CSF" | chunks/01-functions-categories.md |
+| "Tiers" / "Current/Target Profile" / "profile types" / "what is a Profile" | chunks/02-tiers-and-profiles.md |
 | "build a CSF profile" / "first profile" / "Tier assessment" | chunks/03-current-profile.md |
 | "where are we weak" / "maturity gap" / "Target profile" | chunks/04-target-profile-and-gap.md |
 | "GOVERN function" / "GV." / "risk governance" | chunks/05-govern-function.md |
@@ -93,14 +96,14 @@ The SKILL.md must contain all 12 top-level sections (per TEMPLATE contract). Eac
 ```markdown
 ## 10. References & Citation Manifest
 
-| Label | Source | URL | Retrieved |
-|-------|--------|-----|-----------|
-| NIST-CSF-2.0 | NIST Cybersecurity Framework 2.0 | https://www.nist.gov/cyberframework | 2024-02-26 |
-| NIST-SP-800-53-R5 | NIST SP 800-53 Rev 5 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final | 2024-04-04 |
+| Label | Title | Publisher | Identifier | Retrieval | URL |
+|-------|-------|-----------|------------|-----------|-----|
+| NIST-CSF-2.0 | Cybersecurity Framework 2.0 | NIST | NIST CSF 2.0 | 2024-02-26 | https://www.nist.gov/cyberframework |
+| NIST-SP-800-53-Rev5 | Security and Privacy Controls for Information Systems and Organizations | NIST | Rev 5 | 2024-04-04 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
 | ... |
 ```
 
-Every `[LABEL §N]` citation in the body must have a row in this table.
+Every `[LABEL §N]` citation in the body must have a row in this table. The convention is the same as `skills/nist-800-53-rmf/SKILL.md` §10.
 
 ### 2.6. Industries list
 
@@ -219,7 +222,7 @@ Each generator MUST:
 
 Each seed MUST:
 - Be valid JSON
-- Have a top-level `seed_version` field (semver)
+- Have a top-level `seed_version` field (semver) — *self-imposed convention, not enforced by the linter or test suite. Exists for future-proofing cross-skill seed diffing.*
 - Reference no real organization names, no real personal data
 - Match one of the input shapes declared in a UC's `data_refs` field
 - Be loadable by the test suite without errors
@@ -231,6 +234,8 @@ Each crosswalk MUST:
 - Use the format `{"from_subcategory": "GV.OC-01", "to_framework": "800-53", "to_controls": ["PM-9", "PM-11"], "rationale": "..."}`
 - Include a `mapping_source` URL field for traceability
 - Be referenced from `chunks/08-informative-references-crosswalk.md`
+
+**Format divergence note:** The 800-53 RMF skill's `skills/nist-800-53-rmf/data/crosswalks/soc2-to-800-53-mod.json` uses the format `{"soc2_id": ..., "nist_800_53_id": ..., "strength": ..., "note": ...}`. The CSF 2.0 format is intentionally different because CSF subcategories are 1-to-many to controls (vs. SOC 2 → 800-53 which is 1-to-1 to a small set). Any cross-skill parser that consumes crosswalks MUST support both shapes — coordinate with the 800-53 RMF skill maintainer if you need a unified parser.
 
 ## 7. `tests/` — 9 test files + stub
 
@@ -246,7 +251,7 @@ Each crosswalk MUST:
 | `test_nist_csf_2_adversarial.py` | 3-4 | Tier 0 org, empty profile, contradictory tiers |
 | `test_nist_csf_2_telemetry.py` | 5-6 | Schema validates, instrument emits event, name pattern, use-case pattern, industry enum, oracle enum |
 | `test_nist_csf_2_consistency.py` | 4-5 | Routing table ↔ chunks, manifest ↔ body, industry/UC sync, cross-skill refs |
-| `test_nist_csf_2_08_chunk.py` | 4-5 | Chunk 08 (crosswalk) has frontmatter, fits 200 lines, is in SKILL.md routing |
+| `test_nist_csf_2_08_chunk.py` | 4-5 | Chunk 08 (crosswalk) has frontmatter, fits 200 lines, is in SKILL.md routing. **One chunk-test file is sufficient** (chunk 08 is the most assertion-heavy, with crosswalk JSON shape to validate). The design template's "per-chunk test" pattern is a *target*, not a *requirement* — see `docs/skill-design-template.md` §5 for the rationale. |
 | `nist_csf_2_stub.py` | n/a | The deterministic reference executor (called by oracle tests) |
 
 ### 7.2. The stub (`nist_csf_2_stub.py`)
