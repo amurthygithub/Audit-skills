@@ -26,7 +26,7 @@
 |----------|--------------|------------------|-----------|
 | CISA CRM | 28th Edition | 2024 | isaca.org/credentialing/cisa |
 | COBIT 2019 | Framework: Introduction and Methodology | 2019 | isaca.org/resources/cobit |
-| ITAF | 4th Edition | current edition | isaca.org/resources/itaf |
+| ITAF | 5th Edition | current edition | isaca.org/resources/it-audit-assurance-standards |
 | ISACA Code of Ethics | current edition | as published | isaca.org/credentialing/code-of-professional-ethics |
 | COSO ICIF | 2013 | 2013 | coso.org |
 | AICPA TSC | 2017 (TSP 100, 2022 revised POF) | 2017/2022 | aicpa-cima.com |

@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This skill encodes NIST SP 800-53 Rev 5 / 5.1.1, NIST SP 800-37 Rev 2 RMF, FIPS 199, FIPS 200, NIST SP 800-53A Rev 5, and the FedRAMP overlay into a single executable playbook. It supports FIPS 199 categorization, baseline selection, tailoring, implementation documentation, 800-53A assessment, ATO decision logic, and continuous monitoring.
+This skill encodes NIST SP 800-53 Rev 5, NIST SP 800-37 Rev 2 RMF, FIPS 199, FIPS 200, NIST SP 800-53A Rev 5, and the FedRAMP overlay into a single executable playbook. It supports FIPS 199 categorization, baseline selection, tailoring, implementation documentation, 800-53A assessment, ATO decision logic, and continuous monitoring.
 
 ## 2. Invocation Model
 

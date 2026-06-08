@@ -49,7 +49,7 @@ expected_outputs:
     high_water_mark: MODERATE
   baseline:
     baseline: MODERATE
-    control_count: ~325  # Rev 5; 5.1.1 ~341
+    control_count: ~325  # Rev 5; Rev 5 ~325
   inheritance_summary:
     - control_id: AC-2
       status: inherited
@@ -72,7 +72,7 @@ expected_outputs:
       rationale: "No wireless transmission of classified or sensitive data; the wireless confidentiality enhancement does not apply."
     - control_id: PT-7
       decision: SUPPLEMENT
-      rationale: "PII is processed; the 800-53 5.1.1 privacy control family is added (specific authority per FIPS 199 + agency privacy officer)."
+      rationale: "PII is processed; the 800-53 Rev 5 privacy control family is added (specific authority per FIPS 199 + agency privacy officer)."
 oracle:
   type: schema_match
   assertion: |
@@ -133,13 +133,13 @@ special_factors:
 
 ### Step 2 — Baseline Selection (Skill §4.2, §5.2, §6.2)
 
-- Baseline: **Moderate** (NIST 800-53 Rev 5 ~325 controls; Rev 5.1.1 ~341 controls).
+- Baseline: **Moderate** (NIST 800-53 Rev 5 ~325 controls; Rev Rev 5 ~325 controls).
 - Apply **scoping**: drop controls whose scope doesn't apply. For CaseFlow Cloud:
   - `AC-2(8)` (Dynamic Account Management) — SCOPED OUT. No shared accounts; dynamic accounts are not used.
   - `SC-8(1)` (Cryptographic Protection for Wireless) — SCOPED OUT. No wireless transmission of sensitive data.
 - Apply **common-control designation**: many controls (e.g., AT-2 security awareness, AT-3 role-based training, PS-3 personnel screening) are inherited from the corporate common-controls catalog. The SSP §8 documents which.
 - Apply **parameterization**: e.g., `AC-2(3)` requires account-disable on a defined trigger. Parameter: "Disable on termination within 4 business hours."
-- Apply **supplementation**: add the 5.1.1 privacy control family (`PT-*`) because PII is processed. The agency's privacy officer requires a PIA.
+- Apply **supplementation**: add the Rev 5 privacy control family (`PT-*`) because PII is processed. The agency's privacy officer requires a PIA.
 
 ### Step 3 — Inheritance mapping (Skill §4.6, §5.3)
 
@@ -205,7 +205,7 @@ The oracle assertion (§`data_refs`/frontmatter):
 
 - **V1 — Categorization drift:** if the system starts processing classified information, the categorization moves to HIGH and the baseline shifts. The skill must detect and re-baseline.
 - **V2 — Inheritance invalidation:** if the CSP migrates from AWS GovCloud to a non-FedRAMP cloud, every inherited control becomes system-specific. The skill must reflect the new boundary.
-- **V3 — PII volume increase:** if PII processing exceeds a threshold (e.g., 1M individuals), the 5.1.1 privacy controls may become higher-priority; the AO may require a PIA refresh.
+- **V3 — PII volume increase:** if PII processing exceeds a threshold (e.g., 1M individuals), the Rev 5 privacy controls may become higher-priority; the AO may require a PIA refresh.
 - **V4 — Compensating control challenge:** the AO challenges a compensating control on SC-13 (FIPS-validated crypto). The skill must produce a compensating-control memo that documents the alternate, why it meets the intent, and how the assessor will evaluate it.
 - **V5 — Dual classification:** the SaaS serves two customers, one with PII at MODERATE and one with CUI at MODERATE. The boundary must cover both; the controls in scope may differ slightly.
 

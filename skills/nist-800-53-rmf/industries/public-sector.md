@@ -9,7 +9,7 @@ The public sector is the **native habitat** of NIST 800-53 / RMF. This industry 
 
 | Context | Typical categorization | Baseline | Inheritance |
 |---------|------------------------|----------|-------------|
-| Federal civilian agency — enterprise IT (HR, finance, email) | Moderate | 800-53 Rev 5 / 5.1.1 Mod | Limited — agency-specific data center; common controls may be at agency level |
+| Federal civilian agency — enterprise IT (HR, finance, email) | Moderate | 800-53 Rev 5 Mod | Limited — agency-specific data center; common controls may be at agency level |
 | Federal civilian agency — public-facing transaction system (tax filing, benefits application) | Moderate or High | Mod/High | Often partly inheriting from a FedRAMP-authorized PaaS/SaaS (e.g., Login.gov, cloud.gov) |
 | Federal SaaS (CSP) — Low-impact SaaS (e.g., internal collaboration) | Low | FedRAMP Low | High — most controls inherited from hyperscaler (AWS, Azure, GCP FedRAMP-authorized offerings) |
 | Federal SaaS (CSP) — general-purpose SaaS (e.g., case management, HR) | Moderate | FedRAMP Moderate | High — most controls inherited from hyperscaler; the CSP implements application-layer and configuration-level controls |
@@ -70,7 +70,7 @@ These state adaptations share the core 800-53 control families and RMF process b
 ## 7. References
 
 - NIST SP 800-37 Rev 2 — RMF
-- NIST SP 800-53 Rev 5 / 5.1.1
+- NIST SP 800-53 Rev 5
 - FedRAMP Authorization Act (44 USC §3609 et seq.) and FedRAMP Authorization Boundary Guidance
 - OMB A-130 — Managing Information as a Strategic Resource
 - OMB Memo M-22-15 — Delivering a Digital-First Public Experience

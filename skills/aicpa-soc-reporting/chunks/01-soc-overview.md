@@ -82,7 +82,6 @@ Use these terms precisely. Never use "SAS 70" or "SSAE 16" in reference to curre
 - [AT-C-200] -- examination engagements
 - [AT-C-300] -- SOC 1
 - [TSP-Section-100] -- trust services criteria
-- [SSAE-21] -- current governing standard
-- [SSAE-18] -- current governing standard
+- [SSAE-21] -- current governing standard (superseded SSAE 18)
 
 See SKILL.md Section 10 for the full citation manifest.

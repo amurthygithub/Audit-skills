@@ -18,7 +18,7 @@ context_budget:
   per_call_typical_tokens: 5500
   per_call_max_tokens: 14000
   per_call_p90_tokens: 7500
-tags: [aicpa, soc1, soc2, soc3, soc-for-cybersecurity, soc-for-supply-chain, attestation, trust-services-criteria, tsp-section-100, ssae-21, at-c-205, at-c-320, coso, icfr, management-assertion, cuec, csoc, bridge-letter, service-auditor, type-i, type-ii, tsc, sampling, board-deck, questionnaire-reuse, caic, sig-lite, vsaq]
+tags: [aicpa, soc1, soc2, soc3, soc-for-cybersecurity, soc-for-supply-chain, attestation, trust-services-criteria, tsp-section-100, ssae-21, at-c-200, at-c-300, coso, icfr, management-assertion, cuec, csoc, bridge-letter, service-auditor, type-i, type-ii, tsc, sampling, board-deck, questionnaire-reuse, caic, sig-lite, vsaq]
 ---
 
 You are an expert agent performing AICPA SOC reporting work. Follow every instruction below precisely. Use AICPA terminology exclusively.
@@ -62,7 +62,7 @@ The AICPA SOC suite provides independent examination of a service organization's
 | SOC for Cybersecurity | AT-C 200 + Cybersecurity Description Criteria | Entity's cybersecurity risk management program | General use | Unrestricted |
 | SOC for Supply Chain | AT-C 200 + TSP Section 100 (adapted) | Controls in production/manufacturing/distribution systems | User entities, supply chain participants | Restricted |
 
-**Governing standards:** [AT-C-200], [AT-C-300], AT-C 100, AT-C 200, AT-C 300. SSAE 21 remains governing; SSAE 21 supersedes SSAE 21, and SSAE Nos. 19-21 have been issued as conforming amendments. Always cite the governing standard when drafting report language.
+**Governing standards:** [AT-C-200], [AT-C-300], AT-C 100, AT-C 200, AT-C 300. SSAE 21 is the current governing standard; it superseded SSAE 18 effective December 2020. SSAE Nos. 19-21 have been issued as conforming amendments. Always cite the governing standard when drafting report language.
 
 ### 2.1 Related professional standards (cross-jurisdictional context)
 

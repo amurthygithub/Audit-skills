@@ -44,7 +44,7 @@
     {
       "control_id": "PT-7",
       "decision": "SUPPLEMENT",
-      "rationale": "PII is processed; the 800-53 5.1.1 privacy control family is added (specific authority per FIPS 199 + agency privacy officer)."
+      "rationale": "PII is processed; the 800-53 Rev 5 privacy control family is added (specific authority per FIPS 199 + agency privacy officer)."
     },
     {
       "control_id": "AT-2",

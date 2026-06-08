@@ -25,7 +25,7 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 
 ### Added
 - Initial scaffold under the Tier 0 Spine (TEMPLATE).
-- SKILL.md (~1,500 lines) covering FIPS 199, RMF 7-step, 800-53 Rev 5/5.1.1, 800-53A, ATO logic, output templates, cross-references, anti-hallucination disclaimers, citation manifest.
+- SKILL.md (~1,500 lines) covering FIPS 199, RMF 7-step, 800-53 Rev 5, 800-53A, ATO logic, output templates, cross-references, anti-hallucination disclaimers, citation manifest.
 - 4 industry views: `public-sector.md`, `financial-services.md`, `saas-technology.md`, `healthcare.md`.
 - 3 use cases: UC-01 FedRAMP Moderate, UC-02 Agency ATO, UC-03 SOC 2 → 800-53 crosswalk.
 - Synthetic data generators: `gen_fips199.py`, `gen_sar_findings.py`, `gen_crosswalk_gap.py`.

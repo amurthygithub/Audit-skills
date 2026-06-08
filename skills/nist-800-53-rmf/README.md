@@ -1,6 +1,6 @@
 # nist-800-53-rmf
 
-**Encode NIST 800-53 Rev 5 / 5.1.1, the RMF (SP 800-37 Rev 2), FIPS 199 categorization, 800-53A assessment, and FedRAMP authorization into your AI agent.**
+**Encode NIST 800-53 Rev 5, the RMF (SP 800-37 Rev 2), FIPS 199 categorization, 800-53A assessment, and FedRAMP authorization into your AI agent.**
 
 Status: **draft v0.2.0**, on Tier 0 Spine, 23 tests passing, linter-clean. The skill uses the **router + chunks pattern** — `SKILL.md` is a 218-line router, the deep-dive content lives in 7 chunk files (≤ 87 lines each) loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); the LLM-backed executor is a stub in this version. Production executor ships in SOX-611 Phase 2.
 
@@ -397,7 +397,7 @@ Add `data/crosswalks/<framework>-to-800-53.json` (see `soc2-to-800-53-mod.json` 
 
 ## Known limitations (full list in `docs/limits-and-disclaimers.md`)
 
-- **800-53 Rev 5 vs 5.1.1** — confirm with the requesting program which baseline applies. Both are listed in the frontmatter.
+- **800-53 Rev 5 vs Rev 5** — confirm with the requesting program which baseline applies. Both are listed in the frontmatter.
 - **Control counts** (~325 Moderate, ~421 High) are derived. Verify against the current NIST publication.
 - **FedRAMP overlays** — FedRAMP High baseline ≠ NIST 800-53 High. Consult fedramp.gov.
 - **Categorization judgment** is professional judgment; the skill encodes the framework but does not make the call for you.
@@ -415,4 +415,4 @@ Add `data/crosswalks/<framework>-to-800-53.json` (see `soc2-to-800-53-mod.json` 
 
 ## Disclaimer
 
-This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source (current NIST SP 800-53 Rev 5 / 5.1.1, FIPS 199, SP 800-37 Rev 2, SP 800-53A Rev 5, OMB A-130, FedRAMP Rev 5 guidance, and your agency's policy).
+This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source (current NIST SP 800-53 Rev 5, FIPS 199, SP 800-37 Rev 2, SP 800-53A Rev 5, OMB A-130, FedRAMP Rev 5 guidance, and your agency's policy).

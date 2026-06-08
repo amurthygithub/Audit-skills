@@ -11,23 +11,23 @@
 
 | Section | Reconstructed? | Authoritative source | Verify against |
 |---------|----------------|----------------------|----------------|
-| §3.1 control families (20 + privacy) | No | NIST SP 800-53 Rev 5 / 5.1.1 | csrc.nist.gov |
-| §3.2 baseline counts (156 / 325 / 421 for Rev 5; 161 / 341 / 437 for 5.1.1) | Yes — derived counts | NIST SP 800-53 / FedRAMP Rev 5 baseline | csrc.nist.gov, fedramp.gov |
+| §3.1 control families (20 + privacy) | No | NIST SP 800-53 Rev 5 | csrc.nist.gov |
+| §3.2 baseline counts (156 / 325 / 421 for Rev 5;  for Rev 5) | Yes — derived counts | NIST SP 800-53 / FedRAMP Rev 5 baseline | csrc.nist.gov, fedramp.gov |
 | §4.4 finding severity → POA&M risk | No (typical pattern) | FedRAMP Continuous Monitoring Strategy Guide | fedramp.gov |
 | §7 cross-references to other standards | Curated; verify | AICPA, ISO, PCI SSC, HHS, NIST | respective publishers |
 
-The baseline control counts are **derived from the catalog and the count of base controls + enhancements**. The actual count varies depending on how one counts enhancements (and which version — 5.0 vs 5.1.1). **Always verify against the current NIST SP 800-53 Rev 5 / 5.1.1 publication and the FedRAMP baseline** for cloud services.
+The baseline control counts are **derived from the catalog and the count of base controls + enhancements**. The actual count varies depending on how one counts enhancements (and which version — Rev 5). **Always verify against the current NIST SP 800-53 Rev 5 publication and the FedRAMP baseline** for cloud services.
 
 ## 3. Regulatory currency
 
 | Standard | Version cited | Publication date | Verify at |
 |----------|---------------|------------------|-----------|
-| NIST SP 800-53 | Rev 5 (Sept 2020) + 5.1.1 (2024) | 2020 / 2024 | csrc.nist.gov |
+| NIST SP 800-53 | Rev 5 (Sept 2020) + Rev 5  | 2020 / 2024 | csrc.nist.gov |
 | NIST SP 800-37 | Rev 2 (Dec 2018) | 2018 | csrc.nist.gov |
 | NIST SP 800-53A | Rev 5 (Jan 2022) | 2022 | csrc.nist.gov |
 | FIPS 199 | (Feb 2004) | 2004 | nvlpubs.nist.gov |
 | FIPS 200 | (Mar 2006) | 2006 | nvlpubs.nist.gov |
-| FedRAMP | Rev 5 (and 5.1.1 overlays) | 2023 / 2024 | fedramp.gov |
+| FedRAMP | Rev 5 (and Rev 5 overlays) | 2023 / 2024 | fedramp.gov |
 | OMB A-130 | (July 28, 2016) | 2016 | whitehouse.gov |
 | OMB M-22-15 | (2022) | 2022 | whitehouse.gov |
 | AICPA TSC | 2017 (TSP §100, 2022 revised points of focus) | 2017 / 2022 | aicpa-cima.com |
@@ -40,7 +40,7 @@ The baseline control counts are **derived from the catalog and the count of base
 
 ## 4. Known gaps
 
-- **Rev 5 vs 5.1.1 selection** — the user/program may require 5.0, 5.1.1, or both. The skill frontmatter lists both; the user must confirm which baseline is in scope.
+- **Rev 5 vs Rev 5 selection** — the user/program may require 5.0, Rev 5, or both. The skill frontmatter lists both; the user must confirm which baseline is in scope.
 - **FedRAMP overlays** — FedRAMP's High baseline is not identical to NIST 800-53 High; FedRAMP adds a number of controls. The skill does not enumerate FedRAMP-specific additions; consult the current FedRAMP Baselines document on fedramp.gov.
 - **DoD-specific overlays** — DoD Cloud Computing (DoD CC SRG) imposes IL4/IL5/IL6 levels that layer on top of FedRAMP. The skill does not enumerate these.
 - **800-53A objective enumeration** — the assessment objectives are in 800-53A Rev 5; the enumeration varies by control and is not the same as the enhancement enumeration.
@@ -66,4 +66,4 @@ The skill should be used cautiously or not at all when:
 
 This skill is **risk: high** in the frontmatter. It encodes the controls but does not certify compliance. The skill's outputs may contain PII, system names, or sensitive data; redact before sharing outside the engagement.
 
-> This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source (current NIST SP 800-53 Rev 5 / 5.1.1, FIPS 199, SP 800-37 Rev 2, SP 800-53A Rev 5, OMB A-130, FedRAMP Rev 5 guidance, and the agency's policy).
+> This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source (current NIST SP 800-53 Rev 5, FIPS 199, SP 800-37 Rev 2, SP 800-53A Rev 5, OMB A-130, FedRAMP Rev 5 guidance, and the agency's policy).

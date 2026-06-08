@@ -111,7 +111,7 @@ load_when: "user asks about audit report template, output format, cross-referenc
 | COBIT DSS04 | SOC 2 Availability | Map continuity to Availability criteria |
 | COBIT BAI/DSS | SOC 2 Processing Integrity | Map change mgmt and ops to PI |
 | COBIT APO13/DSS05 | SOC 2 Confidentiality | Map security to Confidentiality |
-| ISACA audit procedures | AT-C 105/205/320 (SOC 1) | IS audit procedures support Type I/II |
+| ISACA audit procedures | AT-C 100/200/300 (SOC 1) | IS audit procedures support Type I/II |
 
 ## ISACA to NIST CSF 2.0 Mapping
 

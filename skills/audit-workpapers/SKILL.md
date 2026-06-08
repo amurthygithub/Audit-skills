@@ -163,7 +163,7 @@ This skill encodes domain knowledge; it is not a substitute for professional jud
 | AICPA-AU-C-230 | Audit Documentation | AICPA | AU-C 230 | 2026-05-25 | https://www.aicpa-cima.com/resources/landing/au-c-section-230 |
 | IAASB-ISA-230 | Audit Documentation | IAASB | ISA 230 | 2026-05-25 | https://www.iaasb.org/publications/isa-230-revised-audit-documentation |
 | COSO-ICIF-2013 | Internal Control Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
-| ISACA-ITAF | IT Audit Framework | ISACA | ITAF 5th Ed. | 2026-06-08 | https://www.isaca.org/resources/itaf |
+| ISACA-ITAF | IT Audit Framework | ISACA | ITAF 5th Ed. | 2026-06-08 | https://www.isaca.org/resources/it-audit-assurance-standards |
 
 In-body citations use the form [LABEL section] and resolve to this manifest.
 
