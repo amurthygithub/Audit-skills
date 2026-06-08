@@ -323,11 +323,12 @@ Pre-empt what the reviewers will find. Top 5 in each lens.
 
 | Day | Tasks | Done when |
 |-----|-------|-----------|
+| **0** | **Pre-build research** (per `docs/fact-sheet-template.md`) — dispatch 1+ research agents to webfetch authoritative sources and produce a fact-sheet. This is the ONLY phase where webfetch is used before the build starts. Output: `<skill>-fact-sheet.md` in `docs/`. | Fact-sheet populated with all counts, identifiers, crosswalk mappings, and live URLs verified. |
 | 1 | Scaffold folders, write SKILL.md router (≤300 lines), declare context_budget | `python tools/lint_skill.py skills/<skill>` passes basic checks |
 | 2 | Write 8 chunks, 4 industries, 3 UCs, consumer README | All chunks ≤200 lines, all 3 UCs have frontmatter |
 | 3 | Write data/generators, data/seeds, data/crosswalks | Generators run with `--seed`, all seeds load |
 | 4 | Write 9 test files | `pytest skills/<skill>/tests/ -q` passes |
-| 5 | **Source-of-truth verification** (per §5.11) — fetch authoritative sources via `webfetch`, compare against the built files, report every inaccuracy. This is the gate. **Do NOT proceed to lens review until CRITICALs are fixed.** | Verification report shows 0 CRITICAL findings. |
+| 5 | **Source-of-truth verification** (per §5.11) — compare built files against the Day 0 fact-sheet (which was sourced from live authoritative documents). **Do NOT proceed to lens review until CRITICALs are fixed.** | Verification report shows 0 CRITICAL findings. |
 | 6 | 5-lens review (dispatch 5 agents in parallel) — covers structural, completeness, usability, convention, cross-skill | 5 review reports returned |
 | 7 | 5-practitioner review (dispatch 5 agents in parallel) | 5 practitioner reports returned |
 | 8 | Fix waves 1, 2, 3 (CRITICAL, HIGH, MEDIUM+LOW) | All findings addressed |
@@ -337,7 +338,9 @@ Pre-empt what the reviewers will find. Top 5 in each lens.
 
 For low-risk skills, days 6-8 can be compressed. For high-risk skills, add a 6th lens (e.g., "regulatory risk") or 6th persona (e.g., "CFO").
 
-**Day 5 is non-negotiable.** The source-of-truth verification step was added after the CSF 2.0 build (June 2026) found 8 CRITICAL factual errors that the 5-lens review would NOT have caught. LLM recall produces plausible content; only authoritative-source verification catches fabricated IDs and wrong counts. Future skill builds must include this gate.
+**Day 0 is non-negotiable.** Pre-build research against live authoritative sources is what prevents fabricated identifiers, wrong counts, and dead URLs from entering the build in the first place. The Day 0 fact-sheet is the single source of truth that every build agent references. Without it, build agents write from LLM recall. The CSF 2.0 build (June 2026) proved this: 9 parallel build agents wrote plausible-looking content, and a subsequent §5.11 pass found 8 CRITICAL factual errors (fabricated Category codes GV.SR/GV.MT, wrong subcategory counts, ~10 wrong crosswalk rows).
+
+**Day 5 is also non-negotiable.** It is a re-verification of the built files against the fact-sheet, catching any drift introduced during the build (build agents may ignore or misunderstand the fact-sheet). The two gates work together: Day 0 prevents errors from entering, Day 5 catches any that slipped through.
 
 ---
 
