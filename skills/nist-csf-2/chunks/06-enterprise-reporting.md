@@ -16,7 +16,7 @@ Of the 6 skills in this library, only `nist-csf-2` carries the `BOTH` persona (I
 Three rules of CSF executive reporting:
 
 1. **Lead with outcomes, not controls.** The board does not want to hear "AC-2(11) is not implemented"; they want to hear "we cannot yet enforce usage conditions on privileged accounts in 48 hours." Use the CSF Subcategory outcome language (`PR.AA-01` — "Identities and credentials are managed") and translate to board language in a one-line caption.
-2. **Show the 6 Function scores, not the 108 Subcategories.** A 108-row table is unreadable in a 12-slide deck. The 6-function radar + per-Function Tier is the executive summary; the 108-row Subcategory table is the appendix the CISO walks through on request.
+2. **Show the 6 Function scores, not the 106 Subcategories.** A 106-row table is unreadable in a 12-slide deck. The 6-function radar + per-Function Tier is the executive summary; the 106-row Subcategory table is the appendix the CISO walks through on request.
 3. **Always show the gap, not just the current state.** The board cares about the trajectory: "we are at Tier 2 in DETECT today, Tier 3 by Q4 next year, Tier 4 within 24 months." Current state alone is a snapshot; gap + trend is the story.
 
 ## 2. The 6-Function radar (markdown table form)
@@ -147,7 +147,7 @@ This 1-page template is a **suggested structure**, not NIST-mandated. Adapt to t
 
 - `chunks/01-functions-categories.md` — the 6 Functions, Categories, and Subcategories that populate the radar.
 - `chunks/04-target-profile-and-gap.md` — the Target Profile and gap table that feed the scorecard and the top-3 priority list.
-- `chunks/05-govern-function.md` — the GOVERN deep-dive that becomes the executive-legible appendix (GV.OV, GV.MT, GV.SC subcategories populate the KPI/KRI dashboard).
+- `chunks/05-govern-function.md` — the GOVERN deep-dive that becomes the executive-legible appendix (GV.OV, GV.SC subcategories populate the KPI/KRI dashboard).
 - `chunks/07-implementation-playbook.md` — the implementation sequencing that the 12-month investment ask is grounded in.
 - `aicpa-soc-reporting` — SOC 2 board reporting patterns (the board deck structure borrows from the SOC 2 reporting conventions in `aicpa-soc-reporting/assets/`).
 - `isaca-audit-methodology` — COBIT 2019's goals cascade informs the Function → Category → KPI drill-down for the trend report.

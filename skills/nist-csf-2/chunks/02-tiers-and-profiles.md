@@ -128,7 +128,7 @@ Community Profiles are authored by sector-coordinating bodies, not by the org or
 - **Manufacturing / OT**: CISA ICS CPG (Industrial Control Systems Cybersecurity Performance Goals) is the most direct OT-aligned Community Profile.
 - **Cross-sector**: the NIST CSF 2.0 Informative References spreadsheet itself is a cross-sector reference.
 
-This skill does not author Community Profiles; it ships the *shape* (6 Functions × 22 Categories × ~108 Subcategories grid) that any Community Profile uses.
+This skill does not author Community Profiles; it ships the *shape* (6 Functions × 22 Categories × 106 Subcategories grid) that any Community Profile uses.
 
 ## Cross-references
 

@@ -34,13 +34,13 @@ Months 4-6 are about **formalization**: the Current Profile is documented, the T
 
 **6-month deliverables:**
 
-1. **Formalize the Current Profile** (covers `chunks/03-current-profile.md` §5). All 108 Subcategories scored; per-Subcategory evidence refs and owners named. Update cadence: quarterly.
+1. **Formalize the Current Profile** (covers `chunks/03-current-profile.md` §5). All 106 Subcategories scored; per-Subcategory evidence refs and owners named. Update cadence: quarterly.
 2. **Set the Target Profile** (covers `chunks/04-target-profile-and-gap.md` §2). Per-Function Tier target approved by the cyber steering committee and the board. Documented rationale per Function (regulatory, customer, risk-tolerance inputs).
 3. **Start the first 3 gap-closure projects.** These are the 3 highest-priority items from the Gap Analysis Table (see `chunks/04-target-profile-and-gap.md` §4) in the "Strategic Investment" or "Quick Win" quadrants. Common first projects: MFA org-wide (PR.AA-03), SIEM/SOC tooling (DE.CM-01), third-party risk program (GV.SC-01 to GV.SC-04).
-4. **Run the first IR tabletop exercise** (covers `RS.MA-01`, `RS.AN-01`). Use a scenario relevant to the org (e.g., ransomware on the ERP system, customer data breach via SaaS supplier). Cost: 1-2 people-weeks; can be internal.
+4. **Run the first IR tabletop exercise** (covers `RS.MA-01`, `RS.AN-03`). Use a scenario relevant to the org (e.g., ransomware on the ERP system, customer data breach via SaaS supplier). Cost: 1-2 people-weeks; can be internal. (Note: CSF 2.0 starts the RS.AN Subcategory numbering at RS.AN-03 — RS.AN-01 and RS.AN-02 are 1.1-only.)
 5. **Complete the asset inventory for Tier-1 systems** (covers `ID.AM-01`, `ID.AM-08`). The Tier-1 systems are the ones that process regulated data (PII, PHI, PCI) or are critical to operations. The full inventory continues into 12-month.
 6. **Publish the supply chain risk policy** (covers `GV.SC-01`). Most orgs have procurement policy; few have a cybersecurity supply chain policy. This is a 1-2 page document; cost: 1 person-week.
-7. **Stand up the KPI/KRI dashboard** (covers `GV.OV-01`, `GV.MT-*`). 5-10 metrics, refreshed monthly. Examples: % of systems with MFA, mean time to detect (DE.CM), mean time to respond (RS.MA), % of policies reviewed in last 12 months (GV.PO-02).
+7. **Stand up the KPI/KRI dashboard** (covers `GV.OV-01`). 5-10 metrics, refreshed monthly. Examples: % of systems with MFA, mean time to detect (DE.CM), mean time to respond (RS.MA), % of policies reviewed in last 12 months (GV.PO-02).
 8. **Conduct the first formal risk assessment** (covers `ID.RA-01`). Document threats, vulnerabilities, likelihood, impact for Tier-1 systems. Output: a risk register that feeds the ERM (Enterprise Risk Management) process.
 
 **Cost range (6 months)**: $50K-$200K tool spend + 1-2 dedicated FTE for a mid-market org. For a Series-A SaaS, the realistic 6-month spend is $30K-$80K and 0.5-1 FTE.

@@ -13,7 +13,7 @@ The **Current Profile** is the "where we are today" snapshot of the organization
 
 A Current Profile is:
 
-- A per-Subcategory record of the outcomes the org is achieving **today** across the 6 Functions, 22 Categories, and ~108 Subcategories of CSF 2.0.
+- A per-Subcategory record of the outcomes the org is achieving **today** across the 6 Functions, 22 Categories, and 106 Subcategories of CSF 2.0.
 - An **evidence-backed** assessment — each score is supported by a document, observation, test, or attestation.
 - A **snapshot** — it describes the org at a moment in time, not over a period.
 - The **first artifact** in a CSF engagement; everything else (Target Profile, gap, roadmap) is built on top of it.
@@ -102,7 +102,7 @@ contradictions:
   - <description of any tier-self-assessment vs evidence mismatch>
 ```
 
-The full set of ~108 Subcategory entries is the Current Profile; the per-Function aggregation is the visualization layer for board reporting (see `chunks/06-enterprise-reporting.md`).
+The full set of 106 Subcategory entries is the Current Profile; the per-Function aggregation is the visualization layer for board reporting (see `chunks/06-enterprise-reporting.md`).
 
 ## 6. Worked example (fictional): 50-person SaaS at Tier 2
 

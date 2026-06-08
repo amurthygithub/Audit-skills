@@ -1,6 +1,6 @@
 ---
 name: nist-csf-2
-description: "NIST Cybersecurity Framework 2.0 (Feb 2024): 6 Functions, 22 Categories, ~108 Subcategories, Tiers 1-4, Current/Target/Organizational/Community Profiles. The bridge skill between executive risk language and IT controls. Use to assess organizational cybersecurity maturity, build a Current or Target Profile, run a Current/Target gap analysis, produce a 6-function radar for the board, or map CSF to NIST 800-53 / ISO 27001 / SOC 2 / HIPAA / PCI / COBIT. Activate when the user says 'CSF 2.0', 'NIST cybersecurity framework', 'cybersecurity maturity', 'maturity assessment', 'Current Profile', 'Target Profile', '6 functions', 'GOVERN function', 'Tier 1-4', or asks for an executive-legible cyber maturity view."
+description: "NIST Cybersecurity Framework 2.0 (Feb 2024): 6 Functions, 22 Categories, 106 Subcategories, Tiers 1-4, Current/Target/Organizational/Community Profiles. The bridge skill between executive risk language and IT controls. Use to assess organizational cybersecurity maturity, build a Current or Target Profile, run a Current/Target gap analysis, produce a 6-function radar for the board, or map CSF to NIST 800-53 / ISO 27001 / SOC 2 / HIPAA / PCI / COBIT. Activate when the user says 'CSF 2.0', 'NIST cybersecurity framework', 'cybersecurity maturity', 'maturity assessment', 'Current Profile', 'Target Profile', '6 functions', 'GOVERN function', 'Tier 1-4', or asks for an executive-legible cyber maturity view."
 category: audit-framework
 risk: informational
 source: "NIST Cybersecurity Framework 2.0 (Feb 26, 2024) — https://www.nist.gov/cyberframework. Companion: NIST SP 1300 (CSF 2.0 Profile success story), NIST SP 1299 (CSF 2.0 small business quick-start), CSF 2.0 Informative References spreadsheet, FIPS 199, NIST SP 800-53 Rev 5 / 5.1.1, NIST SP 800-37 Rev 2 RMF, FedRAMP Rev 5, SOC 2 TSC 2017, ISO 27001:2022, HIPAA Security Rule, PCI DSS v4.0.1, COBIT 2019, NY DFS Part 500, FFIEC CAT, CISA ICS CPG."
@@ -30,11 +30,11 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 ## 1. When to Use / Not Use This Skill
 
 ### Use This Skill When:
-- Building a **Current Profile** (where the org is today across all ~108 Subcategories) or a **Target Profile** (where the org should be).
+- Building a **Current Profile** (where the org is today across all 106 Subcategories) or a **Target Profile** (where the org should be).
 - Running a **Current/Target gap analysis** and producing a remediation roadmap.
 - Selecting a **Tier 1-4** target for the org or a Function.
 - Producing a **6-function radar** or board-level maturity scorecard.
-- Assessing the **GOVERN function** (new in CSF 2.0): GV.OC, GV.RM, GV.SC, GV.SR, GV.PO, GV.OV, GV.MT.
+- Assessing the **GOVERN function** (new in CSF 2.0): GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC.
 - Mapping CSF Subcategories ↔ [NIST-SP-800-53-Rev5] controls, [ISO-27001-2022] Annex A, [SOC-2-TSC-2017] Common Criteria, [HIPAA-Security-Rule] safeguards, [PCI-DSS-4.0.1] requirements, or [COBIT-2019] process goals.
 - Answering a customer security questionnaire (CAIQ, SIG Lite, VSAQ) with a CSF Current Profile as the evidence base.
 - Producing executive-legible cyber maturity language for a board, audit committee, or regulator (NY DFS, FFIEC, OCC, state RMF).
@@ -51,17 +51,17 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ## 2. Framework Overview
 
-The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-based framework published by NIST on February 26, 2024. It organizes cybersecurity risk into **6 Functions** [NIST-CSF-2.0 §2.1], **22 Categories** [NIST-CSF-2.0 §2.2], and **~108 Subcategories** [NIST-CSF-2.0 §2.3], and it describes organizational maturity with **4 Tiers** [NIST-CSF-2.0 §3.1] and posture with **4 Profile types** (Current, Target, Organizational, Community) [NIST-CSF-2.0 §3.2]. It is the most executive-legible framework in the NIST family and the only one designed for **both** IT practitioners and executive decision-makers.
+The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-based framework published by NIST on February 26, 2024. It organizes cybersecurity risk into **6 Functions** [NIST-CSF-2.0 §2.1], **22 Categories** [NIST-CSF-2.0 §2.2], and **106 Subcategories** [NIST-CSF-2.0 §2.3], and it describes organizational maturity with **4 Tiers** [NIST-CSF-2.0 §3.1] and posture with **4 Profile types** (Current, Target, Organizational, Community) [NIST-CSF-2.0 §3.2]. It is the most executive-legible framework in the NIST family and the only one designed for **both** IT practitioners and executive decision-makers.
 
 | Layer | Element | Role |
 |-------|---------|------|
 | Outcome | 6 Functions: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER | The "what" — outcomes the org achieves. |
-| Outcome | 22 Categories (e.g., GV.OC, ID.AM, PR.AC, DE.CM, RS.MA, RC.RP) | The "where" — groupings of related outcomes. |
-| Outcome | ~108 Subcategories (e.g., GV.OC-01, PR.AC-01) | The "how measured" — specific outcomes to assess. |
+| Outcome | 22 Categories (e.g., GV.OC, ID.AM, PR.AA, DE.CM, RS.MA, RC.RP) | The "where" — groupings of related outcomes. |
+| Outcome | 106 Subcategories (e.g., GV.OC-01, PR.AA-01) | The "how measured" — specific outcomes to assess. |
 | Maturity | 4 Tiers: 1 (Partial), 2 (Risk Informed), 3 (Repeatable), 4 (Adaptive) | The "how well" — per-Function maturity indicator. |
 | Posture | 4 Profile types: Current, Target, Organizational, Community | The "where we are / where we're going / who's involved". |
 
-**What is new in CSF 2.0 vs 1.1:** the new **GOVERN** function is added (with 7 categories: GV.OC, GV.RM, GV.SC, GV.SR, GV.PO, GV.OV, GV.MT) and now sits across the top of the framework — GOVERN sets the context for the other 5. The **PROTECT** categories were renamed (PR.AA, PR.AC, PR.DS, PR.PS, PR.IR, PR.PT) and supply-chain risk was elevated to a first-class GOVERN-anchored concern (GV.SC). Profile terminology was formalized: **Current Profile**, **Target Profile**, **Organizational Profile** (the org's posture), and **Community Profile** (sector-coordinating-body output). See `chunks/01-functions-categories.md` for the 1.1-to-2.0 delta table.
+**What is new in CSF 2.0 vs 1.1:** the new **GOVERN** function is added (with 6 categories: GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC) and now sits across the top of the framework — GOVERN sets the context for the other 5. The **PROTECT** categories were renamed to 5 categories (PR.AA, PR.AT, PR.DS, PR.PS, PR.IR) and supply-chain risk was elevated to a first-class GOVERN-anchored concern (GV.SC). Profile terminology was formalized: **Current Profile**, **Target Profile**, **Organizational Profile** (the org's posture; contains one or both of Current/Target), and **Community Profile** (sector-coordinating-body output). See `chunks/01-functions-categories.md` for the 1.1-to-2.0 delta table.
 
 **Relationship to other NIST frameworks:** CSF 2.0 outcomes (Subcategories) map cleanly to 800-53 controls via the NIST Informative References spreadsheet (see `chunks/08-informative-references-crosswalk.md` and the curated JSON in `data/crosswalks/`). The **Tier 1-4** scale in CSF is an **organizational maturity** scale; the **Tier 1/2/3** in 800-53 RMF refers to **FIPS 199 impact**. They are different scales on the same word — see `chunks/02-tiers-and-profiles.md` for the reconciliation.
 
@@ -80,7 +80,7 @@ The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-
 
 Mnemonic: **"Good Identities Protect, Detect, Respond, Recover"** (G-I-P-D-R-R). GOVERN is the umbrella; the other 5 are the cycle.
 
-### 3.2 Categories (22 total) and Subcategories (~108 total)
+### 3.2 Categories (22 total) and Subcategories (106 total)
 
 Categories are the second-level grouping. Each Category has 2-6 Subcategories. The full list is in `chunks/01-functions-categories.md` and the canonical JSON is `data/crosswalks/csf-2-0-subcategories.json`. Examples: `GV.OC` (Organizational Context), `GV.SC` (Cybersecurity Supply Chain Risk Management), `ID.AM` (Asset Management), `PR.AA` (Identity, Authentication, and Access Control — renamed in 2.0), `DE.CM` (Continuous Monitoring), `RS.MI` (Mitigation), `RC.RP` (Recovery Planning).
 
@@ -148,7 +148,7 @@ This skill is part of the 6-skill library. The most-used siblings:
 
 - `nist-800-53-rmf` — the control-catalog sibling; use for 800-53 control selection, SAR/POA&M templates, and the authoritative CSF → 800-53 mapping (its `chunks/09-crosswalk.md` has a 1-paragraph CSF 2.0 entry; our `chunks/08-informative-references-crosswalk.md` is the curated reverse).
 - `isaca-audit-methodology` — COBIT 2019 PAM maturity scale maps to CSF Tiers 1-4 (Tier 1 ↔ PAM 0-1, Tier 2 ↔ PAM 2, Tier 3 ↔ PAM 3, Tier 4 ↔ PAM 4-5).
-- `coso-internal-controls` — GOVERN (GV.OV, GV.MT, GV.PO) maps to COSO Principles 1, 4, 12; gap priority borrows Significant Deficiency / Material Weakness classification.
+- `coso-internal-controls` — GOVERN (GV.OV, GV.PO) maps to COSO Principles 1, 4, 12; gap priority borrows Significant Deficiency / Material Weakness classification.
 - `aicpa-soc-reporting` — SOC 2 Common Criteria map to CSF Subcategories (see `chunks/08-informative-references-crosswalk.md`); SOC 2 Type II is the natural precursor to a CSF profile for a SaaS.
 - `audit-workpapers` — the 5-part finding pattern (Condition, Criteria, Cause, Effect, Recommendation) is reused for gap items; evidence is structured as workpapers per PCAOB AS 1215.
 
@@ -166,9 +166,9 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 
 ## 9. Anti-Hallucination Disclaimers
 
-- **Subcategory count is ~108** in CSF 2.0; the exact count varies in the literature (some count 106 excluding sub-letters). Always verify against the official CSF 2.0 PDF, §2.3.
-- **GOVERN is new in 2.0**; do not attribute GOVERN categories (GV.OC, GV.RM, GV.SC, GV.SR, GV.PO, GV.OV, GV.MT) to CSF 1.1. The 1.1 framework had 5 Functions (no GOVERN).
-- **PROTECT categories were renamed in 2.0** — PR.AA, PR.AC, PR.DS, PR.PS, PR.IR, PR.PT (not the 1.1-era PR.AC, PR.AT, PR.DS, PR.IP, PR.MA, PR.PT). See `chunks/01-functions-categories.md` for the 1.1-to-2.0 delta.
+- **Subcategory count is 106** in CSF 2.0. The number 108 is the count for CSF 1.1, not 2.0. Gaps in numbering (e.g., DE.CM-04 absent) are deliberate and indicate relocated 1.1 subcategories — see CSF 2.0 PDF p.15.
+- **GOVERN is new in 2.0**; do not attribute GOVERN categories (GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC) to CSF 1.1. The 1.1 framework had 5 Functions (no GOVERN). Note: `GV.SR` and `GV.MT` are not valid CSF 2.0 category codes and must not appear in any output.
+- **PROTECT categories were renamed in 2.0** to 5 categories (PR.AA, PR.AT, PR.DS, PR.PS, PR.IR) — replacing the 1.1-era PR.AC, PR.AT, PR.DS, PR.IP, PR.MA, PR.PT. See `chunks/01-functions-categories.md` for the 1.1-to-2.0 delta.
 - **CSF Tiers 1-4 ≠ 800-53 Tiers 1-3.** CSF Tiers measure organizational maturity (how well the org does cyber). 800-53 Tiers measure FIPS 199 impact (Low/Moderate/High for C, I, A). Same word, different scales.
 - **The Implementation Examples appendix is illustrative, not normative** — cite it for context, do not reproduce it as authoritative.
 - **Tier selection is not a normative algorithm** — CSF 2.0 describes Tier characteristics; the org picks its own Tier based on risk tolerance.
@@ -212,11 +212,11 @@ This is a router. Load chunks based on the user's intent.
 
 | Intent / trigger | Chunk to load |
 |------------------|---------------|
-| "what is CSF" / "Functions / Categories" / "108 subcategories" / "structure of CSF" / "GOVERN function" | `chunks/01-functions-categories.md` |
+| "what is CSF" / "Functions / Categories" / "106 subcategories" / "structure of CSF" / "GOVERN function" | `chunks/01-functions-categories.md` |
 | "Tiers" / "Current / Target Profile" / "profile types" / "what is a Profile" / "how do we score ourselves" | `chunks/02-tiers-and-profiles.md` |
 | "build a CSF profile" / "first profile" / "Tier assessment" / "as-is" / "where are we today" | `chunks/03-current-profile.md` |
 | "where are we weak" / "maturity gap" / "Target profile" / "roadmap" / "remediation plan" | `chunks/04-target-profile-and-gap.md` |
-| "GOVERN function" / "GV.OC" / "GV.RM" / "GV.SC" / "GV.SR" / "GV.PO" / "GV.OV" / "GV.MT" / "board oversight" / "supply chain governance" | `chunks/05-govern-function.md` |
+| "GOVERN function" / "GV.OC" / "GV.RM" / "GV.SC" / "GV.PO" / "GV.OV" / "board oversight" / "supply chain governance" | `chunks/05-govern-function.md` |
 | "board report" / "executive summary" / "6-function radar" / "KPI" / "KRI" / "maturity trend" | `chunks/06-enterprise-reporting.md` |
 | "implement CSF" / "how to improve" / "quick wins" / "first 90 days" / "phased rollout" | `chunks/07-implementation-playbook.md` |
 | "800-53 crosswalk" / "CSF subcategory mapping" / "ISO / SOC 2 / HIPAA / PCI / COBIT crosswalk" / "informative references" | `chunks/08-informative-references-crosswalk.md` |
@@ -230,7 +230,7 @@ This is a router. Load chunks based on the user's intent.
 The minimum cycle (always-loaded; no chunk needed for the high-level flow):
 
 1. **Orient** — 6 Functions: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER. Mnemonic: "Good Identities Protect, Detect, Respond, Recover".
-2. **Current Profile** — score all ~108 Subcategories (Not Implemented / Partially / Largely / Fully) → `chunks/03-current-profile.md`. Output: Current Profile YAML.
+2. **Current Profile** — score all 106 Subcategories (Not Implemented / Partially / Largely / Fully) → `chunks/03-current-profile.md`. Output: Current Profile YAML.
 3. **Target Profile** — set per-Function Tier target → `chunks/04-target-profile-and-gap.md`. Output: Gap Analysis Table.
 4. **Remediate** — prioritize gaps; 9-90-365 day roadmap → `chunks/07-implementation-playbook.md`.
 5. **Report** — 6-function radar for the board → `chunks/06-enterprise-reporting.md`.

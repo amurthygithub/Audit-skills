@@ -1,7 +1,7 @@
 ---
 chunk_id: 05-govern-function
 parent_skill: nist-csf-2
-topic: "GOVERN function (new in 2.0): GV.OC, GV.RM, GV.SC, GV.PO, GV.OV, GV.RR"
+topic: "GOVERN function (new in 2.0): GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC"
 load_when: "user asks about GOVERN, GV. categories, or risk governance at the org level"
 ---
 
@@ -11,7 +11,7 @@ load_when: "user asks about GOVERN, GV. categories, or risk governance at the or
 
 ## 1. Why GOVERN is new in 2.0 (the move from IDENTIFY)
 
-CSF 1.1 had 5 Functions: Identify, Protect, Detect, Respond, Recover. There was a partial governance Category under Identify (`ID.GV` — "Governance") but it was under-developed: 3 Subcategories, no supply chain, no roles-and-responsibilities, no oversight, no policy lifecycle. CSF 2.0 promoted and expanded governance into a full Function with **6 Categories** [NIST-CSF-2.0 §2.2]. The 1.1 `ID.GV` Subcategories were subsumed by the new GOVERN Categories.
+CSF 1.1 had 5 Functions: Identify, Protect, Detect, Respond, Recover. There was a partial governance Category under Identify (`ID.GV` — "Governance") with **4 Subcategories** (ID.GV-1 policy, ID.GV-2 roles/responsibilities, ID.GV-3 legal/regulatory, ID.GV-4 governance/risk management processes), but it was under-developed relative to 2.0's full GOVERN Function. CSF 2.0 promoted and expanded governance into a full Function with **6 Categories** [NIST-CSF-2.0 §2.2]. The 1.1 `ID.GV` Subcategories were subsumed by the new GOVERN Categories.
 
 The move reflects three post-2020 realities:
 
@@ -48,7 +48,7 @@ Risk tolerance, appetite, constraints, and the org's approach to managing cyber 
 The most operationally significant new Category in 2.0. Covers third-party / supplier / vendor cyber risk.
 
 - **Executive question**: "Are our suppliers a liability, and how do we know?"
-- **Subcategories** (representative): `GV.SC-01` (supply chain risk management program established), `GV.SC-02` (suppliers prioritized by criticality), `GV.SC-03` (contracts include cybersecurity requirements), `GV.SC-04` (suppliers routinely assessed), `GV.SC-05` (supplier incident response plans coordinated), `GV.SC-06` (supplier disruptions planned for), `GV.SC-07` (supply chain risks identified and managed throughout life cycle), `GV.SC-08` (suppliers included in incident response planning), `GV.SC-09` (supplier products/services tested prior to acquisition), `GV.SC-10` (components tracked through life cycle).
+- **Subcategories** (10 total, verbatim from CSF 2.0 PDF lines 806-833): `GV.SC-01` (a cybersecurity supply chain risk management program, strategy, objectives, policies, and processes are established and agreed to by organizational stakeholders), `GV.SC-02` (cybersecurity roles and responsibilities for suppliers, customers, and partners are established, communicated, and coordinated internally and externally), `GV.SC-03` (cybersecurity supply chain risk management is integrated into cybersecurity and enterprise risk management, risk assessment, and improvement processes), `GV.SC-04` (suppliers are known and prioritized by criticality), `GV.SC-05` (requirements to address cybersecurity risks in supply chains are established, prioritized, and integrated into contracts and other types of agreements with suppliers and other relevant third parties), `GV.SC-06` (planning and due diligence are performed to reduce risks before entering into formal supplier or other third-party relationships), `GV.SC-07` (the risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship), `GV.SC-08` (relevant suppliers and other third parties are included in incident planning, response, and recovery activities), `GV.SC-09` (supply chain security practices are integrated into cybersecurity and enterprise risk management programs, and their performance is monitored throughout the technology product and service life cycle), `GV.SC-10` (cybersecurity supply chain risk management plans include provisions for activities that occur after the conclusion of a partnership or service agreement).
 - **Evidence examples**: third-party risk policy, supplier security questionnaires (CAIQ, SIG), supplier audit results, supply chain risk register.
 - **Board-language**: "We have a program to know, assess, and monitor the cyber risk of our suppliers."
 
@@ -85,7 +85,7 @@ Who is accountable for cybersecurity decisions, who does the work, who has the a
 
 The `GV.SC` elevation is the most operationally significant change in CSF 2.0. Three reasons:
 
-1. **Coverage is broader**: 10 Subcategories vs the 1.1 `ID.SC` Category (5 Subcategories). The new Subcategories cover the **full supplier life cycle** — from pre-acquisition testing (SC-09) to end-of-life tracking (SC-10) — and explicitly include **incident response coordination** with suppliers (SC-05, SC-08).
+1. **Coverage is broader**: 10 Subcategories vs the 1.1 `ID.SC` Category (5 Subcategories). The new Subcategories cover the **full supplier life cycle** — from planning and due diligence (SC-06) through relationship management (SC-07) to post-relationship activities (SC-10) — and explicitly include **incident response coordination** with suppliers (SC-08).
 2. **Governance placement**: by sitting under GOVERN, `GV.SC` is now **board-visible**. The board's cyber committee can ask "what is our supply chain risk program?" and the answer is in GOVERN, not buried under IDENTIFY.
 3. **Cross-references to other Functions**: `GV.SC` Subcategories cross-reference ID.AM (supplier inventory), PR.PS (supplier product security), DE.CM (supplier monitoring), RS.MA (supplier incident coordination). A TPRM (third-party risk management) program is a multi-Function program; placing it under GOVERN makes the cross-Function dependencies explicit.
 
@@ -95,28 +95,28 @@ For most orgs, `GV.SC` is the **single largest source of new assessment work** i
 
 GOVERN maps mostly to the **PM (Program Management)**, **RA (Risk Assessment)**, and **SR (Supply Chain Risk Management)** families of NIST 800-53 Rev 5 [NIST-SP-800-53-Rev5]. The mapping is **many-to-many**: a single GOVERN Subcategory can map to multiple 800-53 controls across families. Representative mappings:
 
-| GOVERN Subcategory | Representative 800-53 controls | Notes |
-|--------------------|------------------------------|-------|
-| GV.OC-01 (mission understood) | PM-11 (Mission/Business Process Definition), PM-15 (Security/Privacy Groups) | Program Management family |
-| GV.OC-03 (legal/regulatory) | PM-9 (Risk Management Strategy), RA-1 (Policy and Procedures) | Cross-family |
-| GV.RM-02 (risk appetite) | PM-9 (Risk Management Strategy), PM-8 (Critical Infrastructure Plan) | Program Management family |
-| GV.RM-03 (cyber in ERM) | PM-9, PM-11, PM-15 | ERM integration |
-| GV.SC-01 (TPRM program) | SR-1 (Policy and Procedures), SR-3 (Supply Chain Controls) | Supply Chain family |
-| GV.SC-03 (contracts) | SR-3, SR-5 (Acquisition Strategies) | Contractual requirements |
-| GV.SC-04 (supplier assessment) | SR-6 (Supplier Assessments and Reviews) | Assessment activities |
-| GV.SC-05 (supplier IR coordination) | SR-8 (Notification Agreements), IR-4 (Incident Handling) | Cross-family (SR + IR) |
-| GV.PO-01 (policy) | PM-1 (Information Security Program Plan), all "Policy and Procedures" controls (XX-1) | PM family + per-family XX-1 controls |
-| GV.PO-02 (policy reviewed) | PM-1, all "Policy and Procedures" controls | Update cycle |
-| GV.OV-01 (performance reviewed) | CA-7 (Continuous Monitoring), PM-6 (Measures of Performance) | Continuous Monitoring + PM |
-| GV.OV-03 (security operations reviewed) | CA-2 (Control Assessments), CA-7 | Assessment family |
-| GV.RR-01 (leadership accountable) | PM-2 (Senior Information Security Officer), PM-3 (Information Security Resources) | Program Management family |
-| GV.RR-03 (resources allocated) | PM-3, PM-4 (Plan of Action and Milestones Process) | Resource planning |
+| GOVERN Subcategory | 800-53 Rev 5.1.1 controls (per NIST IR spreadsheet) | Notes |
+|--------------------|--------------------------------------------------|-------|
+| GV.OC-01 (mission understood) | PM-11 | Program Management family |
+| GV.OC-03 (legal/regulatory) | AC-01, AT-01, AU-01, CA-01, CM-01, CP-01, IA-01, IR-01, MA-01, MP-01, PE-01, PL-01, PM-01, PM-28, PS-01, PT-01, RA-01, SA-01, SC-01, SI-01, SR-01 | All XX-01 "policy and procedures" controls |
+| GV.RM-02 (risk appetite) | PM-9 | Program Management family |
+| GV.RM-03 (cyber in ERM) | PM-3, PM-9, PM-30, RA-7, SR-2 | ERM integration |
+| GV.SC-01 (TPRM program) | PM-30, SR-2, SR-3 | Supply Chain family |
+| GV.SC-03 (C-SCRM integrated) | AC-01, AT-01, AU-01, CA-01, CM-01, CP-01, IA-01, IR-01, MA-01, MP-01, PE-01, PL-01, PM-01, PM-9, PM-18, PM-30, PM-31, PS-01, PT-01, RA-01, RA-3, RA-7, SA-01, SC-01, SI-01, SR-01, SR-2, SR-3 | All XX-01 + PM + SR |
+| GV.SC-04 (suppliers prioritized) | RA-9, SA-9, SR-6 | Assessment + Supply Chain |
+| GV.SC-05 (contracts) | SA-4, SA-9, SR-3, SR-5, SR-6, SR-10 | Contractual requirements |
+| GV.PO-01 (policy) | AC-01, AT-01, AU-01, CA-01, CM-01, CP-01, IA-01, IR-01, MA-01, MP-01, PE-01, PL-01, PM-01, PS-01, PT-01, RA-01, SA-01, SC-01, SI-01, SR-01 | All XX-01 "policy and procedures" controls |
+| GV.PO-02 (policy reviewed) | (same as GV.PO-01) | Update cycle |
+| GV.OV-01 (performance reviewed) | AC-01..SR-01, PM-9, PM-18, PM-30, PM-31, RA-7, SR-6 | All XX-01 + PM + RA + SR |
+| GV.OV-03 (security operations reviewed) | PM-4, PM-6, RA-7, SR-6 | Assessment family |
+| GV.RR-01 (leadership accountable) | PM-2, PM-19, PM-23, PM-24, PM-29 | Program Management family |
+| GV.RR-03 (resources allocated) | PM-3 | Resource planning |
 
 The full curated mapping ships in `data/crosswalks/csf-to-800-53-mod.json` and the analysis lives in `chunks/08-informative-references-crosswalk.md`. The reverse direction (800-53 → CSF) is in `nist-800-53-rmf/chunks/09-crosswalk.md`.
 
 ## 5. How GOVERN sets the foundation for the other 5 Functions
 
-The GOVERN-first sequencing rule [NIST-CSF-2.0 §2.1] is not a stylistic preference; it reflects the structural dependency of the other 5 Functions on GOVERN outcomes. Concretely:
+The GOVERN-first sequencing rule is a **practitioner heuristic** supported by NIST's structural placement of GOVERN in the center of the Functions wheel (Figure 2 of the CSF 2.0 PDF), but NIST does not mandate it as a normative rule — the PDF also says the Functions should be addressed concurrently and the order of Functions, Categories, and Subcategories of the Core is "not alphabetical; it is intended to resonate most with those charged with operationalizing risk management within an organization". The heuristic still reflects the structural dependency of the other 5 Functions on GOVERN outcomes. Concretely:
 
 - **GOVERN → IDENTIFY**: the risk tolerance (GV.RM-02) and risk management strategy (GV.RM-04) inform the risk assessment (ID.RA) scope. You cannot assess risk without first knowing the org's risk appetite.
 - **GOVERN → PROTECT**: the policy (GV.PO-01) and roles (GV.RR) inform access control (PR.AA), training (PR.AT), and platform security (PR.PS). You cannot enforce policies that do not exist.
@@ -131,14 +131,14 @@ The GOVERN-first sequencing rule [NIST-CSF-2.0 §2.1] is not a stylistic prefere
 ## Cross-references
 
 - `chunks/01-functions-categories.md` — the structural overview; this chunk gives the per-Category deep-dive.
-- `chunks/06-enterprise-reporting.md` — the GOVERN deep-dive is the executive-legible appendix of the board report (the GV.OV and GV.MT subcategories populate the KPI/KRI dashboard).
+- `chunks/06-enterprise-reporting.md` — the GOVERN deep-dive is the executive-legible appendix of the board report (the GV.OV subcategories populate the KPI/KRI dashboard).
 - `chunks/07-implementation-playbook.md` — the supply chain (GV.SC) subcategories are the single largest source of new assessment work in 2.0; the playbook addresses this with a 9-90-365 day sequence.
 - `nist-800-53-rmf/chunks/01-standards-and-structure.md` — the 800-53 PM, RA, SR families that GOVERN maps to; the cross-skill sibling for the 800-53 side of the mapping.
 
 ## Anti-hallucination
 
 - **Authoritative source**: the 6 GOVERN Categories and their Subcategories are from NIST CSF 2.0 [NIST-CSF-2.0 §2.2] (Feb 26, 2024). Verify the exact Subcategory IDs and wording against the official PDF at https://www.nist.gov/cyberframework. Do not paraphrase the Category codes (`GV.OC`, `GV.RM`, `GV.SC`, `GV.PO`, `GV.OV`, `GV.RR`).
-- **CSF 1.1 had a partial GOVERN** (`ID.GV` — 3 Subcategories under Identify). It did not have the 6 Categories described here. Do not attribute `GV.OC`, `GV.RM`, `GV.SC`, `GV.PO`, `GV.OV`, `GV.RR` to 1.1. The expansion from `ID.GV` to the 6 GOVERN Categories is the single largest content change in 2.0.
+- **CSF 1.1 had a partial GOVERN** (`ID.GV` — 4 Subcategories under Identify: ID.GV-1 policy, ID.GV-2 roles/responsibilities, ID.GV-3 legal/regulatory, ID.GV-4 governance/risk management processes). It did not have the 6 Categories described here. Do not attribute `GV.OC`, `GV.RM`, `GV.SC`, `GV.PO`, `GV.OV`, `GV.RR` to 1.1. The expansion from `ID.GV` to the 6 GOVERN Categories is the single largest content change in 2.0.
 - **`GV.SC` is the most operationally significant addition** in 2.0. It elevates supply chain from a 5-Subcategory Category under Identify to a 10-Subcategory Category under GOVERN. Most orgs have at most 2-3 of the 10 fully implemented; closing the rest is a 12-24 month program. Do not under-estimate the assessment and remediation effort.
 - **GOVERN is the umbrella, not a peer.** GOVERN outcomes set the context for the other 5 Functions; the other 5 are the operational cycle. This is why the assess-GOVERN-first rule exists and why the GOVERN Tier acts as a practical ceiling on the other 5 Tiers.
 - **The 800-53 mapping in §4 is representative, not exhaustive.** The full curated mapping is in `data/crosswalks/csf-to-800-53-mod.json` and the analysis is in `chunks/08-informative-references-crosswalk.md`. The mappings above are illustrative; verify against the current NIST Informative References spreadsheet for an authoritative version.

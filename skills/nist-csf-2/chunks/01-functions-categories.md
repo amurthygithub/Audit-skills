@@ -1,13 +1,13 @@
 ---
 chunk_id: 01-functions-categories
 parent_skill: nist-csf-2
-topic: "6 Functions, 22 Categories, 108 Subcategories — the CSF 2.0 structure"
+topic: "6 Functions, 22 Categories, 106 Subcategories — the CSF 2.0 structure"
 load_when: "user asks about CSF structure, functions, categories, subcategories, or the GOVERN function"
 ---
 
 # Chunk 01 — Functions & Categories
 
-The NIST Cybersecurity Framework 2.0 (Feb 26, 2024) organizes cybersecurity outcomes into a 3-layer taxonomy: **6 Functions → 22 Categories → ~108 Subcategories**. The Functions are the executive-legible spine; the Categories are the practitioner-legible groupings; the Subcategories are the assessable outcomes. This chunk is the structural reference — load it whenever a question turns on "what is CSF 2.0" or on a specific Category / Subcategory ID.
+The NIST Cybersecurity Framework 2.0 (Feb 26, 2024) organizes cybersecurity outcomes into a 3-layer taxonomy: **6 Functions → 22 Categories → 106 Subcategories**. The Functions are the executive-legible spine; the Categories are the practitioner-legible groupings; the Subcategories are the assessable outcomes. This chunk is the structural reference — load it whenever a question turns on "what is CSF 2.0" or on a specific Category / Subcategory ID.
 
 ## 1. The 6 Functions (the spine)
 
@@ -80,9 +80,9 @@ Each Function decomposes into Categories. CSF 2.0 has **22 Categories** total (d
 | RC.RP | Incident Recovery Plan Execution | Restore systems, validate restoration |
 | RC.CO | Incident Recovery Communication | Public, customer, internal recovery messaging |
 
-## 3. The ~108 Subcategories (the assessables)
+## 3. The 106 Subcategories (the assessables)
 
-Each Category decomposes into Subcategories — the outcome-level statements that get scored during a Profile assessment. CSF 2.0 publishes **~108 Subcategories** (the precise count varies by how sub-letter items are tallied; the NIST PDF lists ~106 numbered + a handful of sub-letters). Subcategories use the `<Category>-<NN>` form.
+Each Category decomposes into Subcategories — the outcome-level statements that get scored during a Profile assessment. CSF 2.0 publishes exactly **106 Subcategories** (counted from the NIST CSF 2.0 PDF Appendix A, lines 738-906: 31 GV + 21 ID + 22 PR + 11 DE + 13 RS + 8 RC = 106). Gaps in subcategory numbers (e.g., DE.CM-04, DE.CM-05, ID.AM-06, RS.AN-01, RS.AN-02, RS.AN-04, RS.AN-05) are deliberate and indicate CSF 1.1 Subcategories that were relocated in 2.0 (see CSF 2.0 PDF p. 15). Subcategories use the `<Category>-<NN>` form.
 
 Representative sample (full canonical list lives in `data/crosswalks/csf-2-0-subcategories.json` and the official NIST CSF 2.0 PDF Appendix):
 
@@ -103,13 +103,13 @@ Representative sample (full canonical list lives in `data/crosswalks/csf-2-0-sub
 | RS.MA-01 | The incident response plan is executed in coordination with relevant third parties |
 | RC.RP-01 | The recovery portion of the incident response plan is executed once initiated |
 
-Subcategories-per-Category counts are uneven: `GV.OC` has 5 Subcategories, `ID.AM` has 8, `PR.AA` has 6, `DE.CM` has 9, `RS.MA` has 5, etc. The full counts are in the NIST CSF 2.0 PDF Appendix.
+Subcategories-per-Category counts are uneven: `GV.OC` has 5 Subcategories, `ID.AM` has 7, `PR.AA` has 6, `DE.CM` has 5, `RS.MA` has 5, etc. (Gaps in subcategory numbers — e.g., DE.CM-04 absent, ID.AM-06 absent — are deliberate and indicate CSF 1.1 subcategories that were relocated in 2.0; see CSF 2.0 PDF p. 15.)
 
 ## 4. GOVERN: the new Function (the executive layer)
 
 GOVERN is the single largest change from CSF 1.1 → 2.0 and the most-likely-misrepresented content in any CSF write-up. It deserves dedicated attention because it is the **executive-legible** entry point to the framework. Three things to know:
 
-**First**, GOVERN is positioned at the **top** of the Function model — it is not a sixth peer of the operational cycle, it is the **umbrella**. GOVERN outcomes set the context (mission, risk appetite, policy, oversight) that the other 5 Functions execute against. In practice this means: assess GOVERN **first** when building a Current Profile, because the GOVERN answers (Who owns this? What is our risk appetite? Where is the board involved?) determine what "good" looks like for the other 5.
+**First**, GOVERN is positioned at the **top** of the Function model — it is not a sixth peer of the operational cycle, it is the **umbrella**. GOVERN outcomes set the context (mission, risk appetite, policy, oversight) that the other 5 Functions execute against. In practice this means: assess GOVERN **first** when building a Current Profile, because the GOVERN answers (Who owns this? What is our risk appetite? Where is the board involved?) determine what "good" looks like for the other 5. The GOVERN-first sequencing rule is a **practitioner heuristic** supported by NIST's structural placement of GOVERN in the center of the Functions wheel (Figure 2 of the CSF 2.0 PDF), but NIST does not mandate it as a normative rule — the PDF also says the Functions should be addressed concurrently.
 
 **Second**, GOVERN absorbed two concerns that were under-represented in 1.1: (a) **supply chain risk** (now its own Category `GV.SC` — elevated from a single 1.1 ID.SC Category to a board-level GOVERN concern), and (b) **roles and responsibilities** (now `GV.RR` — explicit accountability for cybersecurity decisions). Both reflect the post-SolarWinds, post-Kaseya regulatory environment.
 
@@ -119,12 +119,12 @@ GOVERN is the single largest change from CSF 1.1 → 2.0 and the most-likely-mis
 
 **CSF Categories are not 800-53 control families.** CSF Categories are **outcome-grouped**; 800-53 control families are **control-mechanism-grouped**. The two taxonomies are complementary but **not 1:1** — a single CSF Category typically maps to controls across multiple 800-53 families:
 
-- **GV.OC** (Organizational Context) → 800-53 `PM-11`, `PM-15`, `RA-1` (Program Management + Risk Assessment families)
-- **GV.SC** (Supply Chain Risk Management) → 800-53 `SR-1` through `SR-12` (the entire SR family, plus `PM-30`)
-- **PR.AA** (Identity & Access Control) → 800-53 `AC`, `IA`, `PS` families (Access Control + Identification & Authentication + Personnel Security)
-- **DE.CM** (Continuous Monitoring) → 800-53 `SI-4`, `AU-2`, `AU-6`, `CA-7` (Information Integrity + Audit + Continuous Monitoring)
-- **RS.MA** (Incident Management) → 800-53 `IR-4`, `IR-5`, `IR-6` (Incident Response family)
-- **RC.RP** (Recovery Plan Execution) → 800-53 `CP-2`, `CP-10`, `IR-8` (Contingency Planning + Incident Response)
+- **GV.OC** (Organizational Context) → 800-53 Rev 5.1.1 `PM-11` (the IR spreadsheet's complete mapping; PM-15 is NOT in the official mapping)
+- **GV.SC** (Supply Chain Risk Management) → 800-53 Rev 5.1.1 `PM-30`, `SR-02`, `SR-03` (per the IR spreadsheet)
+- **PR.AA** (Identity & Access Control) → 800-53 Rev 5.1.1 `AC-01..AC-02`, `AC-14`, `IA-01..IA-11` (per the IR spreadsheet)
+- **DE.CM** (Continuous Monitoring) → 800-53 Rev 5.1.1 `AC-02`, `AU-12`, `CA-07`, `CM-03`, `SC-05`, `SC-07`, `SI-04` (per the IR spreadsheet)
+- **RS.MA** (Incident Management) → 800-53 Rev 5.1.1 `IR-06`, `IR-07`, `IR-08`, `SR-03`, `SR-08` (per the IR spreadsheet)
+- **RC.RP** (Recovery Plan Execution) → 800-53 Rev 5.1.1 `CP-10`, `IR-04`, `IR-08` (per the IR spreadsheet)
 
 The full curated mapping ships in `data/crosswalks/csf-to-800-53-mod.json` and the analysis lives in `chunks/08-informative-references-crosswalk.md`. Orientation: **CSF tells you the outcome you want; 800-53 tells you the controls that produce that outcome**. Use CSF for executive conversations and Profile maturity; use 800-53 for control specification and ATO evidence.
 
@@ -152,7 +152,7 @@ Practical migration note: a 1.1 Current Profile does not automatically become a 
 ## Anti-hallucination
 
 - **Authoritative source**: the Subcategory IDs, exact wording, and Category groupings cited here come from the NIST CSF 2.0 publication [NIST-CSF-2.0 §2.1-§2.3] (Feb 26, 2024). When in doubt, verify against the official PDF at https://www.nist.gov/cyberframework. The Subcategory IDs (`GV.OC-01`, `PR.AA-01`, etc.) are the **authoritative reference**; do not paraphrase them or invent new IDs.
-- **Subcategory count is ~108** in CSF 2.0; the precise count varies between 106 and 108 depending on whether sub-letter items are counted. The "~108" figure used across this skill is intentional; cite the official NIST PDF for an exact tally.
+- **Subcategory count is 106** in CSF 2.0 (counted from the NIST CSF 2.0 PDF Appendix A, lines 738-906: 31 GV + 21 ID + 22 PR + 11 DE + 13 RS + 8 RC = 106). The number 108 is the count for CSF 1.1, not 2.0. Gaps in numbering (e.g., DE.CM-04 absent, ID.AM-06 absent, RS.AN-01/-02 absent) are deliberate and indicate relocated 1.1 subcategories — see CSF 2.0 PDF p. 15.
 - **2.0 changed from 1.1**: the GOVERN Function (and its 6 Categories) did not exist in 1.1. Do not attribute `GV.*` Subcategories to 1.1. The PROTECT Category codes were renamed (1.1 used `PR.AC`, `PR.IP`, `PR.MA`; 2.0 uses `PR.AA`, `PR.PS`, `PR.IR`). When users cite a 1.1-era Subcategory ID, flag it and re-map to the 2.0 equivalent.
 - **CSF Categories are not 800-53 control families**. A statement like "GV.OC is a control family" is wrong. CSF Categories are outcome groupings; 800-53 families are mechanism groupings. The mapping is many-to-many. See `chunks/08-informative-references-crosswalk.md` for the curated mapping.
 - **The "Tier" word collides** with FIPS 199 / 800-53 RMF "Tier" (Low/Moderate/High impact). CSF Tiers (1-4) are organizational maturity; 800-53 Tiers are FIPS 199 impact. Different scales, same word. See `chunks/02-tiers-and-profiles.md`.
