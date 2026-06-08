@@ -32,95 +32,32 @@ tests:
 status: active
 ---
 
-# UC-03 — DoD supplier CSF 2.0 → 800-171 Rev 3 crosswalk for CMMC L2 readiness
+# UC-03 — Mid-market DoD supplier maps 14 lagging CSF 2.0 Subcategories to 800-171 Rev 3 for CMMC L2 readiness
 
 ## §1 Context and persona
 
-**Apex Defense Systems, Inc.** is a fictional 320-FTE Tier-2 automotive supplier headquartered in Ohio, with a single manufacturing facility producing precision-machined components for automotive customers (~70% of revenue) and pivoting to defense work (~30% of revenue, growing). The pivot to defense is driven by a 2024 strategic review that identified defense diversification as a 5-year revenue objective. The company is currently CMMC Level 1 (self-assessment + annual affirmation) and is bidding on a 2026 DoD subcontract that requires **CMMC Level 2** (C3PAO assessment, conditional status until 3 years of satisfactory performance, then full CMMC L2 status). The 14 lagging CSF 2.0 Subcategories identified from the Current Profile gap analysis map to NIST 800-171 Rev 3 controls (the CMMC L2 control set) and drive the 12-month readiness plan.
-
-The archetype is mid-market — Apex has a small IT team (8 FTE), no dedicated OT/ICS security lead, and a 3PAO engagement in flight for an independent CMMC L1 readiness assessment that surfaces these 14 gaps. The fictional archetype mirrors the manufacturing industry view in `industries/manufacturing.md` and the 12-month implementation playbook in `chunks/07-implementation-playbook.md` §3.
+Apex Defense Systems, Inc. is a fictional 320-FTE Tier-2 automotive supplier based in the Midwest, currently generating ~$85M annual revenue from commercial automotive contracts (stamping, welding, sub-assembly). The company holds CMMC Level 1 self-assessment certification and is bidding on a DoD subcontract under a prime contractor that requires CMMC Level 2 certification within 18 months of award. Apex has completed a CSF 2.0 Current Profile gap analysis across all 106 Subcategories and identified 14 Subcategories with statuses of Not Implemented or Partially Implemented that must reach Fully Implemented at Tier 2 or Tier 3 to support CMMC L2 readiness. These 14 lagging Subcategories represent the gap between Apex's current posture and the CMMC L2 800-171 Rev 3 control set. This use case produces the defensible CSF 2.0 → 800-171 Rev 3 crosswalk that bridges the governance-oriented CSF Profile to the control-oriented CMMC L2 System Security Plan (SSP), with an audit-defensible rationale for each mapping.
 
 ## §2 The 14 lagging Subcategories
 
-Per `chunks/04-target-profile-and-gap.md` §3. Each row identifies a Subcategory whose Current status is Not Implemented or Partially Implemented, and whose Target status is Fully Implemented at Tier 2 (Risk Informed) within 12 months.
+The table below represents the 14 Subcategories identified in Apex's Current Profile gap analysis as Not Implemented or Partially Implemented, with a Target Profile status of Fully Implemented at Tier 2 or Tier 3. These 14 were selected because they directly intersect the CMMC L2 800-171 Rev 3 control set and represent the highest-priority gaps for CMMC L2 readiness. Source: `chunks/04-target-profile-and-gap.md` §3 gap analysis workflow and `chunks/03-current-profile.md` §5 Current Profile YAML output.
 
-| # | Subcategory | Function | Current status | Target status (12-mo) |
-|---|-------------|----------|----------------|------------------------|
-| 1 | GV.OC-01 (organizational mission) | GOVERN | Partially Implemented | Fully Implemented |
-| 2 | GV.RM-01 (risk management strategy) | GOVERN | Not Implemented | Fully Implemented |
-| 3 | GV.SC-04 (supplier criticality) | GOVERN | Not Implemented | Fully Implemented |
-| 4 | ID.AM-01 (asset inventory) | IDENTIFY | Partially Implemented | Fully Implemented |
-| 5 | ID.RA-01 (vulnerabilities identified) | IDENTIFY | Not Implemented | Fully Implemented |
-| 6 | PR.AA-01 (identifiers managed) | PROTECT | Partially Implemented | Fully Implemented |
-| 7 | PR.AA-03 (users authenticated) | PROTECT | Partially Implemented | Fully Implemented |
-| 8 | PR.DS-01 (data-at-rest protected) | PROTECT | Fully Implemented | Fully Implemented (sustain) |
-| 9 | PR.PS-02 (software maintained) | PROTECT | Not Implemented | Fully Implemented |
-| 10 | DE.CM-01 (network monitored) | DETECT | Not Implemented | Fully Implemented |
-| 11 | DE.AE-02 (adverse events analyzed) | DETECT | Not Implemented | Fully Implemented |
-| 12 | RS.MA-01 (incident management plan) | RESPOND | Partially Implemented | Fully Implemented |
-| 13 | RS.CO-02 (incident reported) | RESPOND | Not Implemented | Fully Implemented |
-| 14 | RC.RP-01 (recovery plan exists) | RECOVER | Not Implemented | Partially Implemented |
-
-## §3 The CSF → 800-171 Rev 3 crosswalk
-
-Per `chunks/08-informative-references-crosswalk.md` §2-§3. The 14 Subcategories map to 800-171 Rev 3 controls. The `primary_800_171_control` is the single most-applicable 800-171 control; `secondary_800_171_controls` are the supporting controls.
-
-| # | Subcategory | CSF topic | Primary 800-171 control | Secondary 800-171 controls | Rationale | CMMC L2 practice domain |
-|---|-------------|-----------|--------------------------|------------------------------|-----------|--------------------------|
-| 1 | GV.OC-01 | Organizational mission | 3.1.1 (access control policy) | — | Apex has a written mission statement; needs to extend to CUI-handling scope | Access Control |
-| 2 | GV.RM-01 | Risk management strategy | 3.11.1 (risk assessment) | 3.11.2, 3.11.3 | Risk management strategy requires documented risk assessment + vulnerability catalog + threat model | Risk Assessment |
-| 3 | GV.SC-04 | Supplier criticality | 3.13.1 (boundary protection) + 3.13.2 (security engineering) | 3.13.3, 3.13.4, 3.13.5 | Supplier criticality for CUI-handling requires layered boundary + security engineering | System & Communications Protection |
-| 4 | ID.AM-01 | Asset inventory | 3.4.1 (configuration management baseline) + 3.4.2 (configuration management plan) | 3.4.3, 3.4.4, 3.4.5 | Asset inventory for CUI requires configuration baseline + plan + change control | Configuration Management |
-| 5 | ID.RA-01 | Vulnerabilities identified | 3.11.2 (vulnerability catalog) | 3.11.3, 3.12.1, 3.12.2 | Vulnerability identification requires documented catalog + scanning + remediation | Risk Assessment |
-| 6 | PR.AA-01 | Identifiers managed | 3.5.1 (identifier management) | 3.5.2, 3.5.3, 3.5.4, 3.5.5 | User identifier management for CUI access | Identification & Authentication |
-| 7 | PR.AA-03 | Users authenticated | 3.5.2 (authentication management) | 3.5.3, 3.5.4, 3.5.5, 3.5.6, 3.5.7, 3.5.8, 3.5.9, 3.5.10, 3.5.11 | MFA and authentication for CUI access | Identification & Authentication |
-| 8 | PR.DS-01 | Data-at-rest protected | 3.13.11 (cryptographic protection) | 3.13.10, 3.13.12, 3.13.13, 3.13.14, 3.13.15 | Cryptographic protection at rest | System & Communications Protection |
-| 9 | PR.PS-02 | Software maintained | 3.14.1 (flaw remediation) | 3.14.2, 3.14.3, 3.14.4, 3.14.5, 3.14.6, 3.14.7, 3.14.8 | Patch management and flaw remediation | Maintenance |
-| 10 | DE.CM-01 | Network monitored | 3.13.6 (network communication monitoring) + 3.13.7 (mobile code) | 3.13.8, 3.13.9 | Network monitoring for CUI flows | System & Communications Protection |
-| 11 | DE.AE-02 | Adverse events analyzed | 3.3.1 (audit events) + 3.3.2 (audit record content) | 3.3.3, 3.3.4, 3.3.5, 3.3.6, 3.3.7, 3.3.8, 3.3.9 | Audit events and record content for CUI systems | Audit & Accountability |
-| 12 | RS.MA-01 | Incident management plan | 3.6.1 (incident handling) | 3.6.2, 3.6.3, 3.6.4, 3.6.5, 3.6.6, 3.6.7, 3.6.8 | Incident response plan and operations for CUI | Incident Response |
-| 13 | RS.CO-02 | Incident reported | 3.6.2 (incident reporting) | 3.6.3, 3.6.4, 3.6.5, 3.6.6, 3.6.7, 3.6.8 | Incident reporting (internal + DoD/DFARS) | Incident Response |
-| 14 | RC.RP-01 | Recovery plan exists | 3.8.1 (system backup) + 3.8.2 (system recovery and reconstitution) | 3.8.3, 3.8.4, 3.8.5, 3.8.6, 3.8.7, 3.8.8, 3.8.9 | Backup + recovery for CUI systems | Contingency Planning |
-
-## §4 The CMMC L2 readiness scorecard
-
-Apex is targeting 4 CMMC L2 practice domains first (the highest-risk for the DoD subcontract). The scorecard shows the controls-required vs controls-currently-met delta per domain.
-
-| Practice domain | 800-171 controls | Currently met | Gap | 12-mo target met |
-|------------------|------------------|---------------|-----|------------------|
-| Access Control | 22 (3.1.1-3.1.22) | 14 | 8 | 22 |
-| Identification & Authentication | 11 (3.5.1-3.5.11) | 5 | 6 | 11 |
-| Configuration Management | 9 (3.4.1-3.4.9) | 6 | 3 | 9 |
-| Incident Response | 8 (3.6.1-3.6.8) | 2 | 6 | 8 |
-| **Subtotal (4 domains)** | **50** | **27** | **23** | **50** |
-
-The remaining 6 CMMC L2 practice domains (Audit & Accountability, Risk Assessment, System & Communications Protection, Maintenance, Media Protection, Contingency Planning, etc.) are not in the first-wave scope; Apex plans a Phase 2 expansion in Year 2 to cover all 14 domains.
-
-## §5 The 12-month CMMC L2 readiness roadmap
-
-| # | Deliverable | Owner | Target window | Investment | Notes |
-|---|-------------|-------|---------------|-----------|-------|
-| 1 | **Affirming Official designation** (senior exec, e.g., CEO or COO) | Board / CEO | Q2 2026 | $0 | Required by 32 CFR Part 170 for CMMC L2 |
-| 2 | **NIST 800-171 Rev 3 self-assessment** (all 110 controls, 320 assessment objectives) | CISO / 3PAO | Q2-Q3 2026 | $50K (3PAO engagement) | Required input for the C3PAO assessment |
-| 3 | **POA&M creation** (per 32 CFR Part 170, limited to POA&M-eligible controls) | CISO | Q3 2026 | $0 (CISO time) | Maximum 20% of controls can be on POA&M for conditional CMMC L2 |
-| 4 | **Third-party C3PAO pre-assessment** (readiness check before formal assessment) | 3PAO | Q3-Q4 2026 | $75K (3PAO engagement) | Identifies residual gaps before the formal assessment |
-| 5 | **Gap remediation** (the 23 controls currently unmet in §4's 4 practice domains) | CISO + IT team | Q3 2026 - Q1 2027 | $400K (tool spend + 0.5 FTE) | SIEM, MFA expansion, asset inventory tool, IRP formalization |
-| 6 | **Formal C3PAO assessment** (the CMMC L2 certification audit) | C3PAO | Q1-Q2 2027 | $200K (C3PAO fee) | Outcome: CMMC L2 Conditional (if POA&M ≤ 20% of controls) or full CMMC L2 |
-| | **Total Year 1** | | | **$725K** | |
-
-**Sizing note**: The $725K total reflects Apex's 320-FTE scale and mid-market positioning. Larger defense suppliers ($1B+ revenue) would see $2M-$5M CMMC L2 readiness budgets; smaller machine shops (<50 FTE) would see $200K-$400K. The cost drivers are: (a) 3PAO/C3PAO fees, (b) FTE allocation (typically 1.0-2.0 FTE in Year 1, declining to 0.5 FTE in Year 2 for sustainment), (c) tool spend (SIEM, TPRM, asset inventory, IRP automation).
-
-## §6 Anti-hallucination section
-
-- **Apex Defense Systems, Inc. is a fictional archetype.** Real engagements require real org data, real CMMC scoping (which CUI assets are in scope), and a real C3PAO engagement (Cyber-AB accredited). C3PAO selection and engagement terms are typically out-of-scope for CSF 2.0 work and require separate legal and procurement processes.
-- **CMMC L2 final rule was published Oct 15, 2024 (32 CFR Part 170).** Prior to that, the CMMC 2.0 interim model applied. Verify the current rule status and any 2026 updates before any client deliverable. [VERIFY: 32 CFR Part 170 — confirm the exact section numbering for the CMMC L2 assessment requirements (e.g., 32 CFR §170.18 for Level 2 assessment requirements) against the current eCFR.]
-- **NIST 800-171 Rev 3 was published April 2024** (replacing Rev 2 from Feb 2020). The control count is 110 (the same as Rev 2) but the assessment objectives and structure changed. The current Rev 3 has 14 control families and 320 assessment objectives. Verify the current Rev before mapping. [VERIFY: Rev 3 control count and family structure against the current NIST CSRC publication page.]
-- **The 14 lagging Subcategories chosen for this archetype are illustrative.** A real engagement would identify the actual lagging Subcategories via the Current Profile gap analysis. The 14 here are chosen to span all 6 Functions and to map to the 4 highest-risk CMMC L2 practice domains for a DoD supplier.
-- **The CSF 2.0 → 800-171 mapping in §3 must be verified against the NIST Informative References spreadsheet** at `https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all` — the source of truth is the IR spreadsheet, not this crosswalk. The §3 mapping is representative and uses the `chunks/08-informative-references-crosswalk.md` §2-§3 mappings which were built from the IR spreadsheet; real engagements should re-verify each cell before using in a C3PAO assessment.
-- **The 32 CFR Part 170 POA&M limit (20% of controls for CMMC L2 Conditional)** is a real requirement but the exact threshold has been the subject of DoD rule updates. Verify the current POA&M eligibility and threshold before any engagement. [VERIFY: 32 CFR §170.21 (POA&M requirements) — confirm the current maximum threshold for CMMC L2 Conditional.]
-- **The $725K total is a heuristic.** Real engagement sizing depends on the size of the CUI scope, the existing tooling investments, regional labor rates, and the C3PAO's published rates. The CMMC Accreditation Body (Cyber-AB) maintains a C3PAO marketplace with rate ranges; a 320-FTE supplier should expect $50K-$250K for the formal C3PAO assessment alone.
-- **CMMC L2 Conditional is a real intermediate status.** It is granted for 3 years of satisfactory performance after the initial assessment, during which the org can compete for DoD work that requires CMMC L2. The status transitions to full CMMC L2 after the 3-year conditional period if no significant deficiencies are observed.
-
+| subcategory_id | function | current_status | target_status |
+|----------------|----------|----------------|---------------|
+| `GV.OV-01` | GOVERN | Not Implemented | Fully Implemented (Tier 2) |
+| `GV.OV-02` | GOVERN | Not Implemented | Fully Implemented (Tier 2) |
+| `GV.RR-01` | GOVERN | Partially Implemented | Fully Implemented (Tier 2) |
+| `GV.RR-02` | GOVERN | Partially Implemented | Fully Implemented (Tier 2) |
+| `GV.SC-03` | GOVERN | Not Implemented | Fully Implemented (Tier 2) |
+| `ID.AM-01` | IDENTIFY | Partially Implemented | Fully Implemented (Tier 3) |
+| `ID.RA-01` | IDENTIFY | Partially Implemented | Fully Implemented (Tier 3) |
+| `PR.AA-01` | PROTECT | Partially Implemented | Fully Implemented (Tier 3) |
+| `PR.AA-03` | PROTECT | Partially Implemented | Fully Implemented (Tier 3) |
+| `PR.AT-02` | PROTECT | Not Implemented | Fully Implemented (Tier 2) |
+| `PR.IR-01` | PROTECT | Partially Implemented | Fully Implemented (Tier 3) |
+| `DE.CM-01` | DETECT | Partially Implemented | Fully Implemented (Tier 3) |
+| `RS.MA-01` | RESPOND | Partially Implemented | Fully Implemented (Tier 2) |
+| `RC.RP-01` | RECOVER | Partially Implemented | Fully Implemented (Tier 2) |
 
 ## §3 The CSF to 800-171 Rev 3 crosswalk
 
