@@ -10,24 +10,24 @@ Production-grade audit, compliance, and security skills for AI agents. Encode IS
 
 ---
 
-## What's in this release (v0.2.1)
+## What's in this release (v0.3.0)
 
-The library has been production-hardened since v0.2.0. v0.2.1 adds CI/CD, branch protection, a whitespace rule that caught 22 latent issues, plus a new substantive-analytical-procedures chunk from an external contributor.
+v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass across all skills (fabricated identifiers, dead URLs, wrong counts fixed), a pre-build Day 0 research phase, auto-loaded AGENTS.md instructions, and a fact-sheet template for future skill builds. The library now has a builder and is a skill factory, not just a static collection.
 
-| | v0.2.0 | **v0.2.1** |
+| | v0.2.1 | **v0.3.0** |
 |---|--------|------------|
-| Skills on the Spine | 5 (NIST, ISACA, COSO, AICPA SOC, workpapers) | **5 (same)** |
-| Chunks per skill | 7–8 | **7–9 (audit-workpapers: +1 analytical procedures)** |
-| Industry views | 3–4 per skill | **3–4 per skill** |
-| Use cases (worked examples) | 3–4 per skill | **3–4 per skill** |
-| Total tests passing | 156 | **190** |
-| CI/CD | — | **`.github/workflows/ci.yml` + `nightly.yml`** |
-| Branch protection on `main` | — | **3 required status checks + 1 review + linear history** |
-| PR template + CONTRIBUTING | — | **`.github/pull_request_template.md` + `CONTRIBUTING.md`** |
-| Whitespace linter rule | — | **`tools/lint_skill.py` (catches trailing whitespace + missing newlines)** |
-| External contributors merged | — | **2 chunks from sambar-patrai (Risk ID, analytical procedures)** |
+| Skills on the Spine | 5 | **6 (NIST CSF 2.0 added)** |
+| Chunks per skill | 7–9 | **7–9** |
+| Industry views | 3–4 per skill | **3–4 per skill (NIST CSF 2.0: 4 new)** |
+| Use cases (worked examples) | 3–4 per skill | **3–4 per skill (NIST CSF 2.0: 3 new)** |
+| Total tests passing | 190 | **266** |
+| CI/CD checks | 3 | **3 (unchanged)** |
+| §5.11 factual verification | — | **3 rounds across all 6 skills (50+ findings fixed)** |
+| Day 0 pre-build research | — | **`docs/fact-sheet-template.md` (research before build)** |
+| Agent runtime instructions | — | **`AGENTS.md` (auto-loaded via `opencode.json`)** |
+| Builder documentation | — | **`docs/skill-design-template.md` (15-section, Day 0–9 build sequence)** |
 
-**v0.2.0 highlights (still accurate):** 5 skills on the Tier 0 Spine, 7–8 chunks per skill, 14-framework crosswalks, `chunks/08-questionnaire-reuse.md` (CAIQ/SIG Lite/VSAQ), `aicpa-soc-reporting/assets/board_deck_template.md`, 9 test files per skill, shared `test_consistency_lib.py` for cross-document drift.
+**v0.2.1 highlights (still accurate):** CI/CD with 3 status checks, branch protection, PR template + CONTRIBUTING, whitespace linter rule, shared `test_consistency_lib.py` for cross-document drift, 14-framework crosswalks, questionnaire reuse (CAIQ/SIG Lite/VSAQ), board deck template.
 
 ---
 
@@ -35,13 +35,14 @@ The library has been production-hardened since v0.2.0. v0.2.1 adds CI/CD, branch
 
 | Skill | Status | Tests | Framework | Top use cases |
 |-------|--------|-------|-----------|---------------|
-| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.2.1 on Spine | 29 | NIST 800-53 Rev 5/5.1.1, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
-| **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.2.1 on Spine | 43 | ISACA CISA CRM 28th Ed, COBIT 2019, ITAF, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
-| **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.2.1 on Spine | 37 | COSO 2013 ICIF, COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM (with Risk ID) |
-| **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.2.1 on Spine | 32 | AICPA SOC 1/2/3, TSP §100, SSAE 18/21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
-| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.2.1 on Spine | 49 | PCAOB AS 1215, AU-C 230, AICPA SAS, AS 2305/AU-C 520/SA 520 | Workpaper documentation, evidence hierarchy, sampling, 5-part findings, substantive analytical procedures |
+| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.3.0 on Spine | 29 | NIST SP 800-53 Rev 5, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
+| **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.3.0 on Spine | 43 | ISACA CISA CRM, COBIT 2019 (11 design factors), ITAF 5th Ed, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
+| **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.3.0 on Spine | 37 | COSO 2013 ICIF (17 principles, 71 PoF), COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM (with Risk ID) |
+| **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.3.0 on Spine | 32 | AICPA SOC 1/2/3, TSP §100 (35 common criteria, 53 total), SSAE 21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
+| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 49 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
+| **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 76 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 
-**190 tests across the 5 skills, 0 failures. All pass the Tier 0a linter.**
+**266 tests across 6 skills, 0 failures. All pass the Tier 0a linter.**
 
 ---
 
@@ -237,11 +238,13 @@ Audit-skills/
 ├── skills/                      # the skill library
 │   ├── SKILL.md                 # category pointer (lists all skills)
 │   ├── TEMPLATE/                # Tier 0 Spine scaffold — every new skill starts here
-│   ├── nist-800-53-rmf/         # v0.2.1 on Spine (29 tests)
-│   ├── isaca-audit-methodology/ # v0.2.1 on Spine (43 tests)
-│   ├── coso-internal-controls/  # v0.2.1 on Spine (37 tests)
-│   ├── aicpa-soc-reporting/     # v0.2.1 on Spine (32 tests)
-│   └── audit-workpapers/        # v0.2.1 on Spine (49 tests)
+│   ├── nist-800-53-rmf/         # v0.3.0 on Spine (29 tests)
+│   ├── isaca-audit-methodology/ # v0.3.0 on Spine (43 tests)
+│   ├── coso-internal-controls/  # v0.3.0 on Spine (37 tests)
+│   ├── aicpa-soc-reporting/     # v0.3.0 on Spine (32 tests)
+│   ├── audit-workpapers/        # v0.3.0 on Spine (49 tests)
+│   ├── nist-csf-2/              # v0.3.0 on Spine (76 tests)
+│   └── TEMPLATE/                # Tier 0 Spine scaffold — every new skill starts here
 │
 ├── tests/
 │   ├── test_consistency_lib.py  # cross-skill consistency library (6 functions)
@@ -272,12 +275,11 @@ Each skill was reviewed across multiple cycles before v0.2.0:
 
 ### Known limitations
 
-- **800-53 control counts** (~325 Moderate, ~421 High) are derived; actual count varies with enhancement counting. Verify against the current NIST publication.
-- **800-53 5.0 vs 5.1.1** — confirm with the requesting program which baseline applies. Both are listed in the frontmatter.
+- **800-53 control counts** (~156 Low / ~325 Moderate / ~421 High) are approximate; actual count varies with enhancement counting. Verify against the current NIST publication.
 - **FedRAMP overlays** — FedRAMP High baseline ≠ NIST 800-53 High baseline. Consult the current FedRAMP Baselines document on fedramp.gov.
-- **ITAF numbering, COSO Points of Focus, TSP criteria counts** in some skills are pedagogical reconstructions. Always verify against current publications.
+- **ITAF numbering, COSO Points of Focus, TSP criteria counts** — some skills use pedagogical reconstructions. Always verify against current publications.
 - **Auditor vs auditee perspective** — most UCs are auditor-perspective. Auditee playbooks (questionnaire reuse, evidence prep) are growing but not complete.
-- **LLM-backed executor** is currently `tests/skill_stub.py` (deterministic reference). The production LLM-backed `run.py` ships in a later phase; until then, use Path 1 for real LLM calls.
+- **LLM-backed executor** is currently `tests/<skill>_stub.py` (deterministic reference). The production LLM-backed `run.py` ships in a later phase; until then, use Path 1 for real LLM calls.
 
 ---
 
@@ -291,17 +293,18 @@ cd Audit-skills
 # 2. Install
 pip install pytest jsonschema pyyaml
 
-# 3. Verify all 5 skills are healthy
+# 3. Verify all 6 skills are healthy
 python tools/lint_skill.py skills/nist-800-53-rmf
 python tools/lint_skill.py skills/isaca-audit-methodology
 python tools/lint_skill.py skills/coso-internal-controls
 python tools/lint_skill.py skills/aicpa-soc-reporting
 python tools/lint_skill.py skills/audit-workpapers
+python tools/lint_skill.py skills/nist-csf-2
 # → [PASS] for each
 
 # 4. Run the test suite
-pytest skills/*/tests/ tests/test_consistency_lib.py -v
-# → 190 tests passed across all 5 skills
+pytest skills/ tests/ -q
+# → 266 passed across all 6 skills
 
 # 5. Use a skill (Path 1 — system prompt)
 python -c "
