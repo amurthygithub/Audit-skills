@@ -74,5 +74,5 @@ Step 4: Impact on practitioner's report:
 Always ask whether subservice organizations exist before drafting the system description. List common types (cloud IaaS, payment processors, CDNs, email services, managed security services) and ask if any are used.
 
 ## Citations
-- [AT-C-205] [AT-C-320]
+- [AT-C-200] [AT-C-300]
 See SKILL.md Section 10.

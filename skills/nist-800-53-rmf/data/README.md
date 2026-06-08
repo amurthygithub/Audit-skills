@@ -28,7 +28,7 @@ data/
     iso27001-2022-to-800-53.json
     hipaa-to-800-53.json
     pci-to-800-53.json
-  controls/                 # raw control catalog (Rev 5, Rev 5.1.1) — small curated subset
+  controls/                 # raw control catalog (Rev 5) — small curated subset
     nist_800_53_mod_reduced.json
     nist_800_53_mod_325_count.json
 ```

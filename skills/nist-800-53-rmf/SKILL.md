@@ -1,14 +1,14 @@
 ---
 name: nist-800-53-rmf
-description: "Perform NIST SP 800-53 Rev 5 / Rev 5.1.1 control selection, implementation, assessment, and continuous monitoring using the NIST Risk Management Framework (SP 800-37 Rev 2 RMF). Covers FIPS 199 categorization, baseline selection (Low/Moderate/High), 800-53A assessment procedures, control inheritance (FedRAMP/shared services/cloud), SAR/POA&M and ATO determination. Activate when performing RMF Step 2 (categorize), Step 3 (select), Step 4 (implement), Step 5 (assess), Step 6 (authorize), or Step 7 (monitor); when mapping SOC 2 / ISO 27001 / PCI / HIPAA to 800-53; when planning or executing a FedRAMP authorization; or when responding to a federal/DoD assessment."
+description: "Perform NIST SP 800-53 Rev 5 control selection, implementation, assessment, and continuous monitoring using the NIST Risk Management Framework (SP 800-37 Rev 2 RMF). Covers FIPS 199 categorization, baseline selection (Low/Moderate/High), 800-53A assessment procedures, control inheritance (FedRAMP/shared services/cloud), SAR/POA&M and ATO determination. Activate when performing RMF Step 2 (categorize), Step 3 (select), Step 4 (implement), Step 5 (assess), Step 6 (authorize), or Step 7 (monitor); when mapping SOC 2 / ISO 27001 / PCI / HIPAA to 800-53; when planning or executing a FedRAMP authorization; or when responding to a federal/DoD assessment."
 category: audit
 risk: high
-source: "NIST SP 800-53 Rev 5 + Rev 5.1.1 (2024 security & privacy control catalog), SP 800-37 Rev 2 (RMF), SP 800-53A Rev 5 (assessment procedures), FIPS 199 (categorization), FIPS 200 (minimum security requirements), SP 800-30 Rev 1 (risk assessment), SP 800-137 (ISCM), SP 800-61 Rev 2 (IR), OMB A-130, FedRAMP OMB Memo M-22-15"
+source: "NIST SP 800-53 Rev 5 (2024 security & privacy control catalog), SP 800-37 Rev 2 (RMF), SP 800-53A Rev 5 (assessment procedures), FIPS 199 (categorization), FIPS 200 (minimum security requirements), SP 800-30 Rev 1 (risk assessment), SP 800-137 (ISCM), SP 800-61 Rev 2 (IR), OMB A-130, FedRAMP OMB Memo M-22-15"
 date_added: 2026-05-25
 version: 0.2.0
 status: draft
 industries: [public-sector, saas-technology, financial-services, healthcare, other]
-frameworks: [NIST-SP-800-53-Rev5, NIST-SP-800-53-Rev5.1.1, NIST-SP-800-37-Rev2, NIST-SP-800-53A-Rev5, FIPS-199, FIPS-200, NIST-SP-800-30-Rev1, FedRAMP-Rev5, OMB-A-130, SOC-2-TSC-2017, ISO-27001-2022, PCI-DSS-v4.0, HIPAA-Security-Rule]
+frameworks: [NIST-SP-800-53-Rev5, NIST-SP-800-37-Rev2, NIST-SP-800-53A-Rev5, FIPS-199, FIPS-200, NIST-SP-800-30-Rev1, FedRAMP-Rev5, OMB-A-130, SOC-2-TSC-2017, ISO-27001-2022, PCI-DSS-v4.0, HIPAA-Security-Rule]
 telemetry_contract: "telemetry/schema.json#/$defs/SkillInvocation"
 token_baseline_target:
   input_p90: 14000
@@ -31,7 +31,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ### Use This Skill When:
 - Performing FIPS 199 security categorization of an information system.
-- Selecting or tailoring a NIST SP 800-53 Rev 5 (or 5.1.1) control baseline (Low/Moderate/High).
+- Selecting or tailoring a NIST SP 800-53 Rev 5 control baseline (Low/Moderate/High).
 - Walking the NIST RMF (SP 800-37 Rev 2) — Prepare → Categorize → Select → Implement → Assess → Authorize → Monitor.
 - Drafting or reviewing a System Security Plan (SSP), Security Assessment Report (SAR), Plan of Action & Milestones (POA&M), or Authorization Decision Letter.
 - Performing (or supporting) a FedRAMP authorization (Low/Moderate/High) or agency ATO.
@@ -58,7 +58,7 @@ The NIST 800-53 / RMF stack is the U.S. federal government's primary cybersecuri
 | Categorize | [FIPS-199] | Categorize CIA |
 | Categorize (min reqs) | [FIPS-200] | Minimum security requirements per FIPS 199 |
 | Risk assessment | [NIST-SP-800-30-Rev1] | Threat, vulnerability, likelihood, impact |
-| Control catalog | [NIST-SP-800-53-Rev5] and [NIST-SP-800-53-Rev5.1.1] | 20 control families, ~1,000 controls |
+| Control catalog | [NIST-SP-800-53-Rev5] | 20 control families, ~1,000 controls |
 | Select | NIST SP 800-37 Rev 2 RMF Step 3 | Choose baseline, tailor, document |
 | Implement | NIST SP 800-37 Rev 2 RMF Step 4 | Apply controls; document in SSP |
 | Assess | [NIST-SP-800-53A-Rev5] | Assessment procedures; SAR |
@@ -66,7 +66,7 @@ The NIST 800-53 / RMF stack is the U.S. federal government's primary cybersecuri
 | Monitor | NIST SP 800-37 Rev 2 RMF Step 7; [NIST-SP-800-137] | ISCM strategy, ongoing assessment, change control |
 | Process | [NIST-SP-800-37-Rev2] | The seven-step RMF |
 
-**FedRAMP overlay:** [FedRAMP-Rev5] defines a process and authorization boundary above RMF. FedRAMP Rev 5 (with 5.1.1 baseline updates) is the de-facto requirement for any cloud service offering used by U.S. federal agencies. **5.1.1 specific items:** Adds privacy controls (often the "P" family) and refines several control baselines.
+**FedRAMP overlay:** [FedRAMP-Rev5] defines a process and authorization boundary above RMF. FedRAMP Rev 5 is the de-facto requirement for any cloud service offering used by U.S. federal agencies. The PT (privacy) and SR (supply chain) families were added in Rev 5.
 
 ### 2.1 Related frameworks (crosswalk context)
 
@@ -101,7 +101,7 @@ Prepare ──► Categorize ──► Select ──► Implement ──► Asse
 - **Authorize (Step 6)** — AO reviews SAR + POA&M; issues ATO, ATO w/ conditions, or Denial.
 - **Monitor (Step 7)** — ISCM; annual control assessment; change control; incident-driven re-assessment.
 
-### 3.2 Control families (20 + privacy in 5.1.1)
+### 3.2 Control families (20 (incl. PT and SR))
 
 AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, **PT (Rev 5)**, RA, SA, SC, SI, **SR (Rev 5)**. See `chunks/03-baseline.md` for the full table and baseline counts.
 
@@ -169,7 +169,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 
 - **Control counts** (~325 Moderate, ~421 High) are derived; verify against current NIST publication.
 - **800-53A objectives** enumeration varies by control; not the same as enhancement enumeration.
-- **Rev 5 vs 5.1.1** — confirm which baseline applies. Both listed in frontmatter.
+- **Rev 5** — confirm the correct baseline revision applies.
 - **FedRAMP High ≠ NIST 800-53 High** — FedRAMP adds controls. Consult fedramp.gov.
 - **Categorization** is professional judgment; this skill encodes the framework.
 - **AO authority** is statutory; the skill does not designate AOs.
@@ -181,16 +181,15 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | Label | Title | Publisher | Identifier | Retrieval | URL |
 |-------|-------|-----------|------------|-----------|-----|
 | NIST-SP-800-53-Rev5 | Security and Privacy Controls for Information Systems and Organizations | NIST | Rev 5 (Sept 2020) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
-| NIST-SP-800-53-Rev5.1.1 | Security and Privacy Controls (Rev 5.1.1) | NIST | Rev 5.1.1 (2024) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
 | NIST-SP-800-37-Rev2 | Risk Management Framework for Information Systems and Organizations | NIST | Rev 2 (Dec 2018) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/37/r2/final |
 | NIST-SP-800-53A-Rev5 | Assessing Security and Privacy Controls | NIST | Rev 5 (Jan 2022) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/a/r5/final |
 | FIPS-199 | Standards for Security Categorization | NIST | FIPS 199 (Feb 2004) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf |
 | FIPS-200 | Minimum Security Requirements for Federal Information and Information Systems | NIST | FIPS 200 (Mar 2006) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.200.pdf |
 | NIST-SP-800-30-Rev1 | Guide for Conducting Risk Assessments | NIST | Rev 1 (Sept 2012) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/30/r1/final |
-| NIST-SP-800-60 | Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II) | NIST | Rev 1 (Aug 2008) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/60/r1/final |
+| NIST-SP-800-60 | Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II) | NIST | Rev 1 (Aug 2008) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final |
 | NIST-SP-800-137 | Information Security Continuous Monitoring | NIST | Sept 2011 | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/137/final |
-| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 (and 5.1.1 overlays) | 2026-05-25 | https://www.fedramp.gov/resources/ |
-| OMB-M-22-15 | Delivering a Digital-First Public Experience | OMB | M-22-15 (2022) | 2026-05-25 | https://www.whitehouse.gov/wp-content/uploads/2022/09/M-22-15.pdf |
+| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-05-25 | https://www.fedramp.gov/resources/ |
+| OMB-M-22-15 | Delivering a Digital-First Public Experience | OMB | M-22-15 (2022) | 2026-05-25 | https://www.whitehouse.gov/omb/information-for-agencies/memoranda/ |
 | OMB-A-130 | Managing Information as a Strategic Resource | OMB | July 28, 2016 | 2026-05-25 | https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf |
 | SOC-2-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP §100, 2022 revised points of focus) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
 | ISO-27001-2022 | Information security management systems — Requirements | ISO/IEC | 2022 | 2026-05-25 | https://www.iso.org/standard/27001 |

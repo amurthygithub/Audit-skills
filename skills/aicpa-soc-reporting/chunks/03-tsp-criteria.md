@@ -57,6 +57,8 @@ Important: CC1 mapping to COSO is non-sequential. CC1.2->P5 (accountability), CC
 | CC6.4 | Reviews access to protected information |
 | CC6.5 | Implements physical access controls |
 | CC6.6 | Implements logical access security measures against threats |
+| CC6.7 | Implements encryption and data masking controls |
+| CC6.8 | Implements anti-malware and endpoint protection |
 
 ### CC7 System Operations (Supplemental to P12)
 | Code | Description |
@@ -117,14 +119,14 @@ Important: CC1 mapping to COSO is non-sequential. CC1.2->P5 (accountability), CC
 ## Criteria Count Summary
 | Category | Count | Required? |
 |----------|-------|-----------|
-| Common Criteria (CC1.1-CC9.2) | 33 | Always |
+| Common Criteria (CC1.1-CC9.2) | 35 | Always |
 | Availability (A1.1-A1.3) | 3 | Optional |
 | Processing Integrity (PI1.1-PI1.5) | 5 | Optional |
 | Confidentiality (C1.1-C1.2) | 2 | Optional |
 | Privacy (P1.1-P8.1) | 8 | Optional |
-| Grand Total | 51 | |
+| Grand Total | 53 | |
 
-Note: AICPA commonly references ~64 criteria with sub-criteria and 2022 revised points of focus. Exact sub-criteria count varies by publication (61-67). Verify against current TSP Section 100.
+Note: AICPA commonly references ~66 criteria with sub-criteria and 2022 revised points of focus. Exact sub-criteria count varies by publication (63-69). Verify against current TSP Section 100.
 
 ## Cross-Framework Map
 ### TSC -> NIST 800-53 Rev 5

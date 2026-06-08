@@ -52,7 +52,7 @@ Sincerely,
 Key rules:
 - Type I: 2 paragraphs (fair presentation + design suitability).
 - Type II: 3 paragraphs (fair presentation + design suitability + operating effectiveness).
-- If management refuses to provide the assertion, the practitioner MUST withdraw per AT-C 205.
+- If management refuses to provide the assertion, the practitioner MUST withdraw per AT-C 200.
 - Always ensure the assertion is signed and dated.
 
 ## Bridge Letter Template
@@ -97,5 +97,5 @@ Key rules:
 - Always include the disclaimer that it is not a SOC report.
 
 ## Citations
-- [AT-C-205]
+- [AT-C-200]
 See SKILL.md Section 10.

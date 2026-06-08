@@ -36,7 +36,7 @@ The skill ships a default crosswalk in `data/crosswalks/800-53-default.json`. Ea
 | HIPAA Security Rule | 45 CFR 164.308–164.312 ↔ 800-53 AC, IA, AU, CM, SC, SI; NIST 800-66 Rev 2 maps |
 | NIST CSF 2.0 | Govern/Identify/Protect/Detect/Respond/Recover ↔ 800-53 families; CSF is outcome-oriented, 800-53 is control-oriented |
 | ISO 27701 | Privacy extension ↔ 800-53 PT family (Rev 5) |
-| FedRAMP Rev 5 (and 5.1.1) | FedRAMP defines the cloud authorization overlay; uses 800-53 Rev 5 baselines |
+| FedRAMP Rev 5 | FedRAMP defines the cloud authorization overlay; uses 800-53 Rev 5 baselines |
 | SOC for Cybersecurity | AICPA's cybersecurity examination framework; uses 2017 TSC as criteria |
 | CMMC 2.0 | DoD's contractor cybersecurity model; maps to 800-171 (which references 800-53) |
 | CJIS Security Policy v5.9+ | Criminal Justice Information Services (CJIS) Security Policy maps partially to 800-53 AC, AU, IA, IR, PE, SC families (especially for law enforcement systems). Consult CJIS Security Policy for criminal justice information systems. [CJIS-v5.9] |

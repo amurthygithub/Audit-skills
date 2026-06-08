@@ -1,9 +1,9 @@
 ---
 name: aicpa-soc-reporting
-description: "Perform AICPA System and Organization Controls (SOC) reporting work including SOC 1, SOC 2, SOC 3, SOC for Cybersecurity, and SOC for Supply Chain engagements. Activates when the user asks about SOC report types, trust services criteria (TSC), TSP Section 100, management assertions, service auditor opinions, CUECs, CSOCs, bridge letters, readiness assessments, Type I vs Type II reports, AT-C 105/205/210/215/320 standards, or SSAE 18."
+description: "Perform AICPA System and Organization Controls (SOC) reporting work including SOC 1, SOC 2, SOC 3, SOC for Cybersecurity, and SOC for Supply Chain engagements. Activates when the user asks about SOC report types, trust services criteria (TSC), TSP Section 100, management assertions, service auditor opinions, CUECs, CSOCs, bridge letters, readiness assessments, Type I vs Type II reports, AT-C 100/200/300 standards, or SSAE 21."
 category: audit
 risk: high
-source: "AICPA Professional Standards (AT-C 105/205/210/215/320, TSP Section 100, SSAE No. 18, 2022 Revised Implementation Guidance), COSO 2013 Internal Control - Integrated Framework"
+source: "AICPA Professional Standards (AT-C 100/200/300, TSP Section 100, SSAE No. 21, 2022 Revised Implementation Guidance), COSO 2013 Internal Control - Integrated Framework"
 date_added: 2026-05-25
 version: 0.2.0
 status: draft
@@ -18,7 +18,7 @@ context_budget:
   per_call_typical_tokens: 5500
   per_call_max_tokens: 14000
   per_call_p90_tokens: 7500
-tags: [aicpa, soc1, soc2, soc3, soc-for-cybersecurity, soc-for-supply-chain, attestation, trust-services-criteria, tsp-section-100, ssae-18, at-c-205, at-c-320, coso, icfr, management-assertion, cuec, csoc, bridge-letter, service-auditor, type-i, type-ii, tsc, sampling, board-deck, questionnaire-reuse, caic, sig-lite, vsaq]
+tags: [aicpa, soc1, soc2, soc3, soc-for-cybersecurity, soc-for-supply-chain, attestation, trust-services-criteria, tsp-section-100, ssae-21, at-c-205, at-c-320, coso, icfr, management-assertion, cuec, csoc, bridge-letter, service-auditor, type-i, type-ii, tsc, sampling, board-deck, questionnaire-reuse, caic, sig-lite, vsaq]
 ---
 
 You are an expert agent performing AICPA SOC reporting work. Follow every instruction below precisely. Use AICPA terminology exclusively.
@@ -34,7 +34,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 - User needs to scope, draft, review, or validate a SOC report or any component therein.
 - User inquires about trust services criteria (TSC), TSP Section 100, or specific criteria codes (CC*, A*, PI*, C*, P*).
 - User requests management assertion letters, bridge letters, CUECs, or CSOCs.
-- User asks about AT-C 105/205/210/215/320, SSAE 18, or AICPA attestation standards.
+- User asks about AT-C 100/200/300, SSAE 21, or AICPA attestation standards.
 - User needs to determine which SOC type applies to a given scenario.
 - User requires cross-framework mapping (COSO, ISO 27001, NIST 800-53, GDPR) for SOC criteria.
 - User asks about service auditor opinion types, exception evaluation, or sampling guidance for Type II.
@@ -56,13 +56,13 @@ The AICPA SOC suite provides independent examination of a service organization's
 
 | Report | Standard Basis | Subject Matter | Audience | Distribution |
 |--------|---------------|----------------|----------|--------------|
-| SOC 1 | AT-C 320 (SSAE 18) | Controls relevant to user entities' ICFR | User entities, user auditors | Restricted |
-| SOC 2 | AT-C 205 + TSP Section 100 | Controls relevant to Security, Availability, Processing Integrity, Confidentiality, Privacy | Knowledgeable users | Restricted |
-| SOC 3 | AT-C 205 + TSP Section 100 | Same TSC categories as SOC 2 but summarized | General public | Unrestricted |
-| SOC for Cybersecurity | AT-C 205 + Cybersecurity Description Criteria | Entity's cybersecurity risk management program | General use | Unrestricted |
-| SOC for Supply Chain | AT-C 205 + TSP Section 100 (adapted) | Controls in production/manufacturing/distribution systems | User entities, supply chain participants | Restricted |
+| SOC 1 | AT-C 300 (SSAE 21) | Controls relevant to user entities' ICFR | User entities, user auditors | Restricted |
+| SOC 2 | AT-C 200 + TSP Section 100 | Controls relevant to Security, Availability, Processing Integrity, Confidentiality, Privacy | Knowledgeable users | Restricted |
+| SOC 3 | AT-C 200 + TSP Section 100 | Same TSC categories as SOC 2 but summarized | General public | Unrestricted |
+| SOC for Cybersecurity | AT-C 200 + Cybersecurity Description Criteria | Entity's cybersecurity risk management program | General use | Unrestricted |
+| SOC for Supply Chain | AT-C 200 + TSP Section 100 (adapted) | Controls in production/manufacturing/distribution systems | User entities, supply chain participants | Restricted |
 
-**Governing standards:** [AT-C-210], [AT-C-215], AT-C 105, AT-C 205, AT-C 320. SSAE 18 remains governing; SSAE 21 supersedes SSAE 18, and SSAE Nos. 19-21 have been issued as conforming amendments. Always cite the governing standard when drafting report language.
+**Governing standards:** [AT-C-200], [AT-C-300], AT-C 100, AT-C 200, AT-C 300. SSAE 21 remains governing; SSAE 21 supersedes SSAE 21, and SSAE Nos. 19-21 have been issued as conforming amendments. Always cite the governing standard when drafting report language.
 
 ### 2.1 Related professional standards (cross-jurisdictional context)
 
@@ -73,7 +73,7 @@ The AICPA SOC suite provides independent examination of a service organization's
 
 ### 3.1 SOC Report Types
 - **SOC 1** -- ICFR controls. Control objectives are management-defined (not standardized). See `chunks/04-report-structures.md`.
-- **SOC 2** -- TSC-based. Security (CC) always required; A, PI, C, P optional. 51 primary criteria; ~64 with sub-criteria.
+- **SOC 2** -- TSC-based. Security (CC) always required; A, PI, C, P optional. 53 primary criteria; ~66 with sub-criteria.
 - **SOC 3** -- Same TSC as SOC 2, but abridged. No CUECs/CSOCs. General-use. No detailed tests of controls.
 - **SOC for Cybersecurity** -- Entity-level cybersecurity program. Uses TSC (Security + Availability + Confidentiality). General-use.
 - **SOC for Supply Chain** -- Production/manufacturing/distribution systems. Adapted TSP Section 100.
@@ -95,13 +95,13 @@ The AICPA SOC suite provides independent examination of a service organization's
 
 | Category | Code Range | Count | Required? |
 |----------|-----------|-------|-----------|
-| Common Criteria | CC1.1-CC9.2 | 33 | Always |
+| Common Criteria | CC1.1-CC9.2 | 35 | Always |
 | Availability | A1.1-A1.3 | 3 | Optional |
 | Processing Integrity | PI1.1-PI1.5 | 5 | Optional |
 | Confidentiality | C1.1-C1.2 | 2 | Optional |
 | Privacy | P1.1-P8.1 | 8 | Optional |
 
-The AICPA commonly references approximately 64 criteria when including refined sub-criteria and 2022 revised implementation guidance expansions with additional points of focus. The exact sub-criteria count varies by publication (61-67 depending on how CC6-CC9 sub-criteria are counted). Verify against the current TSP Section 100 publication.
+The AICPA commonly references approximately 66 criteria when including refined sub-criteria and 2022 revised implementation guidance expansions with additional points of focus. The exact sub-criteria count varies by publication (63-69 depending on how CC6-CC9 sub-criteria are counted). Verify against the current TSP Section 100 publication.
 
 ### 3.4 COSO Integration
 The 2017 TSC was explicitly modeled on COSO 2013. CC1-CC5 correspond to COSO's 17 principles. The CC1 mapping is non-sequential: CC1.1->P1, CC1.2->P5, CC1.3->P3, CC1.4->P4, CC1.5->P2. CC6-CC9 supplement COSO Principle 12 with IT-specific controls.
@@ -162,12 +162,12 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 
 ## 9. Anti-Hallucination Disclaimers
 
-- **TSC criteria count** -- AICPA commonly references ~64 criteria when including refined sub-criteria. Exact count varies by publication (61-67 depending on how CC6-CC9 sub-criteria are counted). Verify against current TSP Section 100.
+- **TSC criteria count** -- AICPA commonly references ~66 criteria when including refined sub-criteria. Exact count varies by publication (63-69 depending on how CC6-CC9 sub-criteria are counted). Verify against current TSP Section 100.
 - **SOC for Cybersecurity and SOC for Supply Chain** are emerging products with guidance still evolving. Consult AICPA directly for current status.
 - **SOC 1 control objectives** are management-defined, not standardized. Do not invent specific control objectives.
 - **Opinion determination** is professional judgment. The decision tree encodes the framework; the practitioner makes the call.
-- **SAS 70 and SSAE 16** are superseded -- never reference in current engagements. Current standard is SSAE 18.
-- **SSAE 21** supersedes SSAE 18. SSAE Nos. 19-21 are conforming amendments to specific AT-C sections. Verify current text.
+- **SAS 70 and SSAE 16** are superseded -- never reference in current engagements. Current standard is SSAE 21.
+- **SSAE 21** superseded SSAE 18 effective December 2020 and is the current governing standard for attestation engagements. AT-C sections have been recodified as 100/200/300.
 - **Sampling sizes** are minimums. Adjust upward for higher-risk controls or when deviations are found.
 - This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source.
 
@@ -175,21 +175,19 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 
 | Label | Title | Publisher | Identifier | Retrieval | URL |
 |-------|-------|-----------|------------|-----------|-----|
-| AT-C-105 | Concepts Common to All Attestation Engagements | AICPA | AT-C 105 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| AT-C-205 | Examination Engagements | AICPA | AT-C 205 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| AT-C-210 | Review Engagements | AICPA | AT-C 210 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| AT-C-215 | Agreed-Upon Procedures Engagements | AICPA | AT-C 215 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| AT-C-320 | Service Organizations - Reporting on ICFR | AICPA | AT-C 320 (SSAE 18) | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| TSP-Section-100 | Trust Services Criteria | AICPA ASEC | 2017 TSC, 2022 Revised Points of Focus | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
+| AT-C-100 | Common Concepts | AICPA | AT-C 100 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
+| AT-C-200 | Level of Service (Examination) | AICPA | AT-C 200 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
+| AT-C-300 | Subject Matter (SOC 1 ICFR) | AICPA | AT-C 300 (SSAE 21) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
+| TSP-Section-100 | Trust Services Criteria | AICPA ASEC | 2017 TSC, 2022 Revised Points of Focus | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | COSO-2013 | Internal Control - Integrated Framework | COSO | 2013 (17 principles) | 2026-05-25 | https://www.coso.org/ |
-| SOC-for-Cybersecurity | SOC for Cybersecurity Examination | AICPA | 2017 / updated | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| SOC-for-Supply-Chain | SOC for Supply Chain Examination | AICPA | 2020 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
-| SSAE-18 | Statement on Standards for Attestation Engagements No. 18 | AICPA | May 2017 | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
+| SOC-for-Cybersecurity | SOC for Cybersecurity Examination | AICPA | 2017 / updated | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
+| SOC-for-Supply-Chain | SOC for Supply Chain Examination | AICPA | 2020 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
+| SSAE-21 | Statement on Standards for Attestation Engagements No. 21 | AICPA | December 2020 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | ISO-27001-2022 | Information security management systems | ISO/IEC | 2022 | 2026-05-25 | https://www.iso.org/standard/27001 |
 | NIST-SP-800-53-Rev5 | Security and Privacy Controls | NIST | Rev 5 | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
 | GDPR | General Data Protection Regulation | EU | Regulation 2016/679 | 2026-05-25 | https://gdpr-info.eu/ |
 | ISAE-3000-3402 | International Standards on Assurance Engagements | IAASB | ISAE 3000/3402 | 2026-05-25 | https://www.iaasb.org/ |
-| AICPA-Code-of-Conduct | Code of Professional Conduct | AICPA | Current | 2026-05-25 | https://www.aicpa-cima.com/resources/ |
+| AICPA-Code-of-Conduct | Code of Professional Conduct | AICPA | Current | 2026-05-25 | https://www.aicpa-cima.com/topic/ethics |
 
 In-body citations use the form `[LABEL N]` and resolve to this manifest.
 

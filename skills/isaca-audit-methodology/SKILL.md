@@ -51,7 +51,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ## 2. Framework Overview
 
-ISACA (est. 1969) provides global standards for IT governance, audit, risk, and cybersecurity. This skill encodes CISA domains (5 domains, 21/17/12/23/27% weights), COBIT 2019 (40 objectives: 5 EDM + 14 APO + 12 BAI + 6 DSS + 3 MEA), ITAF standards (S1-S18 pedagogical reconstruction), ITGC/ITAC testing, risk-based audit planning, 5-part observation format, and cross-framework mapping.
+ISACA (est. 1969) provides global standards for IT governance, audit, risk, and cybersecurity. This skill encodes CISA domains (5 domains, 18/18/12/26/26% weights), COBIT 2019 (40 objectives: 5 EDM + 14 APO + 12 BAI + 6 DSS + 3 MEA), ITAF standards (S1-S18 pedagogical reconstruction), ITGC/ITAC testing, risk-based audit planning, 5-part observation format, and cross-framework mapping.
 
 | Layer | Document | Role |
 |-------|----------|------|
@@ -74,11 +74,11 @@ ISACA (est. 1969) provides global standards for IT governance, audit, risk, and 
 
 ### 3.1 CISA 5 Domains
 
-D1 (21%): Auditing Process. D2 (17%): Governance. D3 (12%): Acquisition/Development. D4 (23%): Operations/Resilience. D5 (27%): Protection of Information Assets. Full detail in `chunks/01-framework-and-cisa.md`.
+D1 (18%): Auditing Process. D2 (18%): Governance. D3 (12%): Acquisition/Development. D4 (26%): Operations/Resilience. D5 (26%): Protection of Information Assets. Full detail in `chunks/01-framework-and-cisa.md`.
 
 ### 3.2 COBIT 2019
 
-40 objectives in 5 domains: EDM (governance, 5 objectives), APO (align/plan, 14), BAI (build/acquire, 12), DSS (deliver/service, 6), MEA (monitor/evaluate, 3). Plus 7 information criteria and 5 design factors. Full detail in `chunks/02-cobit-2019.md`.
+40 objectives in 5 domains: EDM (governance, 5 objectives), APO (align/plan, 14), BAI (build/acquire, 12), DSS (deliver/service, 6), MEA (monitor/evaluate, 3). Plus 7 information criteria and 11 design factors. Full detail in `chunks/02-cobit-2019.md`.
 
 ### 3.3 ITAF
 
@@ -144,7 +144,7 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 
 - **ITAF numbering (S1-S18, G1-G18)** is a pedagogical reconstruction. It does NOT correspond to official ISACA ITAF numbering. Do not cite these as official identifiers.
 - **Topic guidance areas (G19-G35 references)** are supplementary and NOT formal ITAF guidelines. Reference actual ISACA publication names.
-- **CISA domain weights** (21/17/12/23/27%) are from the CISA CRM 28th Ed (2024). Verify against current publication.
+- **CISA domain weights** (18/18/12/26/26%) are from the CISA CRM 28th Ed (2024). Verify against current publication.
 - **COBIT 2019 objectives** (40 total) are as published; verify against the ISACA COBIT 2019 Framework.
 - **Ethics principle count** — ISACA Code of Professional Ethics may list 7 or 8 principles depending on edition. Verify.
 - **AI Audit Certificate** availability and name may change. Verify at ISACA.org.
@@ -157,7 +157,7 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 |-------|-------|-----------|------------|-----------|-----|
 | CISA-CRM-28E | CISA Review Manual 28th Edition | ISACA | 28th Ed (2024) | 2026-05-25 | https://www.isaca.org/credentialing/cisa |
 | COBIT-2019 | COBIT 2019 Framework: Introduction and Methodology | ISACA | 2019 | 2026-05-25 | https://www.isaca.org/resources/cobit |
-| ITAF | IT Audit Framework, 4th Edition | ISACA | 4th Ed | 2026-05-25 | https://www.isaca.org/resources/itaf |
+| ITAF | IT Audit Framework, 5th Edition | ISACA | 5th Ed | 2026-05-25 | https://www.isaca.org/resources/it-audit-assurance-standards |
 | ISACA-ETHICS | ISACA Code of Professional Ethics | ISACA | current edition | 2026-05-25 | https://www.isaca.org/credentialing/code-of-professional-ethics |
 | COSO-2013 | Internal Control — Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org |
 | AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP 100, 2022 revised POF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/soc-2 |

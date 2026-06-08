@@ -30,7 +30,7 @@ A regional commercial bank with $12B in assets seeks to assess its IT governance
 
 ## Walk-Through
 
-1. Apply COBIT 2019 design factors (5 factors) from `chunks/02-cobit-2019.md`.
+1. Apply COBIT 2019 design factors (11 factors) from `chunks/02-cobit-2019.md`.
 2. Map enterprise strategy to prioritized COBIT objectives.
 3. Classify risk profile based on threat landscape and IT-related issues.
 4. Produce prioritized governance objectives aligned with the bank's context.

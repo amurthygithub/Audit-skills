@@ -24,19 +24,19 @@ ISACA may offer additional AI-related certificates. Verify current names at ISAC
 
 | Domain | Name | Weight |
 |--------|------|--------|
-| D1 | Information Systems Auditing Process | 21% |
-| D2 | Governance and Management of IT | 17% |
+| D1 | Information Systems Auditing Process | 18% |
+| D2 | Governance and Management of IT | 18% |
 | D3 | IS Acquisition, Development, Implementation | 12% |
-| D4 | IS Operations and Business Resilience | 23% |
-| D5 | Protection of Information Assets | 27% |
+| D4 | IS Operations and Business Resilience | 26% |
+| D5 | Protection of Information Assets | 26% |
 
-### D1 - Auditing Process (21%)
+### D1 - Auditing Process (18%)
 
 Core IS audit methodology. Key tasks: risk-based engagement planning, control identification, scoping, evidence gathering (physical/documentary/testimonial/analytical), test evaluation, communicating findings, follow-up, QA review.
 
 Knowledge areas: ITAF standards (S1-S18 pedagogical reconstruction), risk-based planning (5-step), sampling (statistical: attribute/variable/MUS; non-statistical: judgmental/haphazard/random), CAATs, materiality (AR = IR x CR x DR), independence requirements.
 
-### D2 - Governance (17%)
+### D2 - Governance (18%)
 
 Evaluate IT governance structure, organizational models (centralized/decentralized/federated), IT policies/standards/procedures, enterprise risk management, resource management, strategy-to-business alignment.
 
@@ -46,11 +46,11 @@ Apply COBIT 2019 EDM objectives and governance frameworks.
 
 Audit SDLC practices, project governance, requirements analysis, system development methodologies (Waterfall, Agile, DevOps), change management controls, data conversion and migration, post-implementation review.
 
-### D4 - Operations/Resilience (23%)
+### D4 - Operations/Resilience (26%)
 
 Evaluate ITSM (ITIL), operations scheduling, database administration, network operations, incident/problem management, BCP/DRP (BIA, RTO, RPO, recovery strategies, testing methods: tabletop/simulation/parallel/full-interruption), third-party management.
 
-### D5 - Protection (27%)
+### D5 - Protection (26%)
 
 Largest domain. Evaluate security policies, access controls (DAC/MAC/RBAC/ABAC), MFA/biometrics/tokens/certificates, network security (firewalls, IDS/IPS, VPN, DMZ), physical/environmental security, data classification, encryption (symmetric/asymmetric/PKI/digital signatures), SIEM/SOC, incident response (NIST SP 800-61), awareness training, emerging technology security (cloud/IoT/AI-ML/blockchain).
 

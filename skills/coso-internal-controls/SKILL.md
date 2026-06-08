@@ -204,24 +204,24 @@ See `use-cases/` for the complete walkthroughs.
 |-------|-------|-----------|------------|-----------|-----|
 | COSO-ICIF-2013 | Internal Control — Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | COSO-ERM-2017 | Enterprise Risk Management — Integrating with Strategy and Performance | COSO | 2017 | 2026-05-25 | https://www.coso.org/guidance-erm |
-| COSO-Monitoring-2009 | Guidance on Monitoring Internal Control Systems | COSO | 2009 | 2026-05-25 | https://www.coso.org/guidance-on-monitoring |
-| COSO-Fraud-2023 | Fraud Risk Management Guide, 2nd Edition | COSO/ACFE | May 2023 | 2026-05-25 | https://www.coso.org/guidance-fraud |
-| COSO-ICSR-2023 | Internal Control Over Sustainability Reporting (ICSR) | COSO | 2023 | 2026-05-25 | https://www.coso.org/guidance-icsr |
-| COSO-RPA-2024 | Internal Control Over Robotic Process Automation | COSO | 2024 | 2026-05-25 | https://www.coso.org/guidance-rpa |
-| COSO-GenAI-2026 | Internal Control Over Generative AI and LLMs | COSO | 2026 | 2026-05-25 | https://www.coso.org/guidance-genai |
-| COSO-Blockchain-2020 | Blockchain and Internal Control | COSO | 2020 | 2026-05-25 | https://www.coso.org/guidance-blockchain |
+| COSO-Monitoring-2009 | Guidance on Monitoring Internal Control Systems | COSO | 2009 | 2026-05-25 | https://www.coso.org/monitoring-internal-control-system |
+| COSO-Fraud-2023 | Fraud Risk Management Guide, 2nd Edition | COSO/ACFE | May 2023 | 2026-05-25 | https://www.coso.org/frauddeterrence |
+| COSO-ICSR-2023 | Internal Control Over Sustainability Reporting (ICSR) | COSO | 2023 | 2026-05-25 | https://www.coso.org/new-icsr |
+| COSO-RPA-2024 | Internal Control Over Robotic Process Automation | COSO | 2024 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
+| COSO-GenAI-2026 | Internal Control Over Generative AI and LLMs | COSO | 2026 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
+| COSO-Blockchain-2020 | Blockchain and Internal Control | COSO | 2020 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | PCAOB-AS-2201 | An Audit of Internal Control Over Financial Reporting That Is Integrated with an Audit of Financial Statements | PCAOB | Current | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201 |
 | PCAOB-AS-1305 | Communications About Control Deficiencies (supplemented by AS 2201.90-.93 for integrated audit) | PCAOB | Current | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305 |
 | PCAOB-AS-3101 | The Auditor's Report on an Audit of Financial Statements | PCAOB | Current | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101 |
 | SOX-404 | Sarbanes-Oxley Act Section 404 — Management Assessment of Internal Controls | U.S. Congress | 2002 | 2026-05-25 | https://www.sec.gov/rules/final/33-8238.htm |
 | SEC-Reg-S-K-Item-308 | Management's Report on Internal Control Over Financial Reporting | SEC | Current | 2026-05-25 | https://www.ecfr.gov/current/title-17/chapter-II/part-229 |
-| AICPA-AU-C-315 | Understanding the Entity and Its Environment and Assessing the Risks of Material Misstatement | AICPA | SAS 145 | 2026-05-25 | https://www.aicpa-cima.com/ |
-| AICPA-AU-C-265 | Communicating Internal Control Related Matters Identified in an Audit | AICPA | Current | 2026-05-25 | https://www.aicpa-cima.com/ |
+| AICPA-AU-C-315 | Understanding the Entity and Its Environment and Assessing the Risks of Material Misstatement | AICPA | SAS 145 | 2026-05-25 | https://us.aicpa.org/research/standards/auditattest/clarifiedsas |
+| AICPA-AU-C-265 | Communicating Internal Control Related Matters Identified in an Audit | AICPA | Current | 2026-05-25 | https://us.aicpa.org/research/standards/auditattest/clarifiedsas |
 | AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP sect.100, 2022 revised PoF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
 | ISACA-COBIT-2019 | Control Objectives for Information and Related Technologies | ISACA | 2019 | 2026-05-25 | https://www.isaca.org/resources/cobit |
 | NIST-CSF-2.0 | Cybersecurity Framework | NIST | 2.0 (Feb 2024) | 2026-05-25 | https://www.nist.gov/cyberframework |
 | ISO-31000-2018 | Risk Management — Guidelines | ISO | 2018 | 2026-05-25 | https://www.iso.org/standard/65694.html |
-| JOBS-Act-2012 | Jumpstart Our Business Startups Act | U.S. Congress | 2012 | 2026-05-25 | https://www.sec.gov/divisions/corpfin/guidance/cfjjobsactfaq-title-i-general.htm |
+| JOBS-Act-2012 | Jumpstart Our Business Startups Act | U.S. Congress | 2012 | 2026-05-25 | https://www.congress.gov/bill/112th-congress/house-bill/3606 |
 
 In-body citations use the form `[LABEL sect.N]` and resolve to this manifest.
 

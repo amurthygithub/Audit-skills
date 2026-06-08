@@ -111,5 +111,5 @@ GDPR -> TSC Privacy (P1-P8): P1.1-Art13-14, P2.1-Art6-7/Art9, P3.1-Art5(1)(b)(c)
 Key Distinction: ISO 27001 is certifiable with fixed Annex A controls. SOC 2 uses criteria-based evaluation. ISO covers entire ISMS; SOC 2 scoped to specific systems and TSC categories.
 
 ## Citations
-- [AT-C-205] [AT-C-320] [TSP-Section-100] [COSO-2013] [ISO-27001-2022] [NIST-SP-800-53-Rev5] [GDPR] [AICPA-Code-of-Conduct]
+- [AT-C-200] [AT-C-300] [TSP-Section-100] [COSO-2013] [ISO-27001-2022] [NIST-SP-800-53-Rev5] [GDPR] [AICPA-Code-of-Conduct]
 See SKILL.md Section 10.

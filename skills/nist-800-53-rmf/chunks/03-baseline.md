@@ -9,11 +9,11 @@ load_when: "user asks to select a baseline, tailor controls, or perform Step 3"
 
 ## Control baselines (FIPS 199-driven)
 
-| FIPS 199 Category | Baseline | Approx. controls (Rev 5) | Approx. controls (Rev 5.1.1) |
+| FIPS 199 Category | Baseline | Approx. controls |
 |-------------------|----------|--------------------------|------------------------------|
-| Low | LOW | ~156 | ~161 |
-| Moderate | MOD | ~325 | ~341 |
-| High | HIGH | ~421 | ~437 |
+| Low | LOW | ~156 |
+| Moderate | MOD | ~325 |
+| High | HIGH | ~421 |
 
 Tailoring per 800-37 Rev 2 + 800-53 §2:
 
@@ -73,7 +73,7 @@ tailoring_decisions:
 
 ## Anti-hallucination note
 
-The control counts (~156 / ~325 / ~421 for Rev 5; ~161 / ~341 / ~437 for 5.1.1) are **derived** from the catalog and the count of base controls + enhancements. The actual count varies depending on how one counts enhancements. **Always verify against the current NIST SP 800-53 Rev 5 / 5.1.1 publication and the FedRAMP baseline** for cloud services. FedRAMP High is NOT identical to NIST 800-53 High.
+The control counts (~156 / ~325 / ~421 for Rev 5) are **derived** from the catalog and the count of base controls + enhancements. The actual count varies depending on how one counts enhancements. **Always verify against the current NIST SP 800-53 Rev 5 publication and the FedRAMP baseline** for cloud services. FedRAMP High is NOT identical to NIST 800-53 High.
 
 ## Citations in this chunk
 
