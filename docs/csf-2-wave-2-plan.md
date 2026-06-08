@@ -84,12 +84,12 @@ Consumer one-pager — same shape as the 5 on-Spine skills' READMEs. Three integ
 - **Manufacturing CMMC L2 has changed** (32 CFR Part 170 final rule, Oct 2024). Verify the current version of CMMC L2 vs L1 vs L3. Do not assume CSF 2.0 → CMMC L2 mapping is static.
 - **Healthcare deferral is a real gap.** v0.1.0 will ship without a healthcare industry. Decide explicitly whether to backfill in v0.1.1 or accept the gap.
 
-## Open questions (need user input before dispatch)
+## Open questions (RESOLVED 2026-06-07)
 
-1. **Healthcare in v0.1.0 or v0.1.1?** Push Wave 2 dispatch to next session and decide.
-2. **Industry file order in frontmatter** — alphabetical or by adoption frequency? (Existing skills use alphabetical; consistency is fine but flag for the build agent.)
-3. **UC frontmatter `frameworks` field** — design doc §5.1 doesn't include it; lint doesn't require it; should we add for cross-skill filtering? (Default: no, keep spec strict.)
-4. **Should Wave 2 build against the design doc or the file-requirements spec?** Both exist; they slightly diverge (the spec was a build contract, the design is a why-doc). Default: build against the spec, reference the design for context.
+1. **Healthcare in v0.1.0 or v0.1.1?** → **Defer to v1.0 (not v0.1.1)**. Reasoning: v1.0 is the appropriate milestone for the full 5-industry + HIPAA-crosswalk build (CMMC L2 final rule settled, healthcare data-sharing rules clarified, NIST healthcare-specific QSG matured). v0.1.x ships the 4 high-adoption industries (financial, public, SaaS, manufacturing); v0.2.x adds depth; v1.0 is when the 5th industry lands.
+2. **Industry file order in frontmatter** — alphabetical (current convention; no change).
+3. **UC frontmatter `frameworks` field** — **add** (e.g., `frameworks: [NIST-CSF-2.0, NIST-SP-800-53-Rev5.1.1]` for UC-03). Lint doesn't require it but cross-skill filtering benefits.
+4. **Build against the spec or the design doc?** — **Build against the spec** (`csf-2-file-requirements.md` is the build contract, `csf-2-design.md` is the why-doc). Precedent set at m1057 when build agents were dispatched with the spec as primary reference.
 
 ## Out of scope for Wave 2 (defer to Wave 3)
 
