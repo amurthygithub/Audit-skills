@@ -1,0 +1,33 @@
+{
+  "uc_id": "UC-01",
+  "description": "Series-A SaaS first Organizational Profile — 50-FTE DataRelay Inc. B2B SaaS, building its first CSF 2.0 Current Profile. Target Tier 2 (Risk Informed) across all 6 Functions. The 6 representative Subcategory scores are a sample; a real engagement would carry all 106.",
+  "org": {
+    "name": "DataRelay Inc.",
+    "size": "50 FTE",
+    "sector": "saas-technology",
+    "founded_year": 2024,
+    "product": "B2B data integration SaaS",
+    "customers": "Mid-market US companies, 200-2000 FTE"
+  },
+  "current_practices": {
+    "mfa_enforced": true,
+    "code_repository": "GitHub (org-owned)",
+    "cloud_provider": "AWS (commercial, not GovCloud)",
+    "vulnerability_scanning": "Quarterly, via Snyk",
+    "incident_response_plan": "Informal, no documented runbook",
+    "cyber_steering_committee": false,
+    "cybersecurity_policy_published": false,
+    "subcategory_owners_assigned": false
+  },
+  "target_tier": 2,
+  "subcategory_scores": [
+    {"subcategory_id": "GV.OC-01", "status": "Not Implemented", "evidence": "Mission documented in company handbook; no formal risk context statement"},
+    {"subcategory_id": "GV.PO-01", "status": "Not Implemented", "evidence": "No published cybersecurity policy; founders handle security ad hoc"},
+    {"subcategory_id": "ID.AM-01", "status": "Partially Implemented", "evidence": "AWS asset inventory via tags; no formal record-keeping"},
+    {"subcategory_id": "PR.AA-01", "status": "Partially Implemented", "evidence": "AWS IAM with groups; no formal access control policy"},
+    {"subcategory_id": "PR.AA-03", "status": "Fully Implemented", "evidence": "MFA enforced on all admin and developer accounts since day 1"},
+    {"subcategory_id": "PR.DS-01", "status": "Partially Implemented", "evidence": "KMS encryption at rest; data classification not formalized"},
+    {"subcategory_id": "DE.CM-01", "status": "Largely Implemented", "evidence": "AWS GuardDuty enabled; SIEM in evaluation; no 24/7 SOC"},
+    {"subcategory_id": "RS.MA-01", "status": "Not Implemented", "evidence": "No documented incident response plan; engineer-on-call paged on alerts but no runbook"}
+  ]
+}

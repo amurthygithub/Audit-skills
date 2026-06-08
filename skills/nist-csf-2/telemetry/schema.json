@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NIST CSF 2.0 skill telemetry event schema",
+  "description": "Schema for telemetry events emitted by the nist-csf-2 skill stub and (in production) the real skill executor. Mirrors the 5 on-Spine skills' telemetry format.",
+  "type": "object",
+  "required": ["event_name", "uc_id", "timestamp", "duration_ms", "skill"],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "enum": ["skill_invocation", "uc_loaded", "chunk_loaded", "profile_generated", "gap_analyzed", "crosswalk_computed", "error"]
+    },
+    "uc_id": {
+      "type": "string",
+      "description": "The use case id (e.g., UC-01, UC-02, UC-03) or 'none' for non-UC invocations"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of event emission"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Wall-clock duration of the operation in milliseconds"
+    },
+    "skill": {
+      "type": "string",
+      "const": "nist-csf-2"
+    },
+    "context": {
+      "type": "object",
+      "description": "Optional context — input schema version, payload size, etc.",
+      "properties": {
+        "schema_version": {"type": "string"},
+        "payload_bytes": {"type": "integer"},
+        "org_fte": {"type": "integer"},
+        "org_sector": {"type": "string"}
+      }
+    },
+    "result_summary": {
+      "type": "object",
+      "description": "Optional summary of the operation result (no PII, no full output)",
+      "properties": {
+        "classification": {"type": "string"},
+        "subcategory_count": {"type": "integer"},
+        "gap_count": {"type": "integer"},
+        "target_tier": {"type": "integer", "minimum": 1, "maximum": 4}
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -26,6 +26,7 @@ SKILLS = (
     "coso-internal-controls",
     "aicpa-soc-reporting",
     "audit-workpapers",
+    "nist-csf-2",
 )
 
 

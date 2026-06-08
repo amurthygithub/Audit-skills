@@ -141,6 +141,33 @@ The 9-file convention is enforced by the lint. For each test file, list specific
 | nist-800-53-rmf (reference) | 29 | 29+ |
 | THIS SKILL | 0 (design) | 30+ |
 
+### 5.11: Source-of-truth verification plan (REQUIRED)
+
+**This is the step that catches fabricated IDs, wrong counts, and wrong crosswalk rows.** It is a separate pass from the 5-lens review (§6), which catches convention/usability/completeness issues. A skill can pass the 5-lens review and still have every Category code wrong if the build agents wrote from LLM recall instead of authoritative sources.
+
+For each fact the skill encodes, the design must declare the source it will be verified against. Typical source classes:
+
+- **The standard itself** (the NIST CSF 2.0 PDF, the ISO 27001:2022 standard, the HIPAA Security Rule, etc.)
+- **An official reference spreadsheet** (NIST's Informative References CSV/XLSX, the SOC 2 TSC mapping, etc.)
+- **An official reference tool** (NIST's online CSF Reference Tool, NIST SP 800-53 control catalog, etc.)
+- **A regulator publication** (SEC final rules, NY DFS 500, EU DORA, etc.)
+
+For each fact, list:
+
+| Fact | Source URL | Retrieval date | Verified by |
+|------|-----------|----------------|-------------|
+| CSF 2.0 has 6 Functions (GOVERN, IDENTIFY, ...) | https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf | 2024-02-26 | [name of agent] |
+| CSF 2.0 has 22 Categories | (same) | (same) | (same) |
+| CSF 2.0 has 106 Subcategories | (same, Appendix A) | (same) | (same) |
+| GV.OC-01 maps to PM-11 | https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all | (retrieval date) | (same) |
+| ... | ... | ... | ... |
+
+**Mandatory minimum**: at least 5 fact rows in this table for facts that the build will encode. For a NIST-style skill, this is usually: the function count, the category count, the subcategory count, the 4 Tier names, and at least 5 representative crosswalk rows. For an ISO-style skill, this is usually: the control family count, the control count, the mandatory clause count, and at least 5 representative control-to-other-framework rows.
+
+**Where the verification pass fits in the build sequence** (see §12): between Day 5 (build complete) and Day 6 (5-lens review). It is a non-negotiable gate. The verification agent must use `webfetch` (or equivalent authoritative-source fetch) for every fact, not LLM recall. The verification report must cite the source URL for every verified fact.
+
+**Why this exists** (the build-process lesson): in the CSF 2.0 build (June 2026), 9 parallel build agents wrote plausible-looking content from general knowledge. A subsequent verification pass found 8 CRITICAL factual errors (fabricated Category codes, wrong subcategory counts, ~10 wrong CSF↔800-53 crosswalk rows). The 5-lens review would NOT have caught these — it checks structural and convention compliance, not factual accuracy. Without this §5.11 step, future skill builds will repeat the same mistake.
+
 ---
 
 ## 6. PoV analyses — 5 lenses
@@ -300,14 +327,17 @@ Pre-empt what the reviewers will find. Top 5 in each lens.
 | 2 | Write 8 chunks, 4 industries, 3 UCs, consumer README | All chunks ≤200 lines, all 3 UCs have frontmatter |
 | 3 | Write data/generators, data/seeds, data/crosswalks | Generators run with `--seed`, all seeds load |
 | 4 | Write 9 test files | `pytest skills/<skill>/tests/ -q` passes |
-| 5 | 5-lens review (dispatch 5 agents in parallel) | 5 review reports returned |
-| 6 | 5-practitioner review (dispatch 5 agents in parallel) | 5 practitioner reports returned |
-| 7 | Fix waves 1, 2, 3 (CRITICAL, HIGH, MEDIUM+LOW) | All findings addressed |
-| 8 | Re-lint, re-test, re-review, ship v0.1.0 | All checks green on PR |
+| 5 | **Source-of-truth verification** (per §5.11) — fetch authoritative sources via `webfetch`, compare against the built files, report every inaccuracy. This is the gate. **Do NOT proceed to lens review until CRITICALs are fixed.** | Verification report shows 0 CRITICAL findings. |
+| 6 | 5-lens review (dispatch 5 agents in parallel) — covers structural, completeness, usability, convention, cross-skill | 5 review reports returned |
+| 7 | 5-practitioner review (dispatch 5 agents in parallel) | 5 practitioner reports returned |
+| 8 | Fix waves 1, 2, 3 (CRITICAL, HIGH, MEDIUM+LOW) | All findings addressed |
+| 9 | Re-lint, re-test, re-verify (re-run §5.11), re-review, ship v0.1.0 | All checks green on PR |
 
 ### 12.N+1: Optional reviews
 
-For low-risk skills, days 5-7 can be compressed. For high-risk skills, add a 6th lens (e.g., "regulatory risk") or 6th persona (e.g., "CFO").
+For low-risk skills, days 6-8 can be compressed. For high-risk skills, add a 6th lens (e.g., "regulatory risk") or 6th persona (e.g., "CFO").
+
+**Day 5 is non-negotiable.** The source-of-truth verification step was added after the CSF 2.0 build (June 2026) found 8 CRITICAL factual errors that the 5-lens review would NOT have caught. LLM recall produces plausible content; only authoritative-source verification catches fabricated IDs and wrong counts. Future skill builds must include this gate.
 
 ---
 
@@ -359,6 +389,7 @@ This is the standardized list of parameters that **every** future skill design d
 | 5 | **Test architecture** — 9 test files, target test count | §5 | Yes |
 | 5.1–5.9 | For each test file: specific test cases | §5.1–§5.9 | Yes |
 | 5.10 | Test count summary table | §5.10 | Yes |
+| 5.11 | **Source-of-truth verification plan** (REQUIRED) — at least 5 fact rows with authoritative source URLs, retrieval dates, and verifier names | §5.11 | Yes |
 | 6 | **PoV analyses — 5 lenses** | §6 | Yes |
 | 6.1 | Framework fidelity | §6.1 | Yes |
 | 6.2 | Completeness | §6.2 | Yes |
