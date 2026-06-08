@@ -80,7 +80,7 @@ The full mapping is many-to-many: a single 800-53 control (e.g., `AC-2`) can be 
 
 NIST SP 800-171 Rev 3 [NIST-SP-800-171] is the moderate-baseline control set for protecting Controlled Unclassified Information (CUI) in nonfederal systems. The CSF ↔ 800-171 mapping is similar in shape to CSF ↔ 800-53 Moderate but with 800-171's 14 control families (3xx series). 800-171 maps to CMMC 2.0 Level 2; orgs pursuing CMMC L2 use the CSF ↔ 800-171 crosswalk as the bridge.
 
-Representative samples (the full mapping ships in `data/crosswalks/csf-to-800-171-r3.json`):
+Representative samples (the full mapping will be added in Wave 2 as a JSON in `data/crosswalks/csf-to-800-171-r3.json`):
 
 | CSF Subcategory | 800-171 Rev 3 controls (per NIST IR spreadsheet) |
 |-----------------|------------------------------------------------|
@@ -98,7 +98,7 @@ Representative samples (the full mapping ships in `data/crosswalks/csf-to-800-17
 
 ISO 27001:2022 [ISO-27001-2022] introduced a new Annex A with 93 controls organized in 4 themes (Organizational, People, Physical, Technological). The CSF ↔ ISO 27001 mapping is outcome-to-control: a CSF Subcategory typically maps to 1-3 Annex A controls, and an Annex A control typically supports 1-3 CSF Subcategories.
 
-Representative samples (the full mapping ships in `data/crosswalks/csf-to-iso27001-2022.json`):
+Representative samples (the full mapping will be added in Wave 2 as a JSON in `data/crosswalks/csf-to-iso27001-2022.json`):
 
 | CSF Subcategory | ISO 27001:2022 Annex A controls (per NIST IR spreadsheet) | Notes |
 |-----------------|----------------------------------------------------------|-------|
