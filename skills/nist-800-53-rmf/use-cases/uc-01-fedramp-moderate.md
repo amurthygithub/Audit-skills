@@ -49,7 +49,7 @@ expected_outputs:
     high_water_mark: MODERATE
   baseline:
     baseline: MODERATE
-    control_count: ~325  # Rev 5; Rev 5 ~325
+    control_count: "~325 (approximate; verify against NIST OSCAL catalog)"
   inheritance_summary:
     - control_id: AC-2
       status: inherited
@@ -133,7 +133,7 @@ special_factors:
 
 ### Step 2 — Baseline Selection (Skill §4.2, §5.2, §6.2)
 
-- Baseline: **Moderate** (NIST 800-53 Rev 5 ~325 controls; Rev Rev 5 ~325 controls).
+- Baseline: **Moderate** (NIST 800-53 Rev 5 ~325 controls (approximate; verify against NIST OSCAL catalog)).
 - Apply **scoping**: drop controls whose scope doesn't apply. For CaseFlow Cloud:
   - `AC-2(8)` (Dynamic Account Management) — SCOPED OUT. No shared accounts; dynamic accounts are not used.
   - `SC-8(1)` (Cryptographic Protection for Wireless) — SCOPED OUT. No wireless transmission of sensitive data.

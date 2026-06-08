@@ -163,7 +163,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 |----|-------|----------|------------|
 | UC-01 | FedRAMP-bound SaaS categorizes FIPS-199 Moderate | saas-technology, public-sector | Categorization, baseline, inheritance map |
 | UC-02 | Federal agency Step 6 authorization: SAR 22 findings → POA&M, AO risk-accepts 14, ATO w/ conditions | public-sector | ATO letter, POA&M, residual-risk memo |
-| UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate (71% overlap, 94 gap controls) | financial-services, saas-technology | Crosswalk, gap list, remediation plan |
+| UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate (SOC 2 to 800-53 mapping, 94 gap controls) | financial-services, saas-technology | Crosswalk, gap list, remediation plan |
 
 ## 9. Anti-Hallucination Disclaimers
 
@@ -186,9 +186,9 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | FIPS-199 | Standards for Security Categorization | NIST | FIPS 199 (Feb 2004) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf |
 | FIPS-200 | Minimum Security Requirements for Federal Information and Information Systems | NIST | FIPS 200 (Mar 2006) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.200.pdf |
 | NIST-SP-800-30-Rev1 | Guide for Conducting Risk Assessments | NIST | Rev 1 (Sept 2012) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/30/r1/final |
-| NIST-SP-800-60 | Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II) | NIST | Rev 1 (Aug 2008) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final |
+| NIST-SP-800-60 | Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II) | NIST | Rev 1 (Aug 2008; current as of 2026) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final |
 | NIST-SP-800-137 | Information Security Continuous Monitoring | NIST | Sept 2011 | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/137/final |
-| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-05-25 | https://www.fedramp.gov/resources/ |
+| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-05-25 | https://www.fedramp.gov |
 | OMB-M-22-15 | Delivering a Digital-First Public Experience | OMB | M-22-15 (2022) | 2026-05-25 | https://www.whitehouse.gov/omb/information-for-agencies/memoranda/ |
 | OMB-A-130 | Managing Information as a Strategic Resource | OMB | July 28, 2016 | 2026-05-25 | https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf |
 | SOC-2-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP §100, 2022 revised points of focus) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
@@ -198,6 +198,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | NIST-SP-800-66-Rev2 | Implementing the HIPAA Security Rule | NIST | Rev 2 (Feb 2024) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/66/r2/final |
 | NIST-CSF-2.0 | Cybersecurity Framework | NIST | 2.0 (Feb 2024) | 2026-05-25 | https://www.nist.gov/cyberframework |
 | CMMC-2.0 | Cybersecurity Maturity Model Certification | DoD | 2.0 | 2026-05-25 | https://dodcio.defense.gov/CMMC/ |
+| IRS-Pub-1075 | IRS Publication 1075 | IRS | as amended | 2026-06-08 | https://www.irs.gov/pub/irs-pdf/p1075.pdf |
 
 In-body citations use the form `[LABEL §N]` and resolve to this manifest.
 
@@ -214,7 +215,7 @@ This is a router. Load chunks based on the user's intent.
 | "Issue ATO" / "ATO with conditions" / "denial" / "POA&M" / "Step 6" | `chunks/06-authorize.md` | match industry | UC-02 |
 | "Continuous monitoring" / "ISCM" / "ConMon" / "Step 7" | `chunks/07-monitor.md` | match industry | UC-02 |
 | "Map SOC 2 / ISO 27001 / HIPAA / PCI / CSF to 800-53" | `chunks/09-crosswalk.md` | match industry | UC-03 |
-| "Full FedRAMP Moderate engagement" | chunks/01, 02, 03, 04, 05 | public-sector | UC-01 |
+| "Full FedRAMP Moderate engagement" | chunks/02, 03, 04, 05, 06 | public-sector | UC-01 |
 | "Agency ATO with conditions" | chunks/02, 03, 04, 05, 06 | public-sector | UC-02 |
 | "CAIQ" / "SIG Lite" / "VSAQ" / "customer questionnaire" / "FedRAMP reuse" / "questionnaire evidence" | `chunks/08-questionnaire-reuse.md` | match industry | — |
 | "High-level question" / "framework overview" | this SKILL.md only | — | — |

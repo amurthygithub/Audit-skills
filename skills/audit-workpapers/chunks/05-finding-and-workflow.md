@@ -29,7 +29,7 @@ Specific, actionable corrective actions. Prioritize by risk/impact. Identify res
 
 ## Cross-Reference: C-C-C-E-R and ISACA 5-Part Observation Format
 
-The C-C-C-E-R finding format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as ISACA's 5-part audit observation format. The labels differ by framework convention -- PCAOB/AS 1215-aligned workpapers use C-C-C-E-R while ISACA uses the 5-part terminology. The structures are compatible and map element-for-element. See `isaca-audit-methodology/chunks/06-observation-and-lifecycle.md` for the ISACA equivalent with the complete engagement lifecycle.
+The C-C-C-E-R finding format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as ISACA's 5-part audit observation format. The C-C-C-E-R structure originates from GAO (Yellow Book), IIA standards, and ISACA ITAF guidance -- it is NOT a PCAOB construct. The labels differ by framework convention -- GAO/IIA/ISACA-aligned workpapers use C-C-C-E-R while PCAOB/AS 1215 simply requires documenting the basis for significant findings without prescribing a fixed 5-part format. The structures are compatible and map element-for-element. See `isaca-audit-methodology/chunks/06-observation-and-lifecycle.md` for the ISACA equivalent with the complete engagement lifecycle.
 
 ### Severity Classification (AS 2201, AS 1305)
 
@@ -67,4 +67,4 @@ Document ALL findings using 5-part C-C-C-E-R. Track accumulated misstatements. I
 Prepare engagement completion document per AS 1215.13. Obtain management representation letter. Evaluate subsequent events. Summarize uncorrected misstatements. Determine opinion.
 
 ### Step 7: Review and Sign-off
-Supervisory review per AS 1201. Engagement partner review per AS 1215.15. EQR per AS 1220. Document all review notes (M-series). Documentation completion within 14 days of report release per AS 1215.14.
+Supervisory review per AS 1201. Engagement partner review per AS 1215.15. EQR per AS 1220. Document all review notes (M-series). Documentation completion within 14 days of report release per AS 1215.15.

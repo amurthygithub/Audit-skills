@@ -1,7 +1,7 @@
 ---
 chunk_id: 09-crosswalk
 parent_skill: nist-800-53-rmf
-topic: "Crosswalk to Other Frameworks (SOC 2 / ISO 27001 / HIPAA / PCI / CSF / CMMC / CJIS / IRS-1075)"
+topic: "Crosswalk to Other Frameworks (SOC 2 / ISO 27001 / HIPAA / PCI / CSF / CMMC / CJIS v6.0 / IRS-1075)"
 load_when: "user asks to map a non-federal framework to 800-53 or vice versa"
 ---
 
@@ -39,14 +39,14 @@ The skill ships a default crosswalk in `data/crosswalks/800-53-default.json`. Ea
 | FedRAMP Rev 5 | FedRAMP defines the cloud authorization overlay; uses 800-53 Rev 5 baselines |
 | SOC for Cybersecurity | AICPA's cybersecurity examination framework; uses 2017 TSC as criteria |
 | CMMC 2.0 | DoD's contractor cybersecurity model; maps to 800-171 (which references 800-53) |
-| CJIS Security Policy v5.9+ | Criminal Justice Information Services (CJIS) Security Policy maps partially to 800-53 AC, AU, IA, IR, PE, SC families (especially for law enforcement systems). Consult CJIS Security Policy for criminal justice information systems. [CJIS-v5.9] |
+| CJIS Security Policy v6.0 | Criminal Justice Information Services (CJIS) Security Policy maps partially to 800-53 AC, AU, IA, IR, PE, SC families (especially for law enforcement systems). Consult CJIS Security Policy for criminal justice information systems. [CJIS-v6.0] |
 | IRS Pub 1075 | IRS Publication 1075 (Tax Information Security Guidelines for Federal, State, and Local Agencies) maps to 800-53 controls for tax information systems receiving, processing, storing, or transmitting FTI (Federal Tax Information). Consult IRS Pub 1075 for tax information systems. [IRS-Pub-1075] |
 
 ## SOC 2 → 800-53 Moderate typical mapping
 
 In production use, expect:
 
-- **~71% overlap** between SOC 2 Common Criteria and 800-53 Moderate controls (industry-typical range; ±3%).
+- **~8% overlap** (27 of ~325 controls) in the seed crosswalk at `data/crosswalks/soc2-to-800-53-mod.json`, which is a representative curated sample. Production crosswalks using the full AICPA TSC-to-800-53 mapping from authoritative sources may yield different overlap percentages. Always verify against the current AICPA TSC appendix.
 - **~94 gap controls** that 800-53 Mod requires but SOC 2 doesn't cover. Gap categories:
   - **Privacy controls** (PT family, Rev 5).
   - **Supply chain risk management** (SR family, Rev 5).

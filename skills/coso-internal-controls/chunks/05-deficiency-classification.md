@@ -59,7 +59,7 @@ IF NOT MATERIAL, but important enough to merit attention → CLASSIFY AS: SIGNIF
 
 ### Step 4: Aggregation Evaluation (AS 2201.68)
 
-CRITICAL RULE (AS 2201.68): After classifying each deficiency individually, the auditor MUST also evaluate whether multiple deficiencies, when aggregated, create a material weakness — even if individually they are only significant deficiencies or control deficiencies.
+CRITICAL RULE (AS 2201.68,.65-.70): AS 2201.68 requires evaluation of deficiencies both individually and in combination; the broader framework at AS 2201.65-.70 considers likelihood, magnitude, pervasiveness, and interaction effects. After classifying each deficiency individually, the auditor MUST also evaluate whether multiple deficiencies, when aggregated, create a material weakness — even if individually they are only significant deficiencies or control deficiencies.
 
 Aggregation Procedure:
 1. Group deficiencies by affected account, disclosure, assertion, or financial statement line item.
@@ -107,10 +107,10 @@ The following are per se indicators that a material weakness EXISTS:
 | Significant Deficiency | Yes (written) | Yes (written) | No | No modification (if no MW) |
 | Material Weakness | Yes (written) | Yes (written) | Yes (Form 10-K) | Adverse |
 
-Per AS 2201.90-.93 (integrated audit of internal control and financial statements), the auditor shall communicate SDs and MWs in writing to the audit committee.
+Per AS 2201.78-.84 (integrated audit of internal control and financial statements), the auditor shall communicate SDs and MWs in writing to the audit committee.
 
 ## Citations
 
 - [PCAOB-AS-2201 .62-.70, .68, .69] — Deficiency classification, aggregation rule, and MW indicators
 - [PCAOB-AS-1305] — Communications about control deficiencies
-- [PCAOB-AS-2201 .90-.93] — Integrated audit communications
+- [PCAOB-AS-2201 .78-.84] — Integrated audit communications

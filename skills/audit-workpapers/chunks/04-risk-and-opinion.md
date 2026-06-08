@@ -54,7 +54,9 @@ Do NOT mix formulas in the same engagement. Choose one based on the governing fr
 | Risk of Assessing CR Too Low | Affects EFFECTIVENESS | More serious |
 | Risk of Assessing CR Too High | Affects EFFICIENCY | Less serious |
 
-### AS 2315 Appendix — Risk Assessment Matrix (AR=5%)
+### Risk Assessment Matrix — Illustrative TD Values (AR=5%)
+
+The following table illustrates the audit risk model TD = AR / (IR x CR x AP). The values are computed from the model described in AS 2315 Appendix A (paragraph .48, Table 2). The 80%, 30%, and 20% risk levels are illustrative risk assessment labels commonly used in practice — they are NOT specific values prescribed by AS 2315 Table 2. See AS 2315 Appendix A for the official risk framework.
 
 | IR | CR | AP | Combined | TD | Extent |
 |----|-----|-----|----------|-----|--------|

@@ -115,5 +115,5 @@ Assess each deficiency individually per the decision tree. Then assess whether t
 
 - [SOX-404] — Sarbanes-Oxley Section 404
 - [PCAOB-AS-2201] — Integrated ICFR audit standard
-- [PCAOB-AS-2201 .90-.93] — Integrated audit communications
+- [PCAOB-AS-2201 .78-.84] — Integrated audit communications
 - [JOBS-Act-2012] — IPO transition exemptions

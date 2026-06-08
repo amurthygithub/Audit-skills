@@ -17,7 +17,7 @@ All notable changes are documented here.
 
 ### Notes
 - Per-call context cost reduced from ~40,000 (monolithic) to 3,000-6,000 (router + 1-2 chunks).
-- 71 of 81 Points of Focus preserved (curated subset from the original body).
+- 71 of the Points of Focus preserved (curated subset from the original body).
 - PCAOB AS 2201 reorganization disclosure preserved.
 - 3 industry files: financial-services, public-sector, saas-technology.
 - 2 use cases: UC-01 (SOX 404 ICFR), UC-02 (deficiency classification).

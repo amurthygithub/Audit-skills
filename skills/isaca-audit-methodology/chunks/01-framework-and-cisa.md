@@ -16,9 +16,9 @@ ISACA (est. 1969) provides global standards for IT governance, audit, risk, and 
 | IT Risk Management | Risk IT Framework |
 | Cybersecurity Ops | CMMI Cybermaturity Platform |
 | Digital Trust | DTEF (Digital Trust Ecosystem Framework) |
-| Professional Cert | CISA, CISM, CRISC, CGEIT, CDPSE, CCOA |
+| Professional Cert | CISA, CISM, CRISC, CGEIT, CDPSE, CCOA, AAIA, AAIR, AAISM, CCP, CCA, LCCA, CCI |
 
-ISACA may offer additional AI-related certificates. Verify current names at ISACA.org.
+ISACA also offers CMMC certifications (CCP, CCA, LCCA, CCI) and advanced AI credentials (AAIA, AAIR, AAISM). Verify current names and availability at ISACA.org.
 
 ## CISA 5 Domain Summary
 
@@ -52,7 +52,7 @@ Evaluate ITSM (ITIL), operations scheduling, database administration, network op
 
 ### D5 - Protection (26%)
 
-Largest domain. Evaluate security policies, access controls (DAC/MAC/RBAC/ABAC), MFA/biometrics/tokens/certificates, network security (firewalls, IDS/IPS, VPN, DMZ), physical/environmental security, data classification, encryption (symmetric/asymmetric/PKI/digital signatures), SIEM/SOC, incident response (NIST SP 800-61), awareness training, emerging technology security (cloud/IoT/AI-ML/blockchain).
+Largest domain. Evaluate security policies, access controls (DAC/MAC/RBAC/ABAC), MFA/biometrics/tokens/certificates, network security (firewalls, IDS/IPS, VPN, DMZ), physical/environmental security, data classification, encryption (symmetric/asymmetric/PKI/digital signatures), SIEM/SOC, incident response (NIST SP 800-61 Rev 3), awareness training, emerging technology security (cloud/IoT/AI-ML/blockchain).
 
 ## Decision logic
 

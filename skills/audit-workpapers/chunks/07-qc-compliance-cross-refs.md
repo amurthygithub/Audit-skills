@@ -32,7 +32,7 @@ Documentation completion within 14 days (AS 1215.14-.15). 7-year retention plan.
 7. Oral evidence alone insufficient for experienced auditor standard (AS 1215.06).
 8. Inquiry alone never sufficient (AS 1105.17).
 9. Uncorrected misstatements evaluated against tolerable misstatement.
-10. Documentation completion within 14 days of report release (AS 1215.14).
+10. Documentation completion within 14 days of report release (AS 1215.15).
 11. All significant findings documented per AS 1215.12 (8 categories).
 12. Engagement partner review complete before report release (AS 1215.15).
 13. Cross-referencing bidirectional.

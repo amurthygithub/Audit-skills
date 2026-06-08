@@ -27,7 +27,7 @@ Internal control is **effective** when BOTH conditions are met:
 
 Internal control provides **reasonable assurance**, not absolute assurance. Inherent limitations include human judgment error, breakdowns, collusion, and management override.
 
-## Component 1: Control Environment (P1-P5, 21 Points of Focus)
+## Component 1: Control Environment (P1-P5)
 
 **P1**: The organization demonstrates a commitment to integrity and ethical values.
 Points of Focus: Sets tone at the top; Establishes standards of conduct; Evaluates adherence to standards; Addresses deviations in a timely manner.
@@ -44,7 +44,7 @@ Points of Focus: Develops expectations of competence; Attracts, develops, and re
 **P5**: The organization holds individuals accountable for their internal control responsibilities.
 Points of Focus: Enforces accountability through policies; Establishes performance measures, incentives, and rewards; Evaluates for unintended consequences; Considers excessive pressures; Evaluates alignment with internal control standards.
 
-## Component 2: Risk Assessment (P6-P9, 16 Points of Focus)
+## Component 2: Risk Assessment (P6-P9)
 
 **P6**: The organization specifies objectives with sufficient clarity.
 Points of Focus: Operations objectives; External financial reporting objectives; External non-financial reporting objectives; Internal reporting objectives; Compliance objectives.
@@ -58,7 +58,7 @@ Points of Focus: Incentives and pressures; Opportunities; Attitudes and rational
 **P9**: The organization identifies and assesses changes that could significantly impact ICFR.
 Points of Focus: Changes in external environment; Changes in business model; Changes in leadership; Changes in systems, processes, and technology.
 
-## Component 3: Control Activities (P10-P12, 13 Points of Focus)
+## Component 3: Control Activities (P10-P12)
 
 **P10**: The organization selects and develops control activities for risk mitigation.
 Points of Focus: Integrates with risk assessment; Considers mix of control types; Considers level of application; Addresses segregation of duties; Evaluates design effectiveness; Evaluates operating effectiveness.
@@ -69,7 +69,7 @@ Points of Focus: Technology infrastructure; Security management; Technology acqu
 **P12**: The organization deploys control activities through policies and procedures.
 Points of Focus: Establishes policies; Establishes procedures; Deploys through policies and procedures.
 
-## Component 4: Information and Communication (P13-P15, 13 Points of Focus)
+## Component 4: Information and Communication (P13-P15)
 
 **P13**: The organization obtains or generates and uses relevant, quality information.
 Points of Focus: Identifies information requirements; Captures internal and external data; Processes data into quality information; Evaluates sufficiency and currency.
@@ -80,7 +80,7 @@ Points of Focus: Communicates throughout the organization; Provides separate com
 **P15**: The organization communicates with external parties regarding internal control matters.
 Points of Focus: Communicates with external parties; Receives and considers external input; Communicates with regulators; Provides information to customers and suppliers; Communicates to shareholders and stakeholders.
 
-## Component 5: Monitoring Activities (P16-P17, 8 Points of Focus)
+## Component 5: Monitoring Activities (P16-P17)
 
 **P16**: The organization selects, develops, and performs ongoing or separate evaluations.
 Points of Focus: Considers mix of ongoing and separate evaluations; Considers rate of change; Evaluates components for presence and functioning; Evaluates through self-assessments, internal audit, and external audit.
@@ -88,7 +88,7 @@ Points of Focus: Considers mix of ongoing and separate evaluations; Considers ra
 **P17**: The organization evaluates and communicates internal control deficiencies in a timely manner.
 Points of Focus: Assesses results of evaluations; Determines severity of deficiencies; Communicates deficiencies to management and board; Takes timely corrective action.
 
-**TOTAL ICIF 2013: 5 Components, 17 Principles, 71 Points of Focus (listed). COSO references 81 including additional PoFs — consult COSO 2013 publication for the complete set.**
+**TOTAL ICIF 2013: 5 Components, 17 Principles, 71 Points of Focus (listed). The COSO 2013 publication includes additional Points of Focus beyond the 71 listed here — consult COSO 2013 publication for the complete set.**
 
 ## Principle-to-Component Reference
 

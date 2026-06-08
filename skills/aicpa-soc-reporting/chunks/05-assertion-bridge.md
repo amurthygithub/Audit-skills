@@ -93,7 +93,7 @@ Key rules:
 - Issued by MANAGEMENT, not the CPA.
 - Provides NO auditor assurance -- must explicitly state this.
 - Covers gap period (typically 3-6 months) between report end and current/next report date.
-- Typical gap: SOC 2 covers Jan 1-Dec 31; bridge letter covers Jan 1-Jun 30 while next report is prepared.
+- Typical gap: SOC 2 covers Jan 1, YYYY-Dec 31, YYYY; bridge letter covers Jan 1, YYYY+1-Jun 30, YYYY+1 while next report is prepared.
 - Always include the disclaimer that it is not a SOC report.
 
 ## Citations

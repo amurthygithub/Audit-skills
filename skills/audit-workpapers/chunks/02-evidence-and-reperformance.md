@@ -24,7 +24,7 @@ B. Further Audit Procedures: Tests of Controls (when relying on operating effect
 | Reperformance | AS 1105.20 | Independent execution of procedures/controls originally by entity |
 | Analytical Procedures | AS 1105.21 | Evaluation of plausible relationships among financial/nonfinancial data |
 
-## Evidence Reliability Hierarchy (AS 1105.08)
+## Evidence Reliability Hierarchy (AS 1105, AICPA Audit Guide)
 
 1. External evidence directly obtained > Internal evidence
 2. Independent source > Company source
@@ -32,6 +32,8 @@ B. Further Audit Procedures: Tests of Controls (when relying on operating effect
 4. Original documents > Photocopies/facsimiles
 5. Effective IT controls over data > Systems without controls
 6. Written evidence > Oral evidence
+
+Note: The numbered hierarchy above reflects general audit practice guidance, not a specific enumerated list in AS 1105.08. AS 1105.08 discusses reliability factors of evidence in general prose. The numbered structure is drawn from AICPA AU-C 500 and the AICPA Audit Guide guidance on evidence reliability.
 
 ## Financial Statement Assertions (AS 1105.11)
 

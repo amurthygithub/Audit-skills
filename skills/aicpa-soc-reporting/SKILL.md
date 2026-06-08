@@ -66,7 +66,7 @@ The AICPA SOC suite provides independent examination of a service organization's
 
 ### 2.1 Related professional standards (cross-jurisdictional context)
 
-- **[ISAE-3000-3402]** — IAASB's international equivalents to the AICPA's AT-C standards; used for non-US jurisdictions where the ISAs apply (EU, UK, Canada, Australia, etc.). A SOC 2 issued under ISAE 3000/3402 is functionally equivalent for most purposes.
+- **[ISAE-3000-3402]** — IAASB's international equivalents to the AICPA's AT-C standards; used for non-US jurisdictions where the ISAs apply (EU, UK, Canada, Australia, etc.). A SOC 1 issued under ISAE 3402 is functionally equivalent for most purposes. ISAE 3000 governs non-US assurance engagements broadly, including SOC 2 equivalents.
 - **[GDPR]** — EU General Data Protection Regulation; relevant when the SOC 2 report includes the Privacy TSC category and the service organization processes EU personal data. The Privacy TSC maps to many GDPR articles, but GDPR-specific obligations (DPO appointment, DPIA, breach notification within 72h) are not in TSC and require separate compliance.
 
 ## 3. Core Concepts
@@ -220,7 +220,7 @@ This is a router. Load chunks based on the user's intent.
 The minimum cycle (always-loaded; no chunk needed for the high-level flow):
 
 1. **Classify the engagement** -> `chunks/01-soc-overview.md` + `chunks/02-engagement-type-decision.md`. Output: SOC type + Type I/II.
-2. **Scope TSC criteria** -> `chunks/03-tsp-criteria.md`. Output: criteria list (33 CC + optional).
+2. **Scope TSC criteria** -> `chunks/03-tsp-criteria.md`. Output: criteria list (35 CC + optional).
 3. **Identify subservice orgs** -> `chunks/06-cuec-csoc-inheritance.md`. Output: CUEC/CSOC list + inclusive vs. carve-out.
 4. **Plan examination** -> `chunks/07-opinion-lifecycle-sampling.md`. Output: sample strategy, examination period.
 5. **Draft report** -> `chunks/04-report-structures.md`. Output: complete report sections.

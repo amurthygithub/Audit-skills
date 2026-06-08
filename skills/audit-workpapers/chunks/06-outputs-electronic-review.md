@@ -45,7 +45,7 @@ Field: WP Index, Description of IPE, Source System & Report Name, Purpose of Use
 
 ## Electronic Workpaper Requirements
 
-Access Controls: password protection, access logs, role-based access, unauthorized access prevention per AS 1215.16.
+Access Controls: password protection, access logs, role-based access, unauthorized access prevention (firm quality control policies per QC 1000; see AS 1215.16-.17 for post-completion documentation requirements).
 Version Control: prevent unauthorized modification after completion, audit trail of all modifications, no deletion after completion date (AS 1215.17).
 Digital Signatures: electronic sign-off with authentication, attributable to individual, tamper-resistant timestamps.
 Retention: 7-year retention from report release (AS 1215.14), maintain readability, format migration plans, backup/disaster recovery. PDF/A (ISO 19005) recommended for archival.

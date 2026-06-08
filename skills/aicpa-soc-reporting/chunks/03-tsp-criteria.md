@@ -1,13 +1,13 @@
 ---
 chunk_id: 03-tsp-criteria
 parent_skill: aicpa-soc-reporting
-topic: "TSP Section 100 Criteria -- Full 51 Primary Criteria with COSO Mapping and Agent Directives"
+topic: "TSP Section 100 Criteria -- Full 53 Primary Criteria with COSO Mapping and Agent Directives"
 load_when: "user needs TSC criteria listings, CC1.1-CC9.2, A/PI/C/P criteria, COSO mapping, or cross-framework mappings"
 ---
 
 # Chunk 03 -- TSP Section 100 Criteria
 
-## Common Criteria (CC) -- 33 Criteria -- REQUIRED
+## Common Criteria (CC) -- 35 Common Criteria -- REQUIRED
 
 ### CC1 Control Environment (COSO Principles 1-5)
 | Code | COSO Principle | Description |

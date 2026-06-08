@@ -16,8 +16,8 @@
   },
   "baseline": {
     "baseline": "MODERATE",
-    "control_count_rev5": 325,
-    "control_count_rev5_1_1": 341
+    "control_count_rev5_approx": 325,
+    "control_count_rev5_1_1_approx": 341
   },
   "inheritance_summary": [
     {"control_id": "AC-2", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},

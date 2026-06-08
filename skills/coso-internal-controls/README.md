@@ -128,7 +128,7 @@ skills/coso-internal-controls/
 
 ## Known limitations
 
-- **71 of 81 Points of Focus** are listed (curated subset).
+- **71 of the Points of Focus** are listed (curated subset).
 - **PCAOB AS 2201 paragraph numbers** were reorganized; verify against current PCAOB codification.
 - **Materiality thresholds** are entity-specific; the skill cannot determine materiality.
 - **Stub executor** — real LLM-backed executor ships in SOX-611 Phase 2.

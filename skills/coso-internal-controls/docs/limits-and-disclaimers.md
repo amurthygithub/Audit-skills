@@ -11,13 +11,13 @@
 
 | Section | Reconstructed? | Authoritative source |
 |---------|----------------|----------------------|
-| 71 of 81 Points of Focus | Curated subset | COSO ICIF 2013 publication |
+| 71 of the Points of Focus | Curated subset | COSO ICIF 2013 publication |
 | 17 COSO principles | Verbatim from ICIF 2013 | COSO ICIF 2013 publication |
 | 20 COSO ERM principles | Verbatim from ERM 2017 | COSO ERM 2017 publication |
 | PCAOB AS 2201 paragraph references | Reorganized post-2007 | PCAOB codification |
 | RPA/GenAI/ICSR guidance | Summarized from COSO publications | COSO RPA 2024, GenAI 2026, ICSR 2023 |
 
-**71 of 81 Points of Focus** are listed. Consult COSO 2013 publication for the complete 81.
+**71 of the Points of Focus** are listed. Consult COSO 2013 publication for the complete set.
 
 ## 3. Regulatory currency
 
@@ -30,7 +30,7 @@
 
 ## 4. Known gaps
 
-- COSO ICIF 2013 has 81 Points of Focus; only 71 are listed (curated subset).
+- COSO ICIF 2013 has 17 principles each with multiple Points of Focus; 71 are listed here (curated subset).
 - PCAOB AS 2201 paragraph numbers were reorganized post-2007; verify against current PCAOB codification.
 - Materiality thresholds are entity-specific; the skill cannot determine materiality for a specific engagement.
 - Deficiency classification is professional judgment; the decision tree encodes the framework but does not replace the auditor's assessment.

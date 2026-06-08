@@ -23,13 +23,13 @@ When a user describes a service organization scenario, use the Engagement Classi
 
 | Standard | Citation | Scope | Key Provisions |
 |----------|----------|-------|----------------|
-| SSAE No. 21 | AT-C 100, 200, 300 | Supersedes SSAE 18; effective December 2020 | Governs all attestation engagements including SOC |
+| SSAE No. 21 | AT-C 100, 200, 300 | Superseded SSAE 18; effective December 2020 | Governs all attestation engagements including SOC |
 | AT-C 100 | Common Concepts | Definitions, roles, ethics, independence | Foundational definitions for all AT-C sections |
 | AT-C 200 | Level of Service (Examination) | Reasonable assurance, opinion on subject matter | Governs SOC 2, SOC 3, SOC for Cybersecurity, SOC for Supply Chain |
 | AT-C 200 | Level of Service (Review) | Limited assurance, conclusion on subject matter | Not typically used for SOC; limited assurance engagements |
 | AT-C 300 | Subject Matter (AUP) | No opinion; findings against specified procedures | Used when user entities specify particular procedures |
 | AT-C 300 | Subject Matter (SOC 1 ICFR) | SOC 1 Type I/Type II specific | Governs SOC 1; addresses subservice orgs, CUECs, CSOCs |
-| TSP Section 100 | Trust Services Criteria (2017 TSC, Revised 2022) | 64 criteria for SOC 2/SOC 3 | Defines all TSC; revised implementation guidance issued 2022 |
+| TSP Section 100 | Trust Services Criteria (2017 TSC, Revised 2022) | 53 primary criteria (~66 with sub-criteria) | Defines all TSC; revised implementation guidance issued 2022 |
 
 SSAE 21 superseded SSAE 18 effective December 2020 and is the current governing standard. AT-C sections have been recodified as 100 (Common Concepts), 200 (Level of Service), and 300 (Subject Matter). Practitioners should verify the current text of the relevant AT-C section.
 
@@ -51,7 +51,7 @@ Always cite the governing standard when drafting report language. SOC 1 -> cite 
 | 10 | Description Criteria | 2018 SOC 2 Description Criteria -- criteria for describing the system |
 | 11 | Exception | A deviation or failure in the design or operating effectiveness of a control |
 | 12 | Inclusive Method | Subservice organization controls are included in scope and tested directly |
-| 13 | ISAE 3000/3402 | International equivalents of SSAE 21 for non-US jurisdictions |
+| 13 | ISAE 3000/3402 | International equivalents: ISAE 3402 maps to SOC 1 (ICFR); ISAE 3000 maps to SOC 2 |
 | 14 | Management Assertion | Written statement by management about fairness of description and control effectiveness |
 | 15 | Material Weakness | A deficiency resulting in reasonable possibility of material misstatement |
 | 16 | Points of Focus | Implementation guidance for each TSC criterion describing how it may be met |

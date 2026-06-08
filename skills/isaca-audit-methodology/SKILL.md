@@ -68,7 +68,7 @@ ISACA (est. 1969) provides global standards for IT governance, audit, risk, and 
 
 - **[ITIL]** — IT service management framework; complements COBIT 2019's BAI/DSS domains; used for change, incident, and problem management.
 - **[ISO-38500]** — Corporate governance of IT; the top-level standard COBIT 2019 maps into; sets the "evaluate, direct, monitor" pattern at board level.
-- **[NIST-SP-800-61]** — NIST Computer Security Incident Handling Guide; pairs with ISACA's ITGC operations category for incident response audit testing.
+- **[NIST-SP-800-61]** — NIST SP 800-61 Rev 3 (April 2025): Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile. Supersedes Rev 2 (withdrawn April 2025). Pairs with ISACA's ITGC operations category for incident response audit testing.
 
 ## 3. Core Concepts
 
@@ -157,15 +157,15 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 |-------|-------|-----------|------------|-----------|-----|
 | CISA-CRM-28E | CISA Review Manual 28th Edition | ISACA | 28th Ed (2024) | 2026-05-25 | https://www.isaca.org/credentialing/cisa |
 | COBIT-2019 | COBIT 2019 Framework: Introduction and Methodology | ISACA | 2019 | 2026-05-25 | https://www.isaca.org/resources/cobit |
-| ITAF | IT Audit Framework, 5th Edition | ISACA | 5th Ed | 2026-05-25 | https://www.isaca.org/resources/it-audit-assurance-standards |
+| ITAF | IT Audit Framework, 5th Edition | ISACA | 5th Ed | 2026-05-25 | https://www.isaca.org/store/items/witaf5 |
 | ISACA-ETHICS | ISACA Code of Professional Ethics | ISACA | current edition | 2026-05-25 | https://www.isaca.org/credentialing/code-of-professional-ethics |
-| COSO-2013 | Internal Control — Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org |
+| COSO-2013 | Internal Control — Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP 100, 2022 revised POF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/soc-2 |
 | NIST-CSF-2.0 | Cybersecurity Framework | NIST | 2.0 (Feb 2024) | 2026-05-25 | https://www.nist.gov/cyberframework |
 | ISO-27001-2022 | Information security management systems — Requirements | ISO/IEC | 2022 | 2026-05-25 | https://www.iso.org/standard/27001 |
-| ISO-38500 | Governance of IT for the organization | ISO/IEC | 2024 | 2026-05-25 | https://www.iso.org/standard/38500 |
+| ISO-38500 | Governance of IT for the organization | ISO/IEC | 2024 | 2026-05-25 | https://www.iso.org/standard/81684.html |
 | ITIL | ITIL 4 Foundation | Axelos | 2019 | 2026-05-25 | https://www.axelos.com |
-| NIST-SP-800-61 | Computer Security Incident Handling Guide | NIST | Rev 2 (2012) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/61/r2/final |
+| NIST-SP-800-61 | Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile | NIST | Rev 3 (2025) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/61/r3/final |
 
 In-body citations use the form `[LABEL]` and resolve to this manifest.
 

@@ -84,7 +84,7 @@ load_when: "user asks about COSO ERM, enterprise risk management, or monitoring 
 - Report results to appropriate staff and board.
 - Ensure timely corrective action and follow-up.
 
-### Monitoring as Audit Evidence (AS 2201.24-.25)
+### Monitoring as Audit Evidence (AS 2201.24-.25) — Entity-Level Controls
 
 Monitoring results may be used as audit evidence when procedures are rigorous, individuals are competent/objective, frequency is sufficient, and the monitoring addresses the same risks. However, monitoring controls alone CANNOT eliminate the need to test the controls being monitored.
 
@@ -92,5 +92,5 @@ Monitoring results may be used as audit evidence when procedures are rigorous, i
 
 - [COSO-ERM-2017] — Enterprise Risk Management framework
 - [COSO-Monitoring-2009] — Guidance on Monitoring Internal Control Systems
-- [PCAOB-AS-2201 sect.24-.25] — Using the work of others
+- [PCAOB-AS-2201 sect.24-.25] — Entity-Level Controls
 - See SKILL.md sect.10 for the full manifest.

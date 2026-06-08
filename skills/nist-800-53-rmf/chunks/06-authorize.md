@@ -45,7 +45,11 @@ vendor_dependent: <true|false>
 product: <vendor product name if vendor_dependent>
 vendor_dependency: <description>
 remediation_plan: <action>
-milestones: [<list of intermediate steps>]
+milestones:
+  - date: YYYY-MM-DD
+    description: <intermediate step>
+  - date: YYYY-MM-DD
+    description: <intermediate step>
   submission_date: YYYY-MM-DD
   resources_required: <string>
   deviation_from_baseline: <true|false>

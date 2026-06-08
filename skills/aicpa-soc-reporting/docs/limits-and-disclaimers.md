@@ -12,7 +12,7 @@
 | Section | Reconstructed? | Authoritative source | Verify against |
 |---------|----------------|----------------------|----------------|
 | TSP Section 100 criteria (CC1.1-CC9.2, A1.1-P8.1) | No (direct from TSP) | AICPA TSP Section 100 | aicpa-cima.com |
-| TSC criteria count (51 primary, ~64 with sub-criteria) | Yes -- count varies by publication (61-67) | AICPA 2022 Revised Implementation Guidance | aicpa-cima.com |
+| TSC criteria count (53 primary, ~66 with sub-criteria) | Yes -- count varies by publication (63-69) | AICPA 2022 Revised Implementation Guidance | aicpa-cima.com |
 | COSO principle mapping | No (direct from AICPA) | COSO 2013, AICPA TSC | coso.org, aicpa-cima.com |
 | Cross-framework mappings (ISO, NIST, GDPR) | Curated | ISO, NIST, EU | respective publishers |
 | Sampling minimum sizes | Per AICPA audit guide | AICPA Audit Guide | aicpa-cima.com |
@@ -21,7 +21,7 @@
 
 | Standard | Version cited | Publication date | Verify at |
 |----------|---------------|------------------|-----------|
-| SSAE No. 18 | May 2017 | 2017 | aicpa-cima.com |
+| SSAE No. 18 | May 2017 (superseded by SSAE 21) | 2017 | aicpa-cima.com |
 | TSP Section 100 | 2017 TSC, Revised 2022 | 2017/2022 | aicpa-cima.com |
 | COSO 2013 | 2013 | 2013 | coso.org |
 | ISO 27001 | 2022 | 2022 | iso.org |
@@ -33,7 +33,7 @@
 - SOC for Cybersecurity and SOC for Supply Chain are emerging products. Guidance is still evolving.
 - SOC 1 control objectives are management-defined, not standardized. The skill cannot prescribe specific control objectives.
 - TSC sub-criteria count varies by publication (61-67). Verify against current TSP Section 100.
-- SSAE Nos. 19-21 are conforming amendments (SSAE 21 supersedes SSAE 18) to specific AT-C sections. Verify current text.
+- SSAE Nos. 19-21 are conforming amendments (SSAE 21 superseded SSAE 18) to specific AT-C sections. Verify current text.
 - Cross-framework mappings are curated, not authoritative. Validate against publisher mappings.
 
 ## 5. Out-of-scope inputs
