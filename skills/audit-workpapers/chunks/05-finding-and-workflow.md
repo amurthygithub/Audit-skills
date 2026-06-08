@@ -29,15 +29,17 @@ Specific, actionable corrective actions. Prioritize by risk/impact. Identify res
 
 ## Cross-Reference: C-C-C-E-R and ISACA 5-Part Observation Format
 
-The C-C-C-E-R finding format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as ISACA's 5-part audit observation format. The labels differ by framework convention -- PCAOB/AS 1215-aligned workpapers use C-C-C-E-R while ISACA uses the 5-part terminology from CISA-CRM-28E. The structures are compatible and map element-for-element. See `isaca-audit-methodology/chunks/06-observation-and-lifecycle.md` for the ISACA equivalent with the complete engagement lifecycle.
+The C-C-C-E-R finding format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as ISACA's 5-part audit observation format. The labels differ by framework convention -- PCAOB/AS 1215-aligned workpapers use C-C-C-E-R while ISACA uses the 5-part terminology. The structures are compatible and map element-for-element. See `isaca-audit-methodology/chunks/06-observation-and-lifecycle.md` for the ISACA equivalent with the complete engagement lifecycle.
 
-### Severity Classification
+### Severity Classification (AS 2201, AS 1305)
+
+Per PCAOB AS 2201 for ICFR audits and AS 1305 for communications about control deficiencies in financial statement audits:
 
 | Severity | Criteria | Reporting |
 |----------|----------|-----------|
-| Material Weakness | Reasonable possibility material misstatement not prevented/detected | Report to audit committee; report in auditor's ICFR report |
-| Significant Deficiency | Less severe than MW but important | Report to audit committee |
-| Other Finding (Control Deficiency) | Not meeting SD threshold | Communicate to management |
+| Material Weakness | Reasonable possibility material misstatement not prevented/detected (AS 2201.A3, AS 1305.02) | Report to audit committee; report in auditor's ICFR report (AS 1305.03-.08) |
+| Significant Deficiency | Less severe than MW but important enough to merit attention by those charged with governance (AS 1305.02) | Report to audit committee (AS 1305.09-.11) |
+| Other Finding (Control Deficiency) | Not meeting SD threshold | Communicate to management (AS 1305.12) |
 
 ### Finding Example Structure
 

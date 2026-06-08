@@ -35,7 +35,7 @@ Three risk formulas appear across the audit family skills. They express the same
 | Skill | Formula | Notation | Scope |
 |-------|---------|----------|-------|
 | audit-workpapers | AR = IR x CR x AP x TD | Audit Risk = Inherent Risk x Control Risk x Analytical Procedure Risk x Test of Details risk | PCAOB AS 1101/AS 2110; decomposed substantive-testing precision |
-| isaca-audit-methodology | Risk = Likelihood x Impact | Likelihood x Impact, adjusted by Control Risk Factor (CRF) | ISACA CISA-CRM-28E risk-based audit planning; engagement-level prioritization |
+| isaca-audit-methodology | Risk = Likelihood x Impact | Likelihood x Impact, adjusted by Control Risk Factor (CRF) | ISACA ITAF risk-based audit planning; engagement-level prioritization |
 | coso-internal-controls | Inherent Risk = Impact x Likelihood | Impact x Likelihood | COSO ERM 2017; enterprise risk assessment |
 
 **Reconciliation:** Inherent Risk (IR) = Likelihood x Impact = Impact x Likelihood. All three frameworks assess the same two dimensions -- probability of occurrence and magnitude of consequence. The difference is:

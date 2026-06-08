@@ -63,6 +63,7 @@ The audit workpapers skill encodes PCAOB, AICPA, IAASB (ISA), and ISACA document
 | Risk | AS 1101 / [PCAOB-AS-2110] / AS 2301 | Audit risk model (AR = IR x CR x AP x TD) |
 | Opinion | [PCAOB-AS-3105] / AS 3101 | Unqualified, qualified, adverse, disclaimer |
 | Internal Control | [PCAOB-AS-2201] / [COSO-ICIF-2013] | Material weakness, significant deficiency |
+| Deficiency Communication | [PCAOB-AS-1305] | Communication to audit committee and management |
 | IT Audit | [ISACA-ITAF] | IT-specific workpaper standards, CAATs |
 | Quality | QC 1000 / AS 1220 / AS 1201 | Firm QC, EQR, supervisory review |
 
@@ -158,10 +159,11 @@ This skill encodes domain knowledge; it is not a substitute for professional jud
 | PCAOB-AS-3105 | Departures from Unqualified Opinions | PCAOB | AS 3105 | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS3105 |
 | PCAOB-AS-2110 | Identifying and Assessing Risks | PCAOB | AS 2110 | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS2110 |
 | PCAOB-AS-2201 | Audit of ICFR | PCAOB | AS 2201 | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201 |
-| AICPA-AU-C-230 | Audit Documentation | AICPA | AU-C 230 | 2026-05-25 | https://www.aicpa-cima.com |
-| IAASB-ISA-230 | Audit Documentation | IAASB | ISA 230 | 2026-05-25 | https://www.iaasb.org |
-| COSO-ICIF-2013 | Internal Control Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org |
-| ISACA-ITAF | IT Audit Framework | ISACA | ITAF 4th Ed. | 2026-05-25 | https://www.isaca.org |
+| PCAOB-AS-1305 | Communications About Control Deficiencies | PCAOB | AS 1305 | 2026-06-08 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305 |
+| AICPA-AU-C-230 | Audit Documentation | AICPA | AU-C 230 | 2026-05-25 | https://www.aicpa-cima.com/resources/landing/au-c-section-230 |
+| IAASB-ISA-230 | Audit Documentation | IAASB | ISA 230 | 2026-05-25 | https://www.iaasb.org/publications/isa-230-revised-audit-documentation |
+| COSO-ICIF-2013 | Internal Control Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
+| ISACA-ITAF | IT Audit Framework | ISACA | ITAF 5th Ed. | 2026-06-08 | https://www.isaca.org/resources/itaf |
 
 In-body citations use the form [LABEL section] and resolve to this manifest.
 

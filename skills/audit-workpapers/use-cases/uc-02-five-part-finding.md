@@ -1,7 +1,7 @@
 ---
 uc_id: UC-02
 title: "5-part finding (C-C-C-E-R) for AP cutoff control gap"
-industries: [financial-industrie public-sector]
+industries: [financial-services, public-sector]
 frameworks: [PCAOB-AS-2201, PCAOB-AS-2201, PCAOB-AS-1215]
 inputs:
   finding_id: 3
