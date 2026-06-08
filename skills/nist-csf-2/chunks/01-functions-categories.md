@@ -84,7 +84,7 @@ Each Function decomposes into Categories. CSF 2.0 has **22 Categories** total (d
 
 Each Category decomposes into Subcategories — the outcome-level statements that get scored during a Profile assessment. CSF 2.0 publishes exactly **106 Subcategories** (counted from the NIST CSF 2.0 PDF Appendix A, lines 738-906: 31 GV + 21 ID + 22 PR + 11 DE + 13 RS + 8 RC = 106). Gaps in subcategory numbers (e.g., DE.CM-04, DE.CM-05, ID.AM-06, RS.AN-01, RS.AN-02, RS.AN-04, RS.AN-05) are deliberate and indicate CSF 1.1 Subcategories that were relocated in 2.0 (see CSF 2.0 PDF p. 15). Subcategories use the `<Category>-<NN>` form.
 
-Representative sample (full canonical list lives in `data/crosswalks/csf-2-0-subcategories.json` and the official NIST CSF 2.0 PDF Appendix):
+Representative sample (full canonical list lives in a JSON in `data/crosswalks/csf-2-0-subcategories.json` — added in Wave 2; the schema is defined in `chunks/08-informative-references-crosswalk.md` §6 — and the official NIST CSF 2.0 PDF Appendix):
 
 | Subcategory | Outcome |
 |-------------|---------|
@@ -126,7 +126,7 @@ GOVERN is the single largest change from CSF 1.1 → 2.0 and the most-likely-mis
 - **RS.MA** (Incident Management) → 800-53 Rev 5.1.1 `IR-06`, `IR-07`, `IR-08`, `SR-03`, `SR-08` (per the IR spreadsheet)
 - **RC.RP** (Recovery Plan Execution) → 800-53 Rev 5.1.1 `CP-10`, `IR-04`, `IR-08` (per the IR spreadsheet)
 
-The full curated mapping ships in `data/crosswalks/csf-to-800-53-mod.json` and the analysis lives in `chunks/08-informative-references-crosswalk.md`. Orientation: **CSF tells you the outcome you want; 800-53 tells you the controls that produce that outcome**. Use CSF for executive conversations and Profile maturity; use 800-53 for control specification and ATO evidence.
+The full curated mapping ships in a JSON in `data/crosswalks/csf-to-800-53-mod.json` (added in Wave 2 — the schema is defined in `chunks/08-informative-references-crosswalk.md` §6) and the analysis lives in `chunks/08-informative-references-crosswalk.md`. Orientation: **CSF tells you the outcome you want; 800-53 tells you the controls that produce that outcome**. Use CSF for executive conversations and Profile maturity; use 800-53 for control specification and ATO evidence.
 
 **CSF 1.1 → 2.0 delta** (for migration):
 

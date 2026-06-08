@@ -63,7 +63,7 @@ The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-
 
 **What is new in CSF 2.0 vs 1.1:** the new **GOVERN** function is added (with 6 categories: GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC) and now sits across the top of the framework — GOVERN sets the context for the other 5. The **PROTECT** categories were renamed to 5 categories (PR.AA, PR.AT, PR.DS, PR.PS, PR.IR) and supply-chain risk was elevated to a first-class GOVERN-anchored concern (GV.SC). Profile terminology was formalized: **Current Profile**, **Target Profile**, **Organizational Profile** (the org's posture; contains one or both of Current/Target), and **Community Profile** (sector-coordinating-body output). See `chunks/01-functions-categories.md` for the 1.1-to-2.0 delta table.
 
-**Relationship to other NIST frameworks:** CSF 2.0 outcomes (Subcategories) map cleanly to 800-53 controls via the NIST Informative References spreadsheet (see `chunks/08-informative-references-crosswalk.md` and the curated JSON in `data/crosswalks/`). The **Tier 1-4** scale in CSF is an **organizational maturity** scale; the **Tier 1/2/3** in 800-53 RMF refers to **FIPS 199 impact**. They are different scales on the same word — see `chunks/02-tiers-and-profiles.md` for the reconciliation.
+**Relationship to other NIST frameworks:** CSF 2.0 outcomes (Subcategories) map cleanly to 800-53 controls via the NIST Informative References spreadsheet (see `chunks/08-informative-references-crosswalk.md` and the curated JSONs in `data/crosswalks/` — added in Wave 2). The **Tier 1-4** scale in CSF is an **organizational maturity** scale; the **Tier 1/2/3** in 800-53 RMF refers to **FIPS 199 impact**. They are different scales on the same word — see `chunks/02-tiers-and-profiles.md` for the reconciliation.
 
 ## 3. Core Concepts
 
@@ -82,7 +82,7 @@ Mnemonic: **"Good Identities Protect, Detect, Respond, Recover"** (G-I-P-D-R-R).
 
 ### 3.2 Categories (22 total) and Subcategories (106 total)
 
-Categories are the second-level grouping. Each Category has 2-6 Subcategories. The full list is in `chunks/01-functions-categories.md` and the canonical JSON is `data/crosswalks/csf-2-0-subcategories.json`. Examples: `GV.OC` (Organizational Context), `GV.SC` (Cybersecurity Supply Chain Risk Management), `ID.AM` (Asset Management), `PR.AA` (Identity, Authentication, and Access Control — renamed in 2.0), `DE.CM` (Continuous Monitoring), `RS.MI` (Mitigation), `RC.RP` (Recovery Planning).
+Categories are the second-level grouping. Each Category has 2-6 Subcategories. The full list is in `chunks/01-functions-categories.md` and the canonical JSON ships in `data/crosswalks/csf-2-0-subcategories.json` (added in Wave 2). Examples: `GV.OC` (Organizational Context), `GV.SC` (Cybersecurity Supply Chain Risk Management), `ID.AM` (Asset Management), `PR.AA` (Identity, Authentication, and Access Control — renamed in 2.0), `DE.CM` (Continuous Monitoring), `RS.MI` (Mitigation), `RC.RP` (Recovery Planning).
 
 ### 3.3 Tiers 1-4 (maturity)
 
@@ -236,4 +236,4 @@ The minimum cycle (always-loaded; no chunk needed for the high-level flow):
 5. **Report** — 6-function radar for the board → `chunks/06-enterprise-reporting.md`.
 6. **Crosswalk** — when the same evidence must satisfy 800-53 / SOC 2 / ISO / HIPAA / PCI → `chunks/08-informative-references-crosswalk.md`.
 
-For board/executive questions → `chunks/05-govern-function.md` (GOVERN is the executive language). For federal/DoD/FedRAMP → hand off to `nist-800-53-rmf` and the curated crosswalk in `data/crosswalks/`.
+For board/executive questions → `chunks/05-govern-function.md` (GOVERN is the executive language). For federal/DoD/FedRAMP → hand off to `nist-800-53-rmf` and the curated crosswalks in `data/crosswalks/` (added in Wave 2).

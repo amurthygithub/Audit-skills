@@ -149,7 +149,7 @@ Examples of 1-to-many (per NIST IR spreadsheet, 800-53 Rev 5.1.1): `PR.AA-01` �
 
 The reverse (1-to-1) is the exception, not the rule. When producing a crosswalk for an org, expect to see 1-to-2 to 1-to-5 mappings as the norm; flag any 1-to-1 mapping for verification (it usually means the mapping is incomplete).
 
-**Practical consequence for the crosswalk JSON**: the curated `data/crosswalks/csf-to-*.json` files use the format `{"from_subcategory": "GV.OC-01", "to_framework": "800-53", "to_controls": ["PM-11", "PM-15"], "rationale": "..."}` — the `to_controls` is an **array**, not a scalar. The 800-53 RMF skill's `soc2-to-800-53-mod.json` uses a different format (1-to-1 control-to-control) because the SOC 2 ↔ 800-53 mapping is dominantly 1-to-1; the CSF → 800-53 mapping is dominantly 1-to-many. Any cross-skill parser consuming both formats must support both shapes.
+**Practical consequence for the crosswalk JSON**: the curated `data/crosswalks/csf-to-*.json` files use the format `{"from_subcategory": "GV.OC-01", "to_framework": "800-53", "to_controls": ["PM-11"], "rationale": "..."}` — the `to_controls` is an **array**, not a scalar. (Some Subcategories map to multiple controls — see the 1-to-many examples in §6 — but many, like `GV.OC-01`, are 1-to-1 with a single 800-53 control.) The 800-53 RMF skill's `soc2-to-800-53-mod.json` uses a different format (1-to-1 control-to-control) because the SOC 2 ↔ 800-53 mapping is dominantly 1-to-1; the CSF → 800-53 mapping is dominantly 1-to-many. Any cross-skill parser consuming both formats must support both shapes.
 
 ## 7. Where the authoritative crosswalk lives
 

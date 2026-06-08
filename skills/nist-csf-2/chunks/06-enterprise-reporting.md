@@ -135,7 +135,7 @@ This template is the one-page artifact the CISO hands the board 48 hours before 
 "The cyber program is [on track / at risk / off track] against the [12/24]-month target. The top risks are [R1], [R2], [R3] (see Appendix A). No [regulator enforcement actions / material incidents / unmitigated HIGH findings] in the reporting period."
 
 ## 8. Appendices (linked, not inline)
-- A. Full 108-Subcategory Current Profile (YAML)
+- A. Full 106-Subcategory Current Profile (YAML)
 - B. Full Gap Analysis Table (YAML)
 - C. 12-month Roadmap (Gantt or table)
 - D. Crosswalk to [800-53 / SOC 2 / ISO 27001] (per chunk 08)

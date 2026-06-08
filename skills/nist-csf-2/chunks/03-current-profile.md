@@ -67,7 +67,7 @@ The Tier indicator is a **heuristic mapping** (count of Fully + half of Largely 
 1. **Scope the assessment** — which org units, which systems, which Functions are in scope. A Series-A SaaS at first-profile stage is typically the whole org; a $20B bank may scope to one business unit.
 2. **Identify control owners per Function** — Governance owner, Identity/Asset owner, Protection owner, Detection owner, Response owner, Recovery owner. GOVERN-first: identify the GOVERN owner first because they set the assessment rules.
 3. **Gather documentation** — request the org's policy library, prior audit reports, system inventory, risk register. Use the org's existing artifacts before inventing new ones.
-4. **Walkthroughs and interviews** — schedule per Function; use the Subcategory grid (`data/crosswalks/csf-2-0-subcategories.json`) as the question set.
+4. **Walkthroughs and interviews** — schedule per Function; use the Subcategory grid (canonical JSON in `data/crosswalks/csf-2-0-subcategories.json`, added in Wave 2; the full 106-row list is also in `chunks/01-functions-categories.md` §3) as the question set.
 5. **Score each Subcategory** — assign status (Not/Partially/Largely/Fully), cite evidence_refs, and identify the owner. Record contradictions explicitly.
 6. **Aggregate to Function-level Tier** — compute the heuristic Tier per Function from the Subcategory scores.
 7. **Document the Current Profile** — emit the Current Profile YAML (see §5) and flag the Subcategories that are Self-Attestation Risks (Fully Implemented with only Documented evidence).

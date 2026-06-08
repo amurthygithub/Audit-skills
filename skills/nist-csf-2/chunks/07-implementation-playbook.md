@@ -16,7 +16,7 @@ The first 90 days are about **momentum**: deliver 5-10 visible wins that establi
 **Tier-1 quick wins (do in 90 days):**
 
 1. **Document the existing practices.** Most orgs are doing 30-50% of CSF already; the first deliverable is a Current Profile YAML (see `chunks/03-current-profile.md` §5) that names what is in place. This is the cheapest, highest-leverage activity; it converts tacit knowledge into a Profile.
-2. **Identify the 5 most-missing Subcategories** (not 108 — the 5). Use the Current Profile to find the 5 Subcategories with the largest delta from target. These become the 90-day roadmap.
+2. **Identify the 5 most-missing Subcategories.** CSF 2.0 has 106 Subcategories total; for the 90-day roadmap, pick the 5 with the largest delta from target (see Current Profile gap analysis). These become the 90-day roadmap.
 3. **Stand up the cyber steering committee** (covers `GV.OV-01`). Monthly meeting; CISO + CIO + CFO + General Counsel + one business unit head. Charter in a 1-page memo. Cost: 4 hours/month of executive time.
 4. **Publish the cybersecurity policy** (covers `GV.PO-01`). Even a 5-page "we follow NIST CSF 2.0 and SOC 2" policy is a 90-day win. Cost: 1-2 people-weeks of policy author time.
 5. **Enable MFA on all admin accounts** (covers `PR.AA-03`). The single highest-leverage control change. Cost: 0-1 person-week; tool cost $0-$10/user/month.
