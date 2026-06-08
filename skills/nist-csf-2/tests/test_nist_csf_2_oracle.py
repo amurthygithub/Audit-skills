@@ -21,13 +21,13 @@ def _load(name: str) -> dict:
 
 
 def test_uc_01_oracle():
-    """UC-01: 50-FTE SaaS first Organizational Profile (Tier 1→2), 6 subcategory scores, 5-priority gap analysis."""
+    """UC-01: 50-FTE SaaS first Organizational Profile (Tier 1→2), 8 subcategory scores, 5-priority gap analysis."""
     payload = _load("uc-01-input.json")
     out = run_skill("UC-01", payload)
     cp = out["current_profile"]
     assert cp["current_tier_by_function"]["GV"] == "T1"
     assert cp["current_tier_by_function"]["PR"] == "T2"
-    assert len(cp["subcategory_scores"]) == 6
+    assert len(cp["subcategory_scores"]) == 8
 
 
 def test_uc_01_subcategory_status_enum():

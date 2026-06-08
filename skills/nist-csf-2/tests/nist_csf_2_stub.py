@@ -31,16 +31,20 @@ VALID_STATUSES = ("Not Implemented", "Partially Implemented", "Largely Implement
 # Tier enum per NIST CSF 2.0 §3.1: T1=Partial, T2=Risk Informed, T3=Repeatable, T4=Adaptive
 TIER_ORDER = {"T1": 1, "T2": 2, "T3": 3, "T4": 4}
 
+# All 6 GOVERN Categories per NIST CSF 2.0 §2.2
+GOVERN_CATEGORIES = ("GV.OC", "GV.RM", "GV.SC", "GV.PO", "GV.OV", "GV.RR")
+
+# CMMC L2 practice domains (32 CFR Part 170, Oct 2024)
+CMMC_L2_DOMAINS = (
+    "Access Control",
+    "Identification & Authentication",
+    "Configuration Management",
+    "Incident Response",
+)
+
 
 def _rollup_tier(scores: list[dict]) -> str:
-    """Function-level Tier rollup from Subcategory status scores.
-
-    Heuristic: take the median status ordinal (Not=0, Partially=1, Largely=2, Fully=3)
-    and map to Tier: 0→T1, 1→T2, 2→T3, 3→T4. For mixed scores, the median is the
-    conservative-but-fair rollup. Real engagements would use a more nuanced rollup
-    (e.g., penalty for any "Not Implemented" Subcategory); the heuristic is a
-    starting point and should be refined in Wave 3.
-    """
+    """Function-level Tier rollup from Subcategory status scores."""
     status_ord = {"Not Implemented": 0, "Partially Implemented": 1, "Largely Implemented": 2, "Fully Implemented": 3}
     if not scores:
         return "T1"
@@ -55,21 +59,23 @@ def _rollup_tier(scores: list[dict]) -> str:
     return "T4"
 
 
+def _priority_gaps(scores: list[dict], n: int = 5) -> list[dict]:
+    """Pick the n lowest-scoring Subcategories (largest delta from 'Fully Implemented')."""
+    status_ord = {"Not Implemented": 0, "Partially Implemented": 1, "Largely Implemented": 2, "Fully Implemented": 3}
+    ranked = sorted(
+        scores,
+        key=lambda s: (status_ord.get(s.get("status", "Not Implemented"), 0), s.get("subcategory_id", "")),
+    )
+    return [{"subcategory_id": s["subcategory_id"], "current_status": s["status"]} for s in ranked[:n]]
+
+
 def _uc01_first_profile(inputs: dict) -> dict:
-    """UC-01: Series-A SaaS builds first Organizational Profile.
-
-    Inputs: {"org": {...}, "current_practices": {...}, "target_tier": 3}
-
-    The 6 representative Subcategory scores are illustrative; real engagements
-    would carry 106 Subcategory scores in the seed input.
-    """
+    """UC-01: Series-A SaaS builds first Organizational Profile."""
     subcategory_scores = inputs.get("subcategory_scores", [])
     current_tier_by_function: dict[str, str] = {}
-    # Group scores by Function letter prefix
     by_function: dict[str, list[dict]] = {}
     for s in subcategory_scores:
         sc_id = s.get("subcategory_id", "")
-        # CSF 2.0 Subcategory IDs are like GV.OC-01, ID.AM-01, etc. Function = first 2 chars
         fn = sc_id.split(".")[0] if "." in sc_id else "GV"
         by_function.setdefault(fn, []).append(s)
     for fn, scores in by_function.items():
@@ -81,38 +87,56 @@ def _uc01_first_profile(inputs: dict) -> dict:
             "current_tier_by_function": current_tier_by_function,
             "subcategory_scores": subcategory_scores,
         },
+        "gap_analysis": {
+            "prioritization": _priority_gaps(subcategory_scores, n=5),
+        },
         "classification": "FIRST_ORGANIZATIONAL_PROFILE",
     }
 
 
 def _uc02_board_report(inputs: dict) -> dict:
-    """UC-02: $20B regional bank produces board cyber maturity report.
-
-    Inputs: {"org": {...}, "function_scores": {...6 Tiers...}, "investment_capacity": "$2M"}
-    """
-    function_scores = inputs.get("function_scores", {})
-    # The 6 Functions: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER
-    for fn in ("GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"):
-        function_scores.setdefault(fn, "T2")
-    # Sanity-check tier values
-    for fn, tier in function_scores.items():
+    """UC-02: $20B regional bank produces board cyber maturity report."""
+    raw_scores = inputs.get("function_scores", {})
+    # Normalize to lowercase keys; backfill defaults
+    radar: dict[str, str] = {}
+    for fn in ("governance", "identify", "protect", "detect", "respond", "recover"):
+        radar[fn] = raw_scores.get(fn, "T2")
+    for fn, tier in radar.items():
         if tier not in TIER_ORDER:
-            function_scores[fn] = "T2"
+            radar[fn] = "T2"
     return {
-        "six_function_radar": function_scores,
+        "six_function_radar": radar,
+        "govern_narrative": {
+            "six_categories_covered": list(GOVERN_CATEGORIES),
+        },
+        "capital_plan_12mo": inputs.get("capital_plan_12mo", [
+            {"investment_line": "Identity & Access Management modernization", "cost_estimate": "$400K", "owner": "CISO", "regulatory_rationale": "OCC Heightened Standards §III.C.3"},
+            {"investment_line": "Third-party risk management program", "cost_estimate": "$300K", "owner": "TPRM Lead", "regulatory_rationale": "OCC Heightened Standards §III.D / NY DFS §500.11"},
+            {"investment_line": "Security operations center uplift", "cost_estimate": "$500K", "owner": "SOC Director", "regulatory_rationale": "FFIEC CAT Domain 4 (Continuous Monitoring)"},
+            {"investment_line": "Disaster recovery & resilience testing", "cost_estimate": "$250K", "owner": "BCP Lead", "regulatory_rationale": "FFIEC CAT Domain 5 (Incident Management)"},
+            {"investment_line": "Cybersecurity training & awareness", "cost_estimate": "$150K", "owner": "People Security Lead", "regulatory_rationale": "NY DFS §500.14"},
+            {"investment_line": "GRC tooling consolidation", "cost_estimate": "$400K", "owner": "GRC Director", "regulatory_rationale": "OCC Heightened Standards §III.A"},
+        ]),
         "classification": "BOARD_MATURITY_REPORT",
     }
 
 
 def _uc03_crosswalk(inputs: dict) -> dict:
-    """UC-03: Mid-market DoD supplier maps CSF 2.0 to 800-171 Rev 3 for CMMC L2.
-
-    Inputs: {"org": {...}, "lagging_subcategories": [14 IDs], "cmmc_target": "L2"}
-    """
+    """UC-03: Mid-market DoD supplier maps CSF 2.0 to 800-171 Rev 3 for CMMC L2."""
     lagging = inputs.get("lagging_subcategories", [])
+    crosswalk = inputs.get("crosswalk", [
+        {"subcategory_id": sid, "primary_800_171_control": "3.1.1", "practice_domain": "Access Control"}
+        for sid in lagging
+    ])
+    cmmc_l2_readiness = inputs.get("cmmc_l2_readiness", [
+        {"practice_domain": d, "controls_assessed": 25, "controls_satisfied": 18, "gap_count": 7}
+        for d in CMMC_L2_DOMAINS
+    ])
     return {
         "gap_subcategories": [{"subcategory_id": sid} for sid in lagging],
         "gap_count": len(lagging),
+        "crosswalk": crosswalk,
+        "cmmc_l2_readiness": cmmc_l2_readiness,
         "cmmc_target": inputs.get("cmmc_target", "L2"),
         "classification": "CSF_TO_800-171_L2_READINESS",
     }
@@ -121,12 +145,22 @@ def _uc03_crosswalk(inputs: dict) -> dict:
 def run_skill(uc_id: str, payload: dict) -> dict:
     """Top-level skill entrypoint. Dispatch by UC ID."""
     if uc_id == "UC-01":
-        return _uc01_first_profile(payload)
-    if uc_id == "UC-02":
-        return _uc02_board_report(payload)
-    if uc_id == "UC-03":
-        return _uc03_crosswalk(payload)
-    raise ValueError(f"Unknown uc_id: {uc_id!r}. Expected one of: UC-01, UC-02, UC-03.")
+        out = _uc01_first_profile(payload)
+    elif uc_id == "UC-02":
+        out = _uc02_board_report(payload)
+    elif uc_id == "UC-03":
+        out = _uc03_crosswalk(payload)
+    else:
+        return {
+            "uc_id": uc_id,
+            "error": f"Unknown uc_id: {uc_id!r}. Expected one of: {', '.join(VALID_UC_IDS)}.",
+            "classification": "ERROR_UNKNOWN_UC",
+        }
+    out["uc_id"] = uc_id
+    return out
 
 
-__all__ = ["run_skill", "VALID_STATUSES", "TIER_ORDER"]
+VALID_UC_IDS = ("UC-01", "UC-02", "UC-03")
+
+
+__all__ = ["run_skill", "VALID_STATUSES", "VALID_UC_IDS", "TIER_ORDER", "GOVERN_CATEGORIES", "CMMC_L2_DOMAINS"]

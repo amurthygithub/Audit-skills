@@ -133,7 +133,7 @@ The GOVERN-first sequencing rule is a **practitioner heuristic** supported by NI
 - `chunks/01-functions-categories.md` — the structural overview; this chunk gives the per-Category deep-dive.
 - `chunks/06-enterprise-reporting.md` — the GOVERN deep-dive is the executive-legible appendix of the board report (the GV.OV subcategories populate the KPI/KRI dashboard).
 - `chunks/07-implementation-playbook.md` — the supply chain (GV.SC) subcategories are the single largest source of new assessment work in 2.0; the playbook addresses this with a 9-90-365 day sequence.
-- `nist-800-53-rmf/chunks/01-standards-and-structure.md` — the 800-53 PM, RA, SR families that GOVERN maps to; the cross-skill sibling for the 800-53 side of the mapping.
+- `nist-800-53-rmf/chunks/03-baseline.md` — the 800-53 PM, RA, SR families that GOVERN maps to; the cross-skill sibling for the 800-53 side of the mapping.
 
 ## Anti-hallucination
 

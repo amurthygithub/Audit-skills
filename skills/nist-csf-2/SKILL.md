@@ -51,7 +51,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ## 2. Framework Overview
 
-The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-based framework published by NIST on February 26, 2024. It organizes cybersecurity risk into **6 Functions** [NIST-CSF-2.0 §2.1], **22 Categories** [NIST-CSF-2.0 §2.2], and **106 Subcategories** [NIST-CSF-2.0 §2.3], and it describes organizational maturity with **4 Tiers** [NIST-CSF-2.0 §3.1] and posture with **4 Profile types** (Current, Target, Organizational, Community) [NIST-CSF-2.0 §3.2]. It is the most executive-legible framework in the NIST family and the only one designed for **both** IT practitioners and executive decision-makers.
+The NIST Cybersecurity Framework 2.0 [NIST-CSF-2.0 §2] is a voluntary, outcome-based framework published by NIST on February 26, 2024. It organizes cybersecurity risk into **6 Functions** [NIST-CSF-2.0 §2.1], **22 Categories** [NIST-CSF-2.0 §2.2], and **106 Subcategories** [NIST-CSF-2.0 §2.3], and it describes organizational maturity with **4 Tiers** [NIST-CSF-2.0 §3.1] and posture with **4 Profile types** (Current, Target, Organizational, Community) [NIST-CSF-2.0 §3.2]. It is the most executive-legible framework in the NIST family and the only one designed for **both** IT practitioners and executive decision-makers. Companion documents include NIST SP 1299 (small business quick-start) [NIST-SP-1299] and NIST SP 1300 (profile success story) [NIST-SP-1300]. Regulatory alignment spans OMB A-130 [OMB-A-130], NY DFS Part 500 [NY-DFS-Part-500], and FedRAMP Rev 5 baselines [FedRAMP-Rev5]. Its informative references spreadsheet [CSF-2.0-Informative-References] provides crosswalks to NIST SP 800-53 Rev 5.1.1 [NIST-SP-800-53-Rev5.1.1], NIST SP 800-37 Rev 2 RMF [NIST-SP-800-37-Rev2], NIST SP 800-30 Rev 1 risk assessments [NIST-SP-800-30-Rev1], NIST SP 800-61 Rev 2 incident handling [NIST-SP-800-61-Rev2], and sector-specific guidance such as the CISA ICS CPG [CISA-ICS-CPG].
 
 | Layer | Element | Role |
 |-------|---------|------|
@@ -125,9 +125,9 @@ Full logic in chunks. Summary of "which framework":
 
 ## 5. Procedure Templates (summary)
 
-- **First CSF Current Profile** (1-day pattern) — `use-cases/uc-01-first-profile.md`.
-- **Board maturity report** (6-function radar + 12-month plan) — `use-cases/uc-02-board-report.md`.
-- **Current/Target gap → 800-53 mapping** (for federal customer) — `use-cases/uc-03-csf-to-800-53.md`.
+- **First CSF Current Profile** (1-day pattern) — `use-cases/uc-01-first-organizational-profile.md`.
+- **Board maturity report** (6-function radar + 12-month plan) — `use-cases/uc-02-board-maturity-report.md`.
+- **Current/Target gap → 800-53 mapping** (for federal customer) — `use-cases/uc-03-csf-to-800-53-crosswalk.md`.
 - **Build Current Profile** (per-Function scoring) — `chunks/03-current-profile.md §Procedure`.
 - **Build Target Profile + Gap** — `chunks/04-target-profile-and-gap.md §Procedure`.
 - **GOVERN-only deep dive** — `chunks/05-govern-function.md §Procedure`.
@@ -146,7 +146,7 @@ Full logic in chunks. Summary of "which framework":
 
 This skill is part of the 6-skill library. The most-used siblings:
 
-- `nist-800-53-rmf` — the control-catalog sibling; use for 800-53 control selection, SAR/POA&M templates, and the authoritative CSF → 800-53 mapping (its `chunks/09-crosswalk.md` has a 1-paragraph CSF 2.0 entry; our `chunks/08-informative-references-crosswalk.md` is the curated reverse).
+- `nist-800-53-rmf` — the control-catalog sibling; use for 800-53 control selection, SAR/POA&M templates, and the authoritative CSF → 800-53 mapping (the 800-53-rmf skill's crosswalk chunk at `nist-800-53-rmf/chunks/09-crosswalk.md` has a 1-paragraph CSF 2.0 entry; our `chunks/08-informative-references-crosswalk.md` is the curated reverse).
 - `isaca-audit-methodology` — COBIT 2019 PAM maturity scale maps to CSF Tiers 1-4 (Tier 1 ↔ PAM 0-1, Tier 2 ↔ PAM 2, Tier 3 ↔ PAM 3, Tier 4 ↔ PAM 4-5).
 - `coso-internal-controls` — GOVERN (GV.OV, GV.PO) maps to COSO Principles 1, 4, 12; gap priority borrows Significant Deficiency / Material Weakness classification.
 - `aicpa-soc-reporting` — SOC 2 Common Criteria map to CSF Subcategories (see `chunks/08-informative-references-crosswalk.md`); SOC 2 Type II is the natural precursor to a CSF profile for a SaaS.
@@ -203,6 +203,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | FFIEC-CAT | Cybersecurity Assessment Tool | FFIEC | v2.x (2024) | 2026-06-09 | https://www.ffiec.gov/cyberassessmenttool.htm |
 | CISA-ICS-CPG | Cross-Sector Industrial Control Systems Cybersecurity Performance Goals | CISA | 1.0 (2024) | 2026-06-09 | https://www.cisa.gov/ics-cybersecurity-performance-goals |
 | CMMC-2.0 | Cybersecurity Maturity Model Certification | DoD | 2.0 | 2026-06-09 | https://dodcio.defense.gov/CMMC/ |
+| CSF-2.0-Informative-References | NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth) | NIST | 2024 (OLIR catalog) | 2026-06-09 | https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all |
 
 In-body citations use the form `[LABEL §N]` and resolve to this manifest.
 

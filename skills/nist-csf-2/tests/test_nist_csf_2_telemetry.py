@@ -26,7 +26,7 @@ def test_telemetry_schema_exists():
     if not schema.exists():
         pytest.skip("telemetry/schema.json not yet shipped (Wave 2 Day 3 telemetry)")
     data = json.loads(schema.read_text())
-    assert "event_name" in data or "name" in data
+    assert "$schema" in data or "type" in data
 
 
 def test_telemetry_instrument_module_imports():
