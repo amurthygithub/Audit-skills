@@ -97,6 +97,8 @@ Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval da
 
 A skill is not done when its tests pass. It is done when a stranger can use it correctly in their first session. Four requirements (tracked in SOX-633):
 
+**What this gate certifies — and does not.** Passing G4.5 means the skill passes every defined check with an auditable evidence trail. It does NOT guarantee consumer success: the smoke test is N=1 on one model (reliability requires the Epic 6 harness: ≥95% pass rate over N≥20 runs, ≥2 models); persona vetting is LLM agents role-playing practitioners (a filter, not a certification — real-practitioner sign-off comes from the design-partner loop); §5.11 facts are point-in-time and decay (a verified URL went 404 within 2 days once). State claims accordingly: "passes all defined gates," never "guaranteed." Full measurable DoD: SOX-633.
+
 ### 3.1 Usable from the get-go
 - The skill's `README.md` has a quickstart: install → first useful output in under 10 minutes, with a copy-paste invocation example and an input template per UC.
 - No quickstart, no release.
