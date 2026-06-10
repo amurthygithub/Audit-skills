@@ -179,7 +179,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | AT-C-200 | Level of Service (Examination) | AICPA | AT-C 200 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | AT-C-300 | Subject Matter (SOC 1 ICFR) | AICPA | AT-C 300 (SSAE 21) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | TSP-Section-100 | Trust Services Criteria | AICPA ASEC | 2017 TSC, 2022 Revised Points of Focus | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
-| COSO-2013 | Internal Control - Integrated Framework | COSO | 2013 (17 principles) | 2026-05-25 | https://www.coso.org/ |
+| COSO-2013 | Internal Control - Integrated Framework | COSO | 2013 (17 principles) | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | SOC-for-Cybersecurity | SOC for Cybersecurity Examination | AICPA | 2017 / updated | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | SOC-for-Supply-Chain | SOC for Supply Chain Examination | AICPA | 2020 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |
 | SSAE-21 | Statement on Standards for Attestation Engagements No. 21 | AICPA | December 2020 | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance |

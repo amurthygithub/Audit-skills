@@ -25,6 +25,7 @@ Every entry in `docs/lessons-learned.md` must map to a linter rule, a test, or a
 - `skills/<slug>/data/` — generators, seeds, crosswalks
 - `skills/<slug>/docs/` — architecture, limits, changelog, acceptance-gate
 - `skills/<slug>/telemetry/` — schema, instrument, redaction, baseline
+- `data/registry/citations.json` — canonical citation registry: every §10 manifest label + URL. Add citations HERE first; manifests copy the registry URL verbatim (enforced by `tests/test_citation_registry.py`)
 - `prompts/` — version-controlled agent prompts for every G4 review pass (use these verbatim; do NOT improvise review instructions)
 - `tools/lint_skill.py` — Tier 0a linter (G3 gate)
 - `tools/check_fact_sheet.py` — fact-sheet completeness checker (G1 gate)
@@ -43,7 +44,7 @@ Every change belongs to exactly one work type. All four run the same G0–G6 spi
 | Work type | G1 Research | G2 Design | G3 Build | G4 Verify |
 |---|---|---|---|---|
 | **A. New CORPUS skill** | Fact-sheet (full) | 15-section design doc + file-requirements spec | Router + chunks + industries + UCs + 6 test files | 5-lens + §5.11 + persona vetting + consumer smoke test |
-| **B. Skill edit** | Verify changed facts vs live sources | — (PR description suffices) | Edited files | §5.11 on changed claims; re-run affected UC smoke test if routing/UC content changed |
+| **B. Skill edit** | Verify changed facts vs live sources; new/changed citations go into `data/registry/citations.json` first | — (PR description suffices) | Edited files | §5.11 on changed claims; re-run affected UC smoke test if routing/UC content changed |
 | **C. ARGUS tool** (audit-skills-mcp repo) | Fact-sheet (formulas, authoritative params) | Golden reference cases (SOX-612 format) | Implementation + unit tests | Harness validation vs golden cases (Epic 6) |
 | **D. GTM post** | Source artifact must exist in repo | — | Post draft in `claude-outputs/` | Artifact link resolves; claims match shipped skill content |
 
