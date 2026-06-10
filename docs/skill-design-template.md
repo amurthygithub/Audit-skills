@@ -118,7 +118,7 @@ Why these 3-4 UCs? What gaps do they cover? What UCs were considered and rejecte
 
 ---
 
-## 5. Test architecture (9 test files, target test count)
+## 5. Test architecture (6 skill-specific test files, target test count)
 
 The 9-file convention is enforced by the lint. For each test file, list specific test cases:
 
@@ -327,7 +327,7 @@ Pre-empt what the reviewers will find. Top 5 in each lens.
 | 1 | Scaffold folders, write SKILL.md router (≤300 lines), declare context_budget | `python tools/lint_skill.py skills/<skill>` passes basic checks |
 | 2 | Write 8 chunks, 4 industries, 3 UCs, consumer README | All chunks ≤200 lines, all 3 UCs have frontmatter |
 | 3 | Write data/generators, data/seeds, data/crosswalks | Generators run with `--seed`, all seeds load |
-| 4 | Write 9 test files | `pytest skills/<skill>/tests/ -q` passes |
+| 4 | Write 6 skill-specific test files (lint/consistency are root-level, parametrized) | `pytest skills/<skill>/tests/ -q` passes |
 | 5 | **Source-of-truth verification** (per §5.11) — compare built files against the Day 0 fact-sheet (which was sourced from live authoritative documents). **Do NOT proceed to lens review until CRITICALs are fixed.** | Verification report shows 0 CRITICAL findings. |
 | 6 | 5-lens review (dispatch 5 agents in parallel) — covers structural, completeness, usability, convention, cross-skill | 5 review reports returned |
 | 7 | 5-practitioner review (dispatch 5 agents in parallel) | 5 practitioner reports returned |
@@ -389,7 +389,7 @@ This is the standardized list of parameters that **every** future skill design d
 | 4 | **Use cases** — 3-4 worked examples | §4 | Yes |
 | 4.1–4.N | For each: frontmatter contract, real-world scenario, input JSON shape, procedure, expected output, oracle | §4.1–§4.3 | Yes |
 | 4.N+1 | UC selection rationale | §4.4 | Yes |
-| 5 | **Test architecture** — 9 test files, target test count | §5 | Yes |
+| 5 | **Test architecture** — 6 skill-specific test files, target test count | §5 | Yes |
 | 5.1–5.9 | For each test file: specific test cases | §5.1–§5.9 | Yes |
 | 5.10 | Test count summary table | §5.10 | Yes |
 | 5.11 | **Source-of-truth verification plan** (REQUIRED) — at least 5 fact rows with authoritative source URLs, retrieval dates, and verifier names | §5.11 | Yes |

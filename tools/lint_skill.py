@@ -277,8 +277,10 @@ def lint_skill(skill_dir: Path) -> Tuple[int, List[str]]:
     tests_dir = skill_dir / "tests"
     if tests_dir.is_dir():
         slug = skill_dir.name
+        # Lint and consistency tests are root-level and parametrized over all
+        # skills (tests/test_skill_infra.py, tests/test_skill_consistency.py);
+        # only skill-specific tests are required per skill.
         required_tests = {
-            f"test_{slug.replace('-', '_')}_lint.py",
             f"test_{slug.replace('-', '_')}_oracle.py",
         }
         for t in required_tests:

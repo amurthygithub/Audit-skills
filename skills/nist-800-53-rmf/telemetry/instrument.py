@@ -169,3 +169,47 @@ def skill_invocation(
     finally:
         inv.latency_ms = int((time.perf_counter() - t0) * 1000)
         _emit(inv)
+
+
+# --- Event-style API (superset; kept so every vendored copy exposes the union) ---
+
+_SKILL_NAME = Path(__file__).resolve().parents[1].name
+
+
+def emit(event_name: str, uc_id: str, duration_ms: int, **context: Any) -> dict:
+    """Emit a lightweight telemetry event. Returns the event dict (for testing)."""
+    event = {
+        "event_name": event_name,
+        "uc_id": uc_id,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "duration_ms": duration_ms,
+        "skill": _SKILL_NAME,
+    }
+    if context:
+        event["context"] = context
+    return event
+
+
+class _TimedContext:
+    def __init__(self, uc_id: str):
+        self.uc_id = uc_id
+        self.start = None
+        self.summary: dict = {}
+
+    def __enter__(self):
+        self.start = time.perf_counter()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        duration_ms = int((time.perf_counter() - self.start) * 1000)
+        event_name = "skill_invocation" if exc_type is None else "error"
+        emit(event_name, self.uc_id, duration_ms, **self.summary)
+        return False  # don't suppress exceptions
+
+    def set_summary(self, **kwargs):
+        self.summary.update(kwargs)
+
+
+def timed(uc_id: str) -> "_TimedContext":
+    """Context manager that times an operation and emits a skill_invocation event."""
+    return _TimedContext(uc_id)
