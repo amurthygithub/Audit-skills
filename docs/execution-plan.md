@@ -7,9 +7,9 @@
 
 ## 1. Where we are
 
-- **6 skills shipped**, **4/6 G4.5-vetted** (nist-800-53-rmf, audit-workpapers, coso-internal-controls, aicpa-soc-reporting). Every vetting run found 4–8 CRITICALs that structural gates missed — fabricated criteria, SEC-prohibited report language, invented citations. The pattern is consistent: smoke tests pass because skills are internally coherent; persona vetting + Tier-2 live-source verification is what catches "consistently wrong."
+- **6 skills shipped, 6/6 G4.5-vetted** (M1 complete 2026-06-10; PRs #32-#40). Every vetting run found 4–9 CRITICAL clusters that structural gates missed — fabricated criteria/objectives/subcategories, SEC-prohibited report language, invented citations and statutes, UC docs contradicting their own seeds. Persona vetting + Tier-2 live-source verification is what catches "consistently wrong" — and Tier-2 refuted persona consensus 4 times (ITAF 5th ed, ISACA-as-CAICO, CPG 2.0's existence, the tiers-FAQ citation), so neither personas nor concurrence substitute for sources.
 - **Process v2 is live** (AGENTS.md): G0–G6 pipeline, verification tiers (Tier 3 concurrence ≠ verification), §3.3.1 per-skill vetting runbook, citation registry as source of truth, pre-merge §5.11 with verbatim quotes.
-- **Unvetted:** isaca-audit-methodology, nist-csf-2.
+- **Unvetted:** none. Structural-gap tickets: SOX-637-642, SOX-644 (isaca), SOX-645 (nist-csf-2).
 - **Structural-gap tickets filed from vetting:** SOX-637–642 (all Todo under SOX-633).
 - **Stale pre-process-v2 tickets:** SOX-627–631 (§5.11 URL/content fixes filed before vetting; overlap with merged vetting PRs is unreconciled).
 - **New builds frozen** since the consumer-ready pivot; A-wave queue: SOX-567/568/570/572–576.
