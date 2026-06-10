@@ -20,7 +20,45 @@ The 5-lens review would NOT have caught these — it checks structure and conven
 3. **Every URL in the URL table must be live-verified** (returns 200, not 404/410/30x).
 4. **Every count must be verified by reading the source document**, not by trusting LLM recall.
 5. **Every crosswalk mapping row must come from an authoritative reference spreadsheet/database**.
-6. **Do not proceed to build (Day 1) until every section is populated.**
+6. **The §0 machine-readable data block mirrors the prose tables** — it is what the G3 build tests assert against.
+7. **Do not proceed to build (Day 1) until `python3 tools/check_fact_sheet.py docs/<slug>-fact-sheet.md` passes.**
+
+---
+
+## 0. Machine-readable data block (REQUIRED — the G1 gate parses this)
+
+Mirror the prose tables below into this YAML block. Counts, identifiers, URLs, and crosswalks here are the **single machine-checkable source of truth**: `tools/check_fact_sheet.py` validates this block (the G1 gate), and the skill's G3 tests assert that every count and identifier in the built chunks matches it. If the prose tables and this block disagree, the block wins — fix the prose.
+
+```yaml
+fact_sheet:
+  skill_slug: <slug>                  # must match skills/<slug>/
+  framework: <framework full name>
+  version: "<version>"
+  version_date: "<YYYY-MM-DD>"
+  supersedes: "<previous version, or null>"
+  retrieval_date: "<YYYY-MM-DD>"
+  researcher: <agent or person>
+counts:                               # every count a chunk may state
+  <level_name>: <N>                   # e.g. functions: 6, categories: 22, subcategories: 106
+identifiers:                          # every code a build agent may reference (mirrors §2.2)
+  - code: <GV.OC-01>
+    name: <Organizational Context>
+    parent: <GV.OC>
+urls:                                 # every manifest citation (mirrors §4)
+  - label: <NIST-CSF-2.0>
+    url: <https://doi.org/10.6028/NIST.CSWP.29>
+    status: 200                       # must be 200 at retrieval; anything else fails the gate
+    checked: "<YYYY-MM-DD>"
+crosswalks:                           # every crosswalk row the skill will encode (mirrors §3)
+  - from: <GV.OC-01>
+    to_framework: <NIST SP 800-53>
+    to: [<PM-11>]
+    source: <IR spreadsheet, row N>
+terminology:                          # exact source wording (mirrors §5)
+  - term: <Tier 1>
+    source_wording: <Partial>
+sign_off: false                       # flip to true ONLY when the §8 checklist is fully complete
+```
 
 ---
 
@@ -143,6 +181,8 @@ Framework-specific terms the skill will use. The build agent must use the EXACT 
 - [ ] Terminology is copy-paste from the source (§5)
 - [ ] Version and supersession are confirmed (§6)
 - [ ] Scope boundaries are explicit (§7)
+- [ ] §0 data block mirrors all of the above; `sign_off: true` set
+- [ ] `python3 tools/check_fact_sheet.py docs/<slug>-fact-sheet.md` passes
 
 **After sign-off:** this fact-sheet is the single source of truth for all Day 1-5 build agents. No build agent writes from recall.
 
