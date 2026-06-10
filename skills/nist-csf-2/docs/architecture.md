@@ -6,7 +6,7 @@ The skill is a router + chunk architecture. `SKILL.md` is the always-loaded rout
 
 ```
 skills/nist-csf-2/
-├── SKILL.md                    # router, 239 lines, 12 sections, 8-row §11 routing
+├── SKILL.md                    # router, 12 sections, §11 routing table
 ├── README.md                   # consumer one-pager
 ├── chunks/                     # 8 deep-dive files (01-08), all ≤200 lines
 │   ├── 01-functions-categories.md
@@ -25,22 +25,20 @@ skills/nist-csf-2/
 │   └── manufacturing.md
 ├── use-cases/                  # 3 worked examples + _index.md
 │   ├── _index.md
-│   ├── uc-01-first-profile.md
-│   ├── uc-02-board-report.md
-│   └── uc-03-c-t-to-800-53.md
+│   ├── uc-01-first-organizational-profile.md
+│   ├── uc-02-board-maturity-report.md
+│   └── uc-03-csf-to-800-171-cmmc-l2.md
 ├── data/                       # generators + seeds (Wave 4)
 │   ├── generators/
 │   └── seeds/
-├── tests/                      # 9 test files + stub (132 lines)
+├── tests/                      # 7 test files + stub
 │   ├── nist_csf_2_stub.py
-│   ├── test_nist_csf_2_lint.py
 │   ├── test_nist_csf_2_oracle.py
 │   ├── test_nist_csf_2_grounding.py
 │   ├── test_nist_csf_2_trace.py
 │   ├── test_nist_csf_2_metamorphic.py
 │   ├── test_nist_csf_2_adversarial.py
 │   ├── test_nist_csf_2_telemetry.py
-│   ├── test_nist_csf_2_consistency.py
 │   └── test_nist_csf_2_chunks.py
 ├── telemetry/                  # 4 instrumentation files
 │   ├── schema.json

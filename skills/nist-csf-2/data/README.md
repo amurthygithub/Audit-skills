@@ -37,25 +37,21 @@ Run from the repo root:
 python3.11 skills/nist-csf-2/data/generators/gen_profile.py
 ```
 
-## Crosswalks (Wave 3)
+## Crosswalks
 
-The `data/crosswalks/` directory (referenced in chunks/01, 05, 08) will be populated in Wave 3 with the full CSF 2.0 Informative References mappings:
-
-- `csf-to-800-53-mod.json` — Subcategory → 800-53 Rev 5.1.1 control (49 rows verified in Wave 1 chunk/08)
-- `csf-to-800-171-r3.json` — Subcategory → NIST 800-171 Rev 3 control
-- `csf-to-iso27001-2022.json` — Subcategory → ISO 27001:2022 Annex A control
-- `csf-to-hipaa.json` — Subcategory → HIPAA Security Rule §164.30X safeguard (Wave 3)
-- `csf-2-0-subcategories.json` — canonical 106-Subcategory inventory
-
-The chunks/ in Wave 1 already reference these by path with "(added in Wave 2)" disclaimers. The Wave 3 work creates the actual files.
+This skill deliberately ships **no derivative crosswalk JSON** — the NIST Informative
+References spreadsheet updates periodically and a snapshot would go stale. The authoritative
+source is the spreadsheet (`https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all`);
+`chunks/08-informative-references-crosswalk.md` carries verified representative samples and the
+suggested JSON schema for orgs that want to build their own.
 
 ## Schemas
 
 Each seed is a JSON document. The structure is described in the corresponding use case file:
 
-- `use-cases/uc-01-first-profile.md` for `uc-01-input.json` input schema
-- `use-cases/uc-02-board-report.md` for `uc-02-input.json` input schema
-- `use-cases/uc-03-c-t-to-800-53.md` for `uc-03-input.json` input schema
+- `use-cases/uc-01-first-organizational-profile.md` for `uc-01-input.json` input schema
+- `use-cases/uc-02-board-maturity-report.md` for `uc-02-input.json` input schema
+- `use-cases/uc-03-csf-to-800-171-cmmc-l2.md` for `uc-03-input.json` input schema
 
 The stub (`tests/nist_csf_2_stub.py`) accepts any dict; the UC-specific input fields are optional with sensible defaults. The oracle tests (`tests/test_nist_csf_2_oracle.py`) assert specific output fields per UC.
 

@@ -2,7 +2,7 @@
 
 ## What this skill IS
 
-- A reference for the structure of NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories) and the Tier 1-4 organizational maturity scale
+- A reference for the structure of NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories) and the Tier 1-4 scale (rigor of risk governance/management, applied to Organizational Profiles — NOT maturity levels)
 - A method for assessing an organization's current cyber posture (Current Profile) and planning toward a target posture (Target Profile)
 - A crosswalk hub to other authoritative frameworks (800-53, 800-171, ISO 27001, HIPAA Security Rule, CMMC)
 - An executive-legible narrative for board, audit committee, and CISO conversations
@@ -14,7 +14,7 @@
 - **Not a substitute for a NIST 800-53 control implementation.** CSF 2.0 is *outcome-based* (Subcategories describe what you achieve, not how); 800-53 is *control-based* (the specific controls that produce the outcome). Use CSF 2.0 for executive narrative; use 800-53 for ATO evidence and control specification.
 - **Not a legal opinion.** Compliance with HIPAA Security Rule, NY DFS Part 500, GLBA Safeguards, PCI DSS 4.0, and other regulations requires legal review of the specific requirements. CSF 2.0's mappings to these frameworks are interpretive; the authoritative text is the regulation.
 - **Not a substitute for professional judgment.** A CSF 2.0 Profile is a structured self-assessment, not an audit. The Tier selection, Subcategory scoring, and Gap Analysis prioritization all require practitioner judgment.
-- **Not exhaustive of CSF 2.0 Quick Start Guides (QSGs).** NIST publishes 6 QSGs (one per Function) and several industry-specific QSGs. The skill references the QSG framework but does not reproduce the QSGs verbatim.
+- **Not exhaustive of CSF 2.0 Quick Start Guides (QSGs).** NIST's QSGs are organized by audience/topic, NOT one per Function (verified 2026-06-10): SP 1299 Resource & Overview, SP 1300 Small Business, SP 1301 Organizational Profiles, SP 1302 Tiers, SP 1303 ERM, SP 1305 C-SCRM, SP 1308. The skill references them but does not reproduce them.
 - **Not exhaustive of Community Profiles.** NIST maintains a Community Profile catalog (FFIEC, CISA CPGs, etc.). The skill references these but does not reproduce the full text.
 
 ## When to escalate to a human
@@ -36,11 +36,12 @@ This skill follows the `docs/skill-design-template.md` §5.11 source-of-truth ve
 - NIST CSF 2.0 Informative References spreadsheet
 - NIST CSF 2.0 Quick Start Guides
 
-The verification reports are at:
+The verification evidence lives at (paths relative to the REPO ROOT, not this skill folder):
 
-- `docs/builds/csf-2/csf-2-verification-report.md` — initial verification (8 CRITICAL + 17 HIGH caught)
-- `docs/builds/csf-2/csf-2-fix-report.md` — fix log
-- `docs/builds/csf-2/csf-2-reverification-report.md` — PASS-WITH-CAVEATS
-- `docs/acceptance-gate.md` — the §5.11 gate
+- repo `docs/builds/csf-2/csf-2-verification-report.md` — initial verification (8 CRITICAL + 17 HIGH caught)
+- repo `docs/builds/csf-2/csf-2-fix-report.md` — fix log
+- repo `docs/builds/csf-2/csf-2-reverification-report.md` — PASS-WITH-CAVEATS
+- `docs/acceptance-gate.md` (this skill) — the verification gate
+- `docs/persona-review.md` (this skill) — the G4.5 consumer-ready vetting evidence (2026-06-10)
 
 If you find a factual error, file an issue or open a PR — the skill is maintained rigorously.

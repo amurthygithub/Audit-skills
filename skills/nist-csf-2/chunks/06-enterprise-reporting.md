@@ -23,16 +23,20 @@ Three rules of CSF executive reporting:
 
 The 6-function radar is the canonical CSF executive visualization. Each Function is scored on the Tier 1-4 scale (see `chunks/02-tiers-and-profiles.md`); the radar plots the 6 scores as a polygon. When a chart tool is unavailable, the markdown table below is the fallback (sortable, printable, paste-into-deck friendly).
 
+Fractional Tier values (2.5, 3.5) and per-Function Tier scoring are a **practitioner house
+convention** for radar plotting — NIST applies Tiers to Organizational Profiles and is explicit
+that Tiers are not maturity levels. Label them as a management convention in any board artifact.
+
 | Function | Current Tier | Target Tier | % Gap | Top 3 Subcategory Gaps |
 |----------|-------------|-------------|-------|------------------------|
-| **GOVERN** | 2.5 | 3.0 | 50% | `GV.SC-04`, `GV.OV-01`, `GV.RR-03` |
+| **GOVERN** | 2.5 | 3.0 | 33% | `GV.SC-04`, `GV.OV-01`, `GV.RR-03` |
 | **IDENTIFY** | 3.0 | 3.0 | 0% | (no gap) |
 | **PROTECT** | 3.5 | 3.5 | 0% | (no gap) |
-| **DETECT** | 2.0 | 3.0 | 100% | `DE.CM-01`, `DE.CM-09`, `DE.AE-02` |
+| **DETECT** | 2.0 | 3.0 | 50% | `DE.CM-01`, `DE.CM-09`, `DE.AE-02` |
 | **RESPOND** | 3.0 | 3.0 | 0% | (no gap) |
 | **RECOVER** | 3.0 | 3.0 | 0% | (no gap) |
 
-**% gap formula** (per Function): `(target_tier - current_tier) / (4 - current_tier) * 100`. This expresses the gap as a fraction of the *remaining* journey to Tier 4 — it is the "how far do we still have to go" view, not a linear "25% per Tier" view. A Function at Tier 3 with target Tier 4 has 100% gap (a full Tier to go); a Function at Tier 2 with target Tier 3 has 50% gap (half a Tier of the remaining 2-Tier journey to Tier 4).
+**% gap formula** (per Function): `(target_tier - current_tier) / (4 - current_tier) * 100`. This expresses the gap as a fraction of the *remaining* journey to Tier 4 — it is the "how far do we still have to go" view, not a linear "25% per Tier" view. Worked: Tier 3 → target 4 = 100% (the whole remaining journey); Tier 2 → target 3 = 50%; Tier 2.5 → target 3.0 = 33%; Tier 2.0 → target 3.0 = 50% (the table above uses exactly these values). This is a planning heuristic, not a NIST calculation — consider whether a "% of remaining journey" metric helps your board before using it.
 
 **Mermaid radar alternative** (for Markdown-rendering tools that support Mermaid):
 
@@ -79,7 +83,7 @@ Maturity is a *trajectory*, not a snapshot. The trend report tracks quarter-over
 
 - **Sustained flatness** in a Function over 4+ quarters is a red flag, not a steady state. It usually means the program has no owner or no investment.
 - **Q1-to-Q2 step-change** in any Function is suspicious: either the scoring methodology changed, or the Function was mis-scored in Q1. The narrative should explain the step.
-- **Quarterly ±0.25 noise** is normal — do not over-report it. The honest scale of CSF Tier movement is half-Tiers per quarter for an actively-investing program.
+- **Quarterly ±0.25 noise** is normal — do not over-report it. In practitioner experience, an actively-investing program moves about a half-Tier per quarter at most (unsourced heuristic — calibrate to your own history).
 - **Reverse trend** (a Function dropping QoQ) is rare and always significant. Treat as a "stop the line" event; investigate before reporting.
 
 ## 5. Anti-trend bad signs (what "all green" really means)
@@ -88,7 +92,7 @@ A board report that shows "all Functions at target, no gaps" is **more suspiciou
 
 Bad signs to look for (and to avoid producing):
 
-- **All Functions at the same Tier** (e.g., everything is Tier 3). Real maturity is uneven — most orgs are Tier 3 in PROTECT and Tier 1 in GOVERN, not uniformly Tier 3.
+- **All Functions at the same Tier** (e.g., everything is Tier 3). Real postures are uneven — a common pattern in practitioner experience is stronger PROTECT than GOVERN (unsourced heuristic), not uniform scores.
 - **No top-3 lagging Subcategories** in any Function. Even Tier 4 orgs have 1-2 Subcategories that are perpetually partially-implemented.
 - **No business consequence in board language**. The Subcategory IDs are not in the board deck; the consequence of the gap is.
 - **No 12-month investment ask**. If there is no investment tied to the gap, the report is not actionable.
@@ -155,7 +159,7 @@ This 1-page template is a **suggested structure**, not NIST-mandated. Adapt to t
 ## Anti-hallucination
 
 - **Authoritative source**: CSF 2.0 [NIST-CSF-2.0 §2.1, §3.1, §3.2] is the framework reference. The 6-function radar is a **common reporting convention** used by GRC practitioners; it is not NIST-mandated. The 1-page board report template is a **suggested structure** drawn from SOC 2 board reporting and GRC practice; it is not NIST-mandated.
-- **Tier scoring is per Function, not per org.** A single org can be Tier 3 in PROTECT and Tier 1 in GOVERN. The radar and scorecard reflect this; do not collapse to a single org-wide Tier.
+- **Per-Function Tier scoring, fractional Tiers, and Tier averages are practitioner conventions, NOT NIST methodology.** CSWP 29 applies Tiers to Organizational Profiles and Tiers are not maturity levels. If the radar/scorecard uses per-Function or fractional Tiers, state the methodology as the org's own on the face of the artifact, and never report a "Tier average" without that label — "how did you arrive at Tier 1.8 and whose methodology is it?" must have an answer.
 - **The "all green" report is suspect.** Real maturity is uneven. A board report that shows no gaps in any Function is a self-attestation problem, not a mature program. The anti-trend-bad-signs in §5 are heuristics from GRC practice, not NIST rules.
 - **% gap formula** in §2 is a planning heuristic, not a NIST calculation. CSF 2.0 does not prescribe how to compute a "gap percentage"; this skill uses `(target - current) / (4 - current) * 100` to express the gap as a fraction of the remaining journey to Tier 4.
 - **The board report template** in §6 is a starting structure. Adapt to the org's governance culture, regulator expectations (e.g., NY DFS 500 §500.04 has board reporting specifics), and reporting cadence. Do not present it as a NIST template.

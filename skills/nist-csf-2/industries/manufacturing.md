@@ -7,7 +7,7 @@ status: active
 frameworks: [NIST-CSF-2.0, CMMC-L1, CMMC-L2, CMMC-L3, NIST-SP-800-171-Rev3, NIST-SP-800-172, IEC-62443-3-3, IEC-62443-4-2, IATF-16949, ISO-21434, NIST-SP-800-82-Rev3, NIST-SP-800-53-Rev5.1.1]
 primary_personas: [CISO at a DoD supplier, VP Manufacturing Operations, OT/ICS Security Lead, Quality Director (IATF), Plant Manager, Defense Contract Management Agency (DCMA) reviewer]
 regulatory_anchors: [32-CFR-Part-170, DFARS-252.204-7012, NIST-SP-800-171-Rev3, CMMC-L2-final-rule-Oct-2024, IEC-62443-3-3-2013]
-last_verified: "2026-06-07"
+last_verified: "2026-06-10"
 ---
 
 
@@ -54,7 +54,7 @@ These are **different scales on different axes**:
 | Outcome | A posture description per Function | A certification level |
 | Relationship | A Tier 4 org can be at CMMC L1; a Tier 2 org can be at CMMC L3 | Independent of Tier |
 
-There is no normative mapping from CSF Tier to CMMC Level. The practical alignment: a manufacturer at CSF Tier 2 (Risk Informed) should be able to achieve CMMC L2 self-assessment readiness; a manufacturer at CSF Tier 3 (Repeatable) should have the program maturityThere is no normative mapping from CSF Tier to CMMC Level. The practical alignggle with even CMMC L1 self-assessment because the program is ad hoc.
+There is no normative mapping from CSF Tier to CMMC Level. The practical alignment: a manufacturer at CSF Tier 2 (Risk Informed) should be able to achieve CMMC L2 self-assessment readiness; a manufacturer at CSF Tier 3 (Repeatable) should have the program rigor a C3PAO certification assessment expects; a manufacturer at CSF Tier 1 (Partial) will struggle with even CMMC L1 self-assessment because the program is ad hoc.
 
 ### 4. How does CSF 2.0 bridge IT and OT cybersecurity?
 
@@ -88,7 +88,7 @@ The bridge document is NIST SP 800-82 Rev 3 [NIST-SP-800-82-Rev3], which applies
 
 ### 6. Where does NIST 800-171 (110 controls) sit in a CSF 2.0 Profile (106 Subcategories)?
 
-NIST SP 800-171 Rev 3 [NIST-SP-800-171-Rev3] has 14 control families with approximately 110 requirements organized into 320 assessment objectives. CSF 2.0 [NIST-CSF-2.0] has 106 Subcategories across 22 Categories. The mapping is **not 1:1**:
+NIST SP 800-171 has two relevant revisions: Rev 2 (the CMMC L2 set: 110 requirements, 14 families) and Rev 3 (the current NIST publication: 97 requirements, 17 families) [NIST-SP-800-171-Rev3]. CSF 2.0 [NIST-CSF-2.0] has 106 Subcategories across 22 Categories. The mapping is **not 1:1**:
 
 - **1-to-many**: A single CSF Subcategory typically maps to 1-5 800-171 controls. `PR.AA-01` (identity management) maps to 03.01.01, 03.05.01, 03.05.02, 03.05.03, 03.05.04, 03.05.05, 03.05.07, 03.05.11, 03.05.12, 03.15.01 — 10 different 800-171 controls [NIST IR spreadsheet, 800-171 Rev 3 column].
 - **Many-to-1**: Multiple CSF Subcategories may map to the same 800-171 control when that control supports multiple outcomes.
@@ -100,7 +100,7 @@ The practical approach for a DoD supplier: build a CSF Current Profile first (as
 
 ### Table 1: CSF 2.0 Function → CMMC L2 Practice Domain
 
-CMMC L2 organizes its 110 practices into 14 domains (aligned with 800-171 Rev 3 families). The table below maps CSF Functions to the CMMC domains most relevant to each Function. CMMC is operational (control-focused); CSF is outcome-based.
+CMMC L2 organizes its 110 practices into 14 domains (the 800-171 REV 2 families — CMMC L2 assesses Rev 2 per 32 CFR 170.14(c)(3)). The table below maps CSF Functions to the CMMC domains most relevant to each Function. CMMC is operational (control-focused); CSF is outcome-based.
 
 | CSF 2.0 Function | Primary CMMC L2 Practice Domains (interpretive) | Notes |
 |------------------|------------------------------------------------|-------|
@@ -137,7 +137,7 @@ Representative mapping (15 rows). 800-171 has ~110 requirements organized into 1
 | `RS.MA-01` (IR plan executed) | 03.06.02, 03.06.05, 03.17.03 | Incident Response, System & Services Acquisition |
 | `RC.RP-01` (recovery executed) | 03.06.01, 03.06.05 | Incident Response |
 
-Source: NIST CSF 2.0 Informative References spreadsheet, retrieved 2026-06-07 from `https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all`. 800-171 Rev 3 control IDs use the 03.XX.YY format [NIST-SP-800-171-Rev3]. This table covers a representative subset; the full mapping (all 106 Subcategories) is in `chunks/08-informative-references-crosswalk.md` §3.
+Source: NIST CSF 2.0 Informative References spreadsheet, retrieved 2026-06-07 from `https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all`. 800-171 Rev 3 control IDs use the 03.XX.YY format [NIST-SP-800-171-Rev3]; note **CMMC L2 assesses against Rev 2** (110 requirements, 14 families, 3.x.y IDs) per 32 CFR 170.14(c)(3) — use Rev 2 numbering for CMMC engagements. This table is a representative subset only; `chunks/08-informative-references-crosswalk.md` §3 has further samples (the FULL mapping lives only in the NIST spreadsheet).
 
 ### Table 3: CSF 2.0 → IEC 62443 Mapping
 

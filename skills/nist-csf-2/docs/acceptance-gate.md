@@ -1,43 +1,52 @@
 # Acceptance gate — NIST CSF 2.0 skill
 
-This skill is released only after the §5.11 source-of-truth verification gate is passed.
+This gate was fully re-verified on 2026-06-10 during the G4.5 consumer-ready vetting run. The
+previous version of this file contained an unresolved recount ("hmm = 27, need recount")
+marked as ✓-verified, a false "24 categories" caveat, and a backwards ID.AM-06 claim — all
+replaced below with values verified against the official CSRC CSF 2.0 reference data and the
+CSWP 29 PDF. Evidence: `docs/persona-review.md`.
 
-## §5.11 verification table
+## §5.11 verification table (re-verified 2026-06-10)
 
-| # | Fact | Source | Retrieved | Verifier | Status |
-|---|---|---|---|---|---|
-| 1 | CSF 2.0 published Feb 26, 2024 | NIST CSF 2.0 PDF (CSWP 29) | 2026-06-07 | webfetch | ✓ verified |
-| 2 | 6 Functions: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER | NIST CSF 2.0 PDF §2.1 | 2026-06-07 | webfetch | ✓ verified |
-| 3 | 22 Categories (3 GV + 3 ID + 5 PR + 2 DE + 4 RS + 5 RC... wait, 6 GV) | NIST CSF 2.0 PDF §2.2 | 2026-06-07 | webfetch | ✓ verified (6 GV + 3 ID + 5 PR + 3 DE + 5 RS + 5 RC = 22, hmm = 27, need recount) |
-| 4 | 106 Subcategories (not 108) | NIST CSF 2.0 PDF Appendix A | 2026-06-07 | webfetch | ✓ verified (counted in fix report) |
-| 5 | GOVERN Categories: GV.OC, GV.RM, GV.SC, GV.PO, GV.OV, GV.RR (6, not 7) | NIST CSF 2.0 PDF §2.2 | 2026-06-07 | webfetch | ✓ verified |
-| 6 | Tiers 1-4: Partial, Risk Informed, Repeatable, Adaptive | NIST CSF 2.0 PDF §3.1 | 2026-06-07 | webfetch | ✓ verified |
-| 7 | No certification path | NIST CSF 2.0 FAQ | 2026-06-07 | webfetch | ✓ verified |
-| 8 | 1.1 ID.GV had 4 subcategories (not 3) | NIST CSF 1.1 PDF Appendix A | 2026-06-07 | webfetch | ✓ verified (fix report) |
-| 9 | 1.1 ID.AM had 6 subcategories, 2.0 ID.AM has 7 (ID.AM-06 is new) | NIST IR spreadsheet + 1.1/2.0 PDFs | 2026-06-07 | webfetch | ✓ verified |
-| 10 | 1.1 DE.CM had 8 subcategories, 2.0 DE.CM has 5 (consolidated) | NIST IR spreadsheet + 1.1/2.0 PDFs | 2026-06-07 | webfetch | ✓ verified |
-| 11 | GV.OC-01 → 800-53 PM-11 only (PM-15 is NOT in the 2.0 mapping) | NIST IR spreadsheet (live URL) | 2026-06-07 | webfetch | ✓ verified |
-| 12 | FFIEC CAT published May 2017 | FFIEC Cybersecurity Assessment Tool page | 2026-06-07 | webfetch | ✓ verified |
-| 13 | OCC Heightened Standards: OCC Bulletin 2014-13 | OCC Bulletin 2014-13 URL | 2026-06-07 | webfetch | ✓ verified |
-| 14 | NY DFS Part 500: 23 NYCRR 500, effective Mar 1, 2017 | NY DFS circular letter 2017 | 2026-06-07 | webfetch | ✓ verified |
-| 15 | CMMC 2.0 final rule: 32 CFR Part 170, Oct 15, 2024 | OSD CMMC page | 2026-06-07 | webfetch | ✓ verified |
-| 16 | NIST 800-171 Rev 3 published April 2024 | NIST CSRC 800-171 r3 final URL | 2026-06-07 | webfetch | ✓ verified |
-| 17 | NIST 800-82 Rev 3 (OT security guide) | NIST CSRC 800-82 r3 final URL | 2026-06-07 | webfetch | ✓ verified |
-| 18 | ISO 27001:2022, Edition 3, Oct 2022, 93 Annex A controls | ISO 27001:2022 product page | 2026-06-07 | webfetch | ✓ verified |
-| 19 | SOC 2 TSC 2017 with 2022 revised points of focus, 5 categories | AICPA SOC Suite | 2026-06-07 | webfetch | ✓ verified |
-| 20 | CAIQ v4 URL | CSA artifacts | 2026-06-07 | webfetch | ⚠ URL returned 404; artifact may have moved |
-| 21 | SIG Lite URL | sig-hq.com | 2026-06-07 | webfetch | ⚠ URL returned 404; site may have restructured |
+| # | Fact | Source | Verifier | Status |
+|---|---|---|---|---|
+| 1 | CSF 2.0 published Feb 26, 2024 (CSWP 29) | nvlpubs CSWP 29 PDF | webfetch | ✓ verified |
+| 2 | 6 Functions: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER | CSWP 29 §2.1 | webfetch | ✓ verified |
+| 3 | 22 Categories = 6 GV + 3 ID + 5 PR + 2 DE + 4 RS + 2 RC | CSRC CSF 2.0 JSON export (withdrawn 1.1 elements excluded) + CSWP 29 App. A | webfetch | ✓ verified |
+| 4 | 106 Subcategories = 31 GV + 21 ID + 22 PR + 11 DE + 13 RS + 8 RC | CSRC CSF 2.0 JSON export | webfetch | ✓ verified |
+| 5 | GOVERN Categories: GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC (6) | CSWP 29 | webfetch | ✓ verified |
+| 6 | Tiers 1-4: Partial, Risk Informed, Repeatable, Adaptive; applied to Organizational Profiles; NOT maturity levels | CSWP 29 §3.2/App. B; NIST 1.1-era FAQ carries the verbatim "not intended to be maturity levels" | webfetch | ✓ verified |
+| 7 | No official implementation-status scale (SP 1301's Profile example is notional/free-format) | SP 1301 PDF | webfetch | ✓ verified |
+| 8 | GV.PO = {-01, -02} only; PR.AT = {-01, -02} only; RS.AN = {-03, -06, -07, -08}; ID.AM has no -06 (withdrawn from 1.1); DE.CM = {-01, -02, -03, -06, -09} | CSRC CSF 2.0 JSON export | webfetch | ✓ verified |
+| 9 | QSGs: SP 1299 Resource & Overview; SP 1300 Small Business; SP 1301 Org Profiles; SP 1302 Tiers; SP 1303 ERM; SP 1305 C-SCRM (no per-Function series; no "Profile success story" SP) | csrc.nist.gov pub pages | webfetch | ✓ verified |
+| 10 | GV.OC-01 → 800-53 PM-11 (PM-15 not in the mapping) | NIST IR spreadsheet | webfetch | ✓ verified (Subcategory-level, not Category-level) |
+| 11 | 800-171 Rev 2: 110 requirements, 14 families, 3.x.y IDs (Feb 2020) | nvlpubs 800-171r2 PDF (counted) | webfetch | ✓ verified |
+| 12 | 800-171 Rev 3: 97 requirements, 17 families, 03.xx.yy IDs, published May 2024 | nvlpubs 800-171r3 PDF (counted; 130 headings − 33 withdrawn) | webfetch | ✓ verified |
+| 13 | CMMC L2 assesses 800-171 REV 2 — "identical to the requirements in NIST SP 800-171 R2" | 32 CFR 170.14(c)(3) via eCFR | webfetch | ✓ verified |
+| 14 | FFIEC CAT sunset effective Aug 31, 2025 (statement Aug 2024); May 2017 was the final version; no "v2" ever existed; Domain 4 = External Dependency Management; no FFIEC MTTD target exists | FFIEC sunset statement PDF; CAT May 2017 PDF | webfetch | ✓ verified |
+| 15 | CISA CPG 2.0 published Dec 11, 2025: ~34 goals, IDs 1.A-6.A under the six CSF Functions; title has never contained "ICS"; v1.0.1 (Mar 2023) had 38 goals | cisa.gov CPG pages | webfetch | ✓ verified |
+| 16 | FedRAMP: no statutory authorization duration (44 USC 3607-3616); JAB replaced by the FedRAMP Board (2024) | govinfo USC text; fedramp.gov | webfetch | ✓ verified |
+| 17 | HIPAA breach notification: §164.404 = individuals, §164.406 = media, §164.408 = the Secretary (regulator) | 45 CFR via LII mirror | webfetch | ✓ verified |
+| 18 | SEC 8-K Item 1.05: 4 business days from the registrant's MATERIALITY DETERMINATION (not occurrence) | sec.gov Form 8-K | webfetch | ✓ verified |
+| 19 | ISO 27001:2022: 93 Annex A controls; clauses 4-10; A.5.26 = Response to information security incidents; A.5.30 = ICT readiness for business continuity | reputable mirrors (iso.org paywalled) | webfetch | ✓ verified |
+| 20 | CJIS Security Policy current = v6.0 (Dec 27, 2024) | le.fbi.gov PDF | webfetch | ✓ verified |
+| 21 | EO 13800: agency heads SHALL use the Framework | 82 FR 22391 via govinfo | webfetch | ✓ verified |
+| 22 | TX Gov Code: §2054.0593 = TX-RAMP; §2054.515 = biennial assessment; 44 USC §3554 = agency-head duties | statutes.capitol.texas.gov (archive); govinfo | webfetch | ✓ verified |
 
-## Caveats
+## G4.5 consumer-ready gate (SOX-636)
 
-**Row 3 (Category count):** the §2.1 representation of the 22 Categories is in `chunks/01-functions-categories.md`. The actual Function→Category count is 3+3+5+3+5+5 = 24 (not 22). NIST's "22 Categories" headline is a simplification; the actual NIST CSF 2.0 PDF Appendix A lists 22 Categories across 6 Functions, with the 22 figure coming from a different counting method (some 2.0 Categories consolidate what were multiple 1.1 Categories). The chunk's category table is the authoritative reference; the "22" headline is used for NIST-citation compliance.
+| check | result | date | verifier |
+|---|---|---|---|
+| Persona vetting (5 personas) | 9 CRITICAL clusters / ~15 HIGH verified findings; all FIXED/TICKETED/ACCEPTED (see persona-review.md) | 2026-06-10 | claude (LLM-vetted — a filter, not a certification) |
+| §5.11 live re-verification | Table above — 22 facts re-verified with verbatim quotes via 2 Tier-2 agents | 2026-06-10 | claude + verification agents |
+| smoke-test uc-01 | PASS-WITH-NOTES (notes — UC-doc/seed contradictions, phantom sections — fixed: UC rebuilt to seed truth, stub emits all 6 Functions) | 2026-06-10 | clean-session agent |
+| smoke-test uc-02 | PASS-WITH-NOTES (notes — seed/doc described different banks; fabricated trend — fixed: UC rebuilt to Pinecrest seed, baseline-note replaces trend) | 2026-06-10 | clean-session agent |
+| smoke-test uc-03 | PASS-WITH-NOTES (notes — Rev 2/Rev 3 split, domain mislabels — fixed: UC + seed rebuilt on Rev 2/CMMC truth, family labels corrected) | 2026-06-10 | clean-session agent |
 
-**Row 4 (Subcategory count):** the actual count per Function is GV=31, ID=21, PR=22, DE=11, RS=13, RC=8 = 106. Some 1.1 Subcategories were retired (e.g., RS.AN-01/-02) and some new ones were added. The chunk's table is the authoritative reference.
-
-**Rows 20, 21 (CAIQ v4, SIG Lite):** URL verification failed. The industry files flag these in their anti-hallucination sections. Before citing specific CAIQ question IDs or SIG Lite item numbers in a client deliverable, manually verify the current URL.
+N=1 clean-session runs are an existence proof, not a reliability claim — that requires the Epic 6 harness (N>=20, >=2 models).
 
 ## Sign-off
 
-This skill has passed the §5.11 source-of-truth verification gate. All 21 facts in the verification table have been either verified (19) or flagged with caveats (2). The caveats are documented in the industry files' anti-hallucination sections and do not block release.
-
-The skill is approved for v0.1.0 release as of 2026-06-08.
+The §5.11 gate and the G4.5 vetting pass are complete as of 2026-06-10: every CRITICAL/HIGH
+persona finding is FIXED, TICKETED (SOX-645), or ACCEPTED with rationale. The skill remains
+`status: draft` v0.1.0 pending Epic 6 reliability measurement.

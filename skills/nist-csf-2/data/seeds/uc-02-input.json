@@ -1,6 +1,6 @@
 {
   "uc_id": "UC-02",
-  "description": "$20B regional bank board cyber maturity report. Six Function radar with RECOVER (DR/BCP) as the lagging Function at T1. Full GOVERN narrative across all 6 GOVERN Categories. 12-month capital plan with 6 investment lines, each mapped to a regulatory anchor (OCC, NY DFS, FFIEC).",
+  "description": "$24B regional bank board cyber maturity report. Six Function radar with RECOVER (DR/BCP) as the lagging Function at T1. Full GOVERN narrative across all 6 GOVERN Categories. 12-month capital plan with 6 investment lines, each mapped to a regulatory anchor (OCC safety-and-soundness, NY DFS, FFIEC IT Examination Handbook). Per-Function Tier values are the bank's own scoring convention (NIST applies Tiers to Organizational Profiles).",
   "org": {
     "name": "Pinecrest National Bank",
     "size": "8500 FTE",
@@ -27,7 +27,7 @@
       "GV.RR"
     ],
     "board_talking_points": [
-      "Mission and regulatory obligations documented (OCC Heightened Standards §III.A)",
+      "Mission and regulatory obligations documented (12 CFR 30 App. B information security program; OCC supervisory expectations)",
       "Risk appetite approved by board Risk Committee, reviewed annually",
       "CISO reports to CRO; quarterly to board; ad hoc on material incidents",
       "Third-party risk program covers 412 critical vendors, including 18 fourth-party dependencies",
@@ -41,37 +41,37 @@
       "investment_line": "Identity & Access Management modernization (privileged access management rollout)",
       "cost_estimate": "$400K",
       "owner": "CISO",
-      "regulatory_rationale": "OCC Heightened Standards §III.C.3 (third-party access to sensitive systems)"
+      "regulatory_rationale": "12 CFR 30 App. B (access controls on customer information systems)"
     },
     {
       "investment_line": "Third-party risk management program (continuous monitoring of critical vendors)",
       "cost_estimate": "$300K",
       "owner": "TPRM Lead",
-      "regulatory_rationale": "OCC Heightened Standards §III.D (third-party relationship risk); NY DFS §500.11 (third-party service provider security policy)"
+      "regulatory_rationale": "Interagency Guidance on Third-Party Relationships (2023); NY DFS §500.11 (third-party service provider security policy)"
     },
     {
       "investment_line": "Security operations center uplift (24/7 monitoring + threat intelligence)",
       "cost_estimate": "$500K",
       "owner": "SOC Director",
-      "regulatory_rationale": "FFIEC CAT Domain 4 (Continuous Monitoring); FFIEC IT Examination Handbook"
+      "regulatory_rationale": "Supervisory expectation: FFIEC IT Examination Handbook (Information Security booklet — continuous monitoring)"
     },
     {
       "investment_line": "Disaster recovery & resilience testing (4 recovery exercises, hot-site failover)",
       "cost_estimate": "$250K",
       "owner": "BCP Lead",
-      "regulatory_rationale": "FFIEC CAT Domain 5 (Incident Management); OCC Heightened Standards §III.E (operational resilience)"
+      "regulatory_rationale": "FFIEC Business Continuity Management booklet; interagency operational-resilience expectations"
     },
     {
       "investment_line": "Cybersecurity training & awareness (board training + phishing simulation + role-based training)",
       "cost_estimate": "$150K",
       "owner": "People Security Lead",
-      "regulatory_rationale": "NY DFS §500.14 (training); FFIEC CAT Domain 7 (Training)"
+      "regulatory_rationale": "NY DFS §500.14 (training); FFIEC IT Examination Handbook (security awareness)"
     },
     {
       "investment_line": "GRC tooling consolidation (replacing 3 point tools with 1 platform)",
       "cost_estimate": "$400K",
       "owner": "GRC Director",
-      "regulatory_rationale": "OCC Heightened Standards §III.A (governance); reduces audit fatigue for FFIEC examinations"
+      "regulatory_rationale": "12 CFR 30 App. B information security program governance; reduces audit fatigue for FFIEC examinations"
     }
   ]
 }

@@ -52,14 +52,14 @@ The most operationally significant new Category in 2.0. Covers third-party / sup
 - **Evidence examples**: third-party risk policy, supplier security questionnaires (CAIQ, SIG), supplier audit results, supply chain risk register.
 - **Board-language**: "We have a program to know, assess, and monitor the cyber risk of our suppliers."
 
-**Why GV.SC is the biggest practical change** (in 1.1 supply chain was a single Category `ID.SC` under Identify; in 2.0 it is a 10-Subcategory Category under GOVERN). The elevation moves supply chain from a procurement-and-IT concern to a **board-level governance concern**. The 10 Subcategories cover the full supplier life cycle: from contract (SC-03) through ongoing assessment (SC-04) to incident coordination (SC-05, SC-08) to end-of-life (SC-10). Most orgs have at most 2-3 of these 10 fully implemented; closing the rest is a 12-24 month program.
+**Why GV.SC is the biggest practical change** (in 1.1 supply chain was a single Category `ID.SC` under Identify; in 2.0 it is a 10-Subcategory Category under GOVERN). The elevation moves supply chain from a procurement-and-IT concern to a **board-level governance concern**. The 10 Subcategories cover the full supplier life cycle: ERM integration (SC-03), supplier prioritization (SC-04), contracts (SC-05), due diligence (SC-06), ongoing monitoring (SC-07), incident coordination (SC-08), end-of-life (SC-10). In practitioner experience most orgs start with only a few of these fully implemented; closing the rest is commonly a 12-24 month program (unsourced practitioner heuristic).
 
 ### GV.PO — Policy
 
 The cybersecurity policy lifecycle: authoring, approval, communication, maintenance, and exception handling.
 
 - **Executive question**: "Do we have current, approved, communicated policies?"
-- **Subcategories** (representative): `GV.PO-01` (cybersecurity policy established), `GV.PO-02` (policy reviewed/updated), `GV.PO-03` (policy communicated to stakeholders), `GV.PO-04` (policy exceptions managed).
+- **Subcategories** (complete — GV.PO has exactly 2): `GV.PO-01` (policy established based on organizational context, communicated, and enforced), `GV.PO-02` (policy reviewed, updated, communicated, and enforced to reflect changes). There is no GV.PO-03 or GV.PO-04 — communication and enforcement are inside -01/-02; exception handling is an org practice, not a separate Subcategory.
 - **Evidence examples**: policy library, version history, attestation of receipt, exception register.
 - **Board-language**: "Our policies exist, are current, and are followed."
 
@@ -68,7 +68,7 @@ The cybersecurity policy lifecycle: authoring, approval, communication, maintena
 How the org knows whether its cybersecurity risk management is working — performance review, strategy adjustment, audit findings.
 
 - **Executive question**: "How do we know the cyber program is working?"
-- **Subcategories** (representative): `GV.OV-01` (cybersecurity performance reviewed), `GV.OV-02` (cybersecurity risk management strategy reviewed/adjusted), `GV.OV-03` (security operations reviewed/audited).
+- **Subcategories** (complete — GV.OV has exactly 3): `GV.OV-01` (risk management strategy outcomes reviewed to inform and adjust strategy and direction), `GV.OV-02` (strategy reviewed and adjusted to cover requirements and risks), `GV.OV-03` (organizational cybersecurity risk management performance evaluated and reviewed).
 - **Evidence examples**: board cyber committee minutes, KPI/KRI dashboards, internal audit reports, regulator examination results.
 - **Board-language**: "We have a cadence for reviewing whether the cyber program works."
 
@@ -112,7 +112,7 @@ GOVERN maps mostly to the **PM (Program Management)**, **RA (Risk Assessment)**,
 | GV.RR-01 (leadership accountable) | PM-2, PM-19, PM-23, PM-24, PM-29 | Program Management family |
 | GV.RR-03 (resources allocated) | PM-3 | Resource planning |
 
-The full curated mapping ships in a JSON in `data/crosswalks/csf-to-800-53-mod.json` (added in Wave 2) and the analysis lives in `chunks/08-informative-references-crosswalk.md`. The reverse direction (800-53 → CSF) is in `nist-800-53-rmf/chunks/09-crosswalk.md`.
+This skill deliberately ships NO derivative crosswalk JSON (the NIST IR spreadsheet updates periodically and a snapshot would go stale) — the authoritative source is the IR spreadsheet; further analysis lives in `chunks/08-informative-references-crosswalk.md`. The reverse direction (800-53 → CSF) is in `nist-800-53-rmf/chunks/09-crosswalk.md`.
 
 ## 5. How GOVERN sets the foundation for the other 5 Functions
 
@@ -139,7 +139,7 @@ The GOVERN-first sequencing rule is a **practitioner heuristic** supported by NI
 
 - **Authoritative source**: the 6 GOVERN Categories and their Subcategories are from NIST CSF 2.0 [NIST-CSF-2.0 §2.2] (Feb 26, 2024). Verify the exact Subcategory IDs and wording against the official PDF at https://www.nist.gov/cyberframework. Do not paraphrase the Category codes (`GV.OC`, `GV.RM`, `GV.SC`, `GV.PO`, `GV.OV`, `GV.RR`).
 - **CSF 1.1 had a partial GOVERN** (`ID.GV` — 4 Subcategories under Identify: ID.GV-1 policy, ID.GV-2 roles/responsibilities, ID.GV-3 legal/regulatory, ID.GV-4 governance/risk management processes). It did not have the 6 Categories described here. Do not attribute `GV.OC`, `GV.RM`, `GV.SC`, `GV.PO`, `GV.OV`, `GV.RR` to 1.1. The expansion from `ID.GV` to the 6 GOVERN Categories is the single largest content change in 2.0.
-- **`GV.SC` is the most operationally significant addition** in 2.0. It elevates supply chain from a 5-Subcategory Category under Identify to a 10-Subcategory Category under GOVERN. Most orgs have at most 2-3 of the 10 fully implemented; closing the rest is a 12-24 month program. Do not under-estimate the assessment and remediation effort.
+- **`GV.SC` is the most operationally significant addition** in 2.0. It elevates supply chain from a 5-Subcategory Category under Identify to a 10-Subcategory Category under GOVERN. In practitioner experience, orgs typically start with only a few of the 10 fully implemented and closing the rest is a 12-24 month program (unsourced heuristic). Do not under-estimate the assessment and remediation effort.
 - **GOVERN is the umbrella, not a peer.** GOVERN outcomes set the context for the other 5 Functions; the other 5 are the operational cycle. This is why the assess-GOVERN-first rule exists and why the GOVERN Tier acts as a practical ceiling on the other 5 Tiers.
-- **The 800-53 mapping in §4 is representative, not exhaustive.** The full curated mapping ships as a JSON in `data/crosswalks/csf-to-800-53-mod.json` (added in Wave 2) and the analysis is in `chunks/08-informative-references-crosswalk.md`. The mappings above are illustrative; verify against the current NIST Informative References spreadsheet for an authoritative version.
+- **The 800-53 mapping in §4 is representative, not exhaustive.** No derivative JSON ships with this skill; the authoritative source is the current NIST Informative References spreadsheet — verify every row against it before client use. Further analysis: `chunks/08-informative-references-crosswalk.md`.
 - **GOVERN is not the same as "compliance".** GOVERN outcomes describe the org's cyber risk governance; compliance with specific regulations (HIPAA, PCI, NY DFS 500) is a separate activity that may be expressed using GOVERN Subcategories but is not equivalent to GOVERN. An org can have strong GOVERN outcomes and not be compliant with a specific regulation; conversely, an org can be compliant with a specific regulation and have weak GOVERN outcomes.
