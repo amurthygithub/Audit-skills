@@ -2,7 +2,7 @@
 
 > **Use this for every new skill design document.**
 > Status: required template (added 2026-06-05 after the CSF 2.0 design doc formalized the pattern).
-> First use: `docs/csf-2-design.md` (1,391 lines, all 15 sections filled in).
+> First use: `docs/builds/csf-2/csf-2-design.md` (1,391 lines, all 15 sections filled in).
 
 ## How to use this template
 
@@ -21,7 +21,7 @@ When we shipped the nist-800-53-rmf skill (v0.2.1), we ran:
 - Cross-skill consistency library
 - CI/CD with 3 required status checks
 
-The CSF 2.0 design doc (`docs/csf-2-design.md`) was structured to mirror those review surfaces, so the build phase doesn't have to re-invent them. This template codifies the structure so every future skill hits the same shape.
+The CSF 2.0 design doc (`docs/builds/csf-2/csf-2-design.md`) was structured to mirror those review surfaces, so the build phase doesn't have to re-invent them. This template codifies the structure so every future skill hits the same shape.
 
 A design doc that hits all 15 sections (with the same sub-structure) is reviewable in one sitting and convertible into a build plan without further clarification.
 

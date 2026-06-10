@@ -4,8 +4,8 @@
 **Skill under re-review:** `skills/nist-csf-2/` (router + 8 chunks)
 **Authoritative source for spot-checks:** NIST CSF 2.0 Informative References spreadsheet, downloaded from `https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all` (2026-06-07), parsed with openpyxl
 **Previous artifacts:**
-- `docs/csf-2-verification-report.md` (8 CRITICAL, 17 HIGH, 9 MEDIUM, 8 LOW = 42 findings)
-- `docs/csf-2-fix-report.md` (claimed fixes for the CRITICAL and HIGH items)
+- `docs/builds/csf-2/csf-2-verification-report.md` (8 CRITICAL, 17 HIGH, 9 MEDIUM, 8 LOW = 42 findings)
+- `docs/builds/csf-2/csf-2-fix-report.md` (claimed fixes for the CRITICAL and HIGH items)
 
 ---
 

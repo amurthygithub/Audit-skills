@@ -2,7 +2,7 @@
 
 > **Use this document as the contract for every file in `skills/nist-csf-2/`.**
 > Every build agent reads this. Every reviewer validates against this.
-> The design doc (`docs/csf-2-design.md`) is the high-level "what to build"; this doc is the low-level "what each file must contain".
+> The design doc (`docs/builds/csf-2/csf-2-design.md`) is the high-level "what to build"; this doc is the low-level "what each file must contain".
 > Status: Required reading for any agent touching this skill. Source of truth: this file.
 
 ---

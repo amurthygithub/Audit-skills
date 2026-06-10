@@ -121,7 +121,7 @@ class TestCheckFactSheet:
 
 class TestCheckDesignDoc:
     def test_filled_example_design_doc_passes(self):
-        code, msgs = check_design_doc.check_design_doc(REPO / "docs" / "csf-2-design.md")
+        code, msgs = check_design_doc.check_design_doc(REPO / "docs" / "builds" / "csf-2" / "csf-2-design.md")
         assert code == 0, msgs
 
     def test_template_itself_fails(self):

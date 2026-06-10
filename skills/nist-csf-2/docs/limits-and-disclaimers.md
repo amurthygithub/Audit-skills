@@ -38,9 +38,9 @@ This skill follows the `docs/skill-design-template.md` §5.11 source-of-truth ve
 
 The verification reports are at:
 
-- `docs/csf-2-verification-report.md` — initial verification (8 CRITICAL + 17 HIGH caught)
-- `docs/csf-2-fix-report.md` — fix log
-- `docs/csf-2-reverification-report.md` — PASS-WITH-CAVEATS
+- `docs/builds/csf-2/csf-2-verification-report.md` — initial verification (8 CRITICAL + 17 HIGH caught)
+- `docs/builds/csf-2/csf-2-fix-report.md` — fix log
+- `docs/builds/csf-2/csf-2-reverification-report.md` — PASS-WITH-CAVEATS
 - `docs/acceptance-gate.md` — the §5.11 gate
 
 If you find a factual error, file an issue or open a PR — the skill is maintained rigorously.

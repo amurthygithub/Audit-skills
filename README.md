@@ -20,7 +20,7 @@ v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass
 | Chunks per skill | 7–9 | **7–9** |
 | Industry views | 3–4 per skill | **3–4 per skill (NIST CSF 2.0: 4 new)** |
 | Use cases (worked examples) | 3–4 per skill | **3–4 per skill (NIST CSF 2.0: 3 new)** |
-| Total tests passing | 190 | **266** |
+| Total tests passing | 190 | **297** |
 | CI/CD checks | 3 | **3 (unchanged)** |
 | §5.11 factual verification | — | **3 rounds across all 6 skills (50+ findings fixed)** |
 | Day 0 pre-build research | — | **`docs/fact-sheet-template.md` (research before build)** |
@@ -42,7 +42,7 @@ v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass
 | **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 49 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
 | **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 76 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 
-**266 tests across 6 skills, 0 failures. All pass the Tier 0a linter.**
+**297 tests across 6 skills, 0 failures. All pass the Tier 0a linter.**
 
 ---
 
@@ -293,18 +293,16 @@ cd Audit-skills
 # 2. Install
 pip install pytest jsonschema pyyaml
 
-# 3. Verify all 6 skills are healthy
-python tools/lint_skill.py skills/nist-800-53-rmf
-python tools/lint_skill.py skills/isaca-audit-methodology
-python tools/lint_skill.py skills/coso-internal-controls
-python tools/lint_skill.py skills/aicpa-soc-reporting
-python tools/lint_skill.py skills/audit-workpapers
-python tools/lint_skill.py skills/nist-csf-2
-# → [PASS] for each
+# 3. Verify all skills are healthy (TEMPLATE is the scaffold and is excluded)
+python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
+# → [PASS] for each on-Spine skill
 
 # 4. Run the test suite
 pytest skills/ tests/ -q
-# → 266 passed across all 6 skills
+# → 297 passed across all 6 skills
+
+# (Optional) Install all skills into opencode as full packages
+./install.sh
 
 # 5. Use a skill (Path 1 — system prompt)
 python -c "
@@ -340,7 +338,7 @@ Contributions welcome — especially:
 - Translations to other languages
 - Integration guides for other LLM frameworks (Anthropic, Google, Bedrock, Azure OpenAI)
 
-**Adding a new skill?** First copy [`docs/skill-design-template.md`](docs/skill-design-template.md) to `docs/<your-skill-slug>-design.md` and fill in all 15 sections. The template is a checklist; see [`docs/csf-2-design.md`](docs/csf-2-design.md) for a fully-filled example. Designs that don't hit all 15 sections are bounced at Monday review.
+**Adding a new skill?** First copy [`docs/skill-design-template.md`](docs/skill-design-template.md) to `docs/<your-skill-slug>-design.md` and fill in all 15 sections. The template is a checklist; see [`docs/builds/csf-2/csf-2-design.md`](docs/builds/csf-2/csf-2-design.md) for a fully-filled example. Designs that don't hit all 15 sections are bounced at Monday review.
 
 Before opening a PR, run:
 ```bash

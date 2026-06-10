@@ -8,7 +8,7 @@
 > **Linter:** `tools/lint_skill.py` (Tier 0a, SOX-616)
 > **Consistency library:** `tests/test_consistency_lib.py`
 > **Template:** `skills/TEMPLATE/` and `docs/skill-design-template.md` (this doc was the first fully-filled example)
-> **Companion document:** `docs/nist-collation.md` (CSF 2.0 listed as P2 next-move)
+> **Companion document:** `docs/builds/csf-2/nist-collation.md` (CSF 2.0 listed as P2 next-move)
 
 ---
 
