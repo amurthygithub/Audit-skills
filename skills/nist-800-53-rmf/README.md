@@ -130,13 +130,14 @@ next_continuous_monitoring:
 baseline: MODERATE
 crosswalk_summary:
   soc2_common_criteria: 9
-  nist_800_53_mod_controls: 325
-  mapped_controls: 231
-  gap_controls: 94
-  overlap_pct: 71
-gap_summary:
-  total: 94
-  by_priority: {High: 28, Medium: 41, Low: 25}
+  sample_mappings: 33
+  unique_mapped_control_ids: 39
+  note: "curated sample — overlap percentages are NOT derivable from a sample"
+gap_register_summary:
+  total_records: 93
+  pure_gaps: 81
+  strengthen_partial_coverage: 12
+  by_priority: {High: 8, Medium: 43, Low: 42}
 remediation_plan:
   total_items: 94
   due_in_30d: 18

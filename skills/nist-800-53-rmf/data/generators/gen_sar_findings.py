@@ -22,7 +22,7 @@ from pathlib import Path
 
 FINDING_TEMPLATES = [
     # (control_id, severity_pool, description_template, cause, recommendation)
-    ("AC-2(4)",  ["High", "Moderate"],
+    ("AC-2",  ["High", "Moderate"],  # statement j: account review (AC-2(4) is Automated Audit Actions)
      "Quarterly account review was not performed for the last {quarters} quarters; logs show no review activity.",
      "Operational lapse (process not followed)",
      "Re-perform account review; implement a calendar-tracked quarterly task with sign-off in the GRC tool."),

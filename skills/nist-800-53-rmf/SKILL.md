@@ -163,7 +163,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 |----|-------|----------|------------|
 | UC-01 | FedRAMP-bound SaaS categorizes FIPS-199 Moderate | saas-technology, public-sector | Categorization, baseline, inheritance map |
 | UC-02 | Federal agency Step 6 authorization: SAR 22 findings → POA&M, AO risk-accepts 14, ATO w/ conditions | public-sector | ATO letter, POA&M, residual-risk memo |
-| UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate (SOC 2 to 800-53 mapping, 94 gap controls) | financial-services, saas-technology | Crosswalk, gap list, remediation plan |
+| UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate (curated-sample crosswalk + 93-record gap register, computed) | financial-services, saas-technology | Crosswalk sample, gap register, remediation plan |
 
 ## 9. Anti-Hallucination Disclaimers
 
@@ -183,6 +183,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | NIST-SP-800-53-Rev5 | Security and Privacy Controls for Information Systems and Organizations | NIST | Rev 5 (Sept 2020) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final |
 | NIST-SP-800-37-Rev2 | Risk Management Framework for Information Systems and Organizations | NIST | Rev 2 (Dec 2018) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/37/r2/final |
 | NIST-SP-800-53A-Rev5 | Assessing Security and Privacy Controls | NIST | Rev 5 (Jan 2022) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/53/a/r5/final |
+| NIST-SP-800-53B | Control Baselines for Information Systems and Organizations | NIST | SP 800-53B (Oct 2020, incl. updates) | 2026-06-10 | https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final |
 | FIPS-199 | Standards for Security Categorization | NIST | FIPS 199 (Feb 2004) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf |
 | FIPS-200 | Minimum Security Requirements for Federal Information and Information Systems | NIST | FIPS 200 (Mar 2006) | 2026-05-25 | https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.200.pdf |
 | NIST-SP-800-30-Rev1 | Guide for Conducting Risk Assessments | NIST | Rev 1 (Sept 2012) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/30/r1/final |

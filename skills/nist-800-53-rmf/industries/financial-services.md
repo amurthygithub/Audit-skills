@@ -26,7 +26,7 @@ Commercial financial services (banks, insurance, capital markets, payments, fint
 
 ## 3. Inheritance pattern
 
-- **No native cloud inheritance** in a typical commercial context — the entity runs its own cloud or colocation.
+- **Inheritance depends on the deployment model**: a traditional bank running its own data centers/colocation has no native cloud inheritance, while a cloud-hosted fintech (like UC-03's AWS SaaS) inherits the provider's physical/environmental/hypervisor controls — see chunks/04 §Common control & inheritance model.
 - **FedRAMP inheritance possible** if the entity uses a FedRAMP-authorized IaaS/PaaS (e.g., AWS GovCloud, Azure Government). Otherwise, the entity implements controls at the cloud layer.
 - **Third-party (SOC 2, ISO 27001) inheritance** — common controls (e.g., HR, training, vendor risk) can be inherited from the corporate common-controls catalog and reused in the 800-53 view.
 

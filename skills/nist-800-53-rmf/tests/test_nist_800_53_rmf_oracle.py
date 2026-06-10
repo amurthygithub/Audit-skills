@@ -56,17 +56,45 @@ def test_uc_02_oracle():
 
 
 def test_uc_03_oracle():
-    """UC-03: 71% overlap, 94 gap controls, baseline MODERATE."""
+    """UC-03 (SOX-637, non-circular): the stub's summary must be DERIVABLE from the
+    shipped crosswalk + gap register — this test recomputes everything independently
+    from the seed files and asserts the stub agrees, plus footing invariants."""
     payload = _load("uc-03-input.json")
     crosswalk = json.loads((DATA.parent / "crosswalks" / "soc2-to-800-53-mod.json").read_text())
+    gap_register = _load("uc-03-gap-list.json")
     payload["crosswalk"] = crosswalk
+    payload["gap_register"] = gap_register
     out = run_skill("UC-03", payload)
 
-    # Oracle assertions per UC-03 frontmatter
-    assert out["crosswalk_summary"]["overlap_pct"] in range(68, 76)  # 71 ± 3
-    assert 80 <= out["crosswalk_summary"]["gap_controls"] <= 110  # ~94
-    assert out["crosswalk_summary"]["soc2_common_criteria"] == 9
+    # Independent recomputation from the seeds (not via the stub)
+    mapped_ids = set()
+    for m in crosswalk["mappings"]:
+        for c in m["nist_800_53_id"].split(","):
+            if c.strip():
+                mapped_ids.add(c.strip())
+    pure = [g for g in gap_register if g["disposition"] == "gap"]
+    strengthen = [g for g in gap_register if g["disposition"] == "strengthen"]
+
+    cs = out["crosswalk_summary"]
+    gs = out["gap_register_summary"]
+    assert cs["soc2_common_criteria"] == 9
+    assert cs["sample_mappings"] == len(crosswalk["mappings"])
+    assert cs["unique_mapped_control_ids"] == len(mapped_ids)
+    # No overlap percentage may be emitted — it is not derivable from a sample
+    assert "overlap_pct" not in cs and "mapped_controls" not in cs
+    # Footing invariants
+    assert gs["total_records"] == len(gap_register)
+    assert gs["pure_gaps"] + gs["strengthen_partial_coverage"] == gs["total_records"]
+    assert gs["pure_gaps"] == len(pure) and gs["strengthen_partial_coverage"] == len(strengthen)
+    assert sum(gs["by_priority"].values()) == gs["total_records"]
+    # One disposition per control: every 'gap' record is unmapped; every 'strengthen' is mapped
+    assert all(g["control_id"] not in mapped_ids for g in pure)
+    assert all(g["control_id"] in mapped_ids for g in strengthen)
     assert out["baseline"]["baseline"] == "MODERATE"
+    # Expected-output seed must foot to the same computed values
+    expected = _load("uc-03-expected.json")
+    assert expected["gap_register_summary"]["total_records"] == gs["total_records"]
+    assert expected["crosswalk_summary"]["unique_mapped_control_ids"] == cs["unique_mapped_control_ids"]
 
 
 @pytest.mark.parametrize("uc_id,expected_overall", [

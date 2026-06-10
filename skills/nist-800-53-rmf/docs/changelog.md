@@ -4,6 +4,14 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 
 ## [Unreleased]
 
+### Fixed (SOX-637 — UC-03 data coherence, 2026-06-10, M2)
+- UC-03 headline restated to what the shipped data supports: curated-sample crosswalk (33 mappings, 39 unique control IDs after splitting comma entries) + representative 93-record gap register; the underivable "231 mapped / 71% overlap / 94 gaps" claims retired.
+- Stub now COMPUTES the UC-03 summary from the crosswalk + gap register; the oracle recomputes independently from the seeds (non-circular) and asserts footing invariants (totals foot; priorities sum; no overlap % emitted).
+- One disposition per control: 12 partially-mapped controls (AT-2, RA-3, SI-4, ...) now carry `strengthen`; 81 carry `gap`; gap-register evidence_refs no longer point at nonexistent docs/remediation files.
+- AC-2(4)→AC-2 (statement j, account review) corrected across the UC-02 seed, doc, and generator (AC-2(4) is Automated Audit Actions).
+- SP 800-53B added to the citation registry and §10 manifest; financial-services.md inheritance claim qualified by deployment model; expected/remediation seeds regenerated so every count foots.
+
+
 ## [0.2.0] — 2026-06-03
 
 ### Changed (BREAKING)

@@ -3,12 +3,13 @@
   "system_name": "FinPay Treasury Cloud",
   "baseline": "MODERATE",
   "remediation_plan": {
-    "total_items": 94,
-    "with_owner": 94,
-    "with_target_date": 94,
-    "due_in_30d": 18,
-    "due_in_60d": 41,
-    "due_in_90d": 24,
-    "due_in_180d": 11
+    "total_items": 93,
+    "with_owner": 93,
+    "with_target_date": 93,
+    "due_in_30d": 3,
+    "due_in_60d": 37,
+    "due_in_90d": 51,
+    "due_in_180d": 2,
+    "note": "computed from data/seeds/uc-03-gap-list.json — counts foot by construction"
   }
 }

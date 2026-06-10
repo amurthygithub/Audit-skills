@@ -67,16 +67,36 @@ def _uc02_aggregate(findings: list[dict]) -> dict:
     }
 
 
-def _uc03_crosswalk(crosswalk: dict) -> dict:
-    s = crosswalk.get("summary", {})
+def _uc03_crosswalk(crosswalk: dict, gap_register: list[dict]) -> dict:
+    """UC-03 summary COMPUTED from the shipped data (SOX-637).
+
+    The crosswalk is a curated 33-row sample, not the complete TSC-to-800-53
+    mapping — so no overlap percentage is derivable or emitted. Every count
+    below foots to the inputs by construction.
+    """
+    mapped_ids: set[str] = set()
+    for m in crosswalk.get("mappings", []):
+        for c in m.get("nist_800_53_id", "").split(","):
+            if c.strip():
+                mapped_ids.add(c.strip())
+    pure = [g for g in gap_register if g.get("disposition") == "gap"]
+    strengthen = [g for g in gap_register if g.get("disposition") == "strengthen"]
+    by_priority: dict[str, int] = {}
+    for g in gap_register:
+        by_priority[g["priority"]] = by_priority.get(g["priority"], 0) + 1
     return {
         "crosswalk_summary": {
             "soc2_common_criteria": 9,
-            "nist_800_53_mod_controls": 325,
-            "mapped_controls": 231,
-            "gap_controls": 94,
-            "overlap_pct": 71,
-        }
+            "sample_mappings": len(crosswalk.get("mappings", [])),
+            "unique_mapped_control_ids": len(mapped_ids),
+            "note": "curated sample — overlap percentages are NOT derivable from this sample",
+        },
+        "gap_register_summary": {
+            "total_records": len(gap_register),
+            "pure_gaps": len(pure),
+            "strengthen_partial_coverage": len(strengthen),
+            "by_priority": by_priority,
+        },
     }
 
 
@@ -106,10 +126,11 @@ def run_skill(use_case_id: str, payload: dict, model: str = "stub") -> dict:
         }
     if use_case_id == "UC-03":
         crosswalk = payload.get("crosswalk", {})
-        cw = _uc03_crosswalk(crosswalk)
+        gap_register = payload.get("gap_register", [])
+        cw = _uc03_crosswalk(crosswalk, gap_register)
         return {
-            "classification": cw["crosswalk_summary"]["gap_controls"],
-            "baseline": {"baseline": "MODERATE"},
+            "classification": f"GAP_RECORDS_{cw['gap_register_summary']['total_records']}",
+            "baseline": {"baseline": payload.get("target_baseline", "MODERATE")},
             **cw,
         }
     return {"classification": "UNKNOWN", "error": f"unknown use_case_id: {use_case_id}"}

@@ -25,12 +25,12 @@ inputs:
       recommendation: "Update risk assessment per 800-30 Rev 1; include current threat catalog."
       compensating_control: null
     - finding_id: SAR-002
-      control_id: AC-2(4)
+      control_id: AC-2   # base control, statement j — review accounts for compliance (AC-2(4) is Automated Audit Actions, a different requirement)
       severity: High
       determination: Other Than Satisfied
       description: "Quarterly account review was not performed for the last 4 quarters; logs show no review activity."
       cause: Operational lapse (process not followed)
-      effect: "Risk to system confidentiality, integrity, or availability from AC-2(4) deviation."
+      effect: "Risk to system confidentiality, integrity, or availability from the AC-2 (account review, element j) deviation."
       recommendation: "Re-perform account review; implement a calendar-tracked quarterly task with sign-off in the GRC tool."
       compensating_control: null
     - finding_id: SAR-003
@@ -67,7 +67,7 @@ expected_outputs:
     decision: AUTHORIZE_WITH_CONDITIONS
     duration: 1 year
     conditions:
-      - "Remediate SAR-001 (AC-2(4)) within 30 days; submit evidence to AO."
+      - "Remediate SAR-001 (AC-2 account review, element j) within 30 days; submit evidence to AO."
       - "Remediate SAR-003 (CM-6) within 60 days; deploy SCAP scanning."
       - "Remediate SAR-002 (AU-6(1)) within 60 days; document thresholds in IRP."
       - "All 8 Moderate-and-above findings remediated or risk-accepted within 90 days."
@@ -128,7 +128,7 @@ In this scenario:
 
 | Severity | Count | Examples |
 |----------|-------|----------|
-| High | 4 | SAR-001 (AC-2(4) account review not performed), SAR-003 (CM-6 config drift) |
+| High | 4 | SAR-001 (AC-2 element j — account review not performed), SAR-003 (CM-6 config drift) |
 | Moderate | 8 | SAR-002 (AU-6(1) escalation thresholds), others |
 | Low | 10 | Mostly documentation gaps and minor operational lapses |
 
@@ -136,7 +136,7 @@ The SAR output (§6.3) for each finding includes:
 
 ```yaml
 finding_id: SAR-001
-control_id: AC-2(4)
+control_id: AC-2   # base control, statement j — review accounts for compliance (AC-2(4) is Automated Audit Actions, a different requirement)
 control_title: "Account Management | Automated Audit Actions"
 severity: High
 determination: Other Than Satisfied
@@ -158,7 +158,7 @@ Each finding becomes a POA&M item:
 ```yaml
 poam_id: POA&M-001
 finding_id: SAR-001
-control_id: AC-2(4)
+control_id: AC-2   # base control, statement j — review accounts for compliance (AC-2(4) is Automated Audit Actions, a different requirement)
 weakness_description: "Quarterly account review not performed for two quarters"
 weakness_detected_date: "2026-05-15"
 risk_level: High
