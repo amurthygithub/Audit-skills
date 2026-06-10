@@ -199,11 +199,11 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | HIPAA-Security-Rule | 45 CFR § 164.302–164.318 | HHS | as amended | 2026-06-09 | https://www.hhs.gov/hipaa/for-professionals/security/ |
 | PCI-DSS-4.0.1 | Payment Card Industry Data Security Standard | PCI SSC | v4.0.1 (2024) | 2026-06-09 | https://www.pcisecuritystandards.org/document_library |
 | COBIT-2019 | Governance and Management Objectives | ISACA | 2019 | 2026-06-09 | https://www.isaca.org/resources/cobit |
-| NY-DFS-Part-500 | Cybersecurity Requirements for Financial Services Companies | NY DFS | 23 NYCRR Part 500 (as amended 2023) | 2026-06-09 | https://www.dfs.ny.gov/industry_guidance/cyber_finance |
+| NY-DFS-Part-500 | Cybersecurity Requirements for Financial Services Companies | NY DFS | 23 NYCRR Part 500 (as amended 2023) | 2026-06-10 | https://www.dfs.ny.gov/industry_guidance/cybersecurity |
 | FFIEC-CAT | Cybersecurity Assessment Tool (SUNSET effective Aug 31, 2025 — historical reference only) | FFIEC | May 2017 (final version; no v2 was ever published) | 2026-06-10 | https://www.ffiec.gov/sites/default/files/media/press-releases/2024/cat-sunset-statement-ffiec-letterhead.pdf |
 | CISA-CPG | Cross-Sector Cybersecurity Performance Goals | CISA | CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A) | 2026-06-10 | https://www.cisa.gov/cross-sector-cybersecurity-performance-goals |
 | CMMC-2.0 | Cybersecurity Maturity Model Certification | DoD | 2.0 | 2026-06-09 | https://dodcio.defense.gov/CMMC/ |
-| CSF-2.0-Informative-References | NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth) | NIST | 2024 (OLIR catalog) | 2026-06-09 | https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all |
+| CSF-2.0-Informative-References | NIST CSF 2.0 Informative References (crosswalk source of truth) | NIST | OLIR catalog (landing page; XLSX/JSON downloads linked there) | 2026-06-10 | https://www.nist.gov/cyberframework/informative-references |
 
 In-body citations use the form `[LABEL §N]` and resolve to this manifest.
 
