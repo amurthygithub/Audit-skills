@@ -8,11 +8,10 @@ Synthetic datasets and generators that drive the use cases and tests. Every data
 data/
   README.md
   generators/        # Python CLI generators; --seed for reproducibility
-  seeds/             # canonical fixtures (planned)
-  crosswalks/        # cross-framework mappings (planned)
+  seeds/             # canonical fixtures: uc-01, uc-02, uc-03 inputs
 ```
 
-## Data Dictionary (Planned)
+## Data Dictionary
 
 ### `seeds/uc-01-input.json` - UC-01 COBIT maturity assessment input
 
@@ -21,7 +20,7 @@ data/
 | `organization_name` | string | Organization identifier |
 | `industry` | string | Industry key (saas-technology, etc.) |
 | `processes_in_scope` | array | List of COBIT process IDs to assess |
-| `current_evidence` | array | Evidence items per process area |
+| `current_evidence` | object | **Pre-assigned numeric maturity scores per process ID, used as fixture answers by the stub** -- not free-form evidence items. The stub echoes these values; it does not analyze evidence text. |
 
 ### `seeds/uc-02-input.json` - UC-02 ITGC observation input
 

@@ -4,7 +4,9 @@
     "condition": "No periodic access recertification for 3 of 5 critical applications",
     "actual_effect": "12% of terminated employees retained active access avg 45 days",
     "application_category": "Core Banking Applications",
-    "itgc_category": "Access Controls"
+    "itgc_category": "Access Controls",
+    "policy_reference": "Company Policy ISP-003 Section 4.2 (quarterly access recertification for critical applications)",
+    "cause_note": "No automated recertification tooling; security team understaffed for manual campaigns"
   },
   "sample_results": [
     {

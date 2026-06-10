@@ -7,7 +7,7 @@ source: "ISACA CISA CRM 28th Ed 2024, COBIT 2019, ITAF, ISACA Code of Profession
 date_added: 2026-05-25
 version: 0.2.0
 status: draft
-industries: [financial-services, saas-technology, public-sector, healthcare, other]
+industries: [financial-services, saas-technology, public-sector, healthcare]
 frameworks: [ISACA-CISA-CRM, COBIT-2019, ITAF, COSO-2013, NIST-CSF-2.0, ISO-27001-2022, AICPA-TSC-2017]
 telemetry_contract: "telemetry/schema.json#/$defs/SkillInvocation"
 token_baseline_target:
@@ -51,7 +51,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ## 2. Framework Overview
 
-ISACA (est. 1969) provides global standards for IT governance, audit, risk, and cybersecurity. This skill encodes CISA domains (5 domains, 18/18/12/26/26% weights), COBIT 2019 (40 objectives: 5 EDM + 14 APO + 12 BAI + 6 DSS + 3 MEA), ITAF standards (S1-S18 pedagogical reconstruction), ITGC/ITAC testing, risk-based audit planning, 5-part observation format, and cross-framework mapping.
+ISACA (est. 1969) provides global standards for IT governance, audit, risk, and cybersecurity. This skill encodes CISA domains (5 domains, 18/18/12/26/26% weights, effective Aug 2024), COBIT 2019 (40 objectives: 5 EDM + 14 APO + 11 BAI + 6 DSS + 4 MEA), ITAF standards (General 1001-1008, Performance 1201-1207, Reporting 1401-1402), ITGC/ITAC testing, risk-based audit planning, 5-part observation format, and cross-framework mapping.
 
 | Layer | Document | Role |
 |-------|----------|------|
@@ -78,11 +78,11 @@ D1 (18%): Auditing Process. D2 (18%): Governance. D3 (12%): Acquisition/Developm
 
 ### 3.2 COBIT 2019
 
-40 objectives in 5 domains: EDM (governance, 5 objectives), APO (align/plan, 14), BAI (build/acquire, 12), DSS (deliver/service, 6), MEA (monitor/evaluate, 3). Plus 7 information criteria and 11 design factors. Full detail in `chunks/02-cobit-2019.md`.
+40 objectives in 5 domains: EDM (governance, 5 objectives), APO (align/plan, 14), BAI (build/acquire, 11), DSS (deliver/service, 6), MEA (monitor/evaluate/assess, 4 -- including MEA04 Managed Assurance). Prioritized via the goals cascade; tailored via 11 design factors. (The "7 information criteria" are COBIT 4.1, not 2019.) Full detail in `chunks/02-cobit-2019.md`.
 
 ### 3.3 ITAF
 
-Tier 1: Mandatory standards (S1-S18, pedagogical numbering). Tier 2: Guidelines (G1-G18). Tier 3: Procedures/Techniques. **Important:** S1-S18/G1-G18 are reconstructed for reference; not official ITAF numbering. Full detail in `chunks/03-itaf-and-maturity.md`.
+Three tiers: Standards (mandatory) -- General 1001-1008, Performance 1201-1207, Reporting 1401-1402; Guidelines (2000-series, strongly recommended); Procedures/Techniques (optional). Current edition: ITAF 5th Edition (2026). Full detail in `chunks/03-itaf-and-maturity.md`.
 
 ### 3.4 ITGC / ITAC
 
@@ -102,7 +102,7 @@ Condition (what is), Criteria (what should be), Cause (why), Effect (so what), R
 - **ITGC -> ITAC reliance** -> `chunks/04-itgc-itac.md §ITGC-to-ITAC`. If ITGC effective -> controls-based; if not -> substantive; if partial -> hybrid.
 - **Audit approach** -> `chunks/06-observation-and-lifecycle.md §Approach`. Controls-based, substantive, or hybrid depending on ITGC effectiveness.
 - **COBIT maturity** -> `chunks/03-itaf-and-maturity.md §Maturity`. Rate at highest level where ALL attributes are satisfied.
-- **Finding severity** -> `chunks/05-risk-and-planning.md §Severity`. Critical = Material Weakness, High = Significant Deficiency, Medium = Deficiency, Low = Observation.
+- **Finding severity** -> `chunks/05-risk-and-planning.md §Severity`. Severity is a magnitude-and-likelihood judgment, never a mechanical count. The PCAOB/COSO mapping is directional only -- MW/SD classification requires a separate ICFR deficiency evaluation (see chunk 05 fence).
 
 ## 5. Procedure Templates (summary)
 
@@ -118,7 +118,7 @@ Condition (what is), Criteria (what should be), Cause (why), Effect (so what), R
 - **Audit Report** -> `chunks/07-outputs-and-cross-refs.md §Audit report`.
 - **Audit Observation (5-part)** -> `chunks/07-outputs-and-cross-refs.md §Observation template`.
 - **Risk Assessment Output** -> `chunks/07-outputs-and-cross-refs.md §Risk assessment`.
-- **COBIT Maturity Assessment** -> `chunks/07-outputs-and-cross-refs.md §Maturity output`.
+- **COBIT Maturity Assessment** -> `chunks/03-itaf-and-maturity.md §Output template (Maturity Assessment)`.
 
 ## 7. Cross-References (summary)
 
@@ -139,15 +139,16 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 |----|-------|----------|------------|
 | UC-01 | SaaS COBIT 2019 maturity assessment | saas-technology | Maturity assessment, improvement roadmap |
 | UC-02 | ITGC finding in 5-part observation format | financial-services, saas-technology | 5-part observation, severity classification |
+| UC-03 | COBIT 2019 design factors assessment | financial-services | Prioritized governance objectives from design factors |
 
 ## 9. Anti-Hallucination Disclaimers
 
-- **ITAF numbering (S1-S18, G1-G18)** is a pedagogical reconstruction. It does NOT correspond to official ISACA ITAF numbering. Do not cite these as official identifiers.
-- **Topic guidance areas (G19-G35 references)** are supplementary and NOT formal ITAF guidelines. Reference actual ISACA publication names.
-- **CISA domain weights** (18/18/12/26/26%) are from the CISA CRM 28th Ed (2024). Verify against current publication.
-- **COBIT 2019 objectives** (40 total) are as published; verify against the ISACA COBIT 2019 Framework.
+- **ITAF standard numbers** (1001-1008, 1201-1207, 1401-1402) were verified against ITAF 4th Edition text; ITAF 5th Edition (2026, current) retains the 1000/1200/1400 series. Verify individual standard titles against the 5th Edition before citing in workpapers. Never cite "S-numbers" or "G-numbers" -- they are not ITAF identifiers.
+- **ITAF standards bind the auditor, not the auditee.** Finding criteria should cite the auditee's obligations (policy, regulation, COBIT practices) -- not ITAF.
+- **CISA domain weights** (18/18/12/26/26%) are from the ISACA CISA exam content outline effective August 2024. Verify against the current outline.
+- **COBIT 2019 objectives** (40 total: 5/14/11/6/4) verified against the Governance and Management Objectives publication (2026-06-10). There is no BAI12; MEA04 exists; the "7 information criteria" are COBIT 4.1.
 - **Ethics principle count** — ISACA Code of Professional Ethics may list 7 or 8 principles depending on edition. Verify.
-- **AI Audit Certificate** availability and name may change. Verify at ISACA.org.
+- **Certification names** (AI credentials, CMMC roles) change; ISACA was authorized as the CMMC CAICO in 2025. Verify at ISACA.org.
 
 > This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source.
 
@@ -157,7 +158,7 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 |-------|-------|-----------|------------|-----------|-----|
 | CISA-CRM-28E | CISA Review Manual 28th Edition | ISACA | 28th Ed (2024) | 2026-05-25 | https://www.isaca.org/credentialing/cisa |
 | COBIT-2019 | COBIT 2019 Framework: Introduction and Methodology | ISACA | 2019 | 2026-05-25 | https://www.isaca.org/resources/cobit |
-| ITAF | IT Audit Framework, 5th Edition | ISACA | 5th Ed | 2026-05-25 | https://www.isaca.org/store/items/witaf5 |
+| ITAF | IT Audit Framework (ITAF), 5th Edition | ISACA | 5th Ed (2026) | 2026-06-10 | https://www.isaca.org/resources/it-audit |
 | ISACA-ETHICS | ISACA Code of Professional Ethics | ISACA | current edition | 2026-05-25 | https://www.isaca.org/credentialing/code-of-professional-ethics |
 | COSO-2013 | Internal Control — Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP 100, 2022 revised POF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/soc-2 |
@@ -166,6 +167,7 @@ Full worked examples in `use-cases/`. Each has complete input, procedure, expect
 | ISO-38500 | Governance of IT for the organization | ISO/IEC | 2024 | 2026-05-25 | https://www.iso.org/standard/81684.html |
 | ITIL | ITIL 4 Foundation | Axelos | 2019 | 2026-05-25 | https://www.axelos.com |
 | NIST-SP-800-61 | Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile | NIST | Rev 3 (2025) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/61/r3/final |
+| CSA-CCM-v4 | Cloud Controls Matrix (CCM) v4 | Cloud Security Alliance | v4 (17 domains) | 2026-06-10 | https://cloudsecurityalliance.org/research/cloud-controls-matrix |
 
 In-body citations use the form `[LABEL]` and resolve to this manifest.
 
@@ -177,6 +179,7 @@ This is a router. Load chunks based on the user's intent.
 |-------------|---------------|---------------|----------|
 | "ISACA overview" / "CISA domains" / "CISA certification" | `chunks/01-framework-and-cisa.md` | match industry | — |
 | "COBIT 2019" / "COBIT objectives" / "governance objectives" / "focus area" | `chunks/02-cobit-2019.md` | match industry | UC-01 |
+| "Design factors" / "tailor governance system" / "governance design" | `chunks/02-cobit-2019.md` | match industry | UC-03 |
 | "ITAF" / "audit standards" / "maturity assessment" / "COBIT maturity" | `chunks/03-itaf-and-maturity.md` | match industry | UC-01 |
 | "ITGC" / "ITAC" / "general controls" / "application controls" / "sampling" | `chunks/04-itgc-itac.md` | match industry | UC-02 |
 | "Risk assessment" / "audit plan" / "risk score" / "audit universe" | `chunks/05-risk-and-planning.md` | match industry | UC-02 |
@@ -187,9 +190,9 @@ This is a router. Load chunks based on the user's intent.
 | "CAIQ" / "SIG Lite" / "VSAQ" / "customer questionnaire" / "ITGC evidence reuse" / "COBIT governance evidence" | `chunks/08-questionnaire-reuse.md` | match industry | — |
 | "High-level question" / "framework overview" | this SKILL.md only | — | — |
 
-**Industries** (load matching file from `industries/`): financial-services, saas-technology, public-sector, other.
+**Industries** (load matching file from `industries/`): financial-services, saas-technology, public-sector, healthcare (HIPAA / ePHI / EHR / medical-device intents).
 
-**Use cases** (load matching file from `use-cases/`): UC-01 (COBIT maturity for SaaS), UC-02 (5-part ITGC observation).
+**Use cases** (load matching file from `use-cases/`): UC-01 (COBIT maturity for SaaS), UC-02 (5-part ITGC observation), UC-03 (COBIT design factors).
 
 ## 12. Operational Quick-Reference
 

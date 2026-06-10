@@ -9,6 +9,14 @@ load_when: "user asks about ITGC, ITAC, general controls, application controls, 
 
 ITGC are pervasive controls across ALL IT systems. ITAC are controls embedded within specific business applications. You MUST assess both.
 
+> **Production-safety rule for active test procedures.** Test procedures below that inject
+> transactions (duplicates, invalid data, missing items) must NEVER be executed against live
+> production systems that process real business or clinical data. Use a validated test
+> environment, vendor test facilities, or inquiry + inspection of existing evidence. For
+> clinical systems (EHR, LIS, pharmacy, medical devices), obtain clinical-engineering
+> sign-off before ANY active testing -- injected test data in patient records is a
+> patient-safety event, not an audit technique.
+
 ## ITGC Category 1: Access Controls / Logical Security
 
 | Control | What to Verify | Test Procedure |
@@ -101,12 +109,12 @@ ITGC are pervasive controls across ALL IT systems. ITAC are controls embedded wi
 
 | Method | When to Use | Approach |
 |--------|-------------|----------|
-| Statistical - Attribute | Pass/fail control testing | n = (Z^2 x p x (1-p)) / P^2, where P = tolerable deviation rate - expected deviation rate. For finite populations, multiply by population factor. See `audit-workpapers/chunks/03-sampling.md` for complete attribute sampling tables. |
+| Statistical - Attribute | Pass/fail control testing | Size samples from the AICPA attribute sampling tables driven by risk of overreliance, tolerable deviation rate, and expected deviation rate (e.g., 5% ROO / 5% TDR / 0% EDR -> n=59). Do NOT use ad-hoc proportion formulas. See `audit-workpapers/chunks/03-sampling.md` for the verified tables. |
 | Statistical - Variable | Monetary amounts; substantive | Based on confidence, variance, tolerable misstatement |
-| Statistical - MUS | Large populations for overstatement | n = (CF x BV) / TM |
+| Statistical - MUS | Large populations for overstatement | Interval = TM-driven; see `audit-workpapers/chunks/03-sampling.md` for MUS reliability factors and evaluation |
 | Non-Statistical - Judgmental | Targeted testing by auditor judgment | Cannot project to population |
 | Non-Statistical - Haphazard | Simple selection without structure | May not be representative |
-| Non-Statistical - Random | Simple random selection | Cannot evaluate statistically |
+| Non-Statistical - Random selection, judgmental evaluation | Random selection with non-statistical evaluation | Random selection permits statistical evaluation; it is the evaluation method that makes the approach non-statistical |
 
 ## ITGC Assessment Procedure (10 Steps)
 

@@ -9,7 +9,7 @@ load_when: "user asks about audit observations, 5-part format, finding format, a
 
 ## 5-Part Audit Observation Format
 
-Use this format for EVERY audit finding. No exceptions.
+Use this format for every audit finding in ISACA-methodology engagements. (GAGAS engagements: the Yellow Book defines four elements -- criteria, condition, cause, effect -- developed as needed for the objectives; recommendation is reported separately. See the cross-reference at the end of this chunk.)
 
 ### Part 1: Condition (What Is)
 
@@ -19,9 +19,9 @@ Example: "The organization does not perform periodic access recertification for 
 
 ### Part 2: Criteria (What Should Be)
 
-The standard, policy, regulation, or best practice against which the condition is measured. Must cite the source: ISACA Standard, COBIT Objective, regulatory requirement, company policy.
+The standard, policy, regulation, or framework practice against which the condition is measured. Must cite a real, verifiable source the AUDITEE is obligated to meet: company policy clause, regulation, contractual requirement, or COBIT management practice. **ITAF standards govern the auditor's work, not the auditee -- do not cite ITAF as finding criteria.** Never cite an identifier you cannot verify in the source publication.
 
-Example: "ISACA Standard S17 and company policy ISP-003 require quarterly access recertification for all critical applications."
+Example: "Company policy ISP-003 Section 4.2 requires quarterly access recertification for all critical applications; COBIT 2019 DSS05.04 (Manage user identity and logical access) is the corresponding framework practice."
 
 ### Part 3: Cause (Why the Condition Exists)
 
@@ -33,7 +33,7 @@ Example: "The IT security team lacks automated recertification tooling. (Root Ca
 
 Actual or potential impact. Quantify where possible: financial loss, regulatory penalty, operational disruption. Differentiate actual vs potential impact. Map to COBIT information criteria affected.
 
-Example: "12% of terminated employees retained active access for an average of 45 days. Potential regulatory penalties under GDPR Article 32. COBIT criteria affected: Confidentiality, Integrity, Compliance."
+Example: "12% of terminated employees retained active access for an average of 45 days. Potential regulatory exposure where GDPR applies: Article 32 infringements carry fines up to EUR 10M or 2% of worldwide turnover under Article 83(4) -- verify the applicable regime and tier before quantifying. Information attributes affected: Confidentiality, Integrity, Compliance." (The "COBIT information criteria" are a COBIT 4.1 construct -- COBIT 2019 uses the goals cascade; treat these tags as a house convention. See chunk 02.)
 
 ### Part 5: Recommendation (What Should Be Done)
 
@@ -41,22 +41,41 @@ Specific, actionable, risk-ranked. Address root cause. Provide 3 levels: primary
 
 ## Complete Observation Template
 
+Values marked EXAMPLE are template illustrations -- replace them with engagement facts; never
+copy them into a deliverable as evidence. The result envelope wraps the finding (under the
+envelope key `observation`) with a `classification` field equal to the severity. Include a
+`sample_summary` whenever the finding comes from sample testing, and the documentation fields
+(population, period, evidence refs, preparer/reviewer) that let an experienced auditor
+reperform the work.
+
 ```yaml
-finding:
+classification: "High"
+observation:
   id: "ACC-2026-001"
   title: "Inadequate Access Recertification"
-  severity: "High"
+  severity: "High"            # judgment call per chunks/05 SFinding Severity -- never a count
   status: "Open"
   condition: "No recertification for 3 of 5 critical applications"
-  criteria: "ISACA S17; ISP-003 Section 4.2; COBIT APO13.02"
+  criteria: "<the auditee's obligation: company policy clause, regulation, or COBIT practice -- never ITAF>"
   cause:
     description: "Lack of automated tooling; insufficient staff"
     root_cause_category: "Technology"
   effect:
     actual: "12% of terminated employees had active access avg 45 days"
     potential: "Unauthorized data access; data breach"
-    financial_exposure: "$500K-$5M per incident"
-    cobit_criteria_affected: ["Confidentiality", "Integrity", "Compliance"]
+    financial_exposure: "EXAMPLE -- estimate only with evidentiary basis, else omit"
+    cobit_criteria_affected: ["Confidentiality", "Integrity", "Compliance"]  # information-attribute tags; see note below
+  sample_summary:
+    total_applications: 5
+    non_compliant: 3
+    compliance_rate_pct: 40.0
+  documentation:               # AS 1215-style reperformability fields
+    population: "All critical financial applications (N=5)"
+    selection_method: "100% of population"
+    testing_period: "2026-01-01 to 2026-03-31"
+    evidence_refs: ["WP-ACC-010", "WP-ACC-011"]
+    preparer: "<name, date>"
+    reviewer: "<name, date>"
   recommendations:
     - type: "Primary"
       action: "Implement automated recertification tool"
@@ -66,7 +85,7 @@ finding:
     - type: "Compensating"
       action: "Manual recertification monthly until tool deployed"
       priority: "Immediate"
-  management_response:
+  management_response:          # EXAMPLE -- populate from the auditee's actual written response
     agreed: true
     action_plan: "Evaluate and procure IGA tool"
     target_date: "2026-09-30"
@@ -74,55 +93,57 @@ finding:
 
 ## Complete IT Audit Engagement Lifecycle
 
+Standard references below use the official ITAF series (General 1001-1008, Performance 1201-1207, Reporting 1401-1402); see `chunks/03-itaf-and-maturity.md`.
+
 ### Phase 1: PLANNING
 
-| Step | Action | Standard |
+| Step | Action | ITAF Standard |
 |------|--------|----------|
-| 1.1 | Receive engagement request / select from audit plan | S5 |
-| 1.2 | Perform preliminary risk assessment | S17 |
-| 1.3 | Define audit scope, objectives, constraints | S5 |
-| 1.4 | Identify relevant controls and control objectives | S5 |
-| 1.5 | Determine audit approach (controls-based, substantive, hybrid) | S5 |
-| 1.6 | Develop audit program (test procedures, evidence requirements) | S5 |
-| 1.7 | Allocate resources (team, budget, timeline) | S3 |
-| 1.8 | Conduct entrance conference | S7 |
+| 1.1 | Receive engagement request / select from audit plan | 1202 Audit Scheduling |
+| 1.2 | Perform preliminary risk assessment | 1201 Risk Assessment in Planning |
+| 1.3 | Define audit scope, objectives, constraints | 1203 Engagement Planning |
+| 1.4 | Identify relevant controls and control objectives | 1203 Engagement Planning |
+| 1.5 | Determine audit approach (controls-based, substantive, hybrid) | 1203 Engagement Planning |
+| 1.6 | Develop audit program (test procedures, evidence requirements) | 1203 Engagement Planning |
+| 1.7 | Allocate resources (team, budget, timeline) | 1203 / 1006 Proficiency |
+| 1.8 | Conduct entrance conference | 1203 Engagement Planning |
 
 ### Phase 2: FIELDWORK / EXECUTION
 
-| Step | Action | Standard |
+| Step | Action | ITAF Standard |
 |------|--------|----------|
-| 2.1 | Gather and evaluate audit evidence | S13 |
-| 2.2 | Test ITGC (access, change, operations, SDLC) | S6 |
-| 2.3 | Test ITAC (input, processing, output, data integrity) | S6 |
-| 2.4 | Perform walkthrough testing | S6 |
-| 2.5 | Perform sampling-based testing | S14 |
-| 2.6 | Use CAATs for data analytics | S11 |
-| 2.7 | Evaluate control design and operating effectiveness | S6 |
-| 2.8 | Document test results and working papers | S15 |
-| 2.9 | Notify management of significant findings | S7 |
+| 2.1 | Gather and evaluate audit evidence | 1205 Evidence |
+| 2.2 | Test ITGC (access, change, operations, SDLC) | 1204 Performance and Supervision |
+| 2.3 | Test ITAC (input, processing, output, data integrity) | 1204 Performance and Supervision |
+| 2.4 | Perform walkthrough testing | 1204 Performance and Supervision |
+| 2.5 | Perform sampling-based testing | 1204 / 1205 |
+| 2.6 | Use CAATs for data analytics | 1204 / 1205 |
+| 2.7 | Evaluate control design and operating effectiveness | 1204 Performance and Supervision |
+| 2.8 | Document test results and working papers | 1204 Performance and Supervision |
+| 2.9 | Notify management of significant findings | 1401 Reporting |
 
 ### Phase 3: REPORTING
 
-| Step | Action | Standard |
+| Step | Action | ITAF Standard |
 |------|--------|----------|
-| 3.1 | Classify findings by risk severity | S7 |
-| 3.2 | Draft audit observations (5-part format) | S7 |
-| 3.3 | Compile executive summary and detailed findings | S7 |
-| 3.4 | Conduct exit conference with auditee | S7 |
-| 3.5 | Obtain management responses | S7 |
-| 3.6 | Finalize audit report | S7 |
-| 3.7 | Distribute report per audit charter authority | S7 |
+| 3.1 | Classify findings by risk severity | 1401 Reporting |
+| 3.2 | Draft audit observations (5-part format) | 1401 Reporting |
+| 3.3 | Compile executive summary and detailed findings | 1401 Reporting |
+| 3.4 | Conduct exit conference with auditee | 1401 Reporting |
+| 3.5 | Obtain management responses | 1401 Reporting |
+| 3.6 | Finalize audit report | 1401 Reporting |
+| 3.7 | Distribute report per audit charter authority | 1401 / 1001 Audit Charter |
 
 ### Phase 4: FOLLOW-UP
 
-| Step | Action | Standard |
+| Step | Action | ITAF Standard |
 |------|--------|----------|
-| 4.1 | Track management action plans | S8 |
-| 4.2 | Perform follow-up testing on remediated findings | S8 |
-| 4.3 | Verify effectiveness of corrective actions | S8 |
-| 4.4 | Escalate overdue/unresolved findings | S8 |
-| 4.5 | Update risk assessment based on audit results | S17 |
-| 4.6 | Close findings when remediation confirmed | S8 |
+| 4.1 | Track management action plans | 1402 Follow-up Activities |
+| 4.2 | Perform follow-up testing on remediated findings | 1402 Follow-up Activities |
+| 4.3 | Verify effectiveness of corrective actions | 1402 Follow-up Activities |
+| 4.4 | Escalate overdue/unresolved findings | 1402 Follow-up Activities |
+| 4.5 | Update risk assessment based on audit results | 1201 Risk Assessment in Planning |
+| 4.6 | Close findings when remediation confirmed | 1402 Follow-up Activities |
 
 ## Audit Approach Decision Logic
 
@@ -158,8 +179,8 @@ END IF
 
 ## Cross-Reference: ISACA 5-Part Format and Audit-Workpapers C-C-C-E-R
 
-The ISACA 5-part observation format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as the audit-workpapers skill's C-C-C-E-R finding format. The labels differ by framework convention -- ISACA uses the 5-part terminology from CISA-CRM-28E while PCAOB-aligned workpapers use C-C-C-E-R from AS 1215/AU-C 230. The underlying structure and five elements are identical and map element-for-element. See `audit-workpapers/chunks/05-finding-and-workflow.md` for the C-C-C-E-R equivalent.
+The ISACA 5-part observation format (Condition, Criteria, Cause, Effect, Recommendation) is the same concept as the audit-workpapers skill's C-C-C-E-R finding format. The element lineage is GAGAS/IIA: GAGAS 2024 defines the elements of a finding as criteria, condition, cause, and effect, developed as needed for the audit objectives (recommendation is not a GAGAS element -- the elements "provide a context for evaluating recommendations"). AS 1215 and AU-C 230 govern audit DOCUMENTATION (retention, reperformability), not the finding format. For government performance audits, note the 4-element-as-needed discipline differs from this skill's "always 5 parts" house rule. See `audit-workpapers/chunks/05-finding-and-workflow.md`.
 
 ## Citations
 
-5-part format from `[CISA-CRM-28E]`. Lifecycle phases from `[ITAF]` standards S5-S8, S13-S15, S17. See SKILL.md S10.
+5-part observation convention as taught in `[CISA-CRM-28E]`; finding-element lineage per GAGAS 2024 ch. 8 (see audit-workpapers skill). Lifecycle standard references from `[ITAF]` (1000/1200/1400 series). See SKILL.md S10.

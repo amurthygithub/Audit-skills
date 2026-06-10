@@ -51,15 +51,18 @@ def test_uc_02_five_part_observation():
     observation = result["observation"]
 
     assert observation["id"] == "ACC-2026-001"
-    assert observation["severity"] == "Critical"
+    assert observation["severity"] == "High"
     assert observation["status"] == "Open"
     assert observation["title"] == "Inadequate Access Recertification for Critical Applications"
 
     for part in ("condition", "criteria", "cause", "effect", "recommendations"):
         assert part in observation, f"Missing 5-part field: {part}"
 
-    assert "ISACA Standard S17" in observation["criteria"]
-    assert "COBIT APO13.02" in observation["criteria"]
+    # Criteria must cite real, verifiable auditee obligations -- never ITAF (auditor
+    # standards) and never fabricated identifiers (the retired "S17" pattern).
+    assert "ISP-003" in observation["criteria"]
+    assert "DSS05.04" in observation["criteria"]
+    assert "S17" not in observation["criteria"]
 
     cause = observation["cause"]
     assert "description" in cause
@@ -85,11 +88,15 @@ def test_uc_02_five_part_observation():
 
 
 def test_uc_02_severity_from_seed_data():
-    """UC-02: severity classification based on non-compliance count."""
+    """UC-02: demo heuristic rates 3-of-5 (60% deviation) as High, never Critical.
+
+    Severity is a judgment call in real engagements (chunks/05); the stub's
+    deviation-rate heuristic is a labeled demo shortcut and cannot emit Critical.
+    """
     payload = _load("uc-02-input.json")
     result = run_skill("UC-02", payload)
-    assert result["observation"]["severity"] == "Critical"
-    assert result["classification"] == "Critical"
+    assert result["observation"]["severity"] == "High"
+    assert result["classification"] == "High"
 
     sample_results = payload["sample_results"]
     non_comp = [r for r in sample_results if r["compliant"] is False]
@@ -122,7 +129,7 @@ def test_uc_03_design_factors_output():
     top = objectives[0]
     assert top["objective"] == "MEA03"
     assert top["priority"] == 1
-    assert top["name"] == "Managed Compliance"
+    assert top["name"] == "Managed Compliance With External Requirements"
 
     obj_ids = [o["objective"] for o in objectives]
     expected_order = ["MEA03", "APO12", "APO13", "DSS04", "APO10"]

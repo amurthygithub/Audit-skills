@@ -3,8 +3,12 @@
 
 Usage:
     python data/generators/gen_risk_plan.py --seed 42 --system bank > data/seeds/uc-03-input.json
-    python data/generators/gen_risk_plan.py --seed 42 --system saas  > data/seeds/uc-01-input.json
-    python data/generators/gen_risk_plan.py --seed 42 --system gov   > data/seeds/uc-02-input.json
+    python data/generators/gen_risk_plan.py --seed 42 --system saas > data/seeds/uc-01-input.json
+
+WARNING: the shipped uc-02 seed (bank ITGC observation input: finding_context +
+sample_results) is NOT produced by this generator -- do not overwrite it.
+Regenerating any seed invalidates the hardcoded oracle-test expectations;
+update tests/test_isaca_audit_methodology_oracle.py in the same change.
 """
 
 from __future__ import annotations

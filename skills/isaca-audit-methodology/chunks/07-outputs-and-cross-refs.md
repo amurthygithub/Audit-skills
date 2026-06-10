@@ -64,8 +64,8 @@ load_when: "user asks about audit report template, output format, cross-referenc
 [What is - factual, objective, specific]
 
 ### Criteria
-[What should be - standard, policy, regulation]
-- Source: [ISACA Standard X / COBIT Y / Company Policy Z]
+[What should be - the auditee's obligation: policy, regulation, framework practice]
+- Source: [Company Policy clause / Regulation / COBIT 2019 practice (e.g., DSS05.04)] -- not ITAF (ITAF binds the auditor, not the auditee)
 
 ### Cause
 [Why the condition exists]
@@ -96,7 +96,7 @@ load_when: "user asks about audit report template, output format, cross-referenc
 
 | ISACA/COBIT | COSO Component | Mapping |
 |-------------|---------------|---------|
-| COBIT EDM objectives | Board governance / Internal Environment | Map governance practices to COSO board oversight |
+| COBIT EDM objectives | Board governance / Control Environment | Map governance practices to COSO board oversight (COSO 2013 component: Control Environment) |
 | COBIT APO objectives | Control Activities | Map IT-specific controls to COSO control activity principles |
 | COBIT EDM03 (Risk) | Risk Assessment | Align IT risk assessment with COSO enterprise risk assessment |
 | COBIT MEA objectives | Monitoring Activities | Map IT monitoring to COSO ongoing and separate evaluations |
@@ -111,16 +111,18 @@ load_when: "user asks about audit report template, output format, cross-referenc
 | COBIT DSS04 | SOC 2 Availability | Map continuity to Availability criteria |
 | COBIT BAI/DSS | SOC 2 Processing Integrity | Map change mgmt and ops to PI |
 | COBIT APO13/DSS05 | SOC 2 Confidentiality | Map security to Confidentiality |
-| ISACA audit procedures | AT-C 100/200/300 (SOC 1) | IS audit procedures support Type I/II |
+| ISACA audit procedures | AT-C 320 (SOC 1; AT-C 105/205 apply) | IS audit procedures support Type I/II |
 
 ## ISACA to NIST CSF 2.0 Mapping
 
+Directional, category-level starting points only -- use ISACA's published COBIT/CSF mapping (*Implementing the NIST Cybersecurity Framework Using COBIT 2019*, which maps CSF v1.1) for authoritative rows.
+
 | ISACA/COBIT | NIST CSF 2.0 | Mapping |
 |-------------|-------------|---------|
-| COBIT EDM | Govern | Map governance to NIST Govern function |
-| COBIT APO | Identify | Map planning to NIST Identify function |
+| COBIT EDM + MEA | Govern | Governance, oversight, compliance, and assurance monitoring align to the CSF Govern function |
+| COBIT APO | Identify | Map planning/risk (APO12) to NIST Identify function |
 | COBIT DSS05/DSS06 | Protect | Map security/process controls to Protect |
-| COBIT MEA | Detect | Map monitoring to NIST Detect |
+| COBIT DSS05.07 | Detect | Security-event monitoring of infrastructure maps to Detect (MEA is oversight, not security monitoring) |
 | COBIT DSS02/DSS03 | Respond | Map incident/problem to Respond |
 | COBIT DSS04 | Recover | Map continuity to Recover |
 
@@ -134,13 +136,17 @@ load_when: "user asks about audit report template, output format, cross-referenc
 
 ## ISACA to ITIL Mapping
 
-| ISACA/COBIT | ITIL | Mapping |
-|-------------|------|---------|
-| APO02, APO05 | Service Strategy | Map strategy and portfolio management |
-| APO03, BAI | Service Design | Map architecture and build/acquire |
-| BAI06, BAI07 | Service Transition | Map change management and acceptance |
-| DSS01, DSS02 | Service Operation | Map operations and incident management |
-| MEA01, MEA02, MEA03 | Continual Service Improvement | Map monitoring and assessment |
+ITIL 4 (the edition cited in the manifest) replaced the v3 service lifecycle with the Service
+Value System / service value chain; the legacy v3 lifecycle terms below remain common in
+practice, so both are given.
+
+| ISACA/COBIT | ITIL 4 value-chain activity | ITIL v3 lifecycle (legacy) |
+|-------------|------------------------------|---------------------------|
+| APO02, APO05 | Plan | Service Strategy |
+| APO03, BAI03 | Design & Transition | Service Design |
+| BAI06, BAI07 | Design & Transition / Obtain & Build | Service Transition |
+| DSS01, DSS02 | Deliver & Support | Service Operation |
+| MEA01, MEA02, MEA03 | Improve | Continual Service Improvement |
 
 ## Key Terminology
 

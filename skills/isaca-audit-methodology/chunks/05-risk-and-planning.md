@@ -13,10 +13,10 @@ This skill uses two distinct risk concepts that should not be conflated:
 
 | Term | Definition | Uses |
 |------|-----------|------|
-| **Audit Risk** (AR) | Risk of expressing an incorrect audit opinion on materially misstated information. AR = Inherent Risk x Control Risk x Detection Risk. | Audit opinion formulation; materiality assessment; ISACA S17/ITAF. |
+| **Audit Risk** (AR) | Risk of expressing an incorrect audit opinion on materially misstated information. AR = Inherent Risk x Control Risk x Detection Risk. | Audit opinion formulation; materiality assessment; applied in planning under ITAF 1201. |
 | **Planning Risk** (Risk-Based Planning) | Risk assessment performed during engagement planning to prioritize audit resources and determine scope/frequency. Uses Risk Score = (Likelihood x Impact) x Control Risk Factor. | Audit universe prioritization; annual planning; resource allocation. |
 
-In chunks/05, "risk" in the context of planning and the 5-step methodology refers to Planning Risk (resource allocation), not Audit Risk (opinion risk). The Planning Risk assessment feeds into but is distinct from the Audit Risk model defined in ISACA S17. Do not interchange the two concepts.
+In chunks/05, "risk" in the context of planning and the 5-step methodology refers to Planning Risk (resource allocation), not Audit Risk (opinion risk). The Planning Risk assessment feeds into but is distinct from the Audit Risk model applied under ITAF 1201 (Risk Assessment in Planning). Do not interchange the two concepts.
 
 ## 5-Step Planning Methodology
 
@@ -36,6 +36,11 @@ In chunks/05, "risk" in the context of planning and the 5-step methodology refer
 | Regulatory/Compliance-Based | By regulatory requirements (SOX, GDPR, HIPAA) | Highly regulated industries |
 
 ## Risk Score Formula (Primary)
+
+> **Attribution note:** the L x I x CRF formula, the CRF values, and the priority bands
+> below are this skill's illustrative house methodology -- a common practitioner pattern,
+> NOT a formula prescribed by the CISA CRM or ITAF. Adopt your audit function's approved
+> scoring model where one exists. With CRF applied, scores range 0.5-50.
 
 ```
 Risk Score = (Likelihood x Impact) x Control Risk Factor
@@ -78,15 +83,15 @@ Alternative formulation sometimes encountered: Risk Rating = Inherent Risk x (1 
 | Critical | >= 15 | Within 6 months |
 | High | 10-14 | Within 12 months |
 | Medium | 5-9 | Within 24 months |
-| Low | 1-4 | Within 36 months |
+| Low | < 5 | Within 36 months |
 
-## Risk Heat Map (L x I, before CRF)
+## Risk Heat Map (L x I, before CRF; labels per the priority bands above)
 ```
        Impact 1   2   3   4   5
-L  1 |  1 L  2 L  3 M  4 M  5 M
-i  2 |  2 L  4 M  6 M  8 M 10 H
-k  3 |  3 M  6 M  9 M 12 H 15 C
-e  4 |  4 M  8 M 12 H 16 C 20 C
+L  1 |  1 L  2 L  3 L  4 L  5 M
+i  2 |  2 L  4 L  6 M  8 M 10 H
+k  3 |  3 L  6 M  9 M 12 H 15 C
+e  4 |  4 L  8 M 12 H 16 C 20 C
 l  5 |  5 M 10 H 15 C 20 C 25 C
 ```
 
@@ -94,14 +99,20 @@ Always use CRF-adjusted score for priority classification.
 
 ## Finding Severity - Cross-Framework Mapping
 
-| ISACA Severity | PCAOB/COSO Classification | Definition |
+| ISACA Severity | Closest PCAOB/COSO Concept | Definition |
 |---------------|--------------------------|------------|
-| Critical | Material Weakness | Reasonable possibility of material misstatement |
-| High | Significant Deficiency | Less severe than MW, yet important to oversight |
+| Critical | (May warrant MW evaluation) | Severe control failure with material-misstatement exposure |
+| High | (May warrant SD evaluation) | Significant control failure important to oversight |
 | Medium | Deficiency (Other) | Does not rise to SD or MW |
 | Low | Observation | Minor gap or enhancement opportunity |
 
-This mapping is directional, not exact. Use PCAOB/COSO classifications directly for PCAOB-governed audits. For a full cross-framework severity reconciliation including NIST RMF tiers, see the master table in `audit-workpapers/chunks/07-qc-compliance-cross-refs.md`.
+**This mapping is directional only -- severity labels NEVER auto-derive an ICFR deficiency
+classification.** Material weakness / significant deficiency determinations require a
+magnitude-and-likelihood evaluation of the potential misstatement, considering compensating
+controls (see `coso-internal-controls/chunks/05`), and apply only in ICFR contexts.
+A count of exceptions or a planning risk score is not a deficiency classification. For
+government performance audits, use GAGAS significance concepts instead. For a full
+cross-framework severity reconciliation, see `audit-workpapers/chunks/07-qc-compliance-cross-refs.md`.
 
 ## Output template (Risk Assessment)
 
@@ -130,4 +141,6 @@ audit_plan_recommendations:
 
 ## Citations
 
-Methodology from `[CISA-CRM-28E]` and `[ITAF]`. See SKILL.md S10.
+5-step planning discipline aligned with `[CISA-CRM-28E]` and `[ITAF]`. The L x I x CRF
+scoring model, CRF values, and priority bands are this skill's illustrative house
+methodology (see Attribution note above), not content of the cited publications. See SKILL.md S10.

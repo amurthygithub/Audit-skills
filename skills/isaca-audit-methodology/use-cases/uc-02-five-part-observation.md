@@ -8,18 +8,18 @@ inputs:
   scope: "Access Controls category (ITGC Category 1) for 5 critical financial applications"
   evidence: "3 of 5 applications lack quarterly recertification; 12% of terminated employees retain active access"
 procedure:
-  - "chunks/04-itgc-itac.md SITGC Category 1: Access Controls"
-  - "chunks/06-observation-and-lifecycle.md S5-Part format"
-  - "chunks/05-risk-and-planning.md SFinding severity"
+  - "chunks/04-itgc-itac.md §ITGC Category 1: Access Controls"
+  - "chunks/06-observation-and-lifecycle.md §5-Part format"
+  - "chunks/05-risk-and-planning.md §Finding severity"
 expected_outputs:
-  finding: "YAML with finding_id, title, severity, condition, criteria, cause, effect, recommendations"
+  finding: "YAML with finding id, title, severity, condition, criteria, cause, effect, recommendations, sample_summary; result envelope carries a classification field equal to the severity"
 oracle:
   type: schema_match
-  assertion: "Output contains all 5 parts (condition, criteria, cause, effect, recommendation) and severity classification"
+  assertion: "Output contains all 5 parts (condition, criteria, cause, effect, recommendation), severity classification, and a sample_summary (total/non_compliant/compliance_rate_pct)"
 data_refs:
   - "data/seeds/uc-02-input.json"
 tests:
-  - "tests/test_oracle.py::test_uc_02"
+  - "tests/test_isaca_audit_methodology_oracle.py::test_uc_02_five_part_observation"
 status: stub
 ---
 
@@ -37,21 +37,31 @@ During quarterly ITGC testing at a commercial bank, the audit team discovers tha
 
 ## Expected Output
 
+Severity "High" reflects the 60% deviation rate in critical applications -- a judgment call
+per `chunks/05 §Finding Severity`, not a mechanical count (and never an automatic ICFR
+deficiency classification). Criteria cite the auditee's obligations (policy + COBIT practice);
+ITAF standards govern the auditor and are not finding criteria.
+
 ```yaml
-finding:
+classification: "High"
+observation:
   id: "ACC-2026-001"
   title: "Inadequate Access Recertification for Critical Applications"
   severity: "High"
   status: "Open"
   condition: "No periodic access recertification for 3 of 5 critical applications"
-  criteria: "ISACA Standard S17; Company Policy ISP-003 Section 4.2; COBIT APO13.02"
+  criteria: "Company Policy ISP-003 Section 4.2 (quarterly access recertification for critical applications); COBIT 2019 DSS05.04 (Manage user identity and logical access)"   # policy ref comes from the seed's finding_context.policy_reference
   cause:
     description: "Lack of automated recertification tooling; insufficient staff"
     root_cause_category: "Technology"
   effect:
     actual: "12% of terminated employees retained active access avg 45 days"
-    potential: "Unauthorized data access; GDPR Article 32 penalties up to EUR 20M"
-    cobit_criteria_affected: ["Confidentiality", "Integrity", "Compliance"]
+    potential: "Unauthorized data access; regulatory exposure under GLBA (Interagency Guidelines, 12 CFR 30 App. B) and FFIEC examination criticism"
+    cobit_criteria_affected: ["Confidentiality", "Integrity", "Compliance"]  # information-attribute tags (house convention; see chunk 02)
+  sample_summary:
+    total_applications: 5
+    non_compliant: 3
+    compliance_rate_pct: 40.0
   recommendations:
     - type: "Primary"
       action: "Implement automated IGA tool"
@@ -62,5 +72,5 @@ finding:
       priority: "Immediate"
     - type: "Long-term"
       action: "Increase security staffing by 1 FTE for access governance"
-      target: "Q2 2026"
+      target: "Q1 2027"
 ```
