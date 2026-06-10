@@ -32,3 +32,28 @@
 - v0.2.0 adopted the router + chunks pattern per TEMPLATE sect.11.
 - Migration from monolithic 1,879-line SKILL.md to this pattern.
 - Status: draft. Requires 3 review cycles before published.
+
+## G4.5 consumer smoke tests (fresh-agent, per prompts/consumer-smoke-test.md)
+
+N=1 existence proofs on one model — NOT reliability evidence. Clean sessions.
+
+| test | model | result | notes | date | verifier |
+|------|-------|--------|-------|------|----------|
+| smoke-test uc-01 | claude-fable-5 | PASS | 17-column RcM verbatim, 3-step tree, Item 308 report elements, six-phase procedure — clean routing across 9 files. Reproduced the then-current unconditional attestation statement (skill defect, fixed same day). | 2026-06-09 | claude (dispatcher-graded) |
+| smoke-test uc-02 | claude-fable-5 | PASS | 3-step tree + 6-step compensating evaluation + MW indicator check, matching the UC oracle exactly. Faithfully reproduced two skill defects fixed/ticketed same day: the rescinded "more than insignificant" threshold and the reconciliation-precision conclusion (SOX-641). | 2026-06-09 | claude |
+| smoke-test uc-03 | claude-fable-5 | PASS | All 17 principles grouped correctly with component counts, PoF approach, both-conditions effectiveness logic, curated-subset caveat carried through. | 2026-06-09 | claude |
+
+## §5.11 verification of the 2026-06-09 fix pass (BEFORE merge, per process v2)
+
+| fact | tier | source | status |
+|------|------|--------|--------|
+| SEC 33-8810: management "should not qualify its assessment"; with an MW, may not conclude effective | Tier 2 | sec.gov 33-8810 PDF (verbatim) | PASS |
+| AS 2201.69 lists INDICATORS of material weaknesses (not per-se determinations) | Tier 2 | pcaobus.org AS 2201 (verbatim .69) | PASS |
+| AS 2201 "reasonable possibility" note ties to FAS 5 reasonably-possible/probable | Tier 2 | pcaobus.org AS 2201 .A7 + note | PASS |
+| AS 2201 Appendix B topics: integration .B1-.B9, multi-location .B10-.B16, service orgs .B17-.B27, benchmarking .B28-.B33 — no ITGC taxonomy | Tier 2 | pcaobus.org AS 2201 App B | PASS |
+| Item 308(a)(4) attestation statement conditional on accelerated/large-accelerated status | Tier 2 | LII 17 CFR 229.308 (verbatim) | PASS |
+| Non-accelerated 404(b) exemption = Dodd-Frank §989G / SOX 404(c) (SEC 33-9142); EGC = JOBS Act; SRC alone never exempted (34-88365) | Tier 2 | sec.gov 33-9142 + 34-88365 (verbatim) | PASS |
+| OMB A-123 (M-16-17) requires GAO Green Book as the framework | Tier 2 | whitehouse.gov M-16-17 PDF (verbatim) | PASS |
+| 800-53A = Satisfied/Other-Than-Satisfied; FIPS 199 = 3 levels; L/M/H(+Critical) = FedRAMP POA&M layer | Tier 2 | nvlpubs + fedramp.gov template | PASS |
+
+Persona vetting: 5 CRITICAL / 14 HIGH — all resolved. See docs/persona-review.md.

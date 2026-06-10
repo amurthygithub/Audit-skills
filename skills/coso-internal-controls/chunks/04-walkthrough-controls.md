@@ -92,6 +92,8 @@ ELSE (pervasive but indirect effect) → Indirect ELC → Important to evaluate 
 
 | Category | What to Evaluate | AS 2201 Ref |
 |----------|-----------------|------------|
-| Access management | User provisioning, de-provisioning, access review, privileged access | AS 2201.B4-.B10 |
-| Change management | Program change controls, emergency changes, approval, testing, migration | AS 2201.B11-.B16 |
-| IT operations | Job scheduling, backup/recovery, problem management, data center controls | AS 2201.B17-.B21 |
+| Access management | User provisioning, de-provisioning, access review, privileged access | AS 2201.36 (ITGC context) |
+| Change management | Program change controls, emergency changes, approval, testing, migration | AS 2201.36 (ITGC context) |
+| IT operations | Job scheduling, backup/recovery, problem management, data center controls | AS 2201.36 (ITGC context) |
+
+NOTE: AS 2201 Appendix B contains no ITGC taxonomy — its actual topics are integration of audits (.B1-.B9), multiple locations (.B10-.B16), service organizations (.B17-.B27), and benchmarking of automated controls (.B28-.B33). The category breakdown above is standard industry practice (GAIT et al.), not a PCAOB paragraph structure.

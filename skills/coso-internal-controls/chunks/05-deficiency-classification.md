@@ -30,7 +30,7 @@ IF YES → PROCEED TO STEP 2
 
 Question: Is there a reasonable possibility that ICFR will fail to prevent or detect a misstatement of an account balance or disclosure?
 
-Reasonable possibility = neither remote nor certain; more than insignificant.
+Reasonable possibility = the likelihood is either "reasonably possible" or "probable" as those terms are used in FASB Statement No. 5 (ASC 450) — i.e., more than remote (AS 2201 note to the material-weakness definition). The old AS 2 "more than inconsequential" threshold was deliberately rescinded by AS 5.
 
 IF NO → CLASSIFY AS: DEFICIENCY
   Reporting: Communicate to management (oral or written)
@@ -89,7 +89,7 @@ CRITICAL RULE: Severity does NOT depend on whether a misstatement actually occur
 
 ## Material Weakness Indicators (AS 2201.69)
 
-The following are per se indicators that a material weakness EXISTS:
+AS 2201.69 lists these as INDICATORS of material weaknesses ("Indicators of material weaknesses ... include") — not automatic determinations. Treat each as a strong, rebuttable presumption: overcoming one requires documented evaluation and is rare.
 
 1. **Fraud by senior management**, whether or not material — undermines control environment (P1, P5), suggests management override.
 

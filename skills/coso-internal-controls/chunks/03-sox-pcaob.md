@@ -15,7 +15,7 @@ Management MUST:
 3. Identify the framework used (COSO 2013 ICIF is the de facto standard).
 4. Include assessment in the annual report (Form 10-K for SEC registrants).
 5. Disclose any material weaknesses identified.
-6. State that the registered public accounting firm has issued an attestation report.
+6. If the registrant is an accelerated or large accelerated filer (404(b) applies): state that the registered public accounting firm has issued an attestation report (Reg S-K Item 308(a)(4)). Issuers exempt from 404(b) (EGC, non-accelerated) do NOT include this statement.
 
 ## SOX 404(b) — Auditor Attestation
 
@@ -31,11 +31,11 @@ The auditor MUST:
 - Disclosure controls encompass ICFR but are broader (include non-financial information).
 - Deficiencies in ICFR may also affect disclosure controls certification.
 
-## JOBS Act Exemptions
+## SOX 404(b) Exemptions (know which statute yours comes from)
 
-- **EGCs**: Exempt from SOX 404(b) auditor attestation for up to 5 years after IPO.
-- **Smaller Reporting Companies**: Exempt from SOX 404(b).
-- **Non-Accelerated Filers**: Exempt from SOX 404(b).
+- **EGCs** — JOBS Act (2012): exempt from 404(b) auditor attestation for up to 5 years after IPO; lost early if the issuer hits ~$1.235B revenue, $1B non-convertible debt, or large-accelerated-filer status.
+- **Non-accelerated filers** — Dodd-Frank §989G / SOX 404(c) (2010), NOT the JOBS Act: 404(b) "shall not apply" to issuers that are neither accelerated nor large accelerated filers (SEC Release 33-9142).
+- **Smaller Reporting Companies** — SRC status alone does NOT exempt from 404(b). An SRC that is an accelerated filer still needs the attestation; the 2020 amendments (SEC 34-88365) excluded only SRCs with <$100M revenue from the accelerated-filer definitions.
 - All companies remain subject to SOX 404(a) management assessment.
 
 ## PCAOB AS 2201 — Top-Down Approach
