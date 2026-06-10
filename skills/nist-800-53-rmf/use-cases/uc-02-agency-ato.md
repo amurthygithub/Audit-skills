@@ -16,33 +16,33 @@ inputs:
   assessment_scope: "Full 800-53 Moderate baseline; all in-scope controls assessed."
   findings:
     - finding_id: SAR-001
+      control_id: RA-3
+      severity: High
+      determination: Other Than Satisfied
+      description: "Risk assessment is documented but does not include threat catalog updates from the last 12 months."
+      cause: Operational lapse
+      effect: "Risk to system confidentiality, integrity, or availability from RA-3 deviation."
+      recommendation: "Update risk assessment per 800-30 Rev 1; include current threat catalog."
+      compensating_control: null
+    - finding_id: SAR-002
       control_id: AC-2(4)
       severity: High
       determination: Other Than Satisfied
-      description: "Quarterly account review was not performed for the last two quarters; logs show no review activity."
+      description: "Quarterly account review was not performed for the last 4 quarters; logs show no review activity."
       cause: Operational lapse (process not followed)
-      effect: "Stale accounts may permit unauthorized access."
+      effect: "Risk to system confidentiality, integrity, or availability from AC-2(4) deviation."
       recommendation: "Re-perform account review; implement a calendar-tracked quarterly task with sign-off in the GRC tool."
       compensating_control: null
-    - finding_id: SAR-002
-      control_id: AU-6(1)
-      severity: Moderate
-      determination: Other Than Satisfied
-      description: "Audit log review is performed but lacks evidence of escalation thresholds for anomalies."
-      cause: Design weakness (no thresholds defined)
-      effect: "Anomalous activity may not be triaged in time."
-      recommendation: "Define escalation thresholds; document in IRP; add to runbook."
-      compensating_control: null
     - finding_id: SAR-003
-      control_id: CM-6
-      severity: High
+      control_id: IA-5(1)
+      severity: Low
       determination: Other Than Satisfied
-      description: "Configuration baselines for the production database server are documented but not enforced via automated scanning."
-      cause: Operational lapse
-      effect: "Drift from baseline may not be detected."
-      recommendation: "Deploy configuration scanning (e.g., SCAP, CIS-CAT) on a weekly cadence."
-      compensating_control: "Manual quarterly configuration review by system administrator."
-    # … 19 additional findings (10 Moderate, 9 Low). Full list in data/seeds/uc-02-findings.json
+      description: "Password policy does not enforce minimum length of 12 characters."
+      cause: Design weakness
+      effect: "Risk to system confidentiality, integrity, or availability from IA-5(1) deviation."
+      recommendation: "Update password policy; deploy to identity provider."
+      compensating_control: "Manual review process exists but is not fully effective."
+    # … 19 additional findings (1 High, 11 Moderate, 7 Low). Full list in data/seeds/uc-02-findings.json
   total_findings: 22
   risk_acceptances: 14
   conditions: 8
@@ -50,18 +50,18 @@ inputs:
 procedure:
   - "chunks/05-assess.md §Procedure — Execute assessment per 800-53A. Generate SAR."
   - "chunks/06-authorize.md §Procedure — AO reviews SSP, SAR, POA&M, risk-acceptance memos."
-  - "chunks/06-authorize.md §ATO decision logic — 22 findings; 14 risk-accepted (10 Low, 4 Moderate with documented rationale); 8 conditions (Moderate/High remediation required within 30/60/90 days)."
+  - "chunks/06-authorize.md §ATO decision logic — 22 findings; 14 risk-accepted (8 Low, 6 Moderate with documented rationale); 8 conditions (3 High + 5 Moderate, remediation required within 30/60/90 days)."
   - "chunks/06-authorize.md §Procedure — Issue ATO letter with conditions. Specify duration (1 year for agency ATO)."
   - "chunks/07-monitor.md §Procedure — Begin continuous monitoring (Step 7)."
 expected_outputs:
   sar:
     total_findings: 22
-    severity_distribution: {High: 4, Moderate: 8, Low: 10}
+    severity_distribution: {High: 3, Moderate: 11, Low: 8}
     risk_accepted: 14
     conditions: 8
   poam:
     poam_count: 22
-    risk_distribution: {High: 4, Moderate: 8, Low: 10}
+    risk_distribution: {High: 3, Moderate: 11, Low: 8}
     milestones: {30_days: 2, 60_days: 3, 90_days: 3, ongoing: 14}
   ato_decision:
     decision: AUTHORIZE_WITH_CONDITIONS
@@ -96,8 +96,8 @@ data_refs:
   - "data/seeds/uc-02-findings.json"
   - "data/seeds/uc-02-expected.json"
 tests:
-  - "tests/test_oracle.py::test_uc_02"
-  - "tests/test_trace.py::test_uc_02_trace"
+  - "tests/test_nist_800_53_rmf_oracle.py::test_uc_02_oracle"
+  - "tests/test_nist_800_53_rmf_trace.py::test_use_cases_cite_skill_sections"
   - "tests/test_metamorphic.py::test_uc_02_risk_severity_change"
 token_baseline:
   input_p50: null
@@ -109,11 +109,11 @@ status: active
 
 ## Scenario
 
-A federal civilian agency has assessed its records management system (ARS) and the assessment team has identified 22 findings — 4 High, 8 Moderate, 10 Low. The system is MODERATE-baseline, 800-53 Rev 5, on-prem in an agency data center. The AO must decide: ATO, ATO with conditions, or Deny.
+A federal civilian agency has assessed its records management system (ARS) and the assessment team has identified 22 findings — 3 High, 11 Moderate, 8 Low. The system is MODERATE-baseline, 800-53 Rev 5, on-prem in an agency data center. The AO must decide: ATO, ATO with conditions, or Deny.
 
 The agency's risk tolerance allows:
 
-- 14 findings to be **risk-accepted** with documented rationale (10 Low + 4 Moderate with strong compensating controls or time-bound remediation).
+- 14 findings to be **risk-accepted** with documented rationale (8 Low + 6 Moderate with strong compensating controls or time-bound remediation).
 - 8 findings (all Moderate and above) to be **conditions** of the ATO, with remediation required within 30, 60, or 90 days.
 
 Decision: **ATO with Conditions**, duration **1 year**.
@@ -172,7 +172,7 @@ milestones: ["2026-05-20: kickoff", "2026-06-10: validation", "2026-06-14: close
 POA&M aggregate:
 
 - 22 items
-- 4 High, 8 Moderate, 10 Low
+- 3 High, 11 Moderate, 8 Low
 - 2 due in 30 days (High), 3 due in 60 days (Moderate), 3 due in 90 days (Moderate), 14 ongoing / time-bound risk-accepted
 
 ### Step 3 — AO review and risk acceptance (Skill §4.5, §5.5)
@@ -184,7 +184,7 @@ The AO reviews the SAR, POA&M, and the system owner's risk-acceptance memos. For
 - States the rationale (compensating control, business case, time-bound remediation).
 - States the remediation date and the trigger for re-review.
 
-For 14 findings (10 Low + 4 Moderate with compensating controls), the AO risk-accepts. For 8 findings (the 4 High + 4 Moderate without compensating control or above risk tolerance), the AO issues conditions.
+For 14 findings (8 Low + 6 Moderate with compensating controls or time-bound remediation), the AO risk-accepts. For 8 findings (the 3 High + 5 Moderate without compensating control or above risk tolerance), the AO issues conditions.
 
 ### Step 4 — ATO letter (Skill §6.5)
 
@@ -223,12 +223,12 @@ The ISCM strategy in the SSP §13 documents:
 ```yaml
 sar:
   total_findings: 22
-  severity_distribution: {High: 4, Moderate: 8, Low: 10}
+  severity_distribution: {High: 3, Moderate: 11, Low: 8}
   risk_accepted: 14
   conditions: 8
 poam:
   poam_count: 22
-  risk_distribution: {High: 4, Moderate: 8, Low: 10}
+  risk_distribution: {High: 3, Moderate: 11, Low: 8}
 ato_decision:
   decision: AUTHORIZE_WITH_CONDITIONS
   duration: 1 year

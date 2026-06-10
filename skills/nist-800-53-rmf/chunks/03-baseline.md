@@ -33,7 +33,7 @@ BASELINE := table_lookup(SYSTEM_CATEGORY)
 # responsibility (e.g., a service that does NOT inherit physical controls).
 
 # Tailoring:
-#   - SCOPING: drop controls whose scope doesn't apply (e.g., wireless SC-8(1) if no wireless).
+#   - SCOPING: drop controls whose scope doesn't apply (e.g., AC-18 Wireless Access if no wireless in the boundary; transmission encryption SC-8/SC-8(1) is NEVER scopable for a cloud service).
 #   - COMMON: mark controls as inherited from enterprise-level common control catalog.
 #   - PARAMETER: set any required parameter.
 #   - COMPENSATING: if a control cannot be implemented as written, document the

@@ -26,9 +26,9 @@ The typical SaaS inheritance pattern is:
 
 | Layer | Owns | Inherits |
 |-------|------|----------|
-| Hyperscaler (AWS, Azure, GCP) | — | Physical, environmental, network baseline, KMS, IAM, hypervisor |
-| Platform (Kubernetes, OS, container runtime) | — (or shared) | Configuration management, vulnerability scanning, OS hardening |
-| Application (the SaaS) | All app-layer controls (AC-2 app accounts, AU-2 app events, SC-13 crypto use, SI-10 input validation) | — |
+| Hyperscaler (AWS, Azure, GCP) | Physical, environmental, network baseline, KMS, hypervisor, IAM service (configuration remains customer responsibility) | — |
+| Platform (Kubernetes, OS, container runtime) | Configuration management, vulnerability scanning, OS hardening (or shared) | Hyperscaler layers below |
+| Application (the SaaS) | All app-layer controls (AC-2 app accounts, AU-2 app events, SC-13 crypto use, SI-10 input validation) | Physical/environmental/network/KMS from the hyperscaler; platform hardening from the platform layer |
 
 The common mistake is to assume inheritance that doesn't exist. The hyperscaler's FedRAMP package lists which controls the customer inherits; if a control is on the customer-responsibility list, the SaaS must implement it.
 

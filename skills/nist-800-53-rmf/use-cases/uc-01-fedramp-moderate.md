@@ -52,8 +52,8 @@ expected_outputs:
     control_count: "~325 (approximate; verify against NIST OSCAL catalog)"
   inheritance_summary:
     - control_id: AC-2
-      status: inherited
-      from: "AWS GovCloud FedRAMP High"
+      status: hybrid
+      from: "AWS GovCloud FedRAMP High + application"
       narrative: "Account management for the AWS IAM layer is provided by the cloud. The SaaS implements application-layer accounts (per-tenant user accounts, role assignments, MFA enrollment) at the application tier."
     - control_id: SC-7
       status: inherited
@@ -64,12 +64,9 @@ expected_outputs:
       from: "AWS GovCloud FedRAMP High + application"
       narrative: "CloudTrail provides cloud-side audit events. The SaaS generates application events (login, case access, export) and forwards them to the central SIEM."
   tailoring_decisions:
-    - control_id: AC-2(8)
+    - control_id: AC-18
       decision: SCOPING
-      rationale: "No privileged accounts are shared; the dynamic account management enhancement does not apply. Justified in SSP §9."
-    - control_id: SC-8(1)
-      decision: SCOPING
-      rationale: "No wireless transmission of classified or sensitive data; the wireless confidentiality enhancement does not apply."
+      rationale: "No wireless access points or wireless transmission within the authorization boundary; AC-18 (Wireless Access) does not apply. Justified in SSP §9."
     - control_id: PT-7
       decision: SUPPLEMENT
       rationale: "PII is processed; the 800-53 Rev 5 privacy control family is added (specific authority per FIPS 199 + agency privacy officer)."
@@ -86,9 +83,9 @@ data_refs:
   - "data/seeds/uc-01-crm.json"
   - "data/seeds/uc-01-expected.json"
 tests:
-  - "tests/test_oracle.py::test_uc_01"
-  - "tests/test_trace.py::test_uc_01_trace"
-  - "tests/test_adversarial.py::test_uc_01_dual_classification"
+  - "tests/test_nist_800_53_rmf_oracle.py::test_uc_01_oracle"
+  - "tests/test_nist_800_53_rmf_trace.py::test_use_cases_cite_skill_sections"
+  - "tests/test_nist_800_53_rmf_adversarial.py::test_uc_01_dual_classification"
 token_baseline:
   input_p50: null
   output_p50: null
@@ -105,7 +102,7 @@ The system processes PII for ~250,000 individuals per year. The system stores ca
 
 ## Walk-through
 
-### Step 1 — FIPS 199 Categorization (Skill §3.6, §5.1, §6.1)
+### Step 1 — FIPS 199 Categorization (chunks/02-categorize.md §Procedure)
 
 The agent (or human) applies FIPS 199 to each information type:
 
@@ -135,13 +132,13 @@ special_factors:
 
 - Baseline: **Moderate** (NIST 800-53 Rev 5 ~325 controls (approximate; verify against NIST OSCAL catalog)).
 - Apply **scoping**: drop controls whose scope doesn't apply. For CaseFlow Cloud:
-  - `AC-2(8)` (Dynamic Account Management) — SCOPED OUT. No shared accounts; dynamic accounts are not used.
-  - `SC-8(1)` (Cryptographic Protection for Wireless) — SCOPED OUT. No wireless transmission of sensitive data.
+  - `AC-18` (Wireless Access) — SCOPED OUT. No wireless access points or wireless transmission within the authorization boundary.
+  - NOTE: transmission encryption (`SC-8` / `SC-8(1)` Cryptographic Protection) is **never scopable** for a cloud service — it is implemented via FIPS-validated TLS, not tailored out.
 - Apply **common-control designation**: many controls (e.g., AT-2 security awareness, AT-3 role-based training, PS-3 personnel screening) are inherited from the corporate common-controls catalog. The SSP §8 documents which.
 - Apply **parameterization**: e.g., `AC-2(3)` requires account-disable on a defined trigger. Parameter: "Disable on termination within 4 business hours."
 - Apply **supplementation**: add the Rev 5 privacy control family (`PT-*`) because PII is processed. The agency's privacy officer requires a PIA.
 
-### Step 3 — Inheritance mapping (Skill §4.6, §5.3)
+### Step 3 — Inheritance mapping (chunks/04-implement.md §Inheritance)
 
 The CSP documents the inheritance in the Customer Responsibility Matrix (CRM):
 
@@ -186,9 +183,7 @@ inheritance_summary:
   - control_id: AU-2
     status: hybrid
 tailoring_decisions:
-  - control_id: AC-2(8)
-    decision: SCOPING
-  - control_id: SC-8(1)
+  - control_id: AC-18
     decision: SCOPING
   - control_id: PT-7
     decision: SUPPLEMENT
@@ -199,7 +194,7 @@ The oracle assertion (§`data_refs`/frontmatter):
 - `system_security_category.overall == "MODERATE"`
 - `baseline == "MODERATE"`
 - `inheritance_summary` includes AC-2, SC-7, AU-2 with statuses (`inherited` or `hybrid`).
-- `tailoring_decisions` includes AC-2(8) SCOPING, SC-8(1) SCOPING, PT-7 SUPPLEMENT.
+- `tailoring_decisions` includes AC-18 SCOPING, PT-7 SUPPLEMENT.
 
 ## Variations / edge cases (test_adversarial.py)
 

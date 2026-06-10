@@ -2,7 +2,7 @@
 
 **Encode NIST 800-53 Rev 5, the RMF (SP 800-37 Rev 2), FIPS 199 categorization, 800-53A assessment, and FedRAMP authorization into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, 23 tests passing, linter-clean. The skill uses the **router + chunks pattern** — `SKILL.md` is a 218-line router, the deep-dive content lives in 7 chunk files (≤ 87 lines each) loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); the LLM-backed executor is a stub in this version. Production executor ships in SOX-611 Phase 2.
+Status: **draft v0.2.0**, on Tier 0 Spine, 22 tests passing, linter-clean. The skill uses the **router + chunks pattern** — `SKILL.md` is the router, the deep-dive content lives in 8 chunk files (≤ 87 lines each) loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); the LLM-backed executor is a stub in this version. Production executor ships in SOX-611 Phase 2.
 
 ---
 
@@ -21,11 +21,11 @@ The Spine enforces: `SKILL.md` ≤ 300 lines, each chunk ≤ 200 lines, `context
 
 | Chunk | RMF step | When to load |
 |-------|----------|--------------|
-| `chunks/02-categorize.md` | Step 1 — Categorize (FIPS 199) | "Categorize this system", "FIPS 199", "Step 1" |
-| `chunks/03-baseline.md` | Step 2 — Select baseline + tailor | "Select baseline", "tailor controls", "Step 2" |
-| `chunks/04-implement.md` | Step 3 — Implement + SSP narrative | "Implement controls", "draft SSP", "Step 3" |
-| `chunks/05-assess.md` | Step 4 — 800-53A assessment + SAR | "Assess controls", "800-53A", "draft SAR", "Step 4" |
-| `chunks/06-authorize.md` | Step 5 — ATO + POA&M | "Issue ATO", "ATO with conditions", "denial", "POA&M", "Step 5" |
+| `chunks/02-categorize.md` | Step 2 — Categorize (FIPS 199) | "Categorize this system", "FIPS 199", "Step 2" |
+| `chunks/03-baseline.md` | Step 3 — Select baseline + tailor | "Select baseline", "tailor controls", "Step 3" |
+| `chunks/04-implement.md` | Step 4 — Implement + SSP narrative | "Implement controls", "draft SSP", "Step 4" |
+| `chunks/05-assess.md` | Step 5 — 800-53A assessment + SAR | "Assess controls", "800-53A", "draft SAR", "Step 5" |
+| `chunks/06-authorize.md` | Step 6 — ATO + POA&M | "Issue ATO", "ATO with conditions", "denial", "POA&M", "Step 6" |
 | `chunks/07-monitor.md` | Step 7 — Continuous monitoring (ISCM) | "ISCM", "ConMon", "Step 7" |
 | `chunks/09-crosswalk.md` | Crosswalk to other frameworks | "Map SOC 2 / ISO 27001 / HIPAA / PCI / CSF to 800-53" |
 | `chunks/08-questionnaire-reuse.md` | CAIQ, SIG Lite, VSAQ, customer questionnaire evidence reuse from NIST 800-53 / FedRAMP evidence | "CAIQ" / "SIG Lite" / "VSAQ" / "questionnaire" / "audit fatigue" / "FedRAMP reuse" |
@@ -81,7 +81,7 @@ inheritance_summary:
   - {control_id: SC-13, status: inherited, source: "AWS GovCloud"}
 tailoring_decisions:
   - {control_id: AC-2(8), decision: SCOPING, rationale: "no shared accounts"}
-  - {control_id: SC-8(1), decision: SCOPING, rationale: "no wireless"}
+  - {control_id: AC-18, decision: SCOPING, rationale: "no wireless in boundary"}
   - {control_id: PT-7, decision: SUPPLEMENT, rationale: "PII processed"}
 ```
 
@@ -262,11 +262,11 @@ skills/nist-800-53-rmf/
 ├── SKILL.md                     # the router (~218 lines, always loaded)
 │
 ├── chunks/                      # deep-dive content (loaded on demand per §11 routing table)
-│   ├── 01-categorize.md         # FIPS 199 (Step 1)
-│   ├── 02-baseline.md           # Select + tailor (Step 2)
-│   ├── 03-implement.md          # SSP narrative (Step 3)
-│   ├── 04-assess.md             # 800-53A + SAR (Step 4)
-│   ├── 05-authorize.md          # ATO + POA&M (Step 5)
+│   ├── 02-categorize.md         # FIPS 199 (Step 2)
+│   ├── 03-baseline.md           # Select + tailor (Step 3)
+│   ├── 04-implement.md          # SSP narrative (Step 4)
+│   ├── 05-assess.md             # 800-53A + SAR (Step 5)
+│   ├── 06-authorize.md          # ATO + POA&M (Step 6)
 │   ├── 07-monitor.md             # ISCM (Step 7)
 │   ├── 08-questionnaire-reuse.md # CAIQ / SIG Lite / VSAQ / FedRAMP reuse
 │   └── 09-crosswalk.md           # SOC 2 / ISO / HIPAA / PCI
@@ -293,14 +293,13 @@ skills/nist-800-53-rmf/
 │   ├── seeds/                   # 10 seed fixtures
 │   └── crosswalks/              # SOC 2 ↔ 800-53 Mod authoritative reference
 │
-├── tests/                       # 7 test files = 23 tests
-│   ├── test_oracle.py           # UC-01/02/03 oracle assertions
-│   ├── test_trace.py            # UC procedure cites real SKILL.md sections or chunks/
-│   ├── test_grounding.py        # in-body citations resolve to §10 manifest
-│   ├── test_metamorphic.py      # input mutations → expected output mutations
-│   ├── test_adversarial.py      # edge cases (dual classification, PII volume, inheritance invalidation)
-│   ├── test_telemetry.py        # schema validation + instrument emits valid events
-│   └── test_lint.py             # Tier 0a linter passes
+├── tests/                       # 6 skill-specific test files = 22 tests (lint + consistency run from repo root)
+│   ├── test_nist_800_53_rmf_oracle.py       # UC-01/02/03 oracle assertions
+│   ├── test_nist_800_53_rmf_trace.py        # UC procedures cite real SKILL.md sections or chunks/
+│   ├── test_nist_800_53_rmf_grounding.py    # in-body citations resolve to §10 manifest
+│   ├── test_nist_800_53_rmf_metamorphic.py  # input mutations → expected output mutations
+│   ├── test_nist_800_53_rmf_adversarial.py  # edge cases (dual classification, PII volume, inheritance invalidation)
+│   └── test_nist_800_53_rmf_telemetry.py    # schema validation + instrument emits valid events
 │
 ├── telemetry/
 │   ├── schema.json              # SkillInvocation JSON Schema
@@ -390,7 +389,7 @@ Add `data/crosswalks/<framework>-to-800-53.json` (see `soc2-to-800-53-mod.json` 
 
 ## Known limitations (full list in `docs/limits-and-disclaimers.md`)
 
-- **800-53 Rev 5 vs Rev 5** — confirm with the requesting program which baseline applies. Both are listed in the frontmatter.
+- **800-53 Rev 4 vs Rev 5** — legacy packages may still reference Rev 4 baselines (Rev 5 added the PT and SR families). Confirm with the requesting program which revision applies.
 - **Control counts** (~325 Moderate, ~421 High) are derived. Verify against the current NIST publication.
 - **FedRAMP overlays** — FedRAMP High baseline ≠ NIST 800-53 High. Consult fedramp.gov.
 - **Categorization judgment** is professional judgment; the skill encodes the framework but does not make the call for you.

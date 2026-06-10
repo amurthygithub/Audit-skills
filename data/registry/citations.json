@@ -599,12 +599,12 @@
         "nist-csf-2"
       ]
     },
-    "OMB-M-22-15": {
-      "title": "Delivering a Digital-First Public Experience",
+    "OMB-M-24-15": {
+      "title": "Modernizing the Federal Risk and Authorization Management Program (FedRAMP)",
       "publisher": "OMB",
-      "identifier": "M-22-15 (2022)",
-      "url": "https://www.whitehouse.gov/omb/information-for-agencies/memoranda/",
-      "retrieval_date": "2026-05-25",
+      "identifier": "M-24-15 (July 2024)",
+      "url": "https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf",
+      "retrieval_date": "2026-06-09",
       "cited_by": [
         "nist-800-53-rmf"
       ]
