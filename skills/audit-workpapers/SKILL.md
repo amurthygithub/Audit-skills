@@ -161,9 +161,9 @@ This skill encodes domain knowledge; it is not a substitute for professional jud
 | PCAOB-AS-2201 | Audit of ICFR | PCAOB | AS 2201 | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201 |
 | PCAOB-AS-1305 | Communications About Control Deficiencies | PCAOB | AS 1305 | 2026-06-08 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305 |
 | AICPA-AU-C-230 | Audit Documentation | AICPA | AU-C 230 | 2026-05-25 | https://www.aicpa-cima.com/resources/landing/au-c-section-230 |
-| IAASB-ISA-230 | Audit Documentation | IAASB | ISA 230 | 2026-05-25 | https://www.iaasb.org/publications/isa-230-revised-audit-documentation |
+| IAASB-ISA-230 | Audit Documentation | IAASB | ISA 230 (in the 2023-2024 IAASB Handbook, Vol 1) | 2026-06-10 | https://www.iaasb.org/publications/2023-2024-handbook-international-quality-management-auditing-review-other-assurance-and-related |
 | COSO-ICIF-2013 | Internal Control Integrated Framework | COSO | 2013 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
-| ISACA-ITAF | IT Audit Framework | ISACA | ITAF 5th Ed. | 2026-06-08 | https://www.isaca.org/resources/it-audit-assurance-standards |
+| ISACA-ITAF | IT Audit Framework (ITAF), 5th Edition | ISACA | 5th Ed (2026) | 2026-06-10 | https://www.isaca.org/resources/it-audit |
 
 In-body citations use the form [LABEL section] and resolve to this manifest.
 

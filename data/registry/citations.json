@@ -219,8 +219,8 @@
       "title": "NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth)",
       "publisher": "NIST",
       "identifier": "2024 (OLIR catalog)",
-      "url": "https://csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all",
-      "retrieval_date": "2026-06-09",
+      "url": "https://www.nist.gov/cyberframework/informative-references",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "nist-csf-2"
       ]
@@ -291,9 +291,9 @@
     "IAASB-ISA-230": {
       "title": "Audit Documentation",
       "publisher": "IAASB",
-      "identifier": "ISA 230",
-      "url": "https://www.iaasb.org/publications/isa-230-revised-audit-documentation",
-      "retrieval_date": "2026-05-25",
+      "identifier": "ISA 230 (in the 2023-2024 IAASB Handbook, Vol 1)",
+      "url": "https://www.iaasb.org/publications/2023-2024-handbook-international-quality-management-auditing-review-other-assurance-and-related",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "audit-workpapers"
       ]
@@ -329,11 +329,11 @@
       ]
     },
     "ISACA-ITAF": {
-      "title": "IT Audit Framework",
+      "title": "IT Audit Framework (ITAF), 5th Edition",
       "publisher": "ISACA",
-      "identifier": "ITAF 5th Ed.",
-      "url": "https://www.isaca.org/resources/it-audit-assurance-standards",
-      "retrieval_date": "2026-06-08",
+      "identifier": "5th Ed (2026)",
+      "url": "https://www.isaca.org/resources/it-audit",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "audit-workpapers"
       ]
@@ -572,8 +572,8 @@
       "title": "Cybersecurity Requirements for Financial Services Companies",
       "publisher": "NY DFS",
       "identifier": "23 NYCRR Part 500 (as amended 2023)",
-      "url": "https://www.dfs.ny.gov/industry_guidance/cyber_finance",
-      "retrieval_date": "2026-06-09",
+      "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "nist-csf-2"
       ]
