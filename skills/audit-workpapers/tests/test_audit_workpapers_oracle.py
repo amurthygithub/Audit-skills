@@ -21,7 +21,7 @@ def _load(name: str) -> dict:
 
 
 def test_uc_01_oracle():
-    """UC-01: MUS sample size = 75, sampling interval = $166,667, BP = $500,001."""
+    """UC-01: MUS sample size = 75, sampling interval = $166,667, BP = $500,000 (= TM)."""
     payload = _load("uc-01-input.json")
     out = run_skill("UC-01", payload)
 
@@ -29,9 +29,9 @@ def test_uc_01_oracle():
     assert mus["sample_size"] == 75
     assert mus["sampling_interval"] == 166667
     assert mus["reliability_factor"] == 3.00
-    assert mus["basic_precision"] == 500001
-    assert mus["upper_limit_misstatement"] == 500001
-    assert "ULM" in mus["upper_limit_conclusion"]
+    assert mus["basic_precision"] == 500000  # BP = RF x unrounded SI = TM exactly
+    assert mus["upper_limit_misstatement"] == 500000
+    assert "accept" in mus["upper_limit_conclusion"], "zero-misstatement golden case must conclude acceptance, not a substring match"
     assert out["classification"] == "MUS_SAMPLE_SIZE_75"
 
 
@@ -50,7 +50,8 @@ def test_uc_02_oracle():
     for part in ["condition", "criteria", "cause", "effect", "recommendation"]:
         assert finding[part], f"Missing C-C-C-E-R part: {part}"
     assert "16%" in finding["condition"]
-    assert "ASC 606" in finding["criteria"]
+    assert "AP Policy AP-200" in finding["criteria"]
+    assert "ASC 606" not in finding["criteria"], "revenue-recognition criteria on an AP cutoff finding was a verified defect"
     assert "Implement ERP" in finding["recommendation"]
 
 
@@ -65,8 +66,8 @@ def test_uc_03_oracle():
     assert td["ir"] == pytest.approx(0.80)
     assert td["cr"] == pytest.approx(0.60)
     assert td["ap"] == pytest.approx(0.50)
-    assert td["ria_implication"] == "Moderate"
-    assert td["rf_implication"] == pytest.approx(2.31)
+    assert td["ria_pct"] == pytest.approx(20.8, abs=0.1)  # TD IS the RIA (AS 2315)
+    assert td["rf_implication"] == pytest.approx(1.61)
     assert "20.8%" in td["td_formula"]
     assert out["classification"] == "TD_20.8"
 

@@ -77,7 +77,7 @@ Custom tickmarks permitted but must be defined in legend (typically B-5).
 2. Clear SOURCE — Where did the data come from?
 3. Clear CONCLUSIONS — What was the auditor's conclusion?
 
-## Experienced Auditor Standard (AS 1215.06A)
+## Experienced Auditor Standard (AS 1215.06 (experienced-auditor provision))
 
 Documentation must enable an experienced auditor (no prior engagement connection) to understand: nature/timing/extent of procedures, evidence obtained, conclusions, who performed/reviewed and when.
 

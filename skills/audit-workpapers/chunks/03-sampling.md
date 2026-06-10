@@ -17,9 +17,11 @@ load_when: "user asks about sampling plans, MUS, attribute sampling, variables, 
 
 | Factor | Statistical | Non-Statistical |
 |--------|-------------|-----------------|
-| Population size | Large (>500) | Small (<500) |
+| Population size | Any (more cost-effective at scale) | Any (often small populations) |
 | Quantified sampling risk | Yes | No (but must consider) |
 | Projection | Required and quantified | Required but not quantified |
+
+No standard sets a population-size bright line (AS 2315/AU-C 530); the real drivers are the test objective, the need to quantify sampling risk, and cost.
 
 ### Method Selection
 
@@ -38,13 +40,15 @@ Sample size table (95% confidence, 5% risk):
 
 | Tolerable Rate | Expected Dev Rate | n |
 |---------------|------------------|------|
-| 2% | 0% | 150 |
-| 5% | 0% | 60 |
-| 5% | 1% | 90 |
-| 7% | 0% | 45 |
-| 10% | 0% | 30 |
+| 2% | 0% | 149 |
+| 5% | 0% | 59 |
+| 5% | 1% | 93 |
+| 7% | 0% | 42 |
+| 10% | 0% | 29 |
 
-Procedure: define objective, define population, set parameters, determine sample size, select sample, perform tests, evaluate (sample deviation rate vs tolerable rate), document conclusion.
+Values tie to the AICPA Audit Sampling Guide Table A-1 (zero-expected-deviation rows are exact binomial: smallest n with (1 - TR)^n <= 5%).
+
+Procedure: define objective, define population, set parameters, determine sample size, select sample, perform tests, evaluate — compute the achieved upper deviation limit (reliability factor for the number of deviations found / n) and compare it to the tolerable rate; comparing the raw sample deviation rate alone ignores sampling risk and silently passes failed controls — then document the conclusion.
 
 ## Monetary Unit Sampling (MUS/PPS)
 
@@ -57,9 +61,9 @@ Parameters: Tolerable Misstatement (TM), Risk of Incorrect Acceptance (RIA), Exp
 | Overstatements | 1% | 5% | 10% | 15% | 20% |
 |---------------|-----|-----|------|------|------|
 | 0 | 4.61 | 3.00 | 2.31 | 1.90 | 1.61 |
-| 1 | 6.64 | 4.75 | 3.89 | 3.38 | 2.95 |
-| 2 | 8.41 | 6.30 | 5.33 | 4.72 | 4.17 |
-| 3 | 10.05 | 7.76 | 6.69 | 5.98 | 5.32 |
+| 1 | 6.64 | 4.75 | 3.89 | 3.38 | 3.00 |
+| 2 | 8.41 | 6.30 | 5.33 | 4.72 | 4.28 |
+| 3 | 10.05 | 7.76 | 6.69 | 6.02 | 5.52 |
 
 ### Formulas
 
@@ -74,13 +78,18 @@ Selection: random start between $0.01 and SI; select items where cumulative amou
 ### MUS Evaluation — ULM
 
 ```
-BP = RF x SI
-Tainting = Misstatement / Book Value
-IA = (Additional RF - Previous RF) x SI
-ULM = BP + sum(IA)
+BP = RF(0 misstatements) x SI                       # basic precision
+For each misstated sampled item with book value < SI (rank taintings DESCENDING):
+  Tainting_i = Misstatement_i / Book Value_i
+  PM_i = Tainting_i x SI                            # projected misstatement
+  IA_i = (RF_i - RF_(i-1) - 1) x Tainting_i x SI    # incremental allowance (RF at i misstatements)
+Top stratum (book value >= SI): add ACTUAL misstatement — no sampling allowance
+ULM = BP + sum(PM_i) + sum(IA_i) + top-stratum actual misstatements
 If ULM <= TM -> population not materially misstated; accept
 If ULM > TM -> consider additional procedures
+Understatements are evaluated separately (MUS is an overstatement test).
 ```
+Method per the AICPA Audit Sampling Guide; a $1 and a $150,000 misstatement in sampled items must NOT produce the same ULM — the tainting term is what differentiates them.
 
 ## Variables Sampling
 
@@ -116,8 +125,9 @@ Purpose: determine whether a population contains occurrences of a critical attri
 
 Parameters: acceptable occurrence rate (typically zero), detection risk, population size.
 
-n = N x [1 - (1 - D)^(1/d)]
-where N = population size, D = desired detection confidence (typically 95%), d = expected occurrences (typically 0 for critical attributes).
+n >= ln(1 - D) / ln(1 - p)
+where D = desired detection confidence (typically 95%) and p = the critical (minimum unacceptable) occurrence rate, p > 0.
+Example: D = 95%, p = 1% -> n = ln(0.05)/ln(0.99) ~= 299. The expected occurrences are zero by design — the sizing parameter is the critical rate, never expected occurrences (a formula parameterized on expected occurrences of 0 is undefined).
 
 Decision rule:
 - Zero deviations found -> population is acceptable at the specified confidence level.

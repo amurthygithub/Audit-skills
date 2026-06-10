@@ -2,7 +2,7 @@
 
 **Encode PCAOB AS 1215/AS 1105/AS 2315/AS 3105, AICPA AU-C 230, ISA 230, COSO ICIF-2013, and ISACA ITAF audit workpaper standards into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, 4 tests passing, linter-clean. The skill uses the **router + chunks pattern** -- SKILL.md is a 184-line router, the deep-dive content lives in 7 chunk files (<=125 lines each) loaded on demand. Retrofitted from a 2,060-line monolithic SKILL.md on 2026-06-03.
+Status: **draft v0.2.0**, on Tier 0 Spine, 42 tests passing, linter-clean. The skill uses the **router + chunks pattern** -- SKILL.md is the router, the deep-dive content lives in 9 chunk files loaded on demand. Retrofitted from a 2,060-line monolithic SKILL.md on 2026-06-03.
 
 ---
 
@@ -115,13 +115,14 @@ pytest skills/audit-workpapers/tests/ -q
 | Public-company financial services | industries/financial-services.md | PCAOB-regulated, ICFR/SOX 404, MUS sampling | UC-01, UC-03 |
 | Government / public sector | industries/public-sector.md | Yellow Book / GAO, single audit, 5-part findings | UC-02 |
 | Pre-IPO SaaS / technology | industries/saas-technology.md | SOX 404 readiness, workpaper infrastructure | UC-01, UC-02 |
+| Healthcare provider / payer | industries/healthcare.md | PHI-in-evidence handling, HIPAA retention interplay, patient-AR sampling | UC-01, UC-02 |
 
 ---
 
 ## Use cases
 
 ### UC-01 -- MUS sampling workpaper for accounts receivable
-**Scenario:** XYZ Corp. AR = $12.5M. MUS at 5% RIA, TM=$500K. Outputs: sample size 75, SI=$166,667, BP=$500,001.
+**Scenario:** XYZ Corp. AR = $12.5M. MUS at 5% RIA, TM=$500K. Outputs: sample size 75, SI=$166,667 (display), BP=$500,000 (= TM).
 File: use-cases/uc-01-sampling-workpaper.md | Status: draft
 
 ### UC-02 -- 5-part finding (C-C-C-E-R) for AP cutoff control gap
@@ -145,7 +146,7 @@ File: use-cases/uc-03-risk-model-td-calculation.md | Status: stub
 
 ---
 
-## The 7 chunks (audit domain aligned)
+## The 9 chunks (audit domain aligned)
 
 | Chunk | Topic | When to load |
 |-------|-------|--------------|
@@ -167,7 +168,7 @@ Per-call cost: 3,000-6,000 tokens (vs. ~40,000 for the 2,060-line monolithic ver
 ```
 skills/audit-workpapers/
   README.md                     # this file
-  SKILL.md                      # the router (184 lines, always loaded)
+  SKILL.md                      # the router (always loaded)
 
   chunks/                       # deep-dive content (loaded on demand)
     01-standards-and-structure.md
@@ -177,12 +178,15 @@ skills/audit-workpapers/
     05-finding-and-workflow.md
     06-outputs-electronic-review.md
     07-qc-compliance-cross-refs.md
+    08-questionnaire-reuse.md
+    09-substantive-analytical-procedures.md
 
-  industries/                   # 3 industry-shaped views
+  industries/                   # 4 industry-shaped views
     _index.md
     financial-services.md
     public-sector.md
     saas-technology.md
+    healthcare.md
 
   use-cases/                    # 3 use cases
     _index.md
@@ -195,10 +199,10 @@ skills/audit-workpapers/
     generators/gen_mus_population.py
     seeds/uc-01-input.json, uc-02-input.json, uc-03-input.json
 
-  tests/                        # 4 tests passing
-    conftest.py
-    test_oracle.py
-    test_lint.py
+  tests/                        # 42 tests via 6 skill-specific files (lint + consistency run from repo root)
+    audit_workpapers_stub.py
+    test_audit_workpapers_oracle.py
+    test_audit_workpapers_{grounding,trace,metamorphic,adversarial,telemetry}.py
 
   docs/
     architecture.md

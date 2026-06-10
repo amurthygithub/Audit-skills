@@ -67,14 +67,19 @@ The following table illustrates the audit risk model TD = AR / (IR x CR x AP). T
 | Mod(50%) | Mod(50%) | Mod(50%) | 0.125 | 40% | Moderate |
 | Mod(50%) | Low(30%) | Low(20%) | 0.03 | >100% | Minimal |
 
-### Required TD to Sample Size (MUS)
+### TD is the RIA — sizing the MUS sample
 
-| TD Level | RIA | RF | Extent |
-| Very Low (<=5%) | <=1% | >=4.61 | Very large |
-| Low (5-10%) | 1-5% | 3.00-4.61 | Large |
-| Moderate (10-30%) | 5-10% | 2.31-3.00 | Moderate |
-| High (30-50%) | 10-15% | 1.90-2.31 | Small |
-| Very High (>50%) | 15-20% | 1.61-1.90 | Minimal |
+Per the AS 2315 appendix, TD **is defined as** "the allowable risk of incorrect acceptance for the substantive test of details." Use the computed TD directly as the RIA parameter — do NOT re-map it through a second scale (that double-counts conservatism).
+
+| TD (= RIA for the test of details) | RF (0 misstatements) | Extent |
+|---|---|---|
+| <=1% | 4.61 | Very large |
+| 5% | 3.00 | Large |
+| 10% | 2.31 | Moderate |
+| 15% | 1.90 | Moderate-small |
+| >=20% | 1.61 | Small |
+
+Use the RF at the largest tabulated RIA that does not exceed the computed TD (conservative).
 
 ## Opinion Determination (AS 3105)
 

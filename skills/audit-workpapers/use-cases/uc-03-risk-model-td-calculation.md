@@ -10,17 +10,17 @@ inputs:
   analytical_procedures_risk: "50%"
 procedure:
   - "chunks/04-risk-and-opinion.md -- Compute TD = AR / (IR x CR x AP)"
-  - "chunks/04-risk-and-opinion.md -- Map TD to RIA for MUS sample size selection"
+  - "chunks/04-risk-and-opinion.md -- TD is the RIA (AS 2315); size the MUS sample with the RF at the largest tabulated RIA <= TD"
 expected_outputs:
   td_result: "20.8% (TD = 0.05 / (0.80 x 0.60 x 0.50))"
-  sample_size_implication: "TD ~21% -> Moderate RIA (10%), RF 2.31"
+  sample_size_implication: "TD ~21% IS the allowable RIA (AS 2315); RF 1.61 -> moderate-small sample"
 oracle:
   type: exact_match
-  assertion: "TD = 20.8%; sample size implication moderate-large"
+  assertion: "TD = 20.8%; TD is the RIA per AS 2315; RF 1.61; moderate-small extent"
 data_refs:
   - "data/seeds/uc-03-input.json"
 tests:
-  - "tests/test_oracle.py::test_uc_03"
+  - "tests/test_audit_workpapers_oracle.py::test_uc_03_oracle"
 status: stub
 ---
 
@@ -31,10 +31,10 @@ XYZ Corp. FY 2025 audit. Complex revenue recognition (multiple-element ASC 606).
 
 ## Walk-through
 1. Compute TD = AR / (IR x CR x AP) = 0.05 / 0.24 = 20.8%.
-2. Map to sample size: 20.8% -> moderate RIA (10%), moderate-large sample.
+2. Size the sample: TD 20.8% is the allowable RIA itself (AS 2315) -> RF 1.61 (20% row) -> moderate-small substantive sample.
 
 ## Expected Output
-TD with inputs shown. RIA mapping to sample size implication.
+TD with inputs shown. TD used directly as the RIA (no second mapping — that double-counts conservatism).
 
 ## Variations
 - Lower CR -> lower TD -> smaller sample.

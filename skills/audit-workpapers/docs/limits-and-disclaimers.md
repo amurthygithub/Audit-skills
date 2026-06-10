@@ -27,7 +27,7 @@
 | AICPA AU-C 230 | Current | Various |
 | ISA 230 | Current | 2009 |
 | COSO ICIF | 2013 (2026 GenAI guidance) | 2013/2026 |
-| ISACA ITAF | 4th Edition | Various |
+| ISACA ITAF | 5th Edition | Various |
 
 ## 4. Known gaps
 

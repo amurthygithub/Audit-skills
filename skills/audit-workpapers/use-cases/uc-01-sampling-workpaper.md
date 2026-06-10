@@ -17,15 +17,15 @@ procedure:
 expected_outputs:
   sampling_interval: "$166,667 (TM $500,000 / RF 3.00)"
   sample_size: "75 items (($12,500,000 x 3.00) / $500,000)"
-  basic_precision: "$500,001"
+  basic_precision: "$500,000"  # BP = RF x unrounded SI = TM exactly; do not bake SI display rounding into BP
   upper_limit_conclusion: "Compare ULM to TM; determine if materially misstated"
 oracle:
   type: exact_match
-  assertion: "Sample size = 75, Sampling interval = $166,667 (rounded), BP = $500,001"
+  assertion: "Sample size = 75, Sampling interval = $166,667 (rounded, display), BP = $500,000 (= TM); zero-misstatement case concludes acceptance"
 data_refs:
   - "data/seeds/uc-01-input.json"
 tests:
-  - "tests/test_oracle.py::test_uc_01"
+  - "tests/test_audit_workpapers_oracle.py::test_uc_01_oracle"
 status: draft
 ---
 

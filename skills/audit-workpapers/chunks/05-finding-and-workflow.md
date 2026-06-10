@@ -9,7 +9,7 @@ load_when: "user asks about audit findings, C-C-C-E-R, finding format, workpaper
 
 ## Five-Part Finding Format (C-C-C-E-R)
 
-All five elements are mandatory.
+GAGAS (2024 Yellow Book ¶6.17, ¶8.57) defines FOUR elements of a finding — criteria, condition, cause, and effect or potential effect — developed to the extent relevant and necessary for the audit objectives; the recommendation is report content that flows from sufficiently developed elements (¶6.53). This skill's template documents all five parts as the default; tailor the mandatory set to the governing framework.
 
 ### Condition (What Is)
 Factual description of the current state observed. Specific, measurable, objective. Reference supporting workpapers. Include quantitative data where measurable.
@@ -44,7 +44,7 @@ Per PCAOB AS 2201 for ICFR audits and AS 1305 for communications about control d
 ### Finding Example Structure
 
 Finding #, WP Index, Severity, Assertion, Condition, Criteria, Cause, Effect, Recommendation.
-Recommended additions: Management Response, Follow-Up.
+Recommended additions: Management Response, Follow-Up. For GAGAS engagements the management response is NOT optional — auditors must obtain and report the views of responsible officials and evaluate them (2024 Yellow Book ¶6.58 / ¶7.55 / ¶9.50).
 
 ## 7-Step Workflow
 
