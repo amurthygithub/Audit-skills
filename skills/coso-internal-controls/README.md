@@ -60,13 +60,37 @@ The skill body handles COSO ICIF principle evaluation, SOX 404 ICFR assessment, 
 
 ---
 
-## Path 2 -- packaged skill + telemetry (Coming in v0.3.0)
+## Path 2 — packaged skill + telemetry
 
-Path 2 is planned for v0.3.0. Contact us for early access. Use Path 1 (system prompt) for all LLM calls until then.
+Every skill ships a deterministic reference executor (`tests/coso_internal_controls_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation. Run it against the shipped UC-01 seed:
+
+```python
+import sys, json
+sys.path.insert(0, "skills/coso-internal-controls")        # telemetry package
+sys.path.insert(0, "skills/coso-internal-controls/tests")  # stub executor
+
+from coso_internal_controls_stub import run_skill
+from telemetry.instrument import instrumented
+
+# Wrap with telemetry — every call appends a SkillInvocation event
+# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
+@instrumented(skill="coso-internal-controls", skill_version="0.2.0",
+              default_use_case_id="UC-01", default_industry="financial-services")
+def assess_icfr(payload):
+    return run_skill("UC-01", payload)
+
+payload = json.load(open("skills/coso-internal-controls/data/seeds/uc-01-input.json"))
+result = assess_icfr(payload)
+
+print(result["classification"])          # → "EFFECTIVE_WITH_SD"
+print(result["rcm"]["key_controls"])      # → 28
+```
+
+Verify it works:
 
 ```bash
-python tools/lint_skill.py skills/coso-internal-controls
-pytest skills/coso-internal-controls/tests/ -v
+pytest skills/coso-internal-controls/tests/ -q
+# → 30 passed
 ```
 
 ---
