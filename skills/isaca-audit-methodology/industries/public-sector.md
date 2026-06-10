@@ -8,7 +8,7 @@ Federal agencies, state/local governments, and government contractors adopting F
 |---------|-------------|------------|
 | Federal civilian agency | FISMA, OMB A-130, agency OIG audits | COBIT EDM governance + NIST 800-53 |
 | Federal system (on-prem) | FISMA annual assessment | COBIT APO13, DSS05 + NIST 800-53 |
-| State/local government | State FISMA-aligned regulations | COBIT governance + NIST CSF 2.0 |
+| State/local government | State IT statutes, GAGAS performance audits, NIST CSF adoption | COBIT governance + NIST CSF 2.0 |
 | Government contractor | CMMC 2.0, DFARS 252.204-7012 | COBIT maturity + NIST 800-171 |
 
 ## 2. Boundary
@@ -17,7 +17,7 @@ Agency authorization boundaries drive audit scope. The system is defined by the 
 
 ## 3. Inheritance Pattern
 
-Common controls are shared across the agency. System-specific controls are implemented by the system owner. COBIT EDM05 (stakeholder transparency) supports FISMA reporting requirements.
+Common controls are shared across the agency. System-specific controls are implemented by the system owner. COBIT EDM05 (Ensured Stakeholder Engagement) supports FISMA reporting requirements.
 
 ## 4. Regulator/Customer Relationship
 
@@ -41,4 +41,9 @@ The Authorizing Official (AO) is a designated agency executive. The OIG audits F
 - FIPS 199, FIPS 200
 - OMB A-130
 - FedRAMP Authorization Boundary Guidance
-- COBIT 2019: Focus Area for Cybersecurity (NIST CSF 2.0 aligned)
+- COBIT Focus Area: Information Security (ISACA)
+- Implementing the NIST Cybersecurity Framework Using COBIT 2019 (ISACA; maps CSF v1.1)
+
+> Scope note: this view is federal-centric (FISMA/FedRAMP/OIG). State/local audit offices
+> operate under state statute and GAGAS, not "state FISMA" -- a state/local + GAGAS layer is
+> tracked as a known gap (see docs/persona-review.md).

@@ -28,8 +28,8 @@ Covered entities inherit controls from business associates via BAAs. COBIT EDM o
 | DSS05 (Managed Security Services) | 164.312 Technical Safeguards | Access control, audit controls, integrity |
 | DSS01 (Managed Operations) | 164.310 Physical Safeguards | Facility access, workstation security |
 | APO14 (Managed Data) | 164.312(c)(1) Integrity | ePHI integrity controls |
-| BAI07 (Managed Change) | 164.308(a)(2) Assigned Security Responsibility | Change management accountability |
-| MEA03 (Managed Compliance) | 164.308(a)(8) Evaluation | Periodic technical and non-technical evaluation |
+| BAI06 (Managed IT Changes) | No direct HIPAA standard | The Security Rule has NO change-management standard; nearest hooks are 164.306(e) (maintenance of security measures) and 164.308(a)(8) Evaluation (re-evaluate "in response to environmental or operational changes") |
+| MEA03 (Managed Compliance With External Requirements) | 164.308(a)(8) Evaluation | Periodic technical and non-technical evaluation |
 
 ### HITRUST CSF Scope
 
@@ -41,11 +41,12 @@ OCR (HHS Office for Civil Rights) enforces HIPAA. State attorneys general bring 
 
 ### Key Healthcare-Specific Controls
 
-- **Break-glass access**: Emergency access to ePHI without pre-authorization; COBIT DSS05.02 maps to identity and access management.
+- **Break-glass access**: Emergency access to ePHI is a REQUIRED implementation specification -- 164.312(a)(2)(ii) Emergency access procedure: "Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency." COBIT DSS05.04 (Manage user identity and logical access) is the corresponding practice. In hospitals, pair break-glass grants with mandatory post-hoc review/attestation of each use.
 - **Minimum necessary**: HIPAA requires limiting PHI access to the minimum needed; ITGC access recertification supports this.
-- **Audit logging**: HIPAA requires logging of all ePHI access; COBIT DSS05.04 maps to security event monitoring.
+- **Audit logging**: 164.312(b) Audit controls requires "hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information" -- it does NOT prescribe logging of all access; scope is risk-based. COBIT DSS05.07 (Manage vulnerabilities and monitor the infrastructure for security-related events) is the monitoring practice.
 - **Business Associate Agreements (BAAs)**: Contractual controls with vendors handling ePHI; COBIT APO10 (Managed Vendors) supports vendor risk management.
-- **Medical device security**: Networked medical devices require segmentation, patching, and lifecycle management; COBIT BAI03/BAI07 apply.
+- **Medical device security**: Networked medical devices require segmentation, patching, and lifecycle management; COBIT BAI03/BAI06 apply. Change-management criteria like "changes tested in non-production" are often impossible for FDA-cleared devices (manufacturer-validated patches, no non-prod instance) -- evaluate compensating controls (segmentation, monitoring, vendor patch validation per FDA premarket/postmarket cybersecurity guidance) instead of citing the auditee for the constraint. Never inject test transactions into live clinical systems (see chunks/04 production-safety rule).
+- **Patient-safety impact**: when risk-scoring clinical systems, treat potential patient harm and clinical availability as first-class impact dimensions alongside the financial/operational/regulatory scales in chunks/05 -- EHR downtime or infusion-pump compromise is not a dollars-only event.
 
 ## 5. Top Use Cases
 
@@ -74,4 +75,4 @@ OCR (HHS Office for Civil Rights) enforces HIPAA. State attorneys general bring 
 - ONC Health IT Certification Program (21st Century Cures Act)
 - CMS Information Security ARS (Acceptable Risk Safeguards) / MARS-E 2.2
 - NIST SP 800-66 Rev 2 (Implementing the HIPAA Security Rule)
-- COBIT 2019: Focus Area for Information Security
+- COBIT Focus Area: Information Security (ISACA)

@@ -17,7 +17,7 @@ Multi-tenancy drives boundary complexity. The SaaS product is the system; tenant
 
 ## 3. Inheritance Pattern
 
-SaaS companies inherit physical/environmental controls from hyperscaler (AWS, Azure, GCP). Application-layer controls (AC-2 app accounts, AU-2 app events, SC-13 crypto) are SaaS-implemented. COBIT BAI objectives guide SDLC and change management.
+SaaS companies inherit physical/environmental controls from the hyperscaler (AWS, Azure, GCP) -- in COBIT terms, parts of DSS01 (Managed Operations) and the facility aspects of DSS05 are provider-side. The SaaS company implements the application layer itself: logical access and identity (DSS05.04), security-event monitoring of its stack (DSS05.07), data protection (APO14), and IT change control (BAI06/BAI07). ITGC testing scope follows this split: test the SaaS-implemented controls directly; cover inherited controls via the provider's SOC 2 report.
 
 ## 4. Regulator/Customer Relationship
 
@@ -38,7 +38,7 @@ Customers impose SOC 2, ISO 27001, or custom audit requirements. COBIT 2019 matu
 
 ## 7. References
 
-- COBIT 2019: Focus Area for Cloud Computing
-- Cloud Controls Matrix (CSA CCM v4)
+- Cloud Controls Matrix (CSA CCM v4, 17 domains)
+- COBIT Focus Area: Information Security; COBIT 2019 for Small and Medium Enterprises (ISACA)
 - AICPA SOC 2 + COBIT crosswalks
-- ISACA IT Audit Programs for cloud services
+- ISACA Cloud Audit Program

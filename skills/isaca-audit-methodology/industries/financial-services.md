@@ -22,7 +22,7 @@ Third-party SOC 1/SOC 2 reports provide inheritance for sub-service organization
 
 ## 4. Regulator/Customer Relationship
 
-OCC, FDIC, FRB, SEC, FINRA, and state insurance commissioners impose overlapping requirements. COBIT 2019 focus areas (Risk Management, Compliance, Information Security) align with regulatory expectations.
+OCC, FDIC, FRB, SEC, FINRA, and state insurance commissioners impose overlapping requirements. ISACA's COBIT focus-area publications (Information and Technology Risk; Information Security) align with regulatory expectations.
 
 ## 5. Top Use Cases
 
@@ -39,5 +39,5 @@ OCC, FDIC, FRB, SEC, FINRA, and state insurance commissioners impose overlapping
 
 - FFIEC IT Examination Handbook
 - 23 NYCRR 500 (NYDFS Cybersecurity)
-- 16 CFR Part 314 (GLBA Safeguards Rule)
-- COBIT 2019: Focus Area guides for risk management and compliance
+- GLBA information-security requirements: banks/thrifts -> Interagency Guidelines Establishing Information Security Standards (e.g., 12 CFR Part 30, Appendix B for OCC banks); FTC-jurisdiction (non-bank) financial institutions such as fintechs -> 16 CFR Part 314 (FTC Safeguards Rule, per 314.1(b))
+- COBIT Focus Area: Information and Technology Risk; COBIT Focus Area: Information Security (ISACA)

@@ -2,7 +2,7 @@
 
 **Encode ISACA CISA methodology, COBIT 2019, ITAF, ITGC/ITAC testing, risk-based audit planning, and 5-part audit observations into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean target. The skill uses the **router + chunks pattern** - `SKILL.md` is a 198-line router, the deep-dive content lives in 7 chunk files (each <= 200 lines) loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); use cases are stubs.
+Status: **draft v0.2.0**, on Tier 0 Spine. The skill uses the **router + chunks pattern** - `SKILL.md` is the always-loaded router, the deep-dive content lives in 8 chunk files (each <= 200 lines) loaded on demand per §11 routing. Framework facts (COBIT 2019 objective catalog, ITAF standard numbering, CISA domain weights) were verified against live ISACA sources on 2026-06-10 (see `docs/persona-review.md`).
 
 ---
 
@@ -13,22 +13,22 @@ Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean target. The skill uses t
 | `always_loaded_tokens` | 3,200 | `SKILL.md` (router) - always in context |
 | `per_call_typical_tokens` | 6,500 | router + 1 chunk + 1 industry + 1 UC |
 | `per_call_max_tokens` | 16,000 | router + all chunks + industry + UC |
-| `per_call_p90_tokens` | 8,500 | measured after first instrumented run |
+| `per_call_p90_tokens` | 8,500 | target estimate (telemetry baseline not yet populated) |
 
 ---
 
-## The 7 chunks
+## The 8 chunks
 
 | Chunk | Topic | When to load |
 |-------|-------|--------------|
-| `chunks/01-framework-and-cisa.md` | ISACA Framework and CISA 5 Domains | "ISACA overview", "CISA domains", "CISA certification" |
-| `chunks/02-cobit-2019.md` | COBIT 2019 Objectives (40) | "COBIT 2019", "COBIT objectives", "focus area" |
-| `chunks/03-itaf-and-maturity.md` | ITAF Standards and Maturity Models | "ITAF", "audit standards", "maturity assessment" |
+| `chunks/01-framework-and-cisa.md` | ISACA Framework and CISA 5 Domains (18/18/12/26/26%) | "ISACA overview", "CISA domains", "CISA certification" |
+| `chunks/02-cobit-2019.md` | COBIT 2019 Objectives (40: 5/14/11/6/4), design factors, goals cascade | "COBIT 2019", "COBIT objectives", "design factors", "focus area" |
+| `chunks/03-itaf-and-maturity.md` | ITAF Standards (1000/1200/1400 series) and Capability/Maturity Models | "ITAF", "audit standards", "maturity assessment" |
 | `chunks/04-itgc-itac.md` | ITGC and ITAC Testing | "ITGC", "ITAC", "general controls", "application controls" |
 | `chunks/05-risk-and-planning.md` | Risk-Based Audit Planning | "risk assessment", "audit plan", "risk score" |
 | `chunks/06-observation-and-lifecycle.md` | 5-Part Observations and Audit Lifecycle | "audit observation", "5-part", "audit lifecycle" |
 | `chunks/07-outputs-and-cross-refs.md` | Output Templates and Cross-References | "audit report template", "cross-reference", "mapping" |
-| `chunks/08-questionnaire-reuse.md` | CAIQ, SIG Lite, VSAQ, customer questionnaire evidence reuse from ISACA/COBIT/ITGC evidence | "CAIQ" / "SIG Lite" / "VSAQ" / "questionnaire" / "ITGC" / "COBIT governance" |
+| `chunks/08-questionnaire-reuse.md` | CAIQ v4 / SIG / VSAQ evidence reuse | "CAIQ", "SIG", "VSAQ", "customer questionnaire" |
 
 ---
 
@@ -37,11 +37,11 @@ Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean target. The skill uses t
 | Capability | What the skill produces | Use case |
 |-----------|------------------------|----------|
 | COBIT maturity assessment | Process capability assessment (0-5), gap analysis, improvement roadmap | UC-01 |
-| ITGC testing | Control effectiveness assessment per 4 categories (access, change, ops, SDLC) | UC-02 |
-| ITAC testing | Application control assessment (input, processing, output, data integrity) | UC-02 |
+| ITGC/ITAC testing | Control effectiveness assessment per category, with test procedures | UC-02 |
 | 5-part observation | Structured finding: Condition, Criteria, Cause, Effect, Recommendation | UC-02 |
-| Risk scoring | Risk register with (L x I) x CRF scoring, priority classification | UC-02 |
-| Cross-framework mapping | ISACA to COSO, NIST CSF, ISO 27001, AICPA, ITIL | - |
+| COBIT design factors | Prioritized governance objectives from the 11 design factors | UC-03 |
+| Risk-based planning guidance | 5-step methodology, audit universe, L x I x CRF scoring (house model, labeled) | guidance only (chunk 05) -- no worked UC yet |
+| Cross-framework mapping | ISACA to COSO, NIST CSF, ISO 27001, AICPA, ITIL, CCM v4 | - |
 
 ---
 
@@ -50,41 +50,45 @@ Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean target. The skill uses t
 - **IT auditors** performing IS audit engagements per ISACA standards.
 - **SaaS companies** pursuing SOC 2 readiness or COBIT maturity assessments.
 - **Financial institutions** conducting ITGC testing for SOX 404 compliance.
-- **Government agencies** adopting COBIT 2019 for IT governance.
+- **Government agencies** adopting COBIT 2019 for IT governance (federal-centric today; state/local + GAGAS layer is a known gap).
+- **Healthcare audit teams** (HIPAA crosswalk in `industries/healthcare.md`; worked UC planned).
 - **GRC platform builders** embedding ISACA methodology without hiring CISA subject-matter experts.
 
 ---
 
-## Industry-shaped use cases (stubs)
+## Worked examples (stubs)
 
 ### Use case 1: SaaS COBIT 2019 maturity assessment
 
 **Scenario:** 500-employee B2B SaaS company with SOC 2 Type II wants COBIT maturity for APO13, BAI07, DSS01.
 
 ```yaml
-assessment:
+classification: "GAP_1.5"
+maturity_assessment:
   processes:
     - id: APO13
-      current_maturity: 2.5
-      target_maturity: 4
+      name: "Managed Security"
+      current_maturity: 2.5   # house convention; official CPM levels are integers
+      target_maturity: 4.0
       gap: 1.5
   improvement_roadmap:
     - phase: "Quick Win (1-3 months)"
       gain: 0.5
 ```
 
-Full deep-dive: [`use-cases/uc-01-it-audit-plan-saas.md`](use-cases/uc-01-it-audit-plan-saas.md) (stub).
+Full deep-dive: [`use-cases/uc-01-saas-maturity-assessment.md`](use-cases/uc-01-saas-maturity-assessment.md).
 
 ### Use case 2: ITGC finding in 5-part observation format
 
 **Scenario:** Commercial bank discovers access recertification gap during quarterly ITGC testing.
 
 ```yaml
-finding:
+classification: "High"
+observation:
   id: "ACC-2026-001"
-  severity: "High"
+  severity: "High"   # judgment call, never a mechanical count
   condition: "No recertification for 3 of 5 critical applications"
-  criteria: "ISACA S17; Company Policy ISP-003; COBIT APO13.02"
+  criteria: "Company Policy ISP-003 Section 4.2; COBIT 2019 DSS05.04"
   cause:
     root_cause_category: "Technology"
   recommendations:
@@ -92,29 +96,45 @@ finding:
       action: "Implement automated IGA tool"
 ```
 
-Full deep-dive: [`use-cases/uc-02-five-part-observation.md`](use-cases/uc-02-five-part-observation.md) (stub).
+Full deep-dive: [`use-cases/uc-02-five-part-observation.md`](use-cases/uc-02-five-part-observation.md).
+
+### Use case 3: COBIT 2019 design factors assessment
+
+**Scenario:** $12B regional bank tailors its governance system using the COBIT 2019 design factors.
+
+Full deep-dive: [`use-cases/uc-03-cobit-design-factors.md`](use-cases/uc-03-cobit-design-factors.md).
 
 ---
 
 ## 30-second quick start (Path 1 - system prompt)
 
+> Path 1 loads ONLY the router. The router's procedure/output sections are pointers into
+> `chunks/` -- a bare API call cannot follow them, so expect summary-level answers. For full
+> answers, append the chunk files matching your question (per SKILL.md §11) to the system
+> prompt. **Data handling:** audit scopes and findings are sensitive (and for government
+> users, often disclosure-exempt); only send them to an API endpoint your organization has
+> approved.
+
 ```bash
 git clone https://github.com/amurthygithub/Audit-skills.git
 cd Audit-skills
-pip install openai
+pip install openai   # requires OPENAI_API_KEY; calls are billed to your account
 ```
 
 ```python
 from openai import OpenAI
 
-with open("skills/isaca-audit-methodology/SKILL.md") as f:
-    system_prompt = f.read()
+skill_dir = "skills/isaca-audit-methodology"
+context = open(f"{skill_dir}/SKILL.md").read()
+# Add the chunks your question needs (SKILL.md §11 routing), e.g. for maturity questions:
+for chunk in ("02-cobit-2019", "03-itaf-and-maturity"):
+    context += "\n\n" + open(f"{skill_dir}/chunks/{chunk}.md").read()
 
 client = OpenAI()
 response = client.chat.completions.create(
     model="gpt-4o",
     messages=[
-        {"role": "system", "content": system_prompt},
+        {"role": "system", "content": context},
         {"role": "user", "content": """
             Assess the COBIT 2019 maturity of security management (APO13)
             for a SaaS company with SIEM deployed, documented policies,
@@ -129,7 +149,12 @@ print(response.choices[0].message.content)
 
 ## Path 2 — packaged skill + telemetry
 
-Every skill ships a deterministic reference executor (`tests/isaca_audit_methodology_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation. Run it against the shipped UC-01 seed:
+Every skill ships a deterministic reference executor (`tests/isaca_audit_methodology_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation.
+
+> **The stub's output is canned.** It returns seed-derived fixtures (the maturity values come
+> from the seed file, not from analyzing your evidence) so the test suite is runnable today.
+> It demonstrates output STRUCTURE; it does not perform analysis. The real executor is the
+> Phase 2 migration (ARGUS).
 
 ```python
 import sys, json
@@ -139,8 +164,6 @@ sys.path.insert(0, "skills/isaca-audit-methodology/tests")  # stub executor
 from isaca_audit_methodology_stub import run_skill
 from telemetry.instrument import instrumented
 
-# Wrap with telemetry — every call appends a SkillInvocation event
-# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
 @instrumented(skill="isaca-audit-methodology", skill_version="0.2.0",
               default_use_case_id="UC-01", default_industry="saas-technology")
 def assess_maturity(payload):
@@ -149,7 +172,7 @@ def assess_maturity(payload):
 payload = json.load(open("skills/isaca-audit-methodology/data/seeds/uc-01-input.json"))
 result = assess_maturity(payload)
 
-print(result["classification"])                                   # → "GAP_1.5"
+print(result["classification"])                                   # → "GAP_1.5" (from the seed)
 print(result["maturity_assessment"]["processes"][0]["gap"])       # → 1.5
 ```
 
@@ -160,6 +183,10 @@ pytest skills/isaca-audit-methodology/tests/ -q
 # → 36 passed
 ```
 
+(The 36 tests verify output contracts, citation grounding, telemetry, and routing-table
+consistency — they do not certify domain correctness by themselves; that is what the G4.5
+persona vetting + live-source verification in `docs/persona-review.md` is for.)
+
 ---
 
 ## What's in the box
@@ -167,10 +194,9 @@ pytest skills/isaca-audit-methodology/tests/ -q
 ```
 skills/isaca-audit-methodology/
   README.md
-  SKILL.md                     # router (198 lines, always loaded)
-  SKILL.md.bak                 # original 1,662-line monolithic skill
+  SKILL.md                     # router (always loaded)
 
-  chunks/                      # deep-dive content (loaded on demand per S11 routing)
+  chunks/                      # deep-dive content (loaded on demand per §11 routing)
     01-framework-and-cisa.md
     02-cobit-2019.md
     03-itaf-and-maturity.md
@@ -178,36 +204,47 @@ skills/isaca-audit-methodology/
     05-risk-and-planning.md
     06-observation-and-lifecycle.md
     07-outputs-and-cross-refs.md
+    08-questionnaire-reuse.md
 
-  industries/                  # 3 industry-shaped views
+  industries/                  # 4 industry-shaped views
     _index.md
     financial-services.md
     saas-technology.md
     public-sector.md
+    healthcare.md
 
-  use-cases/                   # 2 stub use cases
+  use-cases/                   # 3 worked examples (stubs)
     _index.md
-    uc-01-it-audit-plan-saas.md
+    uc-01-saas-maturity-assessment.md
     uc-02-five-part-observation.md
+    uc-03-cobit-design-factors.md
 
   data/
     README.md
+    generators/gen_risk_plan.py
+    seeds/uc-01-input.json  uc-02-input.json  uc-03-input.json
 
   tests/
-    conftest.py
-    test_lint.py
+    isaca_audit_methodology_stub.py     # deterministic reference executor
+    test_isaca_audit_methodology_oracle.py
+    test_isaca_audit_methodology_grounding.py
+    test_isaca_audit_methodology_trace.py
+    test_isaca_audit_methodology_metamorphic.py
+    test_isaca_audit_methodology_adversarial.py
+    test_isaca_audit_methodology_telemetry.py
 
   telemetry/
     schema.json
     instrument.py
     redaction.md
-    baseline.md
+    baseline.md                # template -- not yet populated
 
   docs/
     architecture.md
     limits-and-disclaimers.md
     changelog.md
     acceptance-gate.md
+    persona-review.md          # G4.5 vetting evidence
 ```
 
 ---
@@ -223,18 +260,18 @@ pytest skills/isaca-audit-methodology/tests/ -v
 
 ## Cross-skill assets
 
-- **Board-ready audit committee deck**: `aicpa-soc-reporting/assets/board_deck_template.md` — 20-slide template for quarterly board presentations. Cross-referenced by all 5 Tier 0 Spine skills.
+- **Board-ready audit committee deck**: `aicpa-soc-reporting/assets/board_deck_template.md` — 20-slide template for quarterly board presentations. Cross-referenced by all Tier 0 Spine skills.
 
 ## Known limitations
 
-- **ITAF numbering** (S1-S18, G1-G18) is a pedagogical reconstruction. It does NOT correspond to official ISACA ITAF numbering.
-- **CISA domain weights** verify against current CISA CRM 28th Ed.
-- **COBIT 2019 alignment goals** consult official COBIT documentation.
-- **Ethics principle count** may vary (7 or 8 depending on edition).
-- **Use cases are stubs** - full test harness not yet built.
+- **ITAF**: standard numbers verified against the 4th Edition full text; the current 5th Edition (2026) retains the series — verify titles before citing.
+- **Risk scoring model** (L x I x CRF) and design-factor weights are labeled house conventions, not ISACA content.
+- **No GAGAS/state-local layer, no public-sector or healthcare worked UC** — tracked as structural tickets.
+- **Stub executor is canned** (see Path 2 note); telemetry baseline not yet measured.
+- **Use cases are stubs** — the Epic 6 harness (multi-run, multi-model reliability) is not yet built.
 
 ---
 
 ## Disclaimer
 
-This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative source (CISA CRM 28th Ed 2024, COBIT 2019, ITAF 4th Ed, ISACA Code of Professional Ethics).
+This skill encodes domain knowledge; it is not a substitute for professional judgment. Always verify outputs against the cited authoritative sources (ISACA CISA exam content outline, COBIT 2019, ITAF 5th Edition, ISACA Code of Professional Ethics).

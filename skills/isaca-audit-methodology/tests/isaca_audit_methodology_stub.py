@@ -50,10 +50,10 @@ def _assess_maturity(inputs: dict) -> dict:
             "id": proc_id,
             "name": {
                 "APO13": "Managed Security",
-                "BAI07": "Managed Change Acceptance",
+                "BAI07": "Managed IT Change Acceptance and Transitioning",
                 "DSS01": "Managed Operations",
                 "APO12": "Managed Risk",
-                "MEA03": "Managed Compliance",
+                "MEA03": "Managed Compliance With External Requirements",
                 "DSS04": "Managed Continuity",
                 "APO10": "Managed Vendors",
             }.get(proc_id, proc_id),
@@ -110,15 +110,17 @@ def _format_observation(inputs: dict) -> dict:
     total = len(sample_results)
     non_comp_count = len(non_compliant)
 
-    severity = "High"
+    # Demo heuristic ONLY (deviation-rate based). Real severity classification is a
+    # judgment call on magnitude/likelihood with compensating controls considered
+    # (chunks/05 SFinding Severity); it is never a mechanical count. "Critical" is
+    # deliberately not assignable by this heuristic.
+    deviation_rate = (non_comp_count / total) if total else 0.0
     if non_comp_count == 0:
         severity = "Low"
-    elif non_comp_count == 1:
+    elif deviation_rate < 0.2:
         severity = "Medium"
-    elif non_comp_count == 2:
+    else:
         severity = "High"
-    elif non_comp_count >= 3:
-        severity = "Critical"
 
     return {
         "finding": {
@@ -127,14 +129,21 @@ def _format_observation(inputs: dict) -> dict:
             "severity": severity,
             "status": "Open",
             "condition": finding_context.get("condition", "No periodic access recertification for critical applications"),
-            "criteria": "ISACA Standard S17; Company Policy ISP-003 Section 4.2; COBIT APO13.02",
+            # Criteria cite the auditee's obligations from the input (policy) plus the
+            # COBIT practice -- never ITAF, never unverifiable identifiers.
+            "criteria": (
+                finding_context.get("policy_reference", "<auditee policy reference required>")
+                + "; COBIT 2019 DSS05.04 (Manage user identity and logical access)"
+            ),
             "cause": {
-                "description": "Lack of automated recertification tooling; insufficient staff",
+                "description": finding_context.get(
+                    "cause_note", "Lack of automated recertification tooling; insufficient staff"
+                ),
                 "root_cause_category": "Technology",
             },
             "effect": {
                 "actual": finding_context.get("actual_effect", "Terminated employees retained active access"),
-                "potential": "Unauthorized data access; GDPR Article 32 penalties up to EUR 20M",
+                "potential": "Unauthorized data access; regulatory exposure under GLBA (Interagency Guidelines, 12 CFR 30 App. B) and FFIEC examination criticism",
                 "cobit_criteria_affected": ["Confidentiality", "Integrity", "Compliance"],
             },
             "recommendations": [
@@ -152,7 +161,7 @@ def _format_observation(inputs: dict) -> dict:
                 {
                     "type": "Long-term",
                     "action": "Increase security staffing by 1 FTE for access governance",
-                    "target": "Q2 2026",
+                    "target": "Q1 2027",
                 },
             ],
             "sample_summary": {
@@ -178,7 +187,7 @@ def _assess_design_factors(inputs: dict) -> dict:
     }
 
     prioritized = [
-        {"objective": "MEA03", "name": "Managed Compliance", "priority": 1, "rationale": "High regulatory risk; compliance-focused strategy"},
+        {"objective": "MEA03", "name": "Managed Compliance With External Requirements", "priority": 1, "rationale": "High regulatory risk; compliance-focused strategy"},
         {"objective": "APO12", "name": "Managed Risk", "priority": 2, "rationale": "Moderate technology risk; legacy core banking"},
         {"objective": "APO13", "name": "Managed Security", "priority": 3, "rationale": "High regulatory risk demands security governance"},
         {"objective": "DSS04", "name": "Managed Continuity", "priority": 4, "rationale": "Moderate threat landscape; vendor concentration risk"},

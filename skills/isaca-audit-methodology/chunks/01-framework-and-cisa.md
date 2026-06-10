@@ -18,7 +18,7 @@ ISACA (est. 1969) provides global standards for IT governance, audit, risk, and 
 | Digital Trust | DTEF (Digital Trust Ecosystem Framework) |
 | Professional Cert | CISA, CISM, CRISC, CGEIT, CDPSE, CCOA, AAIA, AAIR, AAISM, CCP, CCA, LCCA, CCI |
 
-ISACA also offers CMMC certifications (CCP, CCA, LCCA, CCI) and advanced AI credentials (AAIA, AAIR, AAISM). Verify current names and availability at ISACA.org.
+ISACA was authorized in 2025 as the CAICO (Cybersecurity Assessor and Instructor Certification Organization) for the US DoD/DoW CMMC program and administers the CMMC credentials (CCP, CCA, Lead CCA, CCI); the transition from the Cyber AB completes April 2026. ISACA also offers advanced AI credentials (AAIA, AAIR, AAISM). Verify current names, roles, and availability at ISACA.org.
 
 ## CISA 5 Domain Summary
 
@@ -34,7 +34,7 @@ ISACA also offers CMMC certifications (CCP, CCA, LCCA, CCI) and advanced AI cred
 
 Core IS audit methodology. Key tasks: risk-based engagement planning, control identification, scoping, evidence gathering (physical/documentary/testimonial/analytical), test evaluation, communicating findings, follow-up, QA review.
 
-Knowledge areas: ITAF standards (S1-S18 pedagogical reconstruction), risk-based planning (5-step), sampling (statistical: attribute/variable/MUS; non-statistical: judgmental/haphazard/random), CAATs, materiality (AR = IR x CR x DR), independence requirements.
+Knowledge areas: ITAF standards, risk-based planning (5-step), sampling (statistical: attribute/variable/MUS; non-statistical: judgmental/haphazard), CAATs, the audit risk model (AR = IR x CR x DR) and materiality thresholds (related but distinct concepts), independence requirements.
 
 ### D2 - Governance (18%)
 
