@@ -15,13 +15,13 @@ from pathlib import Path
 
 import pytest
 
-SIBLING_SKILLS = frozenset([
-    "nist-800-53-rmf",
-    "isaca-audit-methodology",
-    "coso-internal-controls",
-    "aicpa-soc-reporting",
-    "audit-workpapers",
-])
+# Auto-discovered so the list can never go stale (it previously sat at 5
+# skills, silently skipping cross-skill reference checks for nist-csf-2).
+SIBLING_SKILLS = frozenset(
+    p.parent.name
+    for p in (Path(__file__).resolve().parent.parent / "skills").glob("*/SKILL.md")
+    if p.parent.name != "TEMPLATE"
+)
 
 # Match chunk paths with OR without backticks, but only when in routing table
 # context. Two patterns:

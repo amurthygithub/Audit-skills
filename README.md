@@ -122,7 +122,7 @@ context_budget:
 
 🔬 **Tested against data, not just docs.** Every skill ships with synthetic data generators + seed fixtures — FIPS-199 categorizations, control inventories, SAR findings, MUS populations, SOC engagements. Tests run *against* the data, like testing a junior auditor against a known-good reference set.
 
-🔁 **Tested against workflows, not just outputs.** 9 test files per skill cover the full audit lifecycle: oracle (does the right answer come out?), grounding (are citations real?), trace (does the routing match the workflow step?), metamorphic (does it survive rephrasing?), adversarial (does it hold up under pressure?), telemetry (is it instrumented?).
+🔁 **Tested against workflows, not just outputs.** 6 skill-specific test files per skill (plus shared root-level lint, consistency, and telemetry-drift suites) cover the full audit lifecycle: oracle (does the right answer come out?), grounding (are citations real?), trace (does the routing match the workflow step?), metamorphic (does it survive rephrasing?), adversarial (does it hold up under pressure?), telemetry (is it instrumented?).
 
 🔗 **Cross-mapped across frameworks.** NIST ↔ HIPAA ↔ PCI ↔ ISO 27001 ↔ SOC 2 ↔ CJIS ↔ IRS 1075 ↔ state RMF — point-of-focus granularity, not category handwaves. A finding in one framework resolves to a finding in another.
 

@@ -20,22 +20,18 @@ from pathlib import Path
 
 __test__ = False  # not a test module — see module docstring
 
-SKILLS = (
-    "nist-800-53-rmf",
-    "isaca-audit-methodology",
-    "coso-internal-controls",
-    "aicpa-soc-reporting",
-    "audit-workpapers",
-    "nist-csf-2",
-)
+def _discover_skills(repo_root: Path):
+    """On-Spine skills, auto-discovered so the list can never go stale."""
+    return sorted(
+        p.parent
+        for p in (repo_root / "skills").glob("*/SKILL.md")
+        if p.parent.name != "TEMPLATE"
+    )
 
 
 def pytest_configure(config):  # noqa: ARG001 — pytest hook signature
     repo_root = Path(__file__).resolve().parent
-    for skill in SKILLS:
-        skill_root = repo_root / "skills" / skill
-        if not skill_root.is_dir():
-            continue
+    for skill_root in _discover_skills(repo_root):
         path = str(skill_root)
         if path not in sys.path:
             sys.path.insert(0, path)

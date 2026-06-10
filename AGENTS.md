@@ -21,7 +21,7 @@ Every entry in `docs/lessons-learned.md` must map to a linter rule, a test, or a
 - `skills/<slug>/chunks/NN-slug.md` — content chunks, ≤200 lines each
 - `skills/<slug>/industries/` — 3-4 industry view files + `_index.md`
 - `skills/<slug>/use-cases/` — 3-4 use cases + `_index.md`
-- `skills/<slug>/tests/` — 9 test files + `<slug>_stub.py`
+- `skills/<slug>/tests/` — 6 skill-specific test files (oracle, grounding, trace, metamorphic, adversarial, telemetry) + `<slug>_stub.py`; lint + consistency run from root `tests/` parametrized over all skills
 - `skills/<slug>/data/` — generators, seeds, crosswalks
 - `skills/<slug>/docs/` — architecture, limits, changelog, acceptance-gate
 - `skills/<slug>/telemetry/` — schema, instrument, redaction, baseline
@@ -42,7 +42,7 @@ Every change belongs to exactly one work type. All four run the same G0–G6 spi
 
 | Work type | G1 Research | G2 Design | G3 Build | G4 Verify |
 |---|---|---|---|---|
-| **A. New CORPUS skill** | Fact-sheet (full) | 15-section design doc + file-requirements spec | Router + chunks + industries + UCs + 9 test files | 5-lens + §5.11 + persona vetting + consumer smoke test |
+| **A. New CORPUS skill** | Fact-sheet (full) | 15-section design doc + file-requirements spec | Router + chunks + industries + UCs + 6 test files | 5-lens + §5.11 + persona vetting + consumer smoke test |
 | **B. Skill edit** | Verify changed facts vs live sources | — (PR description suffices) | Edited files | §5.11 on changed claims; re-run affected UC smoke test if routing/UC content changed |
 | **C. ARGUS tool** (audit-skills-mcp repo) | Fact-sheet (formulas, authoritative params) | Golden reference cases (SOX-612 format) | Implementation + unit tests | Harness validation vs golden cases (Epic 6) |
 | **D. GTM post** | Source artifact must exist in repo | — | Post draft in `claude-outputs/` | Artifact link resolves; claims match shipped skill content |
@@ -102,7 +102,7 @@ A skill is not done when its tests pass. It is done when a stranger can use it c
 
 ### 3.2 Fresh-agent smoke test
 - Load the skill into a **clean agent session** (no repo context), run each UC's input verbatim, and check the output against the UC oracle.
-- This proves the skill works as a *prompt*, not just as linted markdown. The 9 test files validate the stub; the smoke test validates the skill.
+- This proves the skill works as a *prompt*, not just as linted markdown. The test files validate the stub; the smoke test validates the skill.
 - Use `prompts/consumer-smoke-test.md`. Record results as rows in `docs/acceptance-gate.md`.
 - When the Epic 6 harness lands (SOX-600), this becomes automated: N runs per golden case, pass-rate ≥95%, cross-model matrix. Until then it is manual and mandatory.
 
