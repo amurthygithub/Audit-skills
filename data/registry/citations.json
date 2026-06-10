@@ -91,6 +91,36 @@
     "aicpa-soc-reporting"
    ]
   },
+  "CFR-45-102": {
+   "title": "Adjustment of Civil Monetary Penalties for Inflation (45 CFR Part 102)",
+   "publisher": "eCFR (Office of the Federal Register)",
+   "identifier": "45 CFR § 102.3 Table 1 (HIPAA rows: 42 U.S.C. 1320d-5 / 45 CFR 160.404)",
+   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "CFR-45-164-Subpart-C": {
+   "title": "Security Standards for the Protection of Electronic Protected Health Information (45 CFR Part 164, Subpart C)",
+   "publisher": "eCFR (Office of the Federal Register)",
+   "identifier": "45 CFR §§ 164.302–164.318 and Appendix A",
+   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "CISA-CPG": {
+   "title": "Cross-Sector Cybersecurity Performance Goals",
+   "publisher": "CISA",
+   "identifier": "CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A)",
+   "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
   "CISA-CRM-28E": {
    "title": "CISA Review Manual 28th Edition",
    "publisher": "ISACA",
@@ -215,6 +245,16 @@
     "coso-internal-controls"
    ]
   },
+  "CSA-CCM-v4": {
+   "title": "Cloud Controls Matrix (CCM) v4",
+   "publisher": "Cloud Security Alliance",
+   "identifier": "v4 (17 domains)",
+   "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
   "CSF-2.0-Informative-References": {
    "title": "NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth)",
    "publisher": "NIST",
@@ -277,6 +317,26 @@
     "aicpa-soc-reporting"
    ]
   },
+  "HHS-SRA-Tool": {
+   "title": "Security Risk Assessment (SRA) Tool",
+   "publisher": "HHS ONC / OCR (HealthIT.gov)",
+   "identifier": "Current",
+   "url": "https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "HIPAA-Security-NPRM-2025": {
+   "title": "HIPAA Security Rule To Strengthen the Cybersecurity of Electronic Protected Health Information (Proposed Rule)",
+   "publisher": "HHS Office for Civil Rights / Federal Register",
+   "identifier": "90 FR 898; RIN 0945-AA22; PROPOSED, not final as of 2026-06-10",
+   "url": "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
   "HIPAA-Security-Rule": {
    "title": "45 CFR § 164.302–164.318",
    "publisher": "HHS",
@@ -284,9 +344,9 @@
    "url": "https://www.hhs.gov/hipaa/for-professionals/security/",
    "retrieval_date": "2026-06-09",
    "cited_by": [
+    "hipaa-security-rule",
     "nist-800-53-rmf",
-    "nist-csf-2",
-    "hipaa-security-rule"
+    "nist-csf-2"
    ]
   },
   "IAASB-ISA-230": {
@@ -519,6 +579,16 @@
     "nist-800-53-rmf"
    ]
   },
+  "NIST-SP-800-53B": {
+   "title": "Control Baselines for Information Systems and Organizations",
+   "publisher": "NIST",
+   "identifier": "SP 800-53B (Oct 2020, incl. updates)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
   "NIST-SP-800-60": {
    "title": "Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II)",
    "publisher": "NIST",
@@ -556,8 +626,8 @@
    "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
    "retrieval_date": "2026-05-25",
    "cited_by": [
-    "nist-800-53-rmf",
-    "hipaa-security-rule"
+    "hipaa-security-rule",
+    "nist-800-53-rmf"
    ]
   },
   "NIST-SP-800-82-Rev3": {
@@ -703,6 +773,16 @@
     "nist-800-53-rmf"
    ]
   },
+  "PL-116-321": {
+   "title": "An Act to amend the HITECH Act to require consideration of certain recognized security practices (HR 7898)",
+   "publisher": "U.S. Government Publishing Office (govinfo)",
+   "identifier": "Public Law 116-321, 134 Stat. 5072, approved Jan. 5, 2021; adds HITECH §13412 (42 U.S.C. 17941)",
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-116publ321/html/PLAW-116publ321.htm",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
   "SEC-Reg-S-K-Item-308": {
    "title": "Management's Report on Internal Control Over Financial Reporting",
    "publisher": "SEC",
@@ -772,86 +852,6 @@
    "retrieval_date": "2026-05-25",
    "cited_by": [
     "aicpa-soc-reporting"
-   ]
-  },
-  "CSA-CCM-v4": {
-   "title": "Cloud Controls Matrix (CCM) v4",
-   "publisher": "Cloud Security Alliance",
-   "identifier": "v4 (17 domains)",
-   "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "isaca-audit-methodology"
-   ]
-  },
-  "CISA-CPG": {
-   "title": "Cross-Sector Cybersecurity Performance Goals",
-   "publisher": "CISA",
-   "identifier": "CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A)",
-   "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "nist-csf-2"
-   ]
-  },
-  "NIST-SP-800-53B": {
-   "title": "Control Baselines for Information Systems and Organizations",
-   "publisher": "NIST",
-   "identifier": "SP 800-53B (Oct 2020, incl. updates)",
-   "url": "https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "nist-800-53-rmf"
-   ]
-  },
-  "45-CFR-164-Subpart-C": {
-   "title": "Security Standards for the Protection of Electronic Protected Health Information (45 CFR Part 164, Subpart C)",
-   "publisher": "eCFR (Office of the Federal Register)",
-   "identifier": "45 CFR §§ 164.302–164.318 and Appendix A",
-   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "hipaa-security-rule"
-   ]
-  },
-  "HIPAA-Security-NPRM-2025": {
-   "title": "HIPAA Security Rule To Strengthen the Cybersecurity of Electronic Protected Health Information (Proposed Rule)",
-   "publisher": "HHS Office for Civil Rights / Federal Register",
-   "identifier": "90 FR 898; RIN 0945-AA22; PROPOSED, not final as of 2026-06-10",
-   "url": "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "hipaa-security-rule"
-   ]
-  },
-  "HHS-SRA-Tool": {
-   "title": "Security Risk Assessment (SRA) Tool",
-   "publisher": "HHS ONC / OCR (HealthIT.gov)",
-   "identifier": "Current",
-   "url": "https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "hipaa-security-rule"
-   ]
-  },
-  "PL-116-321": {
-   "title": "An Act to amend the HITECH Act to require consideration of certain recognized security practices (HR 7898)",
-   "publisher": "U.S. Government Publishing Office (govinfo)",
-   "identifier": "Public Law 116-321, 134 Stat. 5072, approved Jan. 5, 2021; adds HITECH §13412 (42 U.S.C. 17941)",
-   "url": "https://www.govinfo.gov/content/pkg/PLAW-116publ321/html/PLAW-116publ321.htm",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "hipaa-security-rule"
-   ]
-  },
-  "45-CFR-102": {
-   "title": "Adjustment of Civil Monetary Penalties for Inflation (45 CFR Part 102)",
-   "publisher": "eCFR (Office of the Federal Register)",
-   "identifier": "45 CFR § 102.3 Table 1 (HIPAA rows: 42 U.S.C. 1320d-5 / 45 CFR 160.404)",
-   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102",
-   "retrieval_date": "2026-06-10",
-   "cited_by": [
-    "hipaa-security-rule"
    ]
   }
  }

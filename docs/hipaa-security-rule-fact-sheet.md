@@ -249,7 +249,7 @@ identifiers:
     name: "Updates (Required)"
     parent: "164.316(b)(1)"
 urls:
-  - label: "45-CFR-164-Subpart-C"
+  - label: "CFR-45-164-Subpart-C"
     url: "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C"
     status: 200
     checked: "2026-06-10"

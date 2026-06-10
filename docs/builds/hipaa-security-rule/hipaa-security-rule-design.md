@@ -44,7 +44,7 @@ right-sizing via §164.306(b)(2) flexibility factors.
 - nist-800-53-rmf: HIPAA crosswalk completion is **SOX-638**, gated on CPRT extraction — not
   this build.
 - nist-csf-2 healthcare industry view: cross-reference only (no shared data files).
-- Registry: new citations (45-CFR-164-Subpart-C, HIPAA-Security-NPRM-2025, NIST-SP-800-66r2,
+- Registry: new citations (CFR-45-164-Subpart-C, HIPAA-Security-NPRM-2025, NIST-SP-800-66r2,
   HHS-SRA-Tool, PL-116-321) go to `data/registry/citations.json` FIRST.
 
 ### 1.6 Out-of-scope (explicit non-goals)
