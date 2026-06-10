@@ -23,6 +23,7 @@ v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass
 | Total tests passing | 190 | **297** |
 | CI/CD checks | 3 | **3 (unchanged)** |
 | §5.11 factual verification | — | **3 rounds across all 6 skills (50+ findings fixed)** |
+| G4.5 consumer-ready vetting | — | **6/6 skills persona-vetted + live-source verified (2026-06; ~37 CRITICAL / ~80 HIGH verified findings resolved — LLM-vetted: a filter, not a certification; per-skill evidence in `skills/*/docs/persona-review.md`)** |
 | Day 0 pre-build research | — | **`docs/fact-sheet-template.md` (research before build)** |
 | Agent runtime instructions | — | **`AGENTS.md` (auto-loaded via `opencode.json`)** |
 | Builder documentation | — | **`docs/skill-design-template.md` (15-section, Day 0–9 build sequence)** |
@@ -42,7 +43,7 @@ v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass
 | **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 49 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
 | **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 76 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 
-**297 tests across 6 skills, 0 failures. All pass the Tier 0a linter.**
+**306 tests across 6 skills, 0 failures. All pass the Tier 0a linter. All 6 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
 
 ---
 
@@ -299,7 +300,7 @@ python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
 
 # 4. Run the test suite
 pytest skills/ tests/ -q
-# → 297 passed across all 6 skills
+# → 306 passed across all 6 skills
 
 # (Optional) Install all skills into opencode as full packages
 ./install.sh
