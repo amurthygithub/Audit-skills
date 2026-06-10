@@ -77,10 +77,15 @@ Run in order; each pass uses its version-controlled prompt:
 1. **5-lens review** — `prompts/five-lens-review.md`. 5 agents in parallel, one per lens.
 2. **§5.11 source-of-truth verification** — `prompts/s511-verification.md`. 1+ agent **with webfetch**, every factual claim vs live sources.
 3. **Fix pass** — `prompts/fix-pass.md`. 1 agent per skill, exact findings with line numbers. Fix agents do NOT commit or push.
-4. **Re-verify** — rerun `prompts/s511-verification.md` on the fixed files. Fix agents introduce new errors; re-verification is not optional.
+4. **Re-verify** — rerun `prompts/s511-verification.md` on the fixed files. Fix agents introduce new errors; re-verification is not optional, and it happens **before the PR merges**, never after.
 5. **Consumer-ready gate (G4.5)** — required for work type A; see §3.
 
-Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval date | verifier | status. ≥20 rows. Any FAIL blocks release.
+**Verification tiers — what counts as "verified" (learned 2026-06-09, nist-800-53-rmf vetting):**
+- **Tier 1 — mechanical:** proved by computation on disk (counted, diffed, grepped, executed). Strongest; always do this first for internal-consistency claims.
+- **Tier 2 — live source:** a webfetch agent fetched the authoritative source and quoted the supporting sentence verbatim. Required for EVERY external framework fact that is added or changed.
+- **Tier 3 — concurrence:** the reviewer's knowledge agrees with other agents' knowledge. **Concurrence is a triage signal, NOT verification.** A fix justified only by Tier 3 is an unverified fix — it must be Tier-2 verified before the PR merges, or written as a verify-against caveat instead of a specific claim.
+
+Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval date | verifier | status, **with a verbatim source quote for every Tier-2 row**. ≥20 rows. Any FAIL blocks release.
 
 ### G5 — Ship
 - **Everything merges via PR. No direct pushes to `main`, no admin bypass — including docs-only changes.**
@@ -112,6 +117,14 @@ A skill is not done when its tests pass. It is done when a stranger can use it c
 ### 3.3 Persona vetting (perspective-vetted)
 - The 5 practitioner personas from the design template §7 are not a design-time thought exercise — they run **against the built skill** as review agents using `prompts/persona-vetting.md`.
 - Output: `skills/<slug>/docs/persona-review.md` — persona | finding | severity | resolution. Blocking findings fixed before release.
+
+### 3.3.1 Per-skill vetting runbook (the corrected order — run it exactly like this)
+1. **Persona vetting + smoke tests** in parallel (5 persona agents + 1 clean session per UC).
+2. **Verify every CRITICAL/HIGH finding before fixing it** — findings are hypotheses, not facts: Tier 1 (mechanical) for internal claims, Tier 2 (live source) for external claims. Drop findings that don't verify.
+3. **Fix pass** — verified findings only. Where a correct value can't be Tier-2 verified yet, write a verify-against caveat, not a new specific claim.
+4. **§5.11 re-verify (live, webfetch) every external fact the fix pass touched** — BEFORE the PR merges. Evidence rows with verbatim quotes go into acceptance-gate.md.
+5. Re-run any FAILed smoke test in a fresh clean session after the fix.
+6. Structural findings that can't be inline-fixed safely get tickets; persona-review.md records every finding's resolution (fixed PR-N / ticketed SOX-N / accepted-with-rationale). Zero unresolved CRITICAL/HIGH to pass the gate.
 
 ### 3.4 Industry vetting
 - Each `industries/<industry>.md` file gets a persona review from that industry's practitioner persona (same prompt file, industry section).

@@ -9,7 +9,7 @@ Dispatch **1 agent per skill**, in parallel across skills. Each agent receives t
 ## Rules
 
 1. **Fix only what is listed.** No opportunistic rewrites, no style improvements, no reorganizing. Every unlisted change makes re-verification harder.
-2. **Use the expected value from the finding.** If a finding has no expected value, do not guess — flag it back as "needs source" instead of inventing a correction.
+2. **Use the expected value from the finding — and check its provenance.** For external framework facts, the finding must cite a live source (URL + quote). If it only says "reviewers agree" or has no source, do NOT apply a new specific claim — either flag it back as "needs source" or replace the wrong claim with a verify-against caveat. Concurrence between reviewers is not a source.
 3. **Edit files in the repo path** (`/Users/amurthy/Code/Audit-skills/skills/{{skill_slug}}/`), never `~/.config/opencode/skills/`. Historically ~60% of fix agents get this wrong.
 4. **Do NOT commit. Do NOT push.** The dispatcher reviews `git diff` and commits.
 5. **Keep counts synchronized.** If you fix a count in one file, grep for the same count in every other file of the skill and fix all occurrences — partial fixes create the self-contradictions the next verification pass will flag.
