@@ -101,16 +101,6 @@
         "isaca-audit-methodology"
       ]
     },
-    "CISA-ICS-CPG": {
-      "title": "Cross-Sector Industrial Control Systems Cybersecurity Performance Goals",
-      "publisher": "CISA",
-      "identifier": "1.0 (2024)",
-      "url": "https://www.cisa.gov/ics-cybersecurity-performance-goals",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
     "CMMC-2.0": {
       "title": "Cybersecurity Maturity Model Certification",
       "publisher": "DoD",
@@ -236,11 +226,11 @@
       ]
     },
     "FFIEC-CAT": {
-      "title": "Cybersecurity Assessment Tool",
+      "title": "Cybersecurity Assessment Tool (SUNSET effective Aug 31, 2025 — historical reference only)",
       "publisher": "FFIEC",
-      "identifier": "v2.x (2024)",
-      "url": "https://www.ffiec.gov/cyberassessmenttool.htm",
-      "retrieval_date": "2026-06-09",
+      "identifier": "May 2017 (final version; no v2 was ever published)",
+      "url": "https://www.ffiec.gov/sites/default/files/media/press-releases/2024/cat-sunset-statement-ffiec-letterhead.pdf",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "nist-csf-2"
       ]
@@ -435,21 +425,21 @@
       ]
     },
     "NIST-SP-1299": {
-      "title": "CSF 2.0 Small Business Quick-Start Guide",
+      "title": "NIST Cybersecurity Framework 2.0: Resource and Overview Guide",
       "publisher": "NIST",
-      "identifier": "2024",
-      "url": "https://www.nist.gov/cyberframework",
-      "retrieval_date": "2026-06-09",
+      "identifier": "SP 1299 (Feb 2024)",
+      "url": "https://csrc.nist.gov/pubs/sp/1299/final",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "nist-csf-2"
       ]
     },
     "NIST-SP-1300": {
-      "title": "CSF 2.0 Profile Success Story",
+      "title": "NIST Cybersecurity Framework 2.0: Small Business Quick-Start Guide",
       "publisher": "NIST",
-      "identifier": "2024",
-      "url": "https://www.nist.gov/cyberframework",
-      "retrieval_date": "2026-06-09",
+      "identifier": "SP 1300 (Feb 2024)",
+      "url": "https://csrc.nist.gov/pubs/sp/1300/final",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "nist-csf-2"
       ]
@@ -790,6 +780,16 @@
       "retrieval_date": "2026-06-10",
       "cited_by": [
         "isaca-audit-methodology"
+      ]
+    },
+    "CISA-CPG": {
+      "title": "Cross-Sector Cybersecurity Performance Goals",
+      "publisher": "CISA",
+      "identifier": "CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A)",
+      "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
+      "retrieval_date": "2026-06-10",
+      "cited_by": [
+        "nist-csf-2"
       ]
     }
   }

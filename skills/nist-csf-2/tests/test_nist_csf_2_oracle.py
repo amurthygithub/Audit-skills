@@ -27,6 +27,11 @@ def test_uc_01_oracle():
     cp = out["current_profile"]
     assert cp["current_tier_by_function"]["GV"] == "T1"
     assert cp["current_tier_by_function"]["PR"] == "T2"
+    # All 6 Functions present; RECOVER (no scored rows in the seed) defaults to T1
+    assert set(cp["current_tier_by_function"]) == {"GV", "ID", "PR", "DE", "RS", "RC"}
+    assert cp["current_tier_by_function"]["RC"] == "T1"
+    # The status-derived demo heuristic never emits T4
+    assert all(t in ("T1", "T2", "T3") for t in cp["current_tier_by_function"].values())
     assert len(cp["subcategory_scores"]) == 8
 
 
@@ -89,7 +94,7 @@ def test_uc_02_capital_plan_range():
 
 
 def test_uc_03_oracle():
-    """UC-03: DoD supplier maps 14 lagging CSF 2.0 Subcategories to 800-171 Rev 3 for CMMC L2."""
+    """UC-03: DoD supplier maps 14 lagging CSF 2.0 Subcategories to 800-171 Rev 2 (the CMMC L2 set)."""
     payload = _load("uc-03-input.json")
     out = run_skill("UC-03", payload)
     assert len(out["gap_subcategories"]) == 14
@@ -111,21 +116,26 @@ def test_uc_03_crosswalk_size():
 
 
 def test_uc_03_800_171_control_format():
-    """UC-03 crosswalk primary_800_171_control values are all 800-171 Rev 3 control IDs (3.x.x format)."""
+    """UC-03 crosswalk primary controls use 800-171 REV 2 IDs (3.x.y) — CMMC L2 assesses
+    Rev 2 per 32 CFR 170.14(c)(3). (Rev 3 uses 03.xx.yy and is NOT the CMMC L2 set.)"""
     payload = _load("uc-03-input.json")
     out = run_skill("UC-03", payload)
     for row in out["crosswalk"]:
         ctrl = row.get("primary_800_171_control", "")
-        assert ctrl.startswith("3."), f"Invalid 800-171 control: {ctrl}"
+        assert ctrl.startswith("3.") and not ctrl.startswith("03."), f"Not a Rev 2 control ID: {ctrl}"
 
 
 def test_uc_03_cmmc_l2_domains():
-    """UC-03 readiness covers all 4 CMMC L2 practice domains Apex is targeting."""
+    """UC-03 readiness covers the 4 800-171 Rev 2 families Apex targets first."""
     payload = _load("uc-03-input.json")
     out = run_skill("UC-03", payload)
     domains = {row["practice_domain"] for row in out["cmmc_l2_readiness"]}
     expected = {"Access Control", "Identification & Authentication", "Configuration Management", "Incident Response"}
     assert domains == expected, f"Missing CMMC L2 domains: {expected - domains}"
+    # Readiness counts cannot exceed the family's actual Rev 2 control count (IR has 3)
+    for row in out["cmmc_l2_readiness"]:
+        if row["practice_domain"] == "Incident Response":
+            assert row["controls_assessed"] <= 3
 
 
 @pytest.mark.parametrize("uc_id", ["UC-01", "UC-02", "UC-03"])

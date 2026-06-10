@@ -11,9 +11,7 @@ NIST publishes an "Informative References" spreadsheet alongside CSF 2.0 that ma
 
 ## 1. What informative references are (and what they are not)
 
-An **informative reference** in NIST parlance is a citation in the framework text that points to a related authoritative source. For CSF 2.0, NIST publishes a spreadsheet that lists, for each Subcategory, the corresponding controls in ~50 other frameworks. The published spreadsheet is the **primary source** for all CSF crosswalks.
-
-What informative references **are**: a NIST-curated view of how a CSF Subcategory outcome relates to controls in other frameworks; a starting point for orgs that need to demonstrate coverage of multiple frameworks with one evidence base; a bridge between outcome-oriented frameworks (CSF, COBIT) and control-oriented frameworks (800-53, ISO 27001 Annex A).
+An **informative reference** in NIST parlance is a citation pointing to a related authoritative source; for CSF 2.0, NIST publishes a spreadsheet listing, per Subcategory, the corresponding controls in ~50 other frameworks — the **primary source** for all CSF crosswalks. They are: a NIST-curated view of how a Subcategory outcome relates to controls elsewhere; a starting point for multi-framework evidence reuse; a bridge between outcome-oriented frameworks (CSF, COBIT) and control-oriented ones (800-53, ISO 27001 Annex A).
 
 What informative references **are not**: **normative** (an org can deviate with a documented rationale); **1:1** (most Subcategories map to 2-15 controls in 800-53, the 1-to-many pattern is dominant); **exhaustive** (the 50 frameworks are not all the frameworks an org might face); **authoritative for the target framework** (the CSF ↔ 800-53 mapping tells you how a Subcategory relates to 800-53; for the authoritative 800-53 control, you read 800-53 itself).
 
@@ -78,9 +76,9 @@ The full mapping is many-to-many: a single 800-53 control (e.g., `AC-2`) can be 
 
 ## 3. The CSF ↔ 800-171 crosswalk (moderate baseline, federal-adjacent)
 
-NIST SP 800-171 Rev 3 [NIST-SP-800-171] is the moderate-baseline control set for protecting Controlled Unclassified Information (CUI) in nonfederal systems. The CSF ↔ 800-171 mapping is similar in shape to CSF ↔ 800-53 Moderate but with 800-171's 14 control families (3xx series). 800-171 maps to CMMC 2.0 Level 2; orgs pursuing CMMC L2 use the CSF ↔ 800-171 crosswalk as the bridge.
+NIST SP 800-171 [NIST-SP-800-171] protects Controlled Unclassified Information (CUI) in nonfederal systems. Two revisions matter (verified 2026-06-10): **Rev 2** (Feb 2020) has **110 requirements across 14 families**, IDs `3.x.y` — and **CMMC Level 2 assesses against Rev 2** (32 CFR 170.14(c)(3): "The security requirements in CMMC Level 2 are identical to the requirements in NIST SP 800-171 R2"); use Rev 2 numbering for all CMMC work until DoD adopts Rev 3. **Rev 3** (May 2024, the current NIST publication) has **97 requirements across 17 families**, IDs `03.xx.yy`; the IR spreadsheet's 800-171 column maps to Rev 3.
 
-Representative samples (the full mapping will be added in Wave 2 as a JSON in `data/crosswalks/csf-to-800-171-r3.json`):
+Representative Rev 3 samples per the IR spreadsheet (re-verify each row against the live spreadsheet before client use; this skill ships no derivative JSON):
 
 | CSF Subcategory | 800-171 Rev 3 controls (per NIST IR spreadsheet) |
 |-----------------|------------------------------------------------|
@@ -92,13 +90,13 @@ Representative samples (the full mapping will be added in Wave 2 as a JSON in `d
 | `RC.RP-01` (recovery executed) | 03.06.01, 03.06.05 |
 | `GV.SC-03` (C-SCRM integrated) | 03.11.01, 03.11.04, 03.15.01, 03.17.01, 03.17.03 |
 
-800-171 is a strict subset of 800-53 Moderate (~110 controls vs 800-53's ~325); the CSF → 800-171 mapping is therefore a strict subset of the CSF → 800-53 mapping. For orgs pursuing CMMC L2, the practical workflow is: CSF Current Profile → identify lagging Subcategories → map to 800-171 → produce the System Security Plan (SSP) for the CMMC assessment.
+800-171's requirements are derived from the 800-53 Moderate baseline (Rev 2: 110 requirements vs 800-53's ~300+ Moderate controls), so the CSF → 800-171 mapping is essentially a focused subset of the CSF → 800-53 mapping. For orgs pursuing CMMC L2, the practical workflow is: CSF Current Profile → identify lagging Subcategories → map to **800-171 Rev 2** (the CMMC L2 set) → produce the System Security Plan (SSP) for the CMMC assessment.
 
 ## 4. The CSF ↔ ISO 27001:2022 crosswalk (Annex A controls)
 
 ISO 27001:2022 [ISO-27001-2022] introduced a new Annex A with 93 controls organized in 4 themes (Organizational, People, Physical, Technological). The CSF ↔ ISO 27001 mapping is outcome-to-control: a CSF Subcategory typically maps to 1-3 Annex A controls, and an Annex A control typically supports 1-3 CSF Subcategories.
 
-Representative samples (the full mapping will be added in Wave 2 as a JSON in `data/crosswalks/csf-to-iso27001-2022.json`):
+Representative samples (re-verify against the live IR spreadsheet; this skill ships no derivative JSON):
 
 | CSF Subcategory | ISO 27001:2022 Annex A controls (per NIST IR spreadsheet) | Notes |
 |-----------------|----------------------------------------------------------|-------|
@@ -111,7 +109,7 @@ Representative samples (the full mapping will be added in Wave 2 as a JSON in `d
 | `PR.PS-01` (configuration mgmt) | Annex A: 8.9; Mandatory: 9.3 | Configuration mgmt |
 | `DE.CM-01` (network monitoring) | Annex A: 8.16 | Monitoring activities |
 | `RS.MA-01` (IR plan) | Annex A: 5.26, 5.27, 5.28 | Incident management planning |
-| `RC.RP-01` (recovery executed) | Annex A: 5.26 | ICT readiness for business continuity |
+| `RC.RP-01` (recovery executed) | Annex A: 5.29, 5.30 | A.5.30 is "ICT readiness for business continuity" (A.5.26 is "Response to information security incidents" — it belongs to the RS.MA rows, not here) |
 
 ISO 27001:2022's 93 Annex A controls are far fewer than 800-53's ~325 Moderate controls. The mapping is therefore *denser* on the ISO side (each ISO control supports more CSF Subcategories on average) and *less granular* on the ISO side (ISO 27001 specifies the control outcome, not the enhancement-level implementation).
 
@@ -128,14 +126,15 @@ Representative samples (derived, not NIST CSF 2.0 IR):
 | `ID.AM-01` (asset inventory) | §164.308(a)(1)(ii)(A) | Administrative (risk analysis) |
 | `ID.RA-01` (vulnerabilities) | §164.308(a)(1)(ii)(A), §164.308(a)(8) | Administrative (evaluation) |
 | `PR.AA-01` (identity mgmt) | §164.308(a)(4), §164.312(a)(1), §164.312(d) | Admin + Technical (personnel, access control, authentication) |
-| `PR.AA-03` (MFA) | §164.312(d) | Technical (person or entity authentication) |
+| `PR.AA-03` (users/services/hardware authenticated) | §164.312(d) | Technical (person or entity authentication). NOTE: the current Security Rule does NOT require MFA — §164.312(d) requires authentication, full stop. In hospitals, pair any MFA rollout with the REQUIRED emergency access procedure, §164.312(a)(2)(ii) |
 | `PR.DS-01` (data-at-rest) | §164.312(a)(2)(iv) | Technical (encryption/decryption) |
 | `PR.IR-01` (network segmentation) | §164.312(e)(1) | Technical (transmission security) |
 | `DE.CM-01` (network monitoring) | §164.308(a)(1)(ii)(D) | Administrative (information system activity review) |
 | `RS.MA-01` (IR plan) | §164.308(a)(6) | Administrative (security incident procedures) |
-| `RS.CO-02` (regulator notification) | §164.404 (Breach Notification Rule) | Cross-reference to BNR |
+| `RS.CO-02` (stakeholders notified of incidents) | §164.408 (notification to the SECRETARY — the regulator); §164.404 is notification to INDIVIDUALS; §164.406 is media | Cross-reference to the Breach Notification Rule (verified eCFR text 2026-06-10) |
 | `RC.RP-01` (recovery) | §164.308(a)(7) | Administrative (contingency plan) |
-| `GV.SC-04` (supplier assessment) | §164.308(b)(1) | Administrative (business associate contracts) |
+| `PR.AA-06` (physical access managed) | §164.310(a)(1) Facility access controls; §164.310(b)-(d) workstation/device controls | Physical safeguards (this row is the only §164.310 coverage in this derived table — the Physical Safeguards set deserves a full pass) |
+| `GV.SC-05` (supply-chain requirements in contracts) | §164.308(b)(1) | Administrative (business associate contracts — the contractual outcome; GV.SC-04 is supplier prioritization, not BAAs) |
 
 **Source caveat (repeated for emphasis):** these HIPAA rows are derived, not authoritative NIST CSF 2.0 IR. Verify each row against the source regulations (45 CFR §164.308, §164.310, §164.312) and against NIST SP 800-66 Rev 2 before relying on it for a covered-entity engagement.
 
@@ -149,7 +148,7 @@ Examples of 1-to-many (per NIST IR spreadsheet, 800-53 Rev 5.1.1): `PR.AA-01` �
 
 The reverse (1-to-1) is the exception, not the rule. When producing a crosswalk for an org, expect to see 1-to-2 to 1-to-5 mappings as the norm; flag any 1-to-1 mapping for verification (it usually means the mapping is incomplete).
 
-**Practical consequence for the crosswalk JSON**: the curated `data/crosswalks/csf-to-*.json` files use the format `{"from_subcategory": "GV.OC-01", "to_framework": "800-53", "to_controls": ["PM-11"], "rationale": "..."}` — the `to_controls` is an **array**, not a scalar. (Some Subcategories map to multiple controls — see the 1-to-many examples in §6 — but many, like `GV.OC-01`, are 1-to-1 with a single 800-53 control.) The 800-53 RMF skill's `soc2-to-800-53-mod.json` uses a different format (1-to-1 control-to-control) because the SOC 2 ↔ 800-53 mapping is dominantly 1-to-1; the CSF → 800-53 mapping is dominantly 1-to-many. Any cross-skill parser consuming both formats must support both shapes.
+**Practical consequence for any curated crosswalk JSON an org builds** (this skill ships none — see §7): use the format `{"from_subcategory": "GV.OC-01", "to_framework": "800-53", "to_controls": ["PM-11"], "rationale": "..."}` — `to_controls` is an **array**, not a scalar. (Some Subcategories map to multiple controls — see the 1-to-many examples above — but some, like `GV.OC-01`, are 1-to-1.) The 800-53 RMF skill's `soc2-to-800-53-mod.json` uses a different format (1-to-1 control-to-control) because the SOC 2 ↔ 800-53 mapping is dominantly 1-to-1; the CSF → 800-53 mapping is dominantly 1-to-many. Any cross-skill parser consuming both formats must support both shapes.
 
 ## 7. Where the authoritative crosswalk lives
 
@@ -195,6 +194,6 @@ Required fields per row (suggested):
 - **The mapping is informative, not normative.** An org can deviate from the published mapping with a documented rationale. Do not present the curated JSON as a "you must implement these controls" list; present it as a starting point for evidence reuse.
 - **The 1-to-many nature is the dominant pattern, not the exception.** A statement like "PR.AA-01 maps to IA-2" is incomplete (it ignores IA-5, AC-2, AC-3, etc.). When the crosswalk JSON shows 1-to-1 for a Subcategory that the NIST spreadsheet shows 1-to-many, the curated JSON is incomplete — flag and update.
 - **CSF Subcategories are outcomes, not controls.** The crosswalk is outcome-to-control, not control-to-control. Treating the crosswalk as a 1-to-1 control substitution ("replace IA-2 with PR.AA-01") is wrong; the CSF Subcategory is what you want to achieve, and the target-framework control is one of several mechanisms that produce it.
-- **The 800-171 mapping is a subset of the 800-53 mapping**, not a parallel mapping. 800-171's 14 control families are a strict subset of 800-53's 20+ families. Do not invent mappings that exist in 800-171 but not in 800-53.
+- **The 800-171 mapping is derived from the 800-53 Moderate baseline**, not a parallel mapping (Rev 2: 14 families; Rev 3: 17 families; 800-53 Rev 5 has 20 families). Do not invent mappings that exist in 800-171 but not in 800-53. **CMMC L2 = 800-171 Rev 2** (110 requirements) per 32 CFR 170.14(c)(3).
 - **The ISO 27001:2022 mapping is to Annex A controls, not to the 93 clauses of the main standard.** Annex A is the control catalog; clauses 4-10 of ISO 27001 are the ISMS requirements (context, leadership, planning, support, operation, performance evaluation, improvement). The crosswalk ships Annex A mappings; clause-level mappings are a separate exercise.
-- **The HIPAA mapping is to the Security Rule, not to the Privacy Rule or the Breach Notification Rule** — and the rows in §5 are **derived, not authoritative NIST CSF 2.0 IR** (the IR spreadsheet does not include HIPAA). The Privacy Rule (§164.500-§164.534) and the Breach Notification Rule (§164.400-§164.414) are separate; the CSF-to-HIPAA crosswalk covers the Security Rule only. The one exception is `RS.CO-02` (regulator notification), which cross-references the Breach Notification Rule §164.404. Verify each row against NIST SP 800-66 Rev 2 and the source regulations before relying on it.
+- **The HIPAA mapping is to the Security Rule, not to the Privacy Rule or the Breach Notification Rule** — and the rows in §5 are **derived, not authoritative NIST CSF 2.0 IR** (the IR spreadsheet does not include HIPAA). The Privacy Rule (§164.500-§164.534) and the Breach Notification Rule (§164.400-§164.414) are separate; the CSF-to-HIPAA crosswalk covers the Security Rule only. The one exception is `RS.CO-02`, which cross-references the Breach Notification Rule — to the **Secretary** under §164.408 (individuals = §164.404, media = §164.406). Verify each row against NIST SP 800-66 Rev 2 and the source regulations before relying on it.

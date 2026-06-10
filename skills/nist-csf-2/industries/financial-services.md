@@ -7,7 +7,7 @@ status: active
 frameworks: [NIST-CSF-2.0, FFIEC-CAT, OCC-Heightened-Standards, SOX-404, NY-DFS-500, PCI-DSS-4.0.1, GLBA-Safeguards, NIST-SP-800-53-Rev5.1.1]
 primary_personas: [CRO, CISO, Head of Operational Risk, Internal Audit Partner]
 regulatory_anchors: [OCC-2014-13, FFIEC-CAT-2017, 12-CFR-30, NY-DFS-23-NYCRR-500]
-last_verified: "2026-06-07"
+last_verified: "2026-06-10"
 ---
 
 ## Summary
@@ -49,7 +49,7 @@ The lowest-cost path is a "crosswalk-first, assess-second" approach: (1) Map the
 | PROTECT (PR) | Cybersecurity Controls | Direct alignment — FFIEC CAT Domain 3 (Cybersecurity Controls) maps to PROTECT Categories (PR.AA access, PR.DS data, PR.PS platform, PR.IR resilience). | NIST-CSF-2.0 Section 2.2; FFIEC CAT 2017 Domain 3 |
 | DETECT (DE) | Cybersecurity Controls (continuous monitoring subset) | DE.CM maps to FFIEC CAT's controls around detection, monitoring, and logging within Domain 3. | NIST-CSF-2.0 Section 2.2; FFIEC CAT 2017 Domain 3 |
 | RESPOND (RS) | Cyber Incident Management and Resilience | RS Categories (Management, Analysis, Mitigation, Reporting) map to FFIEC CAT Domain 5's incident response and reporting expectations. | NIST-CSF-2.0 Section 2.2; FFIEC CAT 2017 Domain 5 |
-| RECOVER (RC) | Cyber Incident Management and Resilience | RC.RP (Recovery Planning) and RC.CO (Restoration of Assets) map to FFIEC CAT Domain 5's recovery and resilience testing. | NIST-CSF-2.0 Section 2.2; FFIEC CAT 2017 Domain 5 |
+| RECOVER (RC) | Cyber Incident Management and Resilience | RC.RP (Recovery Planning) and RC.CO (Incident Recovery Communication) map to FFIEC CAT Domain 5's recovery and resilience testing. | NIST-CSF-2.0 Section 2.2; FFIEC CAT 2017 Domain 5 |
 
 Note: FFIEC CAT Domain 4 (External Dependency Management) spans GOVERN (GV.SC) and IDENTIFY (ID.AM, ID.RA). The mapping is interpretive — FFIEC CAT and CSF 2.0 use different decomposition logic.
 
@@ -75,24 +75,24 @@ Note: OCC Heightened Standards apply to banks over $50B in assets under 12 CFR 3
 |---------------------|--------------------|-------------------|--------|
 | GV.OC-03 (legal/regulatory requirements understood) | Section 500.00-500.01 | Foundational — the entity must identify DFS as the relevant regulatory body. | NIST-CSF-2.0; NY-DFS-500 |
 | GV.RR-01 (roles and responsibilities established) | Section 500.04(a) | Requires a CISO designation with defined responsibilities. | NIST-CSF-2.0; NY-DFS-500 Section 500.04(a) |
-| GV.RR-03 (communication of roles) | Section 500.04(b) | Requires CISO to report in writing at least annually to the board or senior governing body. | NIST-CSF-2.0; NY-DFS-500 Section 500.04(b) |
+| GV.OV-01 (risk-management outcomes reviewed) | Section 500.04(b) | Requires CISO to report in writing at least annually to the board or senior governing body (GV.RR-03 is resource allocation, not reporting). | NIST-CSF-2.0; NY-DFS-500 Section 500.04(b) |
 | GV.PO-01 (policy established) | Section 500.03 | Requires a written cybersecurity policy approved by the board or senior governing body. | NIST-CSF-2.0; NY-DFS-500 Section 500.03 |
 | GV.PO-02 (policy reviewed and maintained) | Section 500.03 | Requires policy review at least annually. | NIST-CSF-2.0; NY-DFS-500 Section 500.03 |
 | GV.OV-01 (performance reviewed) | Section 500.04(b) | CISO annual reporting requirement drives performance review. | NIST-CSF-2.0; NY-DFS-500 Section 500.04(b) |
-| GV.SC-03 (supplier risk managed) | Section 500.11 | Requires written third-party service provider security policy and due diligence. | NIST-CSF-2.0; NY-DFS-500 Section 500.11 |
+| GV.SC-05/GV.SC-06 (supply-chain requirements in agreements; due diligence) | Section 500.11 | Requires written third-party service provider security policy and due diligence (GV.SC-03 is ERM integration). | NIST-CSF-2.0; NY-DFS-500 Section 500.11 |
 | GV.RM-02 (risk appetite defined) | Section 500.09 | Requires a written risk assessment that informs the cybersecurity program. | NIST-CSF-2.0; NY-DFS-500 Section 500.09 |
 | ID.AM-01 (assets inventoried) | Section 500.09 | Risk assessment requires understanding of information systems and nonpublic information. | NIST-CSF-2.0; NY-DFS-500 Section 500.09 |
 | PR.AA-01 (identities and credentials managed) | Section 500.07 | Requires access privilege management based on least privilege. | NIST-CSF-2.0; NY-DFS-500 Section 500.07 |
-| PR.AA-05 (network integrity protected) | Section 500.12 | Requires Multi-Factor Authentication for access to information systems. | NIST-CSF-2.0; NY-DFS-500 Section 500.12 |
+| PR.AA-03 (users, services, and hardware are authenticated) | Section 500.12 | Requires Multi-Factor Authentication for access to information systems (MFA = authentication, PR.AA-03; PR.AA-05 is access permissions/least privilege). | NIST-CSF-2.0; NY-DFS-500 Section 500.12 |
 | PR.AT-01 (personnel trained) | Section 500.14 | Requires cybersecurity awareness training for all personnel. | NIST-CSF-2.0; NY-DFS-500 Section 500.14 |
 | PR.DS-01 (data at rest protected) | Section 500.15 | Requires encryption of nonpublic information at rest and in transit. | NIST-CSF-2.0; NY-DFS-500 Section 500.15 |
-| PR.PS-02 (software maintained) | Section 500.08 | Requires written application security procedures, guidelines, and standards. | NIST-CSF-2.0; NY-DFS-500 Section 500.08 |
-| PR.IR-01 (incident response plan) | Section 500.16 | Requires a written incident response plan. | NIST-CSF-2.0; NY-DFS-500 Section 500.16 |
+| PR.PS-02 (software maintained, replaced, removed) | Section 500.08 | Requires written application security procedures, guidelines, and standards. | NIST-CSF-2.0; NY-DFS-500 Section 500.08 |
+| RS.MA-01 (IR plan executed) | Section 500.16 | Requires a written incident response plan (PR.IR-01 is network/environment protection, not IR). | NIST-CSF-2.0; NY-DFS-500 Section 500.16 |
 | DE.CM-01 (networks monitored) | Section 500.14(b) / 500.09 | Risk assessment and monitoring requirements imply continuous monitoring. | NIST-CSF-2.0; NY-DFS-500 Section 500.14(b) |
-| RS.MA-03 (incidents reported) | Section 500.17(a) | Requires notification to DFS within 72 hours of determining a cybersecurity incident has occurred. | NIST-CSF-2.0; NY-DFS-500 Section 500.17(a) |
-| RS.AN-01 (incidents analyzed) | Section 500.16 | Incident response plan must include root cause analysis and investigation procedures. | NIST-CSF-2.0; NY-DFS-500 Section 500.16 |
+| RS.CO-02 (stakeholders notified of incidents) | Section 500.17(a) | Requires notification to DFS within 72 hours of determining a cybersecurity incident has occurred (RS.MA-03 is incident categorization/prioritization). | NIST-CSF-2.0; NY-DFS-500 Section 500.17(a) |
+| RS.AN-03 (incident analysis/root cause) | Section 500.16  <!-- RS.AN-01 does not exist in CSF 2.0 --> | Incident response plan must include root cause analysis and investigation procedures. | NIST-CSF-2.0; NY-DFS-500 Section 500.16 |
 | RC.RP-01 (recovery plan executed) | Section 500.16 | Business continuity and disaster recovery plan requirements within the incident response plan. | NIST-CSF-2.0; NY-DFS-500 Section 500.16 |
-| PR.AA-02 (physical access managed) | Section 500.03 | Cybersecurity policy must address access controls including physical access. | NIST-CSF-2.0; NY-DFS-500 Section 500.03 |
+| PR.AA-06 (physical access managed) | Section 500.03 | Cybersecurity policy must address access controls including physical access (PR.AA-02 is identity proofing). | NIST-CSF-2.0; NY-DFS-500 Section 500.03 |
 
 Note: This table is representative, not exhaustive. DFS Part 500 is a prescriptive regulation; CSF 2.0 is an outcome-based framework. Some DFS requirements (e.g., Section 500.17(a) 72-hour notification) are specific regulatory mandates with no exact CSF 2.0 match. No authoritative crosswalk from CSF 2.0 to NY DFS Part 500 has been published by DFS or NIST; mappings are interpretive. [VERIFY: Confirm exact NY DFS 500 section numbers for the amended (November 2023) version against 23 NYCRR 500.]
 
@@ -101,12 +101,12 @@ Note: This table is representative, not exhaustive. DFS Part 500 is a prescripti
 | CSF 2.0 Subcategory | SOX 404 ITGC Area | Overlap | Type |
 |----------------------|-------------------|---------|------|
 | PR.AA-01 (identities and credentials managed) | Access to Programs and Data | User access provisioning, recertification, and privileged access management. | Overlapping — test once, use for both |
-| PR.AA-04 (access permissions managed) | Access to Programs and Data | Segregation of duties and least privilege for financial systems. | Overlapping |
+| PR.AA-05 (access permissions, least privilege, SoD) | Access to Programs and Data | Segregation of duties and least privilege for financial systems (PR.AA-04 is identity-assertion protection). | Overlapping |
 | PR.PS-01 (configuration baselines) | Program Changes | Baseline configurations and change control over financial reporting systems. | Overlapping |
 | PR.PS-02 (software maintained) | Program Changes | Patch management and system updates for in-scope applications. | Overlapping |
 | PR.DS-01 (data at rest protected) | Computer Operations | Backup and recovery of financial data — shared evidence. | Overlapping |
 | DE.CM-01 (networks monitored) | Computer Operations | Monitoring and logging of financial system activity. | Supplementary — CSF adds threat detection beyond ITGC ops monitoring |
-| PR.IR-01 (continuity plans) | Computer Operations | Disaster recovery and business continuity for financial systems. | Overlapping |
+| RC.RP-01 (recovery plan executed) | Computer Operations | Disaster recovery and business continuity for financial systems (PR.IR-01 is network/environment protection). | Overlapping |
 | RC.RP-01 (recovery plan executed) | Computer Operations | Recovery testing for financial applications. | Overlapping |
 | ID.AM-01 (assets inventoried) | Program Development | Asset inventory supports scoping of ITGC-covered systems. | Supplementary — CSF adds rigor to scoping |
 | GV.OV-01 (performance reviewed) | (none) | Governance oversight of ITGC effectiveness. | Supplementary only — no SOX ITGC equivalent |

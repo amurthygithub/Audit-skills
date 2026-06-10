@@ -7,11 +7,11 @@ load_when: "user asks about Tiers, Profiles, Current Profile, Target Profile, or
 
 # Chunk 02 — Tiers & Profiles
 
-CSF 2.0 [NIST-CSF-2.0 §3] layers two ideas on top of the Functions/Categories/Subcategories spine: **Tiers** describe *how mature* the org's cybersecurity risk management is, and **Profiles** describe *what outcomes* the org is achieving today and aims to achieve in the future. Tiers are the maturity axis; Profiles are the posture axis. Both are required to build a remediation roadmap (see `chunks/04-target-profile-and-gap.md`).
+CSF 2.0 [NIST-CSF-2.0 §3] layers two ideas on top of the Functions/Categories/Subcategories spine: **Tiers** characterize *the rigor* of the org's cybersecurity risk governance and management practices, and **Profiles** describe *what outcomes* the org is achieving today and aims to achieve in the future. **Tiers are not maturity levels** (NIST's long-standing FAQ position: "The Framework Implementation Tiers are not intended to be maturity levels"). Both Tiers and Profiles are needed to build a remediation roadmap (see `chunks/04-target-profile-and-gap.md`).
 
-## 1. The 4 Tiers (organizational maturity)
+## 1. The 4 Tiers (rigor of risk governance and management)
 
-Tiers [NIST-CSF-2.0 §3.1] characterize an organization's cybersecurity risk governance and management practices. They are **per Function** — a single org can be Tier 3 in PROTECT and Tier 1 in GOVERN. Tiers are **not** prescriptive (CSF does not say "every org must reach Tier 4"); they describe characteristics so the org can position itself.
+Tiers [NIST-CSF-2.0 §3.2, Appendix B] characterize an organization's cybersecurity risk governance and management practices, and per CSWP 29 "can be applied to CSF Organizational Profiles" — i.e., NIST applies them at the **Organizational Profile** level. Scoring a separate Tier per Function (the radar in `chunks/06`) is a common **practitioner extension**, not framework text — label it as such in deliverables. Tiers are **not** prescriptive (CSF does not say "every org must reach Tier 4") and are not maturity levels; they describe characteristics so the org can position itself.
 
 | Tier | Name | Process | Org-wide risk management | External participation |
 |------|------|---------|--------------------------|------------------------|
@@ -50,10 +50,10 @@ Profiles [NIST-CSF-2.0 §3.2] align Functions/Categories/Subcategories to the or
 
 **Concrete Community Profile examples** (the org does not author these):
 
-- Financial services: FFIEC-aligned profile; sector ISAC-published profiles
-- Healthcare: HHS/AHA-sector profiles (deferred to v0.3.x in this skill)
-- Public sector: CISA Cyber Performance Goals (CPG) and sector overlays (FedRAMP, StateRAMP)
-- Manufacturing/OT: CISA ICS CPG
+- Financial services: the CRI Profile and sector ISAC-published profiles (the FFIEC CAT was sunset effective Aug 31, 2025)
+- Healthcare: HHS HPH Cybersecurity Performance Goals and 405(d) HICP (a healthcare view is a known gap in this skill)
+- Public sector / critical infrastructure: CISA Cross-Sector Cybersecurity Performance Goals (CPG 2.0, Dec 2025) and sector overlays (FedRAMP, StateRAMP)
+- Manufacturing/OT: CISA CPGs + SP 800-82 Rev 3 OT overlays
 
 ## 3. GOVERN's role in Tier setting
 
@@ -101,31 +101,32 @@ The starting Tier is then **refined by the Current Profile**: if the Current Pro
 
 ## 5. Relationship to NIST SP 800-53 baselines (Low/Mod/High)
 
-The word **"Tier"** collides between CSF 2.0 and 800-53 RMF — they are **different scales on the same word** and the collision causes persistent confusion in regulatory conversations. The reconciliation:
+The word **"Tier"** collides across NIST constructs — and none of them is an "800-53 Tier" (no such thing exists; earlier versions of this chunk invented one). The reconciliation:
 
-| Scale | What it measures | Values | Source |
+| Construct | What it describes | Values | Source |
 |-------|------------------|--------|--------|
-| **CSF Tier** | Organizational maturity of cyber risk management | 1 (Partial) → 4 (Adaptive) | [NIST-CSF-2.0 §3.1] |
-| **800-53 baseline (FIPS 199 impact)** | Worst-case impact of a system breach on C/I/A | Low / Moderate / High | [FIPS-199] [NIST-SP-800-53-Rev5] |
-| **COBIT 2019 PAM** | Process capability | 0 → 5 | COBIT 2019 |
+| **CSF Tier** | Rigor of cyber risk governance/management practices (applied to Organizational Profiles) | 1 (Partial) → 4 (Adaptive) | [NIST-CSF-2.0 §3.2, App. B] |
+| **SP 800-39/800-37 risk-management Tiers** | LEVEL of the risk-management hierarchy, not a rating: Tier 1 = organization, Tier 2 = mission/business process, Tier 3 = system | 1 / 2 / 3 (levels, not scores) | NIST SP 800-39 / SP 800-37 Rev 2 |
+| **FIPS 199 impact level** (drives the 800-53 baseline) | Worst-case impact of a system breach on C/I/A | Low / Moderate / High (impact LEVELS — never called "Tiers") | [FIPS-199] [NIST-SP-800-53-Rev5] |
+| **COBIT 2019 CPM** | Process capability | 0 → 5 | COBIT 2019 |
 
-The two scales are **independent axes**:
+These are **independent axes**:
 
-- An org with FIPS 199 **Low** systems can still be CSF **Tier 4** (Adaptive) in maturity.
-- An org with FIPS 199 **High** systems can be CSF **Tier 1** (Partial) — the systems are sensitive but the org has not built the maturity scaffolding.
-- CSF Tiers inform **how well** the org manages risk; 800-53 baselines inform **what controls** apply to a given system.
+- An org with FIPS 199 **Low** systems can still be CSF **Tier 4** (Adaptive).
+- An org with FIPS 199 **High** systems can be CSF **Tier 1** (Partial) — the systems are sensitive but the org has not built the governance scaffolding.
+- CSF Tiers inform **how rigorously** the org manages risk; FIPS 199 impact levels inform **what control baseline** applies to a system; 800-39 Tiers say **at which organizational level** a risk decision lives.
 
-When a conversation says "we're a Tier 3 org", verify which Tier. If a federal auditor says "Tier 3 system", they mean 800-53 Moderate. See `nist-800-53-rmf/chunks/02-categorize.md` for the 800-53 baseline selection flow.
+When a conversation says "we're a Tier 3 org", verify which construct is meant — a federal practitioner saying "Tier 3" most likely means the SYSTEM level of the 800-39 hierarchy, not a maturity score and not FIPS 199 Moderate. See `nist-800-53-rmf/chunks/02-categorize.md` for the baseline selection flow.
 
 ## 6. Community Profile pointers (where to look)
 
 Community Profiles are authored by sector-coordinating bodies, not by the org or this skill. The org aligns its Organizational Profile to a relevant Community Profile to benchmark against sector peers. The following are illustrative pointers — verify currency before citing.
 
-- **Financial services**: FFIEC CAT (Cybersecurity Assessment Tool) is the de-facto sector maturity assessment for banks; maps to CSF at the Function/Category level. NY DFS 500.02 requires a cybersecurity program; the program can be expressed as a CSF Organizational Profile aligned to FFIEC.
-- **Public sector (federal)**: CISA Cyber Performance Goals (CPG) is a Community Profile-style baseline for federal civilian agencies and critical infrastructure. The NIST CSF 2.0 Informative References spreadsheet can be used to align.
+- **Financial services**: the FFIEC sunset the CAT effective Aug 31, 2025 and pointed institutions to CSF 2.0 and industry profiles such as the CRI Profile; sector ISACs publish CSF-aligned profiles. NY DFS 500.02 requires a cybersecurity program; the program can be expressed as a CSF Organizational Profile.
+- **Public sector / critical infrastructure**: CISA's Cross-Sector Cybersecurity Performance Goals (CPG 2.0, Dec 2025 — ~34 goals, IDs like 1.A grouped under the six CSF 2.0 Functions) are a Community Profile-style minimum baseline.
 - **Public sector (state)**: State-specific overlays (CA SAM, TX DIR SCSC, TX-RAMP, StateRAMP) often map to CSF. Many state regulators accept a CSF-aligned Organizational Profile as evidence.
-- **Healthcare**: HHS / HPH sector profiles (deferred to v0.3.x in this skill). For now, the HIPAA Security Rule safeguards serve as a de-facto Community Profile.
-- **Manufacturing / OT**: CISA ICS CPG (Industrial Control Systems Cybersecurity Performance Goals) is the most direct OT-aligned Community Profile.
+- **Healthcare**: HHS publishes the HPH Cybersecurity Performance Goals and 405(d) HICP — the real sector baselines (a healthcare view is a known gap in this skill). The HIPAA Security Rule is a regulation, not a Community Profile.
+- **Manufacturing / OT**: CISA CPGs plus SP 800-82 Rev 3 OT overlay guidance are the most direct OT-aligned baselines.
 - **Cross-sector**: the NIST CSF 2.0 Informative References spreadsheet itself is a cross-sector reference.
 
 This skill does not author Community Profiles; it ships the *shape* (6 Functions × 22 Categories × 106 Subcategories grid) that any Community Profile uses.
@@ -141,8 +142,8 @@ This skill does not author Community Profiles; it ships the *shape* (6 Functions
 ## Anti-hallucination
 
 - **Authoritative source**: Tier definitions and Profile types are from NIST CSF 2.0 [NIST-CSF-2.0 §3.1-§3.2] (Feb 26, 2024). Verify wording against the official PDF at https://www.nist.gov/cyberframework. Do not paraphrase the Tier names: **Partial, Risk Informed, Repeatable, Adaptive** are the official labels.
-- **CSF Tiers ≠ 800-53 Tiers (FIPS 199 impact).** CSF Tier measures organizational maturity; 800-53 baseline measures worst-case breach impact (Low/Moderate/High). Same word, different scales. Always disambiguate when a stakeholder says "Tier".
+- **There is no "800-53 Tier."** CSF Tiers characterize rigor of risk governance/management (and are not maturity levels); FIPS 199 defines impact LEVELS (Low/Moderate/High); SP 800-39/800-37 Tiers 1-3 are organization/mission/system LEVELS of the risk-management hierarchy. Always disambiguate when a stakeholder says "Tier".
 - **Tier selection is not a normative algorithm.** CSF 2.0 describes the Tier characteristics and lets the org pick. The heuristic in §1 is a planning aid, not a CSF rule.
 - **Profile types are 4** in CSF 2.0 (Current, Target, Organizational, Community). In CSF 1.1 only Current and Target were named; the Organizational and Community types are formalized in 2.0.
 - **A Community Profile is not authored by the org** — it is published by a sector-coordinating body (ISAC, regulator, HHS, CISA). The org uses Community Profiles as a reference target; it does not produce them. This skill ships the *shape* of Community Profiles but does not author sector-specific content.
-- **Tiers are per Function.** Stating "the org is Tier 3" without qualification is imprecise. Always specify which Function (or use the 6-function radar in `chunks/06-enterprise-reporting.md`).
+- **Per-Function Tier scoring is a practitioner extension, not NIST framework text.** CSWP 29 applies Tiers to Organizational Profiles. If you use the per-Function radar (`chunks/06-enterprise-reporting.md`), label it as a management convention and never present fractional or per-Function Tiers as NIST methodology.

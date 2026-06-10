@@ -14,8 +14,8 @@ CSF 2.0 use cases are end-to-end engagements: a persona + a scenario + inputs + 
 | UC | Title | Industry | Primary personas | Key output |
 |---|---|---|---|---|
 | [UC-01](uc-01-first-organizational-profile.md) | Series-A SaaS builds first Organizational Profile (Tier 1→2) and identifies 5 highest-impact Subcategories for the 90-day roadmap | saas-technology | SaaS CISO, Founder/CEO, VP Engineering | Current Profile YAML, Gap Analysis, 90-day roadmap |
-| [UC-02](uc-02-board-maturity-report.md) | $20B regional bank produces board cyber maturity report (6-function radar + 12-month capital plan + exam-defense narrative) | financial-services, public-sector | CISO, CRO, Head of Operational Risk, Board Cyber Committee | 6-function radar, board report markdown, 12-month capital plan |
-| [UC-03](uc-03-csf-to-800-53-crosswalk.md) | Mid-market DoD supplier maps 14 lagging CSF 2.0 Subcategories to 800-171 Rev 3 for CMMC L2 readiness | manufacturing, public-sector | CISO at DoD supplier, VP Manufacturing Operations, OT/ICS Lead, DCMA reviewer | Crosswalk table, CMMC L2 readiness scorecard, 12-month roadmap |
+| [UC-02](uc-02-board-maturity-report.md) | $24B regional bank produces board cyber posture report (6-function radar + 12-month $2.0M capital plan + exam-defense narrative) | financial-services | CISO, CRO, Head of Operational Risk, Board Cyber Committee | 6-function radar, board report markdown, 12-month capital plan |
+| [UC-03](uc-03-csf-to-800-171-cmmc-l2.md) | Mid-market DoD supplier maps 14 lagging CSF 2.0 Subcategories to 800-171 Rev 2 (the CMMC L2 control set) for certification readiness | manufacturing | CISO at DoD supplier, VP Manufacturing Operations, OT/ICS Lead | Crosswalk table, CMMC L2 readiness scorecard, 12-month roadmap |
 
 ## How to use a use case
 

@@ -49,7 +49,7 @@ For each Subcategory, the assessor gathers evidence from up to 4 sources. The 4 
 
 ## 3. Scoring each Subcategory
 
-The illustrative CSF 2.0 scale for Subcategory status is 4-level:
+This skill's 4-level Subcategory-status convention (NOT a NIST scale — CSWP 29 defines no implementation-status scale, and SP 1301's example is explicitly notional/free-format):
 
 | Status | Definition | Tier indicator (heuristic) |
 |--------|-----------|------------------------------|
@@ -58,7 +58,7 @@ The illustrative CSF 2.0 scale for Subcategory status is 4-level:
 | **Largely Implemented** | Most evidence; minor gaps | Tier 2 → Tier 3 |
 | **Fully Implemented** | Comprehensive evidence; tested or attested | Tier 3 → Tier 4 |
 
-The Tier indicator is a **heuristic mapping** (count of Fully + half of Largely divided by total Subcategories in the Function). CSF 2.0 does not prescribe a formula; this is the common aggregation method used in practice and reflected in this skill's stub (`tests/test_nist_csf_2_stub.py`).
+The Tier indicator is a **heuristic mapping**. CSF 2.0 does not prescribe a formula (and implementation status ≠ Tier — see the anti-hallucination note below). This skill's reference executor (`tests/nist_csf_2_stub.py`) uses a documented demo heuristic: per Function, map statuses to ordinals (Not=1, Partially=2, Largely=2, Fully=3), take the median, and report T1/T2/T3 (a status-derived indicator can never exceed T3 — Tier 4's adaptive practices cannot be inferred from implementation status); Functions with no scored rows default to T1 with a "no evidence" note. Treat the output as an indicative starting point for the governance judgment, never as the Tier determination itself.
 
 ## 4. Mapping evidence to Subcategories
 
@@ -67,7 +67,7 @@ The Tier indicator is a **heuristic mapping** (count of Fully + half of Largely 
 1. **Scope the assessment** — which org units, which systems, which Functions are in scope. A Series-A SaaS at first-profile stage is typically the whole org; a $20B bank may scope to one business unit.
 2. **Identify control owners per Function** — Governance owner, Identity/Asset owner, Protection owner, Detection owner, Response owner, Recovery owner. GOVERN-first: identify the GOVERN owner first because they set the assessment rules.
 3. **Gather documentation** — request the org's policy library, prior audit reports, system inventory, risk register. Use the org's existing artifacts before inventing new ones.
-4. **Walkthroughs and interviews** — schedule per Function; use the Subcategory grid (canonical JSON in `data/crosswalks/csf-2-0-subcategories.json`, added in Wave 2; the full 106-row list is also in `chunks/01-functions-categories.md` §3) as the question set.
+4. **Walkthroughs and interviews** — schedule per Function; use the Subcategory grid as the question set (the canonical 106-row list is the NIST CSF 2.0 PDF Appendix A / CSRC reference export; representative samples in `chunks/01-functions-categories.md` §3 — this skill ships no derivative JSON).
 5. **Score each Subcategory** — assign status (Not/Partially/Largely/Fully), cite evidence_refs, and identify the owner. Record contradictions explicitly.
 6. **Aggregate to Function-level Tier** — compute the heuristic Tier per Function from the Subcategory scores.
 7. **Document the Current Profile** — emit the Current Profile YAML (see §5) and flag the Subcategories that are Self-Attestation Risks (Fully Implemented with only Documented evidence).
@@ -150,7 +150,7 @@ This 50-FTE SaaS is the realistic starting state for many orgs. The Target Profi
 
 ## Anti-hallucination
 
-- **Authoritative source**: the Subcategory IDs, status scale, and the Profile concept are from NIST CSF 2.0 [NIST-CSF-2.0 §3.2] (Feb 26, 2024). The 4-level status scale (Not/Partially/Largely/Fully) is **illustrative** — CSF 2.0 publishes it in the Appendix as an example; the org can use any scale as long as it is documented and consistently applied.
+- **Authoritative source**: the Subcategory IDs and the Profile concept are from NIST CSF 2.0 [NIST-CSF-2.0 §3.2] (Feb 26, 2024). The 4-level status scale (Not/Partially/Largely/Fully) is **this skill's convention, NOT a NIST scale** — CSWP 29 defines no implementation-status scale, and SP 1301 (Organizational Profiles QSG) shows only a notional free-text example, telling orgs to "use whatever format they prefer." Document whatever scale you use and apply it consistently.
 - **Tier and Subcategory achievement are separate concepts.** A Subcategory can be Fully Implemented at a Tier 1 org (a single heroic SysAdmin can achieve the outcome without org-wide policy). Conversely, an org can have a documented policy (Tier 2) but a Subcategory only Partially Implemented (the policy is not followed in practice). The heuristic mapping in §3 is a planning aid, not a CSF rule.
 - **The worked example is fictional** ("DataRelay Inc." is a placeholder). The Subcategory scores, evidence tiers, and Tier aggregations are illustrative of a typical 50-FTE SaaS; they are not an actual assessment.
 - **A Current Profile is not a SOC 2 opinion.** It is an internal maturity view; SOC 2 is an external assurance report. The two inform each other (a SOC 2 Type II report provides "attested" evidence for many Subcategories) but they are not interchangeable.
