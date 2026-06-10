@@ -20,26 +20,57 @@
     "control_count_rev5_1_1_approx": 341
   },
   "inheritance_summary": [
-    {"control_id": "AC-2", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},
-    {"control_id": "SC-7", "status": "inherited", "source": "AWS GovCloud"},
-    {"control_id": "AU-2", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},
-    {"control_id": "IA-2", "status": "hybrid", "source": "Customer IdP + CaseFlow Cloud"},
-    {"control_id": "CM-2", "status": "inherited", "source": "AWS GovCloud"},
-    {"control_id": "SI-2", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},
-    {"control_id": "IR-4", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},
-    {"control_id": "RA-5", "status": "hybrid", "source": "AWS GovCloud + CaseFlow Cloud"},
-    {"control_id": "SC-13", "status": "inherited", "source": "AWS GovCloud"}
+    {
+      "control_id": "AC-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud + CaseFlow Cloud"
+    },
+    {
+      "control_id": "SC-7",
+      "status": "inherited",
+      "source": "AWS GovCloud"
+    },
+    {
+      "control_id": "AU-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud + CaseFlow Cloud"
+    },
+    {
+      "control_id": "IA-2",
+      "status": "hybrid",
+      "source": "Customer IdP + CaseFlow Cloud"
+    },
+    {
+      "control_id": "CM-2",
+      "status": "inherited",
+      "source": "AWS GovCloud"
+    },
+    {
+      "control_id": "SI-2",
+      "status": "hybrid",
+      "source": "AWS GovCloud + CaseFlow Cloud"
+    },
+    {
+      "control_id": "IR-4",
+      "status": "hybrid",
+      "source": "AWS GovCloud + CaseFlow Cloud"
+    },
+    {
+      "control_id": "RA-5",
+      "status": "hybrid",
+      "source": "AWS GovCloud + CaseFlow Cloud"
+    },
+    {
+      "control_id": "SC-13",
+      "status": "inherited",
+      "source": "AWS GovCloud"
+    }
   ],
   "tailoring_decisions": [
     {
-      "control_id": "AC-2(8)",
+      "control_id": "AC-18",
       "decision": "SCOPING",
-      "rationale": "No privileged accounts are shared; the dynamic account management enhancement does not apply. Justified in SSP §9."
-    },
-    {
-      "control_id": "SC-8(1)",
-      "decision": "SCOPING",
-      "rationale": "No wireless transmission of classified or sensitive data; the wireless confidentiality enhancement does not apply."
+      "rationale": "No wireless access points or wireless transmission within the authorization boundary."
     },
     {
       "control_id": "PT-7",

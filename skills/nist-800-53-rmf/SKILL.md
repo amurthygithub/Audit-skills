@@ -3,7 +3,7 @@ name: nist-800-53-rmf
 description: "Perform NIST SP 800-53 Rev 5 control selection, implementation, assessment, and continuous monitoring using the NIST Risk Management Framework (SP 800-37 Rev 2 RMF). Covers FIPS 199 categorization, baseline selection (Low/Moderate/High), 800-53A assessment procedures, control inheritance (FedRAMP/shared services/cloud), SAR/POA&M and ATO determination. Activate when performing RMF Step 2 (categorize), Step 3 (select), Step 4 (implement), Step 5 (assess), Step 6 (authorize), or Step 7 (monitor); when mapping SOC 2 / ISO 27001 / PCI / HIPAA to 800-53; when planning or executing a FedRAMP authorization; or when responding to a federal/DoD assessment."
 category: audit
 risk: high
-source: "NIST SP 800-53 Rev 5 (2024 security & privacy control catalog), SP 800-37 Rev 2 (RMF), SP 800-53A Rev 5 (assessment procedures), FIPS 199 (categorization), FIPS 200 (minimum security requirements), SP 800-30 Rev 1 (risk assessment), SP 800-137 (ISCM), SP 800-61 Rev 2 (IR), OMB A-130, FedRAMP OMB Memo M-22-15"
+source: "NIST SP 800-53 Rev 5 (2024 security & privacy control catalog), SP 800-37 Rev 2 (RMF), SP 800-53A Rev 5 (assessment procedures), FIPS 199 (categorization), FIPS 200 (minimum security requirements), SP 800-30 Rev 1 (risk assessment), SP 800-137 (ISCM), SP 800-61 Rev 2 (IR), OMB A-130, FedRAMP modernization memo OMB M-24-15"
 date_added: 2026-05-25
 version: 0.2.0
 status: draft
@@ -77,9 +77,9 @@ The 800-53 control catalog is the de-facto hub of the U.S. compliance ecosystem.
 - **HIPAA Security Rule** ([HIPAA-Security-Rule]) — 45 CFR § 164.302–164.318; crosswalked to 800-53 for federal-grant and contract scenarios.
 - **ISO 27001:2022** ([ISO-27001-2022]) — international ISMS standard; Annex A controls map to 800-53 with ~70% overlap.
 - **PCI DSS v4.0** ([PCI-DSS-v4.0]) — payment card industry; 12 requirements map to a subset of 800-53 families.
-- **SOC 2 / TSC 2017** ([SOC-2-TSC-2017]) — the AICPA Trust Services Criteria map 1:1 onto CC1-CC9, which themselves derive from 800-53 AC/AU/CM families.
-- **CMMC 2.0** ([CMMC-2.0]) — DoD's cybersecurity maturity model; Level 2 ≈ 800-53 Moderate, Level 3 ≈ 800-53 High.
-- **OMB M-22-15** ([OMB-M-22-15]) — federal digital experience memo; drives customer-facing ATO requirements.
+- **SOC 2 / TSC 2017** ([SOC-2-TSC-2017]) — the AICPA Trust Services Criteria align to the COSO 2013 framework (CC1-CC5 mirror the 17 COSO principles); mapping to 800-53 is many-to-many via published crosswalks, never 1:1.
+- **CMMC 2.0** ([CMMC-2.0]) — DoD's cybersecurity maturity model; Level 2 = the 110 NIST SP 800-171 requirements (a CUI-focused subset, narrower than 800-53 Moderate), Level 3 adds selected SP 800-172 requirements.
+- **OMB M-24-15** ([OMB-M-24-15]) — Modernizing FedRAMP (July 2024); sets FedRAMP modernization direction and agency reuse expectations.
 
 Each chunk can be crosswalked to any of these via `data/crosswalks/`.
 
@@ -189,7 +189,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | NIST-SP-800-60 | Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II) | NIST | Rev 1 (Aug 2008; current as of 2026) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final |
 | NIST-SP-800-137 | Information Security Continuous Monitoring | NIST | Sept 2011 | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/137/final |
 | FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-05-25 | https://www.fedramp.gov |
-| OMB-M-22-15 | Delivering a Digital-First Public Experience | OMB | M-22-15 (2022) | 2026-05-25 | https://www.whitehouse.gov/omb/information-for-agencies/memoranda/ |
+| OMB-M-24-15 | Modernizing the Federal Risk and Authorization Management Program (FedRAMP) | OMB | M-24-15 (July 2024) | 2026-06-09 | https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf |
 | OMB-A-130 | Managing Information as a Strategic Resource | OMB | July 28, 2016 | 2026-05-25 | https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf |
 | SOC-2-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP §100, 2022 revised points of focus) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
 | ISO-27001-2022 | Information security management systems — Requirements | ISO/IEC | 2022 | 2026-05-25 | https://www.iso.org/standard/27001 |
@@ -227,7 +227,7 @@ This is a router. Load chunks based on the user's intent.
 
 ## 9.1 Cross-Framework Severity Reconciliation
 
-**NIST "Critical" vs ISACA/COSO "Material Weakness":** The NIST RMF severity “Critical” (imminent system compromise; active exploitation; catastrophic impact to C/I/A; remediate within 48 hours; report to FedRAMP PMO within 24 hours) is NOT equivalent to ISACA/COSO/AS 2201 “Material Weakness” (MW). A NIST finding at Moderate severity may correspond to a deficiency in internal control that, in aggregate, constitutes a material weakness under the COSO framework if it affects financial reporting. Conversely, a NIST Critical finding may not be a financial-reporting material weakness if it does not affect the financial statement assertions.
+**NIST "Critical" vs ISACA/COSO "Material Weakness":** The NIST RMF severity “Critical” (imminent system compromise; active exploitation; catastrophic impact to C/I/A; treated at the High end of the FedRAMP POA&M risk scale — High findings remediate within 30 days under FedRAMP ConMon) is NOT equivalent to ISACA/COSO/AS 2201 “Material Weakness” (MW). A NIST finding at Moderate severity may correspond to a deficiency in internal control that, in aggregate, constitutes a material weakness under the COSO framework if it affects financial reporting. Conversely, a NIST Critical finding may not be a financial-reporting material weakness if it does not affect the financial statement assertions.
 
 **Reconciliation guidance:** When mapping NIST 800-53 findings to ISACA/COSO deficiency classifications:
 - Aggregate NIST findings by financial-reporting impact, not by NIST severity alone.

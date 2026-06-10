@@ -9,7 +9,7 @@ load_when: "user asks to map a non-federal framework to 800-53 or vice versa"
 
 ## Procedure
 
-The skill ships a default crosswalk in `data/crosswalks/800-53-default.json`. Each row maps a control ID to a target framework's clause. **Always verify the crosswalk** against the current authoritative mapping:
+The skill ships a curated crosswalk in `data/crosswalks/soc2-to-800-53-mod.json` (a representative sample, not a complete mapping). Each row maps a control ID to a target framework's clause. **Always verify the crosswalk** against the current authoritative mapping:
 
 - AICPA SOC 2 → 800-53 mapping (per AICPA TSC appendix — 800-53 Rev 5 does not include a cross-reference appendix; use the AICPA-curated TSC to 800-53 mapping)
 - ISO 27001:2022 Annex A → 800-53 published mappings

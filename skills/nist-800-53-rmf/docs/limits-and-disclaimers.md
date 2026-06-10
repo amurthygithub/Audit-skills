@@ -12,7 +12,7 @@
 | Section | Reconstructed? | Authoritative source | Verify against |
 |---------|----------------|----------------------|----------------|
 | §3.1 control families (20 + privacy) | No | NIST SP 800-53 Rev 5 | csrc.nist.gov |
-| §3.2 baseline counts (156 / 325 / 421 for Rev 5;  for Rev 5) | Yes — derived counts | NIST SP 800-53 / FedRAMP Rev 5 baseline | csrc.nist.gov, fedramp.gov |
+| §3.2 baseline counts (~156 / ~325 / ~421 — derived) | Yes — derived counts; NIST SP 800-53B baselines and FedRAMP Rev 5 baselines differ — verify against both | NIST SP 800-53B / FedRAMP Rev 5 baseline workbook | csrc.nist.gov, fedramp.gov |
 | §4.4 finding severity → POA&M risk | No (typical pattern) | FedRAMP Continuous Monitoring Strategy Guide | fedramp.gov |
 | §7 cross-references to other standards | Curated; verify | AICPA, ISO, PCI SSC, HHS, NIST | respective publishers |
 
@@ -29,7 +29,7 @@ The baseline control counts are **derived from the catalog and the count of base
 | FIPS 200 | (Mar 2006) | 2006 | nvlpubs.nist.gov |
 | FedRAMP | Rev 5 (and Rev 5 overlays) | 2023 / 2024 | fedramp.gov |
 | OMB A-130 | (July 28, 2016) | 2016 | whitehouse.gov |
-| OMB M-22-15 | (2022) | 2022 | whitehouse.gov |
+| OMB M-24-15 | (July 2024) | 2024 | whitehouse.gov |
 | AICPA TSC | 2017 (TSP §100, 2022 revised points of focus) | 2017 / 2022 | aicpa-cima.com |
 | ISO 27001 | 2022 | 2022 | iso.org |
 | PCI DSS | v4.0 (Mar 2022) | 2022 | pcisecuritystandards.org |
@@ -40,7 +40,7 @@ The baseline control counts are **derived from the catalog and the count of base
 
 ## 4. Known gaps
 
-- **Rev 5 vs Rev 5 selection** — the user/program may require 5.0, Rev 5, or both. The skill frontmatter lists both; the user must confirm which baseline is in scope.
+- **Rev 4 vs Rev 5 selection** — legacy agency and FedRAMP packages may still reference Rev 4 baselines; Rev 5 added the PT and SR families. The user must confirm with the requesting program which revision is in scope before selecting a baseline.
 - **FedRAMP overlays** — FedRAMP's High baseline is not identical to NIST 800-53 High; FedRAMP adds a number of controls. The skill does not enumerate FedRAMP-specific additions; consult the current FedRAMP Baselines document on fedramp.gov.
 - **DoD-specific overlays** — DoD Cloud Computing (DoD CC SRG) imposes IL4/IL5/IL6 levels that layer on top of FedRAMP. The skill does not enumerate these.
 - **800-53A objective enumeration** — the assessment objectives are in 800-53A Rev 5; the enumeration varies by control and is not the same as the enhancement enumeration.

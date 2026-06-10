@@ -33,7 +33,7 @@ Each assessment objective in 800-53A is mapped to one or more methods. The 3PAO 
 
 | Severity | Definition | Remediation | Reporting |
 |----------|-----------|-------------|-----------|
-| **Critical** | Imminent threat of system compromise; active exploitation or control failure that would cause catastrophic impact to confidentiality, integrity, or availability | Must be remediated within 48 hours | Must be reported to FedRAMP PMO within 24 hours |
+| **Critical** | Imminent threat of system compromise; active exploitation or control failure that would cause catastrophic impact to confidentiality, integrity, or availability | Treated as High on the FedRAMP POA&M risk scale — remediate within 30 days under FedRAMP ConMon | Escalate to the AO immediately; active exploitation triggers the incident-response process (agency IR / US-CERT reporting), which is separate from the POA&M |
 | **High** | Operational or design failure on a HIGH-impact control with no compensating control; often blocks ATO or requires ATO with conditions | POA&M with aggressive timeline | Report in SAR; may trigger significant-change notification |
 | **Moderate** | Design weakness or operational lapse on a MOD or HIGH control; risk manageable with compensating controls or remediation plan | Remediation plan + risk acceptance | Report in SAR; track to closure |
 | **Low** | Operational lapse on a MOD control with compensating control exists; minor documentation gaps | Track to closure | Report in SAR |
@@ -44,7 +44,7 @@ Each assessment objective in 800-53A is mapped to one or more methods. The 3PAO 
 
 | Finding (800-53A "other than satisfied") | Typical POA&M risk | Comment |
 |------------------------------------------|--------------------|---------|
-| Imminent compromise, active exploitation, control failure with catastrophic impact | Critical | Remediate within 48 hours; report to FedRAMP PMO within 24 hours |
+| Imminent compromise, active exploitation, control failure with catastrophic impact | Critical | Treat as High on the FedRAMP POA&M scale (30-day remediation); escalate to the AO immediately and invoke incident response if actively exploited |
 | Operational lapse on a MOD control, compensating control exists | Low | Track to closure |
 | Design weakness on a MOD or HIGH control, no compensating | Moderate | Remediation plan + risk acceptance |
 | Operational failure on a HIGH control, no compensating | High | Often blocks ATO or requires ATO with conditions |

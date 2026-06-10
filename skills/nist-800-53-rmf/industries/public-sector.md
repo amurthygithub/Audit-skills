@@ -73,7 +73,7 @@ These state adaptations share the core 800-53 control families and RMF process b
 - NIST SP 800-53 Rev 5
 - FedRAMP Authorization Act (44 USC §3609 et seq.) and FedRAMP Authorization Boundary Guidance
 - OMB A-130 — Managing Information as a Strategic Resource
-- OMB Memo M-22-15 — Delivering a Digital-First Public Experience
+- OMB Memo M-24-15 — Modernizing the Federal Risk and Authorization Management Program (FedRAMP)
 - FedRAMP Continuous Monitoring Strategy Guide
 - NIST SP 800-66 Rev 2 — HIPAA Security Rule (if the system processes PHI)
 - 32 CFR Part 2002 — Controlled Unclassified Information (CUI) (if applicable)

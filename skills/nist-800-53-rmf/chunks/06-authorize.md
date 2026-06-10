@@ -25,7 +25,7 @@ An AO's "risk acceptance" must be specific: identify the findings, the residual 
 
 1. AO reviews SSP, SAR, POA&M, and any risk-acceptance memos.
 2. AO documents residual risk, rationale, and decision.
-3. Issue the **ATO letter**: full ATO / ATO with conditions / Denial. Specify duration (typically **1 year for federal agency** with annual assessment, **1 year for FedRAMP** with continuous monitoring (FedRAMP Authorization Act requires annual assessment, not 3-year authorization)).
+3. Issue the **ATO letter**: full ATO / ATO with conditions / Denial. Specify duration (agency ATOs commonly run **up to 3 years**, or **ongoing authorization** under OMB A-130 ISCM; FedRAMP authorization is continuous-monitoring-based with annual assessments rather than a fixed-term letter). The UC-02 worked example uses a 1-year agency ATO with annual assessment — conservative, not the federal norm.
 4. Publish the authorization package to the agency's repository (e.g., CFACTS, CSAM) and to FedRAMP Marketplace (for FedRAMP).
 
 ## POA&M item template

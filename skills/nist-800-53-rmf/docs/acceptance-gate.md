@@ -34,3 +34,19 @@ This file tracks the Acceptance Gate for the v0.2.0 release. Each box is filled 
 - v0.2.0 adopted the router + chunks pattern (per TEMPLATE §11). Per-call context cost is 3-5× lower than v0.1.0's monolithic layout.
 - The 4 pre-Spine skills have not been migrated; this skill is the first on the Spine. Migration backlog is in SOX-611.
 - The skill body is draft-quality and requires 3 review cycles before `status: published`.
+
+## G4.5 consumer smoke tests (fresh-agent, per prompts/consumer-smoke-test.md)
+
+N=1 existence proofs on one model — NOT reliability evidence (that requires the Epic 6
+harness: ≥95% pass over N≥20 runs, ≥2 models). Clean sessions: agent received only the
+skill folder + UC input, no repo context.
+
+| test | model | result | notes | date | verifier |
+|------|-------|--------|-------|------|----------|
+| smoke-test uc-01 | claude-fable-5 | PASS-WITH-NOTES | All oracle assertions met (overall MODERATE, baseline MODERATE, AC-2/SC-7/AU-2 statuses, tailoring set). Routing clean (8 files, correct order). Agent faithfully reproduced the skill's then-erroneous SC-8(1) scoping — a skill defect, since fixed (persona-review.md CRITICAL #1). | 2026-06-09 | claude (dispatcher-graded vs UC oracle) |
+| smoke-test uc-02 (run 1) | claude-fable-5 | FAIL | Skill's own fixtures contradicted each other: UC file {H:4,M:8,L:10} + input examples vs seed/stub {H:3,M:11,L:8}. Agent detected the contradiction, chose the seed, violated the UC-file oracle. Defect in skill fixtures, fixed same day. | 2026-06-09 | claude |
+| smoke-test uc-02 (re-run after fix) | claude-fable-5 | PASS | All oracle values match: 22 findings, {H:3,M:11,L:8}, 14 risk-accepted (8L+6M), 8 conditions (3H+5M), AUTHORIZE_WITH_CONDITIONS, residual MODERATE. Routing clean. | 2026-06-09 | claude |
+| smoke-test uc-03 | claude-fable-5 | PASS-WITH-NOTES | All oracle assertions met (MODERATE, 71% in [68,75], 94 in [80,110], CC=9, AT-2/RA-3/SI-4 in gap list, priorities+dates). BUT values reachable only via the expected-output seed — underlying crosswalk yields ~8%; agent disclosed the discrepancy unprompted. Confirms SOX-637 (derivability defect). | 2026-06-09 | claude |
+
+Persona vetting (same date): 8 CRITICAL / 12 HIGH — all resolved (fixed/ticketed/accepted);
+see docs/persona-review.md.
