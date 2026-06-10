@@ -22,7 +22,9 @@ Step 1: Was sufficient appropriate evidence obtained?
   -> YES: Proceed to Step 2.
   -> NO: Can more evidence be obtained through extended procedures?
      YES -> obtain, return to Step 1.
-     NO -> Issue DISCLAIMER OF OPINION.
+     NO -> Scope limitation: if the possible effects are material but NOT pervasive -> QUALIFIED opinion;
+           if material AND pervasive -> DISCLAIMER OF OPINION (or withdraw). The materiality/pervasiveness
+           axis governs every modification decision (AT-C 205).
 
 Step 2: Are there exceptions in FAIR PRESENTATION of description?
   -> YES, material misstatement affecting entire description -> ADVERSE on description fairness.
@@ -53,7 +55,7 @@ For each exception document: nature (what happened), cause (why), effect (impact
 5. Identify subservice organizations (chunk 06). Determine inclusive vs carve-out.
 6. Perform readiness assessment (gap analysis): map existing controls to TSC criteria, identify gaps, document severity.
 7. Develop remediation plan: prioritize by risk, establish timelines, assign ownership.
-8. Establish examination period (Type II): min 6 months recommended; 12 months standard. Ensure all remediated controls operational before period start.
+8. Establish examination period (Type II): no AICPA-prescribed minimum; 12 months standard, 3-month initial periods common. Ensure all remediated controls operational before period start.
 9. Engage CPA practitioner: confirm independence (AICPA Code of Conduct), licensing, peer review enrollment. Execute engagement letter.
 
 ### Phase 2: Evidence Gathering and Examination
@@ -111,5 +113,5 @@ GDPR -> TSC Privacy (P1-P8): P1.1-Art13-14, P2.1-Art6-7/Art9, P3.1-Art5(1)(b)(c)
 Key Distinction: ISO 27001 is certifiable with fixed Annex A controls. SOC 2 uses criteria-based evaluation. ISO covers entire ISMS; SOC 2 scoped to specific systems and TSC categories.
 
 ## Citations
-- [AT-C-200] [AT-C-300] [TSP-Section-100] [COSO-2013] [ISO-27001-2022] [NIST-SP-800-53-Rev5] [GDPR] [AICPA-Code-of-Conduct]
+- [AT-C-205] [AT-C-320] [TSP-Section-100] [COSO-2013] [ISO-27001-2022] [NIST-SP-800-53-Rev5] [GDPR] [AICPA-Code-of-Conduct]
 See SKILL.md Section 10.

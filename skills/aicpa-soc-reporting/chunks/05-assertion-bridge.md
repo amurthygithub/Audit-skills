@@ -52,7 +52,7 @@ Sincerely,
 Key rules:
 - Type I: 2 paragraphs (fair presentation + design suitability).
 - Type II: 3 paragraphs (fair presentation + design suitability + operating effectiveness).
-- If management refuses to provide the assertion, the practitioner MUST withdraw per AT-C 200.
+- If management refuses to provide the assertion, the practitioner MUST withdraw per AT-C 205.
 - Always ensure the assertion is signed and dated.
 
 ## Bridge Letter Template
@@ -92,10 +92,11 @@ Sincerely,
 Key rules:
 - Issued by MANAGEMENT, not the CPA.
 - Provides NO auditor assurance -- must explicitly state this.
-- Covers gap period (typically 3-6 months) between report end and current/next report date.
+- Covers gap period between report end and the next report. Keep gaps SHORT: ~3 months is the widely accepted convention; gaps beyond 3 months draw user-auditor pushback and beyond 6 months a bridge letter is generally insufficient comfort.
 - Typical gap: SOC 2 covers Jan 1, YYYY-Dec 31, YYYY; bridge letter covers Jan 1, YYYY+1-Jun 30, YYYY+1 while next report is prepared.
 - Always include the disclaimer that it is not a SOC report.
+- DATE DISCIPLINE: management can only represent THROUGH the letter's date — date the letter on/after the end of the gap period it covers, or word the attestations as "through the date of this letter." Prefer "nothing has come to our attention" phrasing over absolute assertions of no exceptions (operating effectiveness was not tested in the gap).
 
 ## Citations
-- [AT-C-200]
+- [AT-C-205]
 See SKILL.md Section 10.

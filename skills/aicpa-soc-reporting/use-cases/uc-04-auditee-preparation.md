@@ -116,7 +116,9 @@ Many CPA firms offer a readiness assessment BEFORE the examination period. This 
 - Do not filter or curate evidence beyond what's requested. Let the auditor request clarification if needed.
 - If the auditor finds an exception, discuss it candidly. Hiding exceptions risks a qualified opinion.
 
-## 3. Evaluating Your Vendor's SOC Reports (CUEC Perspective)
+## 3. Reviewing Your Vendors' SOC Reports (as a User Entity)
+
+Terminology: when you review a VENDOR's SOC report, you are the user entity — the CUECs in that report are controls the vendor requires YOU to operate. (CUECs you WRITE in your own report are controls you require of YOUR customers. Keep the directions straight.)
 
 When your own vendors provide SOC 2 reports, evaluate them as a CUEC:
 
@@ -130,9 +132,9 @@ When your own vendors provide SOC 2 reports, evaluate them as a CUEC:
 - [ ] CSOCs — are subservice carve-outs reasonable?
 - [ ] Exceptions — are any exceptions material to your reliance?
 
-### 3.2 SOC 2 CUEC for Government Procurement
+### 3.2 Vendor SOC Review for Government Procurement
 
-When responding to RFPs or government procurement, your SOC 2 CUEC evaluation must demonstrate:
+When responding to RFPs or government procurement, your vendor SOC review must demonstrate:
 
 - **Evidence of review:** date, reviewer, scope of assessment
 - **Mapping to procurement requirements:** which TSC criteria address the RFP's security requirements

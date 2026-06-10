@@ -11,11 +11,11 @@ load_when: "user asks about SOC report types, SOC 1/2/3 differences, governing s
 
 | Report | Standard Basis | Subject Matter | Audience | Distribution | Engagement Level |
 |--------|---------------|----------------|----------|--------------|-----------------|
-| SOC 1 | AT-C 300 (SSAE 21) | Controls relevant to user entities' ICFR | User entities, user auditors | Restricted | Examination (AT-C 200) |
-| SOC 2 | AT-C 200 + TSP Section 100 | Controls relevant to Security, Availability, Processing Integrity, Confidentiality, Privacy | Knowledgeable users (customers, regulators) | Restricted | Examination (AT-C 200) |
-| SOC 3 | AT-C 200 + TSP Section 100 | Same TSC categories as SOC 2 but summarized | General public | Unrestricted | Examination (AT-C 200) |
-| SOC for Cybersecurity | AT-C 200 + Cybersecurity Description Criteria | Entity's cybersecurity risk management program and controls | General use | Unrestricted | Examination (AT-C 200) |
-| SOC for Supply Chain | AT-C 200 + TSP Section 100 (adapted) | Controls in production/manufacturing/distribution systems | User entities, supply chain participants | Restricted | Examination (AT-C 200) |
+| SOC 1 | AT-C 320 (SSAE 18, as amended) | Controls relevant to user entities' ICFR | User entities, user auditors | Restricted | Examination (AT-C 205) |
+| SOC 2 | AT-C 105/205 + TSP Section 100 | Controls relevant to Security, Availability, Processing Integrity, Confidentiality, Privacy | Knowledgeable users (customers, regulators) | Restricted | Examination (AT-C 205) |
+| SOC 3 | AT-C 105/205 + TSP Section 100 | Same TSC categories as SOC 2 but summarized | General public | Unrestricted | Examination (AT-C 205) |
+| SOC for Cybersecurity | AT-C 105/205 + Cybersecurity Description Criteria | Entity's cybersecurity risk management program and controls | General use | Unrestricted | Examination (AT-C 205) |
+| SOC for Supply Chain | AT-C 105/205 + TSP Section 100 (adapted) | Controls in production/manufacturing/distribution systems | User entities, supply chain participants | Restricted | Examination (AT-C 205) |
 
 When a user describes a service organization scenario, use the Engagement Classification Engine (see chunk 02) to determine which SOC type applies. Always confirm the distribution requirement before recommending a SOC type.
 
@@ -23,17 +23,18 @@ When a user describes a service organization scenario, use the Engagement Classi
 
 | Standard | Citation | Scope | Key Provisions |
 |----------|----------|-------|----------------|
-| SSAE No. 21 | AT-C 100, 200, 300 | Superseded SSAE 18; effective December 2020 | Governs all attestation engagements including SOC |
-| AT-C 100 | Common Concepts | Definitions, roles, ethics, independence | Foundational definitions for all AT-C sections |
-| AT-C 200 | Level of Service (Examination) | Reasonable assurance, opinion on subject matter | Governs SOC 2, SOC 3, SOC for Cybersecurity, SOC for Supply Chain |
-| AT-C 200 | Level of Service (Review) | Limited assurance, conclusion on subject matter | Not typically used for SOC; limited assurance engagements |
-| AT-C 300 | Subject Matter (AUP) | No opinion; findings against specified procedures | Used when user entities specify particular procedures |
-| AT-C 300 | Subject Matter (SOC 1 ICFR) | SOC 1 Type I/Type II specific | Governs SOC 1; addresses subservice orgs, CUECs, CSOCs |
-| TSP Section 100 | Trust Services Criteria (2017 TSC, Revised 2022) | 53 primary criteria (~66 with sub-criteria) | Defines all TSC; revised implementation guidance issued 2022 |
+| SSAE No. 18 | AT-C codification | Attestation Standards: Clarification and Recodification — remains current AS AMENDED by SSAE 19-22 | The codification all SOC engagements operate under |
+| AT-C 105 | Concepts Common to All Attestation Engagements | Definitions, roles, ethics, independence (SSAE 18, amended by 19/21) | Foundational for all AT-C sections |
+| AT-C 205 | Assertion-Based Examination Engagements (renamed by SSAE 21) | Reasonable assurance, opinion on subject matter | Governs SOC 2, SOC 3, SOC for Cybersecurity, SOC for Supply Chain |
+| AT-C 206 | Direct Examination Engagements (NEW in SSAE 21, eff. June 15 2022) | Direct opinion without an assertion | Not used for classic SOC reports |
+| AT-C 210 | Review Engagements (SSAE 22) | Limited assurance, conclusion on subject matter | Not typically used for SOC |
+| AT-C 215 | Agreed-Upon Procedures Engagements (SSAE 19) | No opinion; findings against specified procedures | Used when user entities specify particular procedures |
+| AT-C 320 | Examination of Controls at a Service Organization Relevant to User Entities' ICFR (SSAE 18) | SOC 1 Type I/Type II | Governs SOC 1; addresses subservice orgs, CUECs, CSOCs |
+| TSP Section 100 | Trust Services Criteria (2017 TSC, Revised PoF 2022) | 61 criteria (33 CC + 28 category-specific), ~200 points of focus | Defines all TSC |
 
-SSAE 21 superseded SSAE 18 effective December 2020 and is the current governing standard. AT-C sections have been recodified as 100 (Common Concepts), 200 (Level of Service), and 300 (Subject Matter). Practitioners should verify the current text of the relevant AT-C section.
+SSAE 18 remains the AT-C codification, as amended (SSAE 21 did NOT supersede it; SSAE 21 added AT-C 206 and renamed AT-C 205, effective for reports dated on or after June 15, 2022). "AT-C 100/200/300" are series GROUPINGS, never citable sections.
 
-Always cite the governing standard when drafting report language. SOC 1 -> cite AT-C 300. SOC 2/SOC 3 -> cite AT-C 200 and TSP Section 100. SOC for Cybersecurity -> cite AT-C 200 and Cybersecurity Description Criteria. SOC for Supply Chain -> cite AT-C 200 and adapted TSP Section 100.
+Always cite the governing standard when drafting report language. SOC 1 -> cite AT-C 320. SOC 2/SOC 3 -> cite AT-C 105 + AT-C 205 and TSP Section 100. SOC for Cybersecurity -> cite AT-C 105 + AT-C 205 and the Cybersecurity Description Criteria. SOC for Supply Chain -> cite AT-C 105 + AT-C 205 and adapted TSP Section 100.
 
 ## Key Terminology
 
@@ -78,9 +79,9 @@ Use these terms precisely. Never use "SAS 70" or "SSAE 16" in reference to curre
 
 ## Citations in this chunk
 
-- [AT-C-100] -- foundational definitions
-- [AT-C-200] -- examination engagements
-- [AT-C-300] -- SOC 1
+- [AT-C-105] -- foundational definitions
+- [AT-C-205] -- examination engagements
+- [AT-C-320] -- SOC 1
 - [TSP-Section-100] -- trust services criteria
 - [SSAE-21] -- current governing standard (superseded SSAE 18)
 

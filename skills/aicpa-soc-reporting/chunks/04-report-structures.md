@@ -87,7 +87,7 @@ Before finalizing any SOC report, verify:
 1. Title includes "Independent"
 2. Addressee specified
 3. Engagement scope clearly described
-4. Criteria referenced (AT-C 200, TSP Section 100, etc.)
+4. Criteria referenced (TSP Section 100 for SOC 2; DC section 200 for the description) — note: AT-C sections are STANDARDS, not criteria
 5. Report period/dates specified
 6. Management's responsibility paragraph
 7. Practitioner's responsibility paragraph
@@ -103,5 +103,5 @@ Before finalizing any SOC report, verify:
 17. Practitioner signature, date, location
 
 ## Citations
-- [AT-C-200] [AT-C-300] [TSP-Section-100] [SOC-for-Cybersecurity] [SOC-for-Supply-Chain]
+- [AT-C-205] [AT-C-320] [TSP-Section-100] [SOC-for-Cybersecurity] [SOC-for-Supply-Chain]
 See SKILL.md Section 10.

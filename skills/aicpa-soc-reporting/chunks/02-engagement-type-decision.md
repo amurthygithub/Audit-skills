@@ -12,7 +12,7 @@ load_when: "user needs to classify a SOC engagement, decide between SOC 1/2/3 or
 When a user describes a service organization, execute this decision logic:
 
 Step 1: Is the subject matter related to Internal Control Over Financial Reporting (ICFR)?
-  -> YES: SOC 1 (AT-C 300)
+  -> YES: SOC 1 (AT-C 320)
      Ask: Does the user entity's financial statement auditor need this?
        -> YES: SOC 1 is the correct choice
        -> NO: Consider TSC criteria; go to Step 2
@@ -21,22 +21,22 @@ Step 1: Is the subject matter related to Internal Control Over Financial Reporti
 Step 2: Are Trust Services Criteria (Security, Availability, Processing Integrity, Confidentiality, Privacy) the subject matter?
   -> YES: Ask about distribution requirements
      Restricted distribution acceptable (NDA)?
-       -> YES: SOC 2 (AT-C 200 + TSP Section 100)
-       -> NO: SOC 3 (AT-C 200 + TSP Section 100, general use)
+       -> YES: SOC 2 (AT-C 105/205 + TSP Section 100)
+       -> NO: SOC 3 (AT-C 105/205 + TSP Section 100, general use)
      REMINDER: Security criteria ALWAYS in scope for SOC 2/SOC 3
   -> NO: Proceed to Step 3
 
 Step 3: Is the subject matter an entity's cybersecurity risk management program?
-  -> YES: SOC for Cybersecurity (AT-C 200 + Cybersecurity Description Criteria)
+  -> YES: SOC for Cybersecurity (AT-C 105/205 + Cybersecurity Description Criteria)
      Distinguish: covers the ENTIRE entity's cybersecurity program, not a specific system
      Determine Type I (point in time) or Type II (period of time)
   -> NO: Proceed to Step 4
 
 Step 4: Is the subject matter a production, manufacturing, or distribution system?
-  -> YES: SOC for Supply Chain (AT-C 200 + adapted TSP Section 100)
+  -> YES: SOC for Supply Chain (AT-C 105/205 + adapted TSP Section 100)
      Applies to entities that manufacture, produce, or distribute physical or digital products
   -> NO: This may not be a SOC engagement. Consider:
-     AT-C 200 for custom examination, AT-C 200 for review, AT-C 300 for AUP
+     AT-C 205 for custom examination, AT-C 210 for review, AT-C 215 for AUP
      Advise consulting a licensed CPA practitioner
 
 Always walk through all steps before concluding. If the scenario does not fit any SOC type, explicitly state that and recommend alternative engagement types.
@@ -46,13 +46,13 @@ Always walk through all steps before concluding. If the scenario does not fit an
 Step 1: Does the user entity need assurance on operating effectiveness?
   -> YES: Type II is required
      Determine examination period:
-       <6 months: advise minimum is 6 months; consider Type I first
+       <6 months: PERMITTED — the AICPA prescribes no minimum period (SOC 2 FAQ); periods under ~2 months risk insufficient evidence, and short periods may be less useful to users. 3-month initial Type II periods are common market practice
        6-12 months: standard Type II period (12 months is most common)
        >12 months: rare; discuss with practitioner
   -> NO: Type I may be sufficient -> Step 2
 
 Step 2: Is this a first-time SOC engagement?
-  -> YES: Recommend Type I as readiness assessment to identify and remediate gaps
+  -> YES: Recommend a READINESS ASSESSMENT (non-attest consulting) to identify and remediate gaps. A Type I is a real attestation report on design at a point in time — it is NOT a readiness assessment, and many enterprise customers will not accept it in place of a Type II
   -> NO: Type II is standard for established SOC programs
 
 Step 3: What is the user entity requesting?
@@ -77,8 +77,8 @@ Document rationale for each included/excluded category.
 
 ## Citations in this chunk
 
-- [AT-C-200] -- examination engagement decision
-- [AT-C-300] -- SOC 1 engagement type
+- [AT-C-205] -- examination engagement decision
+- [AT-C-320] -- SOC 1 engagement type
 - [TSP-Section-100] -- TSC category selection
 
 See SKILL.md Section 10 for the full citation manifest.

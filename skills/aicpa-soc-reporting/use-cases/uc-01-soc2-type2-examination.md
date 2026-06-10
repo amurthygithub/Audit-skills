@@ -75,5 +75,5 @@ opinion:
 ## Variations
 
 - If exceptions found: re-run through opinion determination (chunk 07 Step 5) for qualified vs adverse.
-- If Privacy criteria added: scope increases to 46 criteria; add P1-P8 GDPR mapping.
+- If Privacy criteria added: scope increases to 56 criteria (38 + 18 Privacy); add P1-P8 GDPR mapping.
 - If first-time engagement: recommend Type I readiness first.
