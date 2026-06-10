@@ -72,6 +72,10 @@ def test_uc_03_pii_volume_increase():
     payload["information_types"][0]["cia_baseline"] = {"c": "MODERATE", "i": "MODERATE", "a": "MODERATE"}
     crosswalk = json.loads((DATA.parent / "crosswalks" / "soc2-to-800-53-mod.json").read_text())
     payload["crosswalk"] = crosswalk
+    payload["gap_register"] = _load("uc-03-gap-list.json")
     out = run_skill("UC-03", payload)
-    # Gap count should still be in the expected range (mod baseline)
-    assert 80 <= out["crosswalk_summary"]["gap_controls"] <= 110
+    # Invariant: register totals foot regardless of the CIA mutation (the register is
+    # input data, not derived from CIA in the stub); baseline stays MODERATE here
+    gs = out["gap_register_summary"]
+    assert gs["total_records"] == gs["pure_gaps"] + gs["strengthen_partial_coverage"] > 0
+    assert out["baseline"]["baseline"] == "MODERATE"

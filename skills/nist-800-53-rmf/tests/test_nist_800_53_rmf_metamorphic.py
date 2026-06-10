@@ -70,12 +70,14 @@ def test_uc_03_overlap_decreases_with_pii_volume():
     payload = _load("uc-03-input.json")
     crosswalk = json.loads((DATA.parent / "crosswalks" / "soc2-to-800-53-mod.json").read_text())
     payload["crosswalk"] = crosswalk
+    payload["gap_register"] = _load("uc-03-gap-list.json")
     out_mod = run_skill("UC-03", payload)
-    mod_gap = out_mod["crosswalk_summary"]["gap_controls"]
+    mod_gap = out_mod["gap_register_summary"]["pure_gaps"]
 
     # If we hypothetically require HIGH, the gap list would grow. This is a
     # future UC variant (UC-03-HIGH); the assertion here is the simple invariant
     # that the gap count is positive for any reasonable baseline.
     assert mod_gap > 0
-    # And the overlap is in the expected range.
-    assert 60 <= out_mod["crosswalk_summary"]["overlap_pct"] <= 80
+    # No overlap percentage may be emitted — not derivable from a sample crosswalk
+    # (a HIGH-baseline variant would only ADD gap records, never remove them).
+    assert "overlap_pct" not in out_mod["crosswalk_summary"]

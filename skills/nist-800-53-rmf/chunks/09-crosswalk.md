@@ -47,7 +47,7 @@ The skill ships a curated crosswalk in `data/crosswalks/soc2-to-800-53-mod.json`
 In production use, expect:
 
 - **~8% overlap** (27 of ~325 controls) in the seed crosswalk at `data/crosswalks/soc2-to-800-53-mod.json`, which is a representative curated sample. Production crosswalks using the full AICPA TSC-to-800-53 mapping from authoritative sources may yield different overlap percentages. Always verify against the current AICPA TSC appendix.
-- **~94 gap controls** that 800-53 Mod requires but SOC 2 doesn't cover. Gap categories:
+- A **representative 93-record gap register** (81 'gap' + 12 'strengthen' dispositions — computed from the shipped seeds, not the complete Moderate gap set). Gap categories:
   - **Privacy controls** (PT family, Rev 5).
   - **Supply chain risk management** (SR family, Rev 5).
   - **Program management** (PM family) — partial overlap.

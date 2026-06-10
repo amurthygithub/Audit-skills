@@ -1,49 +1,214 @@
 {
   "_meta": {
     "source": "AICPA Trust Services Criteria 2017 ↔ NIST SP 800-53 Rev 5 Moderate",
-    "note": "This crosswalk is a curated mapping; in production, source from the AICPA 'TSC to 800-53' appendix and the FedRAMP/NIST published mappings. Each row is one mapping. Strength: 'exact' (1:1), 'partial' (TSC partially covers 800-53), 'contextual' (TSC covers it under specific conditions).",
+    "note": "CURATED SAMPLE crosswalk (33 representative mappings), not a complete TSC-to-800-53 mapping. Source the complete mapping from the AICPA TSC mapping appendix / NIST IR resources for engagements. Strength: 'exact' (1:1), 'partial' (TSC partially covers 800-53), 'contextual' (TSC covers it under specific conditions).",
     "version": "0.1.0",
     "retrieval_date": "2026-05-25"
   },
   "mappings": [
-    {"soc2_id": "CC1.1", "nist_800_53_id": "PM-2", "strength": "partial", "note": "COSO Principle 1 ↔ PM-2 (senior information security officer role)"},
-    {"soc2_id": "CC1.2", "nist_800_53_id": "PM-1", "strength": "partial", "note": "Board oversight ↔ PM-1 (information security program plan)"},
-    {"soc2_id": "CC1.3", "nist_800_53_id": "PM-1, PM-2", "strength": "partial", "note": "Roles and responsibilities"},
-    {"soc2_id": "CC1.4", "nist_800_53_id": "PM-9, PM-15", "strength": "partial", "note": "Risk management strategy"},
-    {"soc2_id": "CC1.5", "nist_800_53_id": "PM-4, PM-5, PM-6", "strength": "partial", "note": "Accountability"},
-    {"soc2_id": "CC2.1", "nist_800_53_id": "AT-2, AT-3", "strength": "partial", "note": "Information and communication"},
-    {"soc2_id": "CC2.2", "nist_800_53_id": "AT-2", "strength": "partial", "note": "Internal communication"},
-    {"soc2_id": "CC2.3", "nist_800_53_id": "AT-2, AT-3, PM-15", "strength": "partial", "note": "External communication"},
-    {"soc2_id": "CC3.1", "nist_800_53_id": "RA-3", "strength": "partial", "note": "Risk identification"},
-    {"soc2_id": "CC3.2", "nist_800_53_id": "RA-3, PM-9", "strength": "partial", "note": "Risk analysis"},
-    {"soc2_id": "CC3.3", "nist_800_53_id": "RA-3, PM-9", "strength": "partial", "note": "Risk response"},
-    {"soc2_id": "CC3.4", "nist_800_53_id": "RA-3, SI-2", "strength": "partial", "note": "Risk monitoring and change management"},
-    {"soc2_id": "CC4.1", "nist_800_53_id": "CA-7, PM-31", "strength": "partial", "note": "Continuous monitoring"},
-    {"soc2_id": "CC4.2", "nist_800_53_id": "CA-7, SI-4", "strength": "partial", "note": "Defects and deficiencies evaluation"},
-    {"soc2_id": "CC5.1", "nist_800_53_id": "AC-1, AC-2", "strength": "exact", "note": "Control activities — access control policies"},
-    {"soc2_id": "CC5.2", "nist_800_53_id": "AC-2, IA-2", "strength": "partial", "note": "Control activities — account management"},
-    {"soc2_id": "CC5.3", "nist_800_53_id": "AC-2, IA-5", "strength": "partial", "note": "Control activities — authentication"},
-    {"soc2_id": "CC6.1", "nist_800_53_id": "AC-2, AC-3, AC-6", "strength": "exact", "note": "Logical access — provisioning, modification, removal"},
-    {"soc2_id": "CC6.2", "nist_800_53_id": "AC-2, IA-2", "strength": "partial", "note": "Authentication"},
-    {"soc2_id": "CC6.3", "nist_800_53_id": "AC-2(4), AC-2(11)", "strength": "partial", "note": "Account review and usage conditions"},
-    {"soc2_id": "CC6.4", "nist_800_53_id": "AC-2(13), IA-4", "strength": "partial", "note": "Account disable and identifier management"},
-    {"soc2_id": "CC6.5", "nist_800_53_id": "AC-2(7), IA-5", "strength": "partial", "note": "Privileged access and authenticator management"},
-    {"soc2_id": "CC6.6", "nist_800_53_id": "SC-7, SC-8", "strength": "partial", "note": "Network and transmission controls"},
-    {"soc2_id": "CC6.7", "nist_800_53_id": "SC-8, SC-13", "strength": "partial", "note": "Cryptographic transmission and protection"},
-    {"soc2_id": "CC6.8", "nist_800_53_id": "SI-7, SC-8", "strength": "partial", "note": "Data in transit and at rest integrity"},
-    {"soc2_id": "CC7.1", "nist_800_53_id": "SI-4, IR-4", "strength": "partial", "note": "System monitoring and incident response"},
-    {"soc2_id": "CC7.2", "nist_800_53_id": "SI-4(2), SI-4(5)", "strength": "partial", "note": "Anomaly detection"},
-    {"soc2_id": "CC7.3", "nist_800_53_id": "IR-4, IR-5", "strength": "partial", "note": "Incident detection and response"},
-    {"soc2_id": "CC7.4", "nist_800_53_id": "IR-4, IR-6", "strength": "partial", "note": "Incident response procedures and reporting"},
-    {"soc2_id": "CC7.5", "nist_800_53_id": "CP-2, CP-4, CP-9", "strength": "partial", "note": "Recovery and continuity"},
-    {"soc2_id": "CC8.1", "nist_800_53_id": "CM-2, CM-6", "strength": "partial", "note": "Change management — baselines"},
-    {"soc2_id": "CC9.1", "nist_800_53_id": "RA-3, PM-9", "strength": "partial", "note": "Risk mitigation"},
-    {"soc2_id": "CC9.2", "nist_800_53_id": "PM-9, RA-3", "strength": "partial", "note": "Vendor and business partner risk"}
+    {
+      "soc2_id": "CC1.1",
+      "nist_800_53_id": "PM-2",
+      "strength": "partial",
+      "note": "COSO Principle 1 ↔ PM-2 (senior information security officer role)"
+    },
+    {
+      "soc2_id": "CC1.2",
+      "nist_800_53_id": "PM-1",
+      "strength": "partial",
+      "note": "Board oversight ↔ PM-1 (information security program plan)"
+    },
+    {
+      "soc2_id": "CC1.3",
+      "nist_800_53_id": "PM-1, PM-2",
+      "strength": "partial",
+      "note": "Roles and responsibilities"
+    },
+    {
+      "soc2_id": "CC1.4",
+      "nist_800_53_id": "PM-9, PM-15",
+      "strength": "partial",
+      "note": "Risk management strategy"
+    },
+    {
+      "soc2_id": "CC1.5",
+      "nist_800_53_id": "PM-4, PM-5, PM-6",
+      "strength": "partial",
+      "note": "Accountability"
+    },
+    {
+      "soc2_id": "CC2.1",
+      "nist_800_53_id": "AT-2, AT-3",
+      "strength": "partial",
+      "note": "Information and communication"
+    },
+    {
+      "soc2_id": "CC2.2",
+      "nist_800_53_id": "AT-2",
+      "strength": "partial",
+      "note": "Internal communication"
+    },
+    {
+      "soc2_id": "CC2.3",
+      "nist_800_53_id": "AT-2, AT-3, PM-15",
+      "strength": "partial",
+      "note": "External communication"
+    },
+    {
+      "soc2_id": "CC3.1",
+      "nist_800_53_id": "RA-3",
+      "strength": "partial",
+      "note": "Risk identification"
+    },
+    {
+      "soc2_id": "CC3.2",
+      "nist_800_53_id": "RA-3, PM-9",
+      "strength": "partial",
+      "note": "Risk analysis"
+    },
+    {
+      "soc2_id": "CC3.3",
+      "nist_800_53_id": "RA-3, PM-9",
+      "strength": "partial",
+      "note": "Risk response"
+    },
+    {
+      "soc2_id": "CC3.4",
+      "nist_800_53_id": "RA-3, SI-2",
+      "strength": "partial",
+      "note": "Risk monitoring and change management"
+    },
+    {
+      "soc2_id": "CC4.1",
+      "nist_800_53_id": "CA-7, PM-31",
+      "strength": "partial",
+      "note": "Continuous monitoring"
+    },
+    {
+      "soc2_id": "CC4.2",
+      "nist_800_53_id": "CA-7, SI-4",
+      "strength": "partial",
+      "note": "Defects and deficiencies evaluation"
+    },
+    {
+      "soc2_id": "CC5.1",
+      "nist_800_53_id": "AC-1, AC-2",
+      "strength": "exact",
+      "note": "Control activities — access control policies"
+    },
+    {
+      "soc2_id": "CC5.2",
+      "nist_800_53_id": "AC-2, IA-2",
+      "strength": "partial",
+      "note": "Control activities — account management"
+    },
+    {
+      "soc2_id": "CC5.3",
+      "nist_800_53_id": "AC-2, IA-5",
+      "strength": "partial",
+      "note": "Control activities — authentication"
+    },
+    {
+      "soc2_id": "CC6.1",
+      "nist_800_53_id": "AC-2, AC-3, AC-6",
+      "strength": "exact",
+      "note": "Logical access — provisioning, modification, removal"
+    },
+    {
+      "soc2_id": "CC6.2",
+      "nist_800_53_id": "AC-2, IA-2",
+      "strength": "partial",
+      "note": "Authentication"
+    },
+    {
+      "soc2_id": "CC6.3",
+      "nist_800_53_id": "AC-2(4), AC-2(11)",
+      "strength": "partial",
+      "note": "Account review and usage conditions"
+    },
+    {
+      "soc2_id": "CC6.4",
+      "nist_800_53_id": "AC-2(13), IA-4",
+      "strength": "partial",
+      "note": "Account disable and identifier management"
+    },
+    {
+      "soc2_id": "CC6.5",
+      "nist_800_53_id": "AC-2(7), IA-5",
+      "strength": "partial",
+      "note": "Privileged access and authenticator management"
+    },
+    {
+      "soc2_id": "CC6.6",
+      "nist_800_53_id": "SC-7, SC-8",
+      "strength": "partial",
+      "note": "Network and transmission controls"
+    },
+    {
+      "soc2_id": "CC6.7",
+      "nist_800_53_id": "SC-8, SC-13",
+      "strength": "partial",
+      "note": "Cryptographic transmission and protection"
+    },
+    {
+      "soc2_id": "CC6.8",
+      "nist_800_53_id": "SI-7, SC-8",
+      "strength": "partial",
+      "note": "Data in transit and at rest integrity"
+    },
+    {
+      "soc2_id": "CC7.1",
+      "nist_800_53_id": "SI-4, IR-4",
+      "strength": "partial",
+      "note": "System monitoring and incident response"
+    },
+    {
+      "soc2_id": "CC7.2",
+      "nist_800_53_id": "SI-4(2), SI-4(5)",
+      "strength": "partial",
+      "note": "Anomaly detection"
+    },
+    {
+      "soc2_id": "CC7.3",
+      "nist_800_53_id": "IR-4, IR-5",
+      "strength": "partial",
+      "note": "Incident detection and response"
+    },
+    {
+      "soc2_id": "CC7.4",
+      "nist_800_53_id": "IR-4, IR-6",
+      "strength": "partial",
+      "note": "Incident response procedures and reporting"
+    },
+    {
+      "soc2_id": "CC7.5",
+      "nist_800_53_id": "CP-2, CP-4, CP-9",
+      "strength": "partial",
+      "note": "Recovery and continuity"
+    },
+    {
+      "soc2_id": "CC8.1",
+      "nist_800_53_id": "CM-2, CM-6",
+      "strength": "partial",
+      "note": "Change management — baselines"
+    },
+    {
+      "soc2_id": "CC9.1",
+      "nist_800_53_id": "RA-3, PM-9",
+      "strength": "partial",
+      "note": "Risk mitigation"
+    },
+    {
+      "soc2_id": "CC9.2",
+      "nist_800_53_id": "PM-9, RA-3",
+      "strength": "partial",
+      "note": "Vendor and business partner risk"
+    }
   ],
   "summary": {
     "soc2_common_criteria": 9,
     "mappings_count": 33,
-    "covered_800_53_controls": 27,
-    "notes": "33 mappings cover 27 unique 800-53 controls. Many 800-53 controls are not covered by any SOC 2 Common Criterion; these are the 'gap controls' (94 in the UC-03 oracle)."
+    "covered_800_53_controls": 39,
+    "notes": "33 sample mappings cover 39 unique 800-53 control IDs (enhancements counted separately). This sample is NOT the complete mapping; coverage percentages cannot be derived from it."
   }
 }
