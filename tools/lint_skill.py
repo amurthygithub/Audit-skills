@@ -102,7 +102,7 @@ def find_todo_outside_changelog(skill_dir: Path, body: str) -> List[str]:
     offenders: List[str] = []
     # scan SKILL.md body
     for i, line in enumerate(body.splitlines(), 1):
-        if re.search(r"\b(TODO|FIXME|XXX|HACK)\b", line):
+        if re.search(r"\b(TODO|FIXME|XXX|HACK)\b|\[VERIFY", line):
             offenders.append(f"SKILL.md:{i}: {line.strip()}")
     # scan all files except changelog
     for p in skill_dir.rglob("*"):
@@ -114,7 +114,7 @@ def find_todo_outside_changelog(skill_dir: Path, body: str) -> List[str]:
             continue
         try:
             for i, line in enumerate(p.read_text(errors="ignore").splitlines(), 1):
-                if re.search(r"\b(TODO|FIXME|XXX|HACK)\b", line):
+                if re.search(r"\b(TODO|FIXME|XXX|HACK)\b|\[VERIFY", line):
                     rel = p.relative_to(skill_dir)
                     offenders.append(f"{rel}:{i}: {line.strip()}")
         except Exception:
@@ -290,7 +290,7 @@ def lint_skill(skill_dir: Path) -> Tuple[int, List[str]]:
     # TODO/FIXME
     todos = find_todo_outside_changelog(skill_dir, body)
     if todos:
-        errors.append(f"TODO/FIXME found outside changelog ({len(todos)}): first 3: {todos[:3]}")
+        errors.append(f"TODO/FIXME/[VERIFY found outside changelog ({len(todos)}): first 3: {todos[:3]}")
 
     # Whitespace: no trailing whitespace in markdown files; files end with exactly one newline.
     for p in skill_dir.rglob("*.md"):

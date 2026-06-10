@@ -29,6 +29,8 @@ Dispatch **5 agents in parallel, one per persona**. Each agent receives this fil
 
 **Findings are hypotheses.** The dispatcher must verify every CRITICAL/HIGH before acting: mechanically (count/diff/grep/execute) for internal claims, against live sources for external claims. Persona agents share the build agents' failure mode — confident, plausible, sometimes wrong (one persona correctly flagged a memo as mis-cited while being wrong itself about what the memo was).
 
+**Currency claims are the persona blind spot.** Any persona claim of the form "X doesn't exist," "X is the current version," "Y was never published," or "Z still holds role R" is a currency claim and gets mandatory Tier-2 verification — EVEN AT FULL PERSONA CONSENSUS. The M1 sweep refuted unanimous or near-unanimous persona claims four times, every time on a post-training-cutoff event (ITAF 5th Edition, ISACA as CMMC CAICO, CISA CPG 2.0, the tiers-FAQ provenance). Personas: when your finding rests on recency (editions, versions, sunsets, org roles), say so explicitly in the finding so the dispatcher routes it to live verification.
+
 The dispatcher merges all 5 tables into `skills/{{skill_slug}}/docs/persona-review.md`:
 `persona | severity | file:line | finding | resolution (fixed / ticketed SOX-NNN / accepted-with-rationale)`.
 Every CRITICAL and HIGH must reach a resolution before release. Empty findings from all 5 personas is a red flag — re-dispatch with explicit instruction to find the weakest file.

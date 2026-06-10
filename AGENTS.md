@@ -85,6 +85,14 @@ Run in order; each pass uses its version-controlled prompt:
 - **Tier 2 — live source:** a webfetch agent fetched the authoritative source and quoted the supporting sentence verbatim. Required for EVERY external framework fact that is added or changed.
 - **Tier 3 — concurrence:** the reviewer's knowledge agrees with other agents' knowledge. **Concurrence is a triage signal, NOT verification.** A fix justified only by Tier 3 is an unverified fix — it must be Tier-2 verified before the PR merges, or written as a verify-against caveat instead of a specific claim.
 
+**Process v3 rules (learned 2026-06-10, M1 sweep — 6/6 vetted, PRs #32–#41):**
+- **Currency and negative-existence claims are ALWAYS Tier-2.** No LLM source (persona, builder, reviewer — or the dispatcher) can establish that something "doesn't exist," "is the current version," or "was never published." The M1 sweep refuted persona CONSENSUS four times, every time on a post-training-cutoff event (ITAF 5th Edition exists, ISACA is the CMMC CAICO, CISA CPG 2.0 exists, the tiers-not-maturity quote lives in the 1.1-era FAQ). Editions, versions, sunsets, supersessions, org roles, and program governance are recency-sensitive by definition: fetch or caveat, never assert.
+- **The seed + oracle are the contract.** When UC documents, README examples, chunks, the stub, and the tests disagree, the tested fixture (seed + oracle assertions) is the source of truth: rebuild the docs to it, or consciously change the contract everywhere at once. Never patch one artifact in isolation (nist-csf-2 shipped ALL THREE UC docs describing different companies than their own seeds).
+- **Inventory-diff for catalog-bearing skills.** When a skill encodes a framework catalog (TSC criteria, COBIT objectives, CSF subcategories, 800-171 requirements), verify by transcribing/parsing the FULL official inventory once (PDF text-extraction or official JSON export) and diffing the skill against it. Spot-checking misses offsetting errors (an invented BAI12 masked a missing MEA04 because the total still summed to 40).
+- **Anti-hallucination and limits sections get priority verification.** Fabrications concentrate exactly where trust anchors live — M1 found invented statutes, fake SLAs, wrong editions, and fabricated citations INSIDE anti-hallucination sections in 4 of 6 skills. Verify every specific claim in these sections first.
+- **House conventions must be labeled, never attributed.** Any formula, scale, weighting, threshold, or rollup not verbatim in a cited source (risk scores, tier averages, status scales, %-gap math, design-factor weights) is labeled "house convention / illustrative" with an attribution note. Attributing invented math to a named publication is a CRITICAL.
+- **Verification artifacts must carry evidence, or they are noise.** A ✓-verified row without a verbatim quote is Tier-3 concurrence. A gate containing unresolved text ("need recount", bracketed `[VERIFY:` author-TODOs) is a failed gate — the linter now rejects `[VERIFY` markers outside the changelog; shipped caveats are written as prose ("verify X against Y before client use"), never as author TODO tags.
+
 Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval date | verifier | status, **with a verbatim source quote for every Tier-2 row**. ≥20 rows. Any FAIL blocks release.
 
 ### G5 — Ship
@@ -119,12 +127,13 @@ A skill is not done when its tests pass. It is done when a stranger can use it c
 - Output: `skills/<slug>/docs/persona-review.md` — persona | finding | severity | resolution. Blocking findings fixed before release.
 
 ### 3.3.1 Per-skill vetting runbook (the corrected order — run it exactly like this)
-1. **Persona vetting + smoke tests** in parallel (5 persona agents + 1 clean session per UC).
-2. **Verify every CRITICAL/HIGH finding before fixing it** — findings are hypotheses, not facts: Tier 1 (mechanical) for internal claims, Tier 2 (live source) for external claims. Drop findings that don't verify.
-3. **Fix pass** — verified findings only. Where a correct value can't be Tier-2 verified yet, write a verify-against caveat, not a new specific claim.
-4. **§5.11 re-verify (live, webfetch) every external fact the fix pass touched** — BEFORE the PR merges. Evidence rows with verbatim quotes go into acceptance-gate.md.
-5. Re-run any FAILed smoke test in a fresh clean session after the fix.
-6. Structural findings that can't be inline-fixed safely get tickets; persona-review.md records every finding's resolution (fixed PR-N / ticketed SOX-N / accepted-with-rationale). Zero unresolved CRITICAL/HIGH to pass the gate.
+1. **Persona vetting + smoke tests** in parallel (5 persona agents + 1 clean session per UC). Smoke agents self-grade against the UC oracle and report **every cross-file contradiction** they notice — smoke contradiction lists were the highest-yield seed/doc-drift detector in M1.
+2. **Verify every CRITICAL/HIGH finding before fixing it** — findings are hypotheses, not facts: Tier 1 (mechanical) for internal claims, Tier 2 (live source) for external claims. Drop findings that don't verify. **Persona "X doesn't exist / X is current" claims are currency claims — mandatory Tier-2 even at full consensus** (refuted 4 times in M1).
+3. **UC-doc ↔ seed/oracle coherence check (Tier 1):** diff every UC document's stated facts (org name, sizes, counts, IDs, expected values, file pointers) against its `data_refs` seed and its `tests` assertions. The seed + oracle are the contract; docs rebuild to them.
+4. **Fix pass** — verified findings only. Where a correct value can't be Tier-2 verified yet, write a prose verify-against caveat (never a `[VERIFY:` author tag), not a new specific claim. Label all non-source formulas/scales as house conventions.
+5. **§5.11 re-verify (live, webfetch) every external fact the fix pass touched** — BEFORE the PR merges. Evidence rows with verbatim quotes go into acceptance-gate.md; re-derive (don't merely edit) any gate row the fix pass invalidated.
+6. Re-run any FAILed smoke test in a fresh clean session after the fix.
+7. Structural findings that can't be inline-fixed safely get tickets; persona-review.md records every finding's resolution (fixed PR-N / ticketed SOX-N / accepted-with-rationale). Zero unresolved CRITICAL/HIGH to pass the gate.
 
 ### 3.4 Industry vetting
 - Each `industries/<industry>.md` file gets a persona review from that industry's practitioner persona (same prompt file, industry section).

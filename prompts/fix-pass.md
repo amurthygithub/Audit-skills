@@ -13,6 +13,9 @@ Dispatch **1 agent per skill**, in parallel across skills. Each agent receives t
 3. **Edit files in the repo path** (`/Users/amurthy/Code/Audit-skills/skills/{{skill_slug}}/`), never `~/.config/opencode/skills/`. Historically ~60% of fix agents get this wrong.
 4. **Do NOT commit. Do NOT push.** The dispatcher reviews `git diff` and commits.
 5. **Keep counts synchronized.** If you fix a count in one file, grep for the same count in every other file of the skill and fix all occurrences — partial fixes create the self-contradictions the next verification pass will flag.
+5a. **The seed + oracle are the contract.** If a finding reveals a UC document disagreeing with its seed or its oracle tests, rebuild the DOC to the tested fixture (or change the contract everywhere at once — seed, stub, oracle, doc, README — in the same pass). Never patch one artifact in isolation.
+5b. **Label house conventions; never attribute them.** Any formula, scale, weighting, or rollup that is not verbatim in a cited source must be labeled "house convention / illustrative heuristic" — do not leave (or add) attribution of invented math to a named publication.
+5c. **Caveats are prose, not tags.** A shipped caveat reads "verify X against Y before client use." Never write `[VERIFY: ...]` author-TODO markers — the linter rejects them outside the changelog.
 6. **Run the gates before reporting done:**
    ```bash
    python3 tools/lint_skill.py skills/{{skill_slug}}

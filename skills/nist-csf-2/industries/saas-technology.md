@@ -95,7 +95,7 @@ ISO 27001:2022, Edition 3 (Oct 2022), contains Annex A with 93 controls organize
 
 ### Table 3: CSF 2.0 to CAIQ v4 mapping
 
-CAIQ v4 (Consensus Assessments Initiative Questionnaire, Cloud Security Alliance) [CSA-CAIQ-v4; VERIFY: current URL at https://cloudsecurityalliance.org/artifacts] groups questions under 17 control domains aligned with the CSA Cloud Controls Matrix (CCM). This table shows representative mappings — a CSF Current Profile can pre-answer approximately 60% of CAIQ v4 questions. The remaining questions are cloud-service-specific technical items (e.g., hypervisor configuration, tenant isolation) that CSF 2.0 does not address [INTERPRETIVE].
+CAIQ v4 (Consensus Assessments Initiative Questionnaire, Cloud Security Alliance) [CSA-CAIQ-v4] (verify the current artifact URL at cloudsecurityalliance.org before citing question IDs) groups questions under 17 control domains aligned with the CSA Cloud Controls Matrix (CCM). This table shows representative mappings — a CSF Current Profile can pre-answer approximately 60% of CAIQ v4 questions. The remaining questions are cloud-service-specific technical items (e.g., hypervisor configuration, tenant isolation) that CSF 2.0 does not address [INTERPRETIVE].
 
 | CSF 2.0 Subcategory | CAIQ v4 domain | Representative question theme |
 |---|---|---|
