@@ -36,7 +36,9 @@
 **Exit:** 6/6 vetted, zero unresolved CRITICAL/HIGH library-wide, file structural-gap tickets for both skills (the SOX-637-pattern).
 **Est:** 2 sessions, ~0.5–0.9M tokens per skill (observed range).
 
-### M2 — Backlog reconciliation + small correctness debt
+### M2 — Backlog reconciliation + small correctness debt — ✅ COMPLETE 2026-06-10 (PRs #43-#44)
+
+Outcome: SOX-627/628/629/631 audited and closed (two ticket claims refuted: Rev 5.1.1 is a real NIST release; AT-C 105/205 is current); 4 registry URLs refreshed from a 76-URL liveness sweep; SOX-637 fixed (derivable UC-03 summary, non-circular oracle, disposition-per-control, AC-2j cascade, SP 800-53B cited); Epic 7 dedupe: SOX-616/611 Done, SOX-612/615 marked duplicates of Epic 6/ARGUS, SOX-608/617/618 re-scoped.
 | step | what | tickets |
 |---|---|---|
 | 1 | Audit SOX-627/628/629/631 against the merged vetting PRs (#32–#37): close what's already fixed, fold live remainders into the per-skill gap tickets. The backlog must reflect disk reality. | SOX-627–631 |
