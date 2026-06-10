@@ -34,10 +34,20 @@ def _mus_evaluate(inputs: dict) -> dict:
     ria = inputs.get("risk_of_incorrect_acceptance", 0.05)
     expected = inputs.get("expected_overstatements", 0)
 
-    rf = 3.00 if expected == 0 and ria == 0.05 else 2.31
-    si = round(tm / rf)
+    # RF table (Poisson, 0 expected misstatements) — AICPA Audit Sampling Guide
+    RF_TABLE = {0.01: 4.61, 0.05: 3.00, 0.10: 2.31, 0.15: 1.90, 0.20: 1.61}
+    if isinstance(ria, str):
+        ria = float(ria.replace("%", "")) / 100.0
+    if expected != 0 or ria not in RF_TABLE:
+        raise ValueError(
+            f"unsupported sampling parameters (RIA={ria}, expected={expected}); "
+            f"supported RIA: {sorted(RF_TABLE)} at 0 expected misstatements — "
+            "a silent default would size the sample in the wrong direction"
+        )
+    rf = RF_TABLE[ria]
+    si = round(tm / rf)              # display value (rounded)
     n = int((bv * rf) / tm) if tm > 0 else 0
-    bp = int(rf * si)
+    bp = int(round(rf * (tm / rf)))  # BP = RF x unrounded SI = TM exactly
 
     return {
         "sampling_interval": int(si),
@@ -45,7 +55,7 @@ def _mus_evaluate(inputs: dict) -> dict:
         "reliability_factor": rf,
         "basic_precision": bp,
         "upper_limit_misstatement": bp,
-        "upper_limit_conclusion": "ULM < TM — population not materially misstated" if bp < tm else "ULM >= TM — consider expanded sample or management adjustment",
+        "upper_limit_conclusion": "ULM <= TM — population not materially misstated; accept" if bp <= tm else "ULM > TM — consider expanded sample or management adjustment",
         "items_tested": n,
         "misstatements_found": 0,
         "tainting_sum": 0,
@@ -61,7 +71,7 @@ def _finding_document(inputs: dict) -> dict:
         "severity": severity,
         "assertion": "Completeness (Accounts Payable)",
         "condition": "12 of 75 invoices (16%) recorded in incorrect period; $342,500+$128,750 misstated across periods",
-        "criteria": "ASC 606/ASC 330 matching principle; company AP Policy AP-200; AS 2201 ICFR",
+        "criteria": "Accrual-basis GAAP period-end liability/expense recognition; company AP Policy AP-200; AS 2201 ICFR",
         "cause": "Receiving dept not notifying AP of goods received in last 3 days of month; 3-way match relies on invoice date",
         "effect": "Actual: expenses understated by $342,500 in 2024; overstated in 2025. Net understatement $213,750",
         "recommendation": "Implement ERP automated cutoff; daily receiving reports through month-end; internal audit monitoring for 6 months",
@@ -92,8 +102,12 @@ def _td_calculate(inputs: dict) -> dict:
         td_n = ar_n / denom
 
     td_pct = round(td_n * 100, 1)
-    ria_map = "High" if td_pct < 10 else ("Moderate" if td_pct < 30 else "Low")
-    rf_map = 3.00 if ria_map == "High" else (2.31 if ria_map == "Moderate" else 1.39)
+    # TD IS the allowable risk of incorrect acceptance (AS 2315 appendix) —
+    # use the RF at the largest tabulated RIA that does not exceed TD (conservative).
+    RF_TABLE = [(1.0, 4.61), (5.0, 3.00), (10.0, 2.31), (15.0, 1.90), (20.0, 1.61)]
+    rf_map = next((rf for ria_t, rf in reversed(RF_TABLE) if ria_t <= td_pct), 4.61)
+    extent = ("Very large" if td_pct <= 1 else "Large" if td_pct <= 5
+              else "Moderate" if td_pct <= 10 else "Moderate-small" if td_pct <= 15 else "Small")
 
     return {
         "ar": ar_n,
@@ -103,9 +117,11 @@ def _td_calculate(inputs: dict) -> dict:
         "td": round(td_n, 4),
         "td_pct": td_pct,
         "td_formula": f"TD = AR / (IR x CR x AP) = {ar_n} / ({ir_n} x {cr_n} x {ap_n}) = {td_pct}%",
-        "ria_implication": ria_map,
+        "ria_pct": td_pct,
+        "ria_implication": f"TD {td_pct}% is the allowable RIA for the test of details (AS 2315)",
         "rf_implication": rf_map,
-        "sample_size_implication": f"TD ~{td_pct}% -> {ria_map} RIA, RF {rf_map}",
+        "extent": extent,
+        "sample_size_implication": f"TD {td_pct}% = RIA; RF {rf_map} -> {extent} substantive sample",
     }
 
 

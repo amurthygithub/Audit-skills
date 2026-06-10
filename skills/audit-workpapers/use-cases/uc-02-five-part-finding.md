@@ -9,7 +9,7 @@ inputs:
   severity: "Significant Deficiency"
   assertion: "Completeness (Accounts Payable)"
   condition: "12 of 75 invoices (16%) recorded in incorrect period; $342,500+$128,750 misstated across periods"
-  criteria: "ASC 606/ASC 330 matching principle; company AP Policy AP-200; AS 2201 ICFR"
+  criteria: "Accrual-basis GAAP period-end liability/expense recognition; company AP Policy AP-200; AS 2201 ICFR"
   cause: "Receiving dept not notifying AP of goods received in last 3 days of month; 3-way match relies on invoice date"
   effect: "Actual: expenses understated by $342,500 in 2024; overstated in 2025. Net understatement $213,750"
   recommendation: "Implement ERP automated cutoff; daily receiving reports through month-end; internal audit monitoring for 6 months"
@@ -27,7 +27,7 @@ oracle:
 data_refs:
   - "data/seeds/uc-02-input.json"
 tests:
-  - "tests/test_oracle.py::test_uc_02"
+  - "tests/test_audit_workpapers_oracle.py::test_uc_02_oracle"
 status: stub
 ---
 

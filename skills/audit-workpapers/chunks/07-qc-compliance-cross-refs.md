@@ -19,7 +19,7 @@ All WPs have purpose/source/conclusion (AS 1215.04). All WPs satisfy experienced
 All findings in 5-part format. Uncorrected misstatements evaluated. Engagement completion document prepared (AS 1215.13). All 8 significant finding categories addressed (AS 1215.12). Management representation letter obtained. Subsequent events evaluated. Opinion determination documented. CAMs identified if applicable.
 
 ### Post-Engagement
-Documentation completion within 14 days (AS 1215.14-.15). 7-year retention plan. No documentation deleted after completion (AS 1215.17). All review notes resolved. Post-completion additions documented: date, person, reason (AS 1215.16).
+Documentation completion within 14 days (AS 1215.15, amended by PCAOB Release 2024-004: effective for audits of fiscal years beginning on/after Dec 15 2024 for firms auditing >100 issuers, Dec 15 2025 for all other firms; 45 days before that). 7-year retention plan. No documentation deleted after completion (AS 1215.17). All review notes resolved. Post-completion additions documented: date, person, reason (AS 1215.16).
 
 ## Compliance Validation Rules
 
@@ -42,7 +42,7 @@ Documentation completion within 14 days (AS 1215.14-.15). 7-year retention plan.
 
 Each framework uses a different severity tier system. The table below reconciles them for cross-framework assessments.
 
-| COSO/PCAOB (3-Tier) | ISACA (4-Tier) | NIST 800-53 / RMF (4-Tier) | ISACA Risk Priority | Definition |
+| COSO/PCAOB (3-Tier) | ISACA (4-Tier) | FedRAMP POA&M risk rating | ISACA Risk Priority | Definition |
 |----------------------|----------------|----------------------------|---------------------|------------|
 | Control Deficiency (Other) | Low | Low | Low (score 1-4) | Does not rise to SD or MW; minor gap or enhancement opportunity |
 | Significant Deficiency | Medium | Moderate | Medium (5-9) | Important enough to merit attention by those charged with governance |
@@ -50,10 +50,10 @@ Each framework uses a different severity tier system. The table below reconciles
 | -- (no equivalent) | Critical | Critical | Critical (>=15) | Systemic failure, existential risk beyond material financial impact |
 
 **Mapping notes:**
-- COSO/PCAOB uses a 3-tier scale defined in AS 2201. ISACA and NIST both add a fourth tier above COSO's highest.
-- In COSO assessments, ISACA/ISACA "Catastrophic" and NIST "Critical" still map to Material Weakness but warrant escalated remediation priority.
+- COSO/PCAOB uses a 3-tier scale defined in AS 2201. ISACA adds a fourth tier; FedRAMP's POA&M original risk ratings include Critical (treated as High for the 30-day remediation clock).
+- In COSO assessments, ISACA "Catastrophic" and FedRAMP "Critical" still map to Material Weakness but warrant escalated remediation priority.
 - For PCAOB-governed audits, use PCAOB/COSO classifications directly.
-- NIST severity uses assessment objective determinations: Satisfied (no finding), Other_than_Satisfied (finding), with NIST SP 800-53A Rev 5 mapping Low/Moderate/High/Critical to the tiers above.
+- NIST SP 800-53A Rev 5 itself produces only determinations — Satisfied / Other Than Satisfied; the Low/Moderate/High (+Critical original-rating) severity scale is the FedRAMP POA&M program layer, not an 800-53A construct.
 - See: `coso-internal-controls/chunks/07-compensating-updates-cross.md` (COSO cross-ref), `isaca-audit-methodology/chunks/05-risk-and-planning.md` (ISACA severity), `nist-800-53-rmf/chunks/05-assess.md` (NIST assessment).
 
 

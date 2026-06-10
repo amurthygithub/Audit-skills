@@ -18,9 +18,9 @@ Healthcare organizations subject to HIPAA Privacy and Security Rules, with compl
 - Dual-purpose sampling where control reliance and substantive testing overlap (e.g., claims adjudication testing).
 
 ## HIPAA Evidence Retention Requirements
-- PHI must be stored encrypted per 45 CFR 164.312(a)(2)(iv).
+- PHI at rest: encryption is an ADDRESSABLE implementation specification under 45 CFR 164.312(a)(2)(iv) — implement it, or document a reasonable equivalent alternative (the distinction OCR enforces).
 - Access logs maintained per 45 CFR 164.312(b).
-- Minimum 6-year retention from creation or last effective date (45 CFR 164.530(j)(2)).
+- Minimum 6-year retention from creation or last effective date (45 CFR 164.530(j)(2)) — this governs the COVERED ENTITY's HIPAA documentation. Auditor workpapers follow their own regime: AS 1215.14 (7 years, issuer audits) or AU-C 230 (5 years); apply the longest applicable rule, including state record-retention schedules.
 - BAA chain must be documented from covered entity through all subservice organizations handling PHI.
 
 ## Pain Points
