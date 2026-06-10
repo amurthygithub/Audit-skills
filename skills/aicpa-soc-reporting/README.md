@@ -94,21 +94,38 @@ print(response.choices[0].message.content)
 #    Subservice: AWS (carve-out), Criteria count: 38
 ```
 
-### Path 2 -- packaged skill + telemetry (Coming in v0.3.0 -- contact us for early access)
+### Path 2 — packaged skill + telemetry
+
+Every skill ships a deterministic reference executor (`tests/aicpa_soc_reporting_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation. Run it against the shipped UC-01 seed:
 
 ```python
-import sys
-sys.path.insert(0, "skills/aicpa-soc-reporting")
+import sys, json
+sys.path.insert(0, "skills/aicpa-soc-reporting")        # telemetry package
+sys.path.insert(0, "skills/aicpa-soc-reporting/tests")  # stub executor
 
-# from tests.skill_stub import run_skill  # placeholder
-# from telemetry.instrument import instrumented  # available now
+from aicpa_soc_reporting_stub import run_skill
+from telemetry.instrument import instrumented
 
-# @instrumented(skill="aicpa-soc-reporting", skill_version="0.2.0",
-#               default_use_case_id="UC-01", default_industry="saas-technology")
-# def classify(payload):
-#     return run_skill("UC-01", payload, model="gpt-4o")
+# Wrap with telemetry — every call appends a SkillInvocation event
+# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
+@instrumented(skill="aicpa-soc-reporting", skill_version="0.2.0",
+              default_use_case_id="UC-01", default_industry="saas-technology")
+def scope_examination(payload):
+    return run_skill("UC-01", payload)
 
-# result = classify({...})
+payload = json.load(open("skills/aicpa-soc-reporting/data/seeds/uc-01-input.json"))
+result = scope_examination(payload)
+
+print(result["classification"])                  # → "SOC2-TypeII-38"
+print(result["engagement"]["opinion"])           # → "Unqualified"
+print(result["engagement"]["criteria_count"])    # → 38
+```
+
+Verify it works:
+
+```bash
+pytest skills/aicpa-soc-reporting/tests/ -q
+# → 25 passed
 ```
 
 Verify it works:

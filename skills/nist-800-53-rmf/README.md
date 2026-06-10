@@ -199,40 +199,33 @@ pip install openai pyyaml jsonschema pytest
 ```
 
 ```python
-import sys
-sys.path.insert(0, "skills/nist-800-53-rmf")
+import sys, json
+sys.path.insert(0, "skills/nist-800-53-rmf")        # telemetry package
+sys.path.insert(0, "skills/nist-800-53-rmf/tests")  # stub executor
 
-from tests.skill_stub import run_skill
+from nist_800_53_rmf_stub import run_skill
 from telemetry.instrument import instrumented
 
-# Wrap with telemetry — every call emits a SkillInvocation event
-@instrumented(skill="nist-800-53-rmf", skill_version="0.1.0",
+# Wrap with telemetry — every call appends a SkillInvocation event
+# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
+@instrumented(skill="nist-800-53-rmf", skill_version="0.2.0",
               default_use_case_id="UC-01", default_industry="public-sector")
-def categorize(payload, model="gpt-4o", use_case_id="UC-01", industry="public-sector"):
-    return run_skill(use_case_id, payload, model=model)
+def categorize(payload):
+    return run_skill("UC-01", payload)
 
-# UC-01 — FedRAMP-bound SaaS
-result = categorize({
-    "system_name": "CaseFlow Cloud",
-    "system_description": "Multi-tenant case management SaaS for federal agencies",
-    "information_types": [
-        {"name": "Case Management Records",
-         "cia_baseline": {"c": "MODERATE", "i": "MODERATE", "a": "LOW"}},
-        {"name": "Authentication metadata",
-         "cia_baseline": {"c": "MODERATE", "i": "LOW", "a": "LOW"}},
-    ],
-    "cloud_provider": "AWS GovCloud",
-    "cloud_fedramp_id": "AGENCYID-CSP-AWS-GC-FEDRAMP-HIGH",
-})
+# UC-01 — FedRAMP-bound SaaS (the shipped seed)
+payload = json.load(open("skills/nist-800-53-rmf/data/seeds/uc-01-input.json"))
+result = categorize(payload)
 
 print(result["fips_199_categorization"]["overall"])  # → "MODERATE"
 print(result["baseline"]["baseline"])                # → "MODERATE"
+print(result["baseline"]["control_count_rev5"])      # → 325
 ```
 
 Verify it works:
 ```bash
-pytest skills/nist-800-53-rmf/tests/ -v
-# → 23 passed
+pytest skills/nist-800-53-rmf/tests/ -q
+# → 22 passed
 ```
 
 Every call now writes a `SkillInvocation` event to `telemetry/events.jsonl`:
@@ -356,8 +349,8 @@ python tools/lint_skill.py skills/nist-800-53-rmf
 # → [PASS] skills/nist-800-53-rmf
 
 # Tests (23 across 7 files)
-pytest skills/nist-800-53-rmf/tests/ -v
-# → 23 passed
+pytest skills/nist-800-53-rmf/tests/ -q
+# → 22 passed
 
 # Run a specific UC's oracle
 pytest skills/nist-800-53-rmf/tests/test_oracle.py::test_uc_01_oracle -v

@@ -127,15 +127,37 @@ print(response.choices[0].message.content)
 
 ---
 
-## Path 2 -- packaged skill + telemetry (Coming in v0.3.0)
+## Path 2 — packaged skill + telemetry
 
-Path 2 (packaged skill with `skill_stub.py` executor and telemetry instrumentation) is planned for v0.3.0. Contact us for early access.
+Every skill ships a deterministic reference executor (`tests/isaca_audit_methodology_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation. Run it against the shipped UC-01 seed:
 
-Until then, use Path 1 (system prompt) for all LLM calls. The linter and test infrastructure is functional:
+```python
+import sys, json
+sys.path.insert(0, "skills/isaca-audit-methodology")        # telemetry package
+sys.path.insert(0, "skills/isaca-audit-methodology/tests")  # stub executor
+
+from isaca_audit_methodology_stub import run_skill
+from telemetry.instrument import instrumented
+
+# Wrap with telemetry — every call appends a SkillInvocation event
+# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
+@instrumented(skill="isaca-audit-methodology", skill_version="0.2.0",
+              default_use_case_id="UC-01", default_industry="saas-technology")
+def assess_maturity(payload):
+    return run_skill("UC-01", payload)
+
+payload = json.load(open("skills/isaca-audit-methodology/data/seeds/uc-01-input.json"))
+result = assess_maturity(payload)
+
+print(result["classification"])                                   # → "GAP_1.5"
+print(result["maturity_assessment"]["processes"][0]["gap"])       # → 1.5
+```
+
+Verify it works:
 
 ```bash
-python tools/lint_skill.py skills/isaca-audit-methodology
-pytest skills/isaca-audit-methodology/tests/ -v
+pytest skills/isaca-audit-methodology/tests/ -q
+# → 36 passed
 ```
 
 ---

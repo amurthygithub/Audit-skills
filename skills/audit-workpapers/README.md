@@ -35,6 +35,42 @@ The skill body handles sampling plan design, ULM calculation, finding documentat
 
 ---
 
+## Path 2 — packaged skill + telemetry
+
+Every skill ships a deterministic reference executor (`tests/audit_workpapers_stub.py`) — the same one the test suite's oracle runs against — plus telemetry instrumentation. Run it against the shipped UC-01 seed:
+
+```python
+import sys, json
+sys.path.insert(0, "skills/audit-workpapers")        # telemetry package
+sys.path.insert(0, "skills/audit-workpapers/tests")  # stub executor
+
+from audit_workpapers_stub import run_skill
+from telemetry.instrument import instrumented
+
+# Wrap with telemetry — every call appends a SkillInvocation event
+# to telemetry/events.jsonl (override with SOXFLOW_TELEMETRY_PATH)
+@instrumented(skill="audit-workpapers", skill_version="0.2.0",
+              default_use_case_id="UC-01", default_industry="financial-services")
+def design_sampling(payload):
+    return run_skill("UC-01", payload)
+
+payload = json.load(open("skills/audit-workpapers/data/seeds/uc-01-input.json"))
+result = design_sampling(payload)
+
+print(result["classification"])                          # → "MUS_SAMPLE_SIZE_75"
+print(result["mus_evaluation"]["sample_size"])           # → 75
+print(result["mus_evaluation"]["sampling_interval"])     # → 166667
+```
+
+Verify it works:
+
+```bash
+pytest skills/audit-workpapers/tests/ -q
+# → 42 passed
+```
+
+---
+
 ## 5-minute deep dive
 
 ### Industry use cases

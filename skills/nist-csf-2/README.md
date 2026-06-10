@@ -40,15 +40,17 @@ The "bridge" skill: the framework most likely to be a practitioner's *first* enc
 ## 30-second quick start
 
 ```python
+import sys, json
+sys.path.insert(0, "skills/nist-csf-2/tests")  # stub executor
+
 from nist_csf_2_stub import run_skill
 
-# UC-01: First Organizational Profile (Series-A SaaS)
-out = run_skill("UC-01", {
-    "org": {"name": "DataRelay Inc.", "fte": 50, "sector": "saas-technology"},
-    "current_profile": {"subcategory_scores": {}, "function_tiers": {}},
-    "target_profile": {"function_tiers": {}},
-})
-print(out["classification"])
+# UC-01: First Organizational Profile (Series-A SaaS) — the shipped seed
+payload = json.load(open("skills/nist-csf-2/data/seeds/uc-01-input.json"))
+out = run_skill("UC-01", payload)
+
+print(out["classification"])                                  # → "FIRST_ORGANIZATIONAL_PROFILE"
+print(out["current_profile"]["current_tier_by_function"])     # → {'GV': 'T1', 'ID': 'T2', ...}
 ```
 
 ## 5-minute walkthrough
