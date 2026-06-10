@@ -1,0 +1,9 @@
+{
+ "missing_provisions": [
+  "incident_reporting",
+  "subcontractor_flowdown"
+ ],
+ "checklist_items": 10,
+ "scaled_down_items": 3,
+ "all_cites_in_fact_sheet": true
+}

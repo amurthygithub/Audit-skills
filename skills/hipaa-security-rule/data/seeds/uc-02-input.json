@@ -1,0 +1,18 @@
+{
+ "use_case": "UC-02",
+ "org": {
+  "name": "Bellbrook Regional Health",
+  "type": "covered_entity",
+  "headcount": 6000,
+  "facilities": 4,
+  "systems": [
+   "EHR",
+   "legacy lab system",
+   "imaging/PACS",
+   "patient portal"
+  ]
+ },
+ "as_of_date": "2026-06-01",
+ "review_cycle_years": 3,
+ "review_cycle_note": "house convention: the regulation requires periodic review (164.316(b)(2)(iii)) without a stated cadence; 3 years is the engagement parameter, not a regulatory deadline"
+}

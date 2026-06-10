@@ -1,0 +1,17 @@
+{
+ "risk_summary": {
+  "total": 15,
+  "by_band": {
+   "High": 4,
+   "Medium": 6,
+   "Low": 5
+  }
+ },
+ "disposition_summary": {
+  "implement": 15,
+  "alternative_measure": 3,
+  "not_reasonable_documented": 4
+ },
+ "decision_required_count": 12,
+ "encryption_at_rest_disposition": "implement"
+}

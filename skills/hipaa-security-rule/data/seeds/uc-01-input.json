@@ -1,0 +1,18 @@
+{
+ "use_case": "UC-01",
+ "org": {
+  "name": "CareSync Relay",
+  "type": "business_associate",
+  "headcount": 40,
+  "model": "fully_remote",
+  "hosting": "AWS (commercial)",
+  "customers": "12 covered-entity provider groups",
+  "ephi_systems": [
+   "care-coordination API",
+   "message relay store",
+   "analytics warehouse (de-identified where feasible)"
+  ]
+ },
+ "as_of_date": "2026-06-01",
+ "scale_note": "house convention: risk score = likelihood (1-3) x impact (1-3); bands Low <=2, Medium 3-4, High >=6"
+}
