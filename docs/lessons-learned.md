@@ -220,7 +220,53 @@ For edits to existing skills:
 
 ---
 
-## 9. Summary for future agents
+## 9. The vetting round (2026-06-09, nist-800-53-rmf) — what structural gates cannot catch
+
+The reference skill passed 22 tests, the Tier 0a linter, and **three rounds of §5.11
+verification** while carrying **8 CRITICAL domain falsehoods** (a mandatory encryption
+control taught as scopable, fabricated FedRAMP SLAs, a mis-cited OMB memo in the citation
+manifest itself, wrong framework lineage claims, self-contradicting fixtures). Persona
+vetting — 5 practitioner-role agents reviewing the BUILT skill — found all of them in one
+pass. Lessons, each mechanized:
+
+### 9.1 Existence checks are not semantics checks
+Prior §5.11 rounds verified that control IDs existed and URLs returned 200. SC-8(1)
+exists — and the skill still mis-taught what it IS. Verification must check the official
+name and the skill's usage against the control's actual scope.
+**Mechanized:** prompts/s511-verification.md check #1 (existence AND semantics), #9
+(process/SLA claims), #10 (cited-document identity).
+
+### 9.2 Concurrence is not verification
+During the fix pass, external facts were initially "verified" by the dispatcher's
+knowledge agreeing with 2-3 persona agents. All 7 such facts later survived live-source
+verification — but that was luck-checked-after-the-fact, not process. Multiple LLMs
+agreeing is a triage signal; only a fetched source with a verbatim quote is verification.
+**Mechanized:** AGENTS.md G4 verification tiers (Tier 3 explicitly does not count);
+prompts/fix-pass.md rule 2 (no source, no new specific claim); §5.11 output contract
+requires verbatim quotes.
+
+### 9.3 Persona findings are hypotheses
+The persona panel was right on all 11 spot-checked findings — but one persona, while
+correctly flagging a mis-cited memo, was itself wrong about what that memo was. Verify
+every CRITICAL/HIGH (mechanically or via live source) before fixing.
+**Mechanized:** prompts/persona-vetting.md output contract; AGENTS.md §3.3.1 runbook step 2.
+
+### 9.4 Re-verify BEFORE merge, not after
+The first vetting run merged its fix pass and only then ran the live §5.11 re-check.
+It passed 7/7 — but the order was wrong: an unverified fix on main is an unverified
+release.
+**Mechanized:** AGENTS.md §3.3.1 runbook step 4 (re-verify gates the PR).
+
+### 9.5 When you can't verify, caveat — don't substitute
+The one practice that prevented new errors: where the correct value couldn't be verified
+at fix time (e.g., SP 800-53B baseline counts), the fix wrote "verify against <source>"
+instead of a new specific number. A caveat is recoverable; a confident wrong number is
+another CRITICAL.
+**Mechanized:** prompts/fix-pass.md rule 2; AGENTS.md Tier-3 rule.
+
+---
+
+## 10. Summary for future agents
 
 > **If you remember nothing else:**
 >

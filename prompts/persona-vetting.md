@@ -27,6 +27,8 @@ Dispatch **5 agents in parallel, one per persona**. Each agent receives this fil
 
 ## Output contract
 
+**Findings are hypotheses.** The dispatcher must verify every CRITICAL/HIGH before acting: mechanically (count/diff/grep/execute) for internal claims, against live sources for external claims. Persona agents share the build agents' failure mode — confident, plausible, sometimes wrong (one persona correctly flagged a memo as mis-cited while being wrong itself about what the memo was).
+
 The dispatcher merges all 5 tables into `skills/{{skill_slug}}/docs/persona-review.md`:
 `persona | severity | file:line | finding | resolution (fixed / ticketed SOX-NNN / accepted-with-rationale)`.
 Every CRITICAL and HIGH must reach a resolution before release. Empty findings from all 5 personas is a red flag — re-dispatch with explicit instruction to find the weakest file.
