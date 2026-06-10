@@ -192,7 +192,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | NIST-SP-800-82-Rev3 | Guide to Industrial Control Systems (ICS) Security | NIST | Rev 3 (2023) | 2026-06-09 | https://csrc.nist.gov/pubs/sp/800/82/r3/final |
 | NIST-SP-1300 | CSF 2.0 Profile Success Story | NIST | 2024 | 2026-06-09 | https://www.nist.gov/cyberframework |
 | NIST-SP-1299 | CSF 2.0 Small Business Quick-Start Guide | NIST | 2024 | 2026-06-09 | https://www.nist.gov/cyberframework |
-| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-06-09 | https://www.fedramp.gov/resources/ |
+| FedRAMP-Rev5 | FedRAMP Baselines and ConMon Strategy Guide | FedRAMP PMO | Rev 5 | 2026-06-09 | https://www.fedramp.gov |
 | OMB-A-130 | Managing Information as a Strategic Resource | OMB | July 28, 2016 | 2026-06-09 | https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf |
 | ISO-27001-2022 | Information security management systems — Requirements | ISO/IEC | 2022 | 2026-06-09 | https://www.iso.org/standard/27001 |
 | SOC-2-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP §100, 2022 revised points of focus) | 2026-06-09 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |

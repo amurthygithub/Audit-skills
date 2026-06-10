@@ -217,7 +217,7 @@ See `use-cases/` for the complete walkthroughs.
 | SEC-Reg-S-K-Item-308 | Management's Report on Internal Control Over Financial Reporting | SEC | Current | 2026-05-25 | https://www.ecfr.gov/current/title-17/chapter-II/part-229 |
 | AICPA-AU-C-315 | Understanding the Entity and Its Environment and Assessing the Risks of Material Misstatement | AICPA | SAS 145 | 2026-05-25 | https://us.aicpa.org/research/standards/auditattest/clarifiedsas |
 | AICPA-AU-C-265 | Communicating Internal Control Related Matters Identified in an Audit | AICPA | Current | 2026-05-25 | https://us.aicpa.org/research/standards/auditattest/clarifiedsas |
-| AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP sect.100, 2022 revised PoF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2 |
+| AICPA-TSC-2017 | Trust Services Criteria | AICPA | 2017 (TSP sect.100, 2022 revised PoF) | 2026-05-25 | https://www.aicpa-cima.com/topic/audit-assurance/soc-2 |
 | ISACA-COBIT-2019 | Control Objectives for Information and Related Technologies | ISACA | 2019 | 2026-05-25 | https://www.isaca.org/resources/cobit |
 | NIST-CSF-2.0 | Cybersecurity Framework | NIST | 2.0 (Feb 2024) | 2026-05-25 | https://www.nist.gov/cyberframework |
 | ISO-31000-2018 | Risk Management — Guidelines | ISO | 2018 | 2026-05-25 | https://www.iso.org/standard/65694.html |
