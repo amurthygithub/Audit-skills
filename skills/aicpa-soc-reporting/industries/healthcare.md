@@ -39,11 +39,11 @@ HITRUST CSF maps to (a) SOC 2 TSC criteria, (b) HIPAA Security Rule, and (c) NIS
 
 | TSC Category | HITRUST Domain | Notes |
 |-------------|---------------|-------|
-| CC1-CC5 (COSO-aligned) | Domain 1: ISMP + Domain 3: Risk Mgmt | HITRUST adds maturity scoring |
-| CC6 (Access Controls) | Domain 7: Access Control | Point-of-focus granularity differs |
-| CC7 (System Operations) | Domain 10: Comms & Ops Mgmt | Audit logging overlap |
+| CC1-CC5 (COSO-aligned) | Domain 1: Information Protection Program + Domain 17: Risk Management | HITRUST adds maturity scoring |
+| CC6 (Access Controls) | Domain 11: Access Control | Point-of-focus granularity differs |
+| CC7 (System Operations) | Domain 12: Audit Logging & Monitoring + Domain 15: Incident Management | Audit logging overlap |
 | A1-A3 (Availability) | Domain 16: BC/DR | HITRUST RTO/RPO requirements |
-| P1-P8 (Privacy) | Domain 17: Privacy Practices | GDPR alignment included |
+| P1-P8 (Privacy) | Domain 19: Data Protection & Privacy | GDPR alignment included |
 
 The skill helps with SOC 2 to HITRUST gap analysis, but does NOT provide a full HITRUST validated assessment. HITRUST MyCSF is the definitive tool for point-of-focus mappings. See `data/seeds/tsc-to-hitrust.json` for the crosswalk seed.
 
@@ -56,7 +56,7 @@ For medical device SaaS and IoMT (Internet of Medical Things):
 
 ## 8. Break-Glass Access
 
-Break-glass (emergency access) procedures map to CC6.3: "Access is removed or modified in a timely manner when personnel change roles or leave." For healthcare:
+Break-glass (emergency access) procedures map to CC6.1 (logical access security measures) with HIPAA 164.312(a)(2)(ii) Emergency Access Procedure (a REQUIRED implementation specification). CC6.3 governs role changes/removals — not emergency access. For healthcare:
 - Break-glass bypasses standard access controls in clinical emergencies
 - Must be logged (CC7.2) and reviewed (CC7.3)
 - Cannot be an unchecked backdoor; must trigger post-hoc review within 24 hours
@@ -66,7 +66,7 @@ Break-glass (emergency access) procedures map to CC6.3: "Access is removed or mo
 
 HIPAA Business Associate Agreements form a chain of liability for PHI:
 - Each BAA obligates the downstream vendor to the same HIPAA compliance level
-- SOC 2 CUEC reports help evaluate whether your BAAs are actually being honored
+- A vendor's SOC 2 report (scope, period, exceptions) informs your BAA oversight; its CUEC list states what the vendor requires of YOU — CUECs are your obligations, not evidence about the vendor
 - When reviewing a vendor's SOC 2 as a CUEC: verify the Privacy criteria (P1-P8) are in scope for PHI-handling vendors
 - Gap: if a vendor's SOC 2 excludes Privacy criteria but they handle PHI, the BAA chain may be at risk
 

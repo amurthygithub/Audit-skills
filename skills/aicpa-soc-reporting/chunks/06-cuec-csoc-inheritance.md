@@ -25,7 +25,7 @@ Definition: Controls that user entities (customers) are expected to have in plac
    - Business continuity planning at user entity level
    - Privacy notice and consent management at user entity level
 4. CUECs must be disclosed in: Section II of SOC 1 and SOC 2 reports. NOT required in SOC 3 (abridged).
-5. Service auditor has NO responsibility to evaluate suitability of CUECs. This must be stated.
+5. The service auditor does not TEST CUECs (they operate at user entities), but DOES evaluate whether the disclosed CUECs are relevant and complete as part of assessing the fairness of the description. The report states that the criteria are met only if CUECs operate effectively at user entities.
 
 ## Complementary Subservice Organization Controls (CSOCs)
 
@@ -40,7 +40,7 @@ Definition: Controls at a subservice organization that management assumes are op
    - List controls at subservice org that management assumes effective
    - Explain how CSOCs relate to control objectives/criteria
 4. CSOCs must be disclosed in: Section II of SOC 1/SOC 2 if carve-out method used.
-5. Service auditor tests ONLY the service organization's controls, NOT CSOCs. Exceptions in CSOCs may affect opinion.
+5. Service auditor tests ONLY the service organization's controls, NOT CSOCs. Under carve-out, CSOCs are not tested at all — REPORT USERS must evaluate them by obtaining the subservice organization's own SOC report (check scope, period coverage, and exceptions there).
 6. Common CSOC categories:
    - Infrastructure access controls at IaaS provider
    - Data center physical security (subservice data center)
@@ -54,16 +54,19 @@ Step 1: Does the service organization use subservice organizations?
   -> NO: Not applicable. No CSOCs needed.
   -> YES: Proceed to Step 2.
 
-Step 2: Can practitioner obtain sufficient evidence about subservice organization's controls?
-  -> YES: Consider INCLUSIVE method.
-     Advantages: More comprehensive opinion, no CSOC gap.
-     Requirements: Subservice org willing to be examined, description included in scope, controls tested directly.
-     Best when: Subservice org has its own SOC report or is cooperative.
-  -> NO: Use CARVE-OUT method.
-     Advantages: Practical when subservice org is uncooperative or examination infeasible.
-     Requirements: Must disclose CSOCs; management assumes subservice controls effective.
-     Limitations: Practitioner does NOT test subservice controls; exceptions in CSOCs may affect opinion.
-     Best when: Subservice org has its own SOC report user entity can review separately.
+Step 2: Which presentation method does MANAGEMENT elect? (This is management's description-presentation
+decision, not the practitioner's evidence call.)
+  -> INCLUSIVE method.
+     Advantages: More comprehensive report; no CSOC gap for users.
+     HARD REQUIREMENTS: the subservice organization's management must provide its own written assertion
+     and representations, its description is included in scope, and its controls are tested directly.
+     Best when: subservice org is closely related/cooperative and will sign an assertion (rare for
+     hyperscalers — AWS/Azure/GCP will not).
+  -> CARVE-OUT method (the default in practice).
+     Requirements: disclose the subservice org and the CSOCs; management assumes subservice controls effective.
+     Limitations: practitioner does NOT test subservice controls; report users evaluate CSOC coverage via
+     the subservice org's own SOC report.
+     Best when: the subservice org has its own SOC report users can obtain (the standard hyperscaler case).
 
 Step 3: Document the decision in system description.
 
@@ -74,5 +77,5 @@ Step 4: Impact on practitioner's report:
 Always ask whether subservice organizations exist before drafting the system description. List common types (cloud IaaS, payment processors, CDNs, email services, managed security services) and ask if any are used.
 
 ## Citations
-- [AT-C-200] [AT-C-300]
+- [AT-C-205] [AT-C-320]
 See SKILL.md Section 10.

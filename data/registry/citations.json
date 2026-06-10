@@ -61,32 +61,32 @@
         "isaca-audit-methodology"
       ]
     },
-    "AT-C-100": {
-      "title": "Common Concepts",
+    "AT-C-105": {
+      "title": "Concepts Common to All Attestation Engagements",
       "publisher": "AICPA",
-      "identifier": "AT-C 100",
+      "identifier": "AT-C 105 (SSAE 18, as amended)",
       "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "aicpa-soc-reporting"
       ]
     },
-    "AT-C-200": {
-      "title": "Level of Service (Examination)",
+    "AT-C-205": {
+      "title": "Assertion-Based Examination Engagements",
       "publisher": "AICPA",
-      "identifier": "AT-C 200",
+      "identifier": "AT-C 205 (SSAE 21, eff. June 15 2022)",
       "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "aicpa-soc-reporting"
       ]
     },
-    "AT-C-300": {
-      "title": "Subject Matter (SOC 1 ICFR)",
+    "AT-C-320": {
+      "title": "Reporting on an Examination of Controls at a Service Organization (SOC 1)",
       "publisher": "AICPA",
-      "identifier": "AT-C 300 (SSAE 21)",
+      "identifier": "AT-C 320 (SSAE 18)",
       "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "aicpa-soc-reporting"
       ]
@@ -763,11 +763,11 @@
       ]
     },
     "SSAE-21": {
-      "title": "Statement on Standards for Attestation Engagements No. 21",
+      "title": "SSAE No. 21 — Direct Examination Engagements (amends AT-C; adds AT-C 206)",
       "publisher": "AICPA",
-      "identifier": "December 2020",
+      "identifier": "Effective for reports dated on/after June 15, 2022",
       "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
+      "retrieval_date": "2026-06-10",
       "cited_by": [
         "aicpa-soc-reporting"
       ]

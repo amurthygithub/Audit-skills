@@ -2,7 +2,7 @@
 
 **Encode AICPA SOC reporting (SOC 1, SOC 2, SOC 3, SOC for Cybersecurity, SOC for Supply Chain) into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, 7 chunks, 4 use cases, linter-clean. The skill uses the **router + chunks pattern** -- `SKILL.md` is a ~280-line router, the deep-dive content lives in 7 chunk files (<=200 lines each) loaded on demand.
+Status: **draft v0.2.0**, on Tier 0 Spine, 8 chunks, 4 use cases, 25 tests passing, linter-clean. The skill uses the **router + chunks pattern** -- `SKILL.md` is the router, the deep-dive content lives in 8 chunk files loaded on demand.
 
 ---
 
@@ -15,13 +15,13 @@ Status: **draft v0.2.0**, on Tier 0 Spine, 7 chunks, 4 use cases, linter-clean. 
 | `per_call_max_tokens` | 14,000 | router + all chunks + industry + UC |
 | `per_call_p90_tokens` | 7,500 | measured after first instrumented run |
 
-## The 7 chunks
+## The 8 chunks
 
 | Chunk | Topic | When to load |
 |-------|-------|--------------|
 | `chunks/01-soc-overview.md` | SOC types, governing standards, key terminology | "What SOC type applies?" / "SOC 1 vs SOC 2" / "AT-C standards" |
 | `chunks/02-engagement-type-decision.md` | Engagement classification, Type I vs Type II | "Classify my SOC engagement" / "Type I or Type II?" |
-| `chunks/03-tsp-criteria.md` | All 51 TSC criteria with COSO mapping and cross-framework maps | "TSC criteria" / "CC1.1" / "Privacy criteria" / "map to ISO 27001" |
+| `chunks/03-tsp-criteria.md` | All 61 TSC criteria (33 CC + 28 category) with COSO mapping and cross-framework maps | "TSC criteria" / "CC1.1" / "Privacy criteria" / "map to ISO 27001" |
 | `chunks/04-report-structures.md` | SOC 1/2/3/for-Cybersecurity/for-Supply-Chain report templates | "Draft a SOC 2 report" / "report structure" |
 | `chunks/05-assertion-bridge.md` | Management assertion templates, bridge letter template | "Management assertion" / "bridge letter" |
 | `chunks/06-cuec-csoc-inheritance.md` | CUEC/CSOC identification, inclusive vs carve-out decision | "CUECs" / "CSOCs" / "carve-out vs inclusive" |
@@ -133,8 +133,8 @@ Verify it works:
 python tools/lint_skill.py skills/aicpa-soc-reporting
 # -> [PASS] skills/aicpa-soc-reporting
 
-pytest skills/aicpa-soc-reporting/tests/ -v
-# -> 1 passed
+pytest skills/aicpa-soc-reporting/tests/ -q
+# -> 25 passed
 ```
 
 ---
@@ -150,7 +150,7 @@ skills/aicpa-soc-reporting/
 |-- chunks/                      # deep-dive content (loaded on demand)
 |   |-- 01-soc-overview.md       # SOC types, standards, terminology
 |   |-- 02-engagement-type-decision.md  # Classification + Type I/II
-|   |-- 03-tsp-criteria.md       # All 51 TSC criteria + cross-framework maps
+|   |-- 03-tsp-criteria.md       # All 61 TSC criteria + cross-framework maps
 |   |-- 04-report-structures.md  # SOC 1/2/3/Cybersecurity/Supply Chain templates
 |   |-- 05-assertion-bridge.md   # Management assertions + bridge letters
 |   |-- 06-cuec-csoc-inheritance.md  # CUEC/CSOC + inclusive vs carve-out

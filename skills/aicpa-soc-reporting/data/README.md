@@ -17,7 +17,7 @@ Synthetic datasets and generators for the AICPA SOC reporting skill. All generat
 
 ## Crosswalks (planned)
 
-- `tsc-to-nist-800-53-mod.json` -- TSC to NIST 800-53 Moderate mapping.
+- `tsc-to-nist-800-53-mod.json` -- TSC to NIST 800-53 Moderate mapping. (PLANNED — not yet shipped; see chunk 03 §Cross-Framework Map for category-level starting points.)
 - `tsc-to-iso-27001-2022.json` -- TSC to ISO 27001:2022 Annex A mapping.
 
 ## Redaction policy

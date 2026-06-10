@@ -47,7 +47,7 @@ CloudStack SaaS Inc. received their SOC 2 Type II report covering Jan 1-Dec 31, 
 ## Output Sample
 ```
 CloudStack SaaS Inc.
-June 15, 2026
+July 7, 2026   # dated AFTER the gap period it covers — management cannot attest to future days
 
 RE: Bridge Letter -- CloudStack Platform SOC 2 Type II Report
 Period Covered: January 1, 2026 to June 30, 2026

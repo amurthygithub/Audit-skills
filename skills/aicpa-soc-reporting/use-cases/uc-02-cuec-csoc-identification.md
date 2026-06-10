@@ -38,17 +38,17 @@ PayFlow SaaS provides a payment processing platform on AWS. They use Stripe for 
    - Stripe: payment processing
    - SendGrid: email delivery
 
-2. Determine Method (chunk 06 Step 2): All three subservice orgs have their own SOC reports. Practitioner cannot directly test their controls. -> Carve-out method for all three.
+2. Determine Method (chunk 06 Step 2): Management elects CARVE-OUT for all three — the standard election where each subservice org has its own SOC report users can obtain (hyperscalers/processors will not provide the written assertion the inclusive method requires).
 
 3. Document CSOCs (chunk 06 Step 3):
-   - AWS: Infrastructure access controls (IAM), data center physical security, network security (VPC, security groups), encryption at rest (KMS). Mapped to CC6.1, CC6.5, CC6.6, CC7.1.
-   - Stripe: Payment processing security controls, PCI DSS compliance. Mapped to CC6.6, PI1.1-PI1.5.
+   - AWS: Infrastructure access controls (IAM), data center physical security, network security (VPC, security groups), encryption at rest (KMS). Mapped to CC6.1, CC6.4, CC6.6, CC6.7.
+   - Stripe: Payment processing security controls, PCI DSS compliance. Mapped to CC6.6, C1.2 (Processing Integrity is not in scope for this examination).
    - SendGrid: Email delivery infrastructure security. Mapped to CC6.1.
 
 4. Document CUECs (chunk 06 CUEC Steps 1-3):
    - CUEC-01: User access provisioning -- customers must manage user accounts on the platform. Linked to CC6.2.
-   - CUEC-02: Data input validation -- customers must validate payment data before submission. Linked to PI1.2.
-   - CUEC-03: Segregation of duties -- customers must segregate initiator and approver roles. Linked to CC1.2.
+   - CUEC-02: Customer tenant authentication configuration -- customers must enforce SSO/MFA for their users. Linked to CC6.1.
+   - CUEC-03: Segregation of duties -- customers must segregate initiator and approver roles. Linked to CC6.3 (role-based access considering segregation of duties).
    - CUEC-04: Incident notification -- customers must notify PayFlow of security incidents. Linked to CC7.3.
    - CUEC-05: Customer-managed encryption keys -- optional; customers may bring their own keys. Linked to CC6.6.
 
@@ -62,14 +62,14 @@ subservice_organizations:
     method: carve-out
     csocs:
       - {criterion: CC6.1, control: "AWS IAM access controls"}
-      - {criterion: CC6.5, control: "AWS data center physical security"}
+      - {criterion: CC6.4, control: "AWS data center physical security"}
       - {criterion: CC6.6, control: "AWS VPC, security groups"}
   - name: Stripe
     service: Payment processing
     method: carve-out
     csocs:
       - {criterion: CC6.6, control: "Stripe payment security"}
-      - {criterion: PI1.1, control: "Stripe transaction completeness"}
+      - {criterion: C1.2, control: "Stripe protection of confidential payment data"}
   - name: SendGrid
     service: Email delivery
     method: carve-out
@@ -78,7 +78,7 @@ subservice_organizations:
 
 cuecs:
   - {id: CUEC-01, criterion: CC6.2, description: "User access provisioning on the platform"}
-  - {id: CUEC-02, criterion: PI1.2, description: "Data input validation before submission"}
+  - {id: CUEC-02, criterion: CC6.1, description: "Customer tenant authentication configuration (SSO/MFA)"}
   - {id: CUEC-03, criterion: CC1.2, description: "Segregation of duties at user entity level"}
   - {id: CUEC-04, criterion: CC7.3, description: "Incident notification to service org"}
   - {id: CUEC-05, criterion: CC6.6, description: "Customer-managed encryption keys"}
