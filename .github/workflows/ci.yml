@@ -45,7 +45,7 @@ jobs:
         run: python -m pip install pyyaml
       - name: Run Tier 0a linter
         # TEMPLATE is the scaffold - it intentionally fails lint. Skip it.
-        run: python tools/lint_skill.py skills/nist-800-53-rmf skills/isaca-audit-methodology skills/coso-internal-controls skills/aicpa-soc-reporting skills/audit-workpapers
+        run: python tools/lint_skill.py skills/nist-800-53-rmf skills/isaca-audit-methodology skills/coso-internal-controls skills/aicpa-soc-reporting skills/audit-workpapers skills/nist-csf-2
 
   test:
     name: pytest
