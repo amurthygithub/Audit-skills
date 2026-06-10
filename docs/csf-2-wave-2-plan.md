@@ -1,9 +1,10 @@
-# CSF 2.0 — Wave 2 Plan (skipped — not yet started)
+# CSF 2.0 — Wave 2 Plan (SHIPPED)
 
 ## Status
 
-Wave 1 SHIPPED (PR #24, all 3 CI checks green, awaiting review). Wave 2 NOT started.
-This document is a planning artifact for the next session — DO NOT DISPATCH YET.
+Wave 1 and Wave 2 both SHIPPED (commit `144a190`, merged via PR #24): 4 industry views,
+3 use cases, 76 tests passing. Linear ticket SOX-569 closed 2026-06-09.
+This document is retained as a historical planning artifact — the plan below was executed.
 
 ## What Wave 2 ships
 
