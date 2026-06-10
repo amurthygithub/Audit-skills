@@ -27,7 +27,7 @@ oracle:
   type: schema_match
   assertion: "Classification follows 3-step decision tree, compensating controls evaluated per 6-step procedure, MW indicators checked"
 data_refs: []
-tests: ["tests/test_lint.py"]
+tests: ["tests/test_coso_internal_controls_oracle.py::test_uc_02_oracle"]
 status: stub
 ---
 

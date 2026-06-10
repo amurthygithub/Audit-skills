@@ -2,7 +2,7 @@
 
 **Encode COSO 2013 ICIF, COSO 2017 ERM, SOX 404, PCAOB AS 2201, and COSO emerging tech guidance into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean (pending). The skill uses the **router + chunks pattern** — SKILL.md is a 214-line router, the deep-dive content lives in 7 chunk files loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); the LLM-backed executor is a stub. Production executor ships in SOX-611 Phase 2.
+Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean, 30 tests passing. The skill uses the **router + chunks pattern** — SKILL.md is the router, the deep-dive content lives in 8 chunk files loaded on demand. The skill body is real (full decision logic, output templates, citation manifest); the LLM-backed executor is a stub. Production executor ships in SOX-611 Phase 2.
 
 ---
 
@@ -15,7 +15,7 @@ Status: **draft v0.2.0**, on Tier 0 Spine, linter-clean (pending). The skill use
 | per_call_max_tokens | 15,000 | router + all chunks + industry + UC |
 | per_call_p90_tokens | 8,000 | measured after first instrumented run |
 
-## The 7 chunks
+## The 8 chunks
 
 | Chunk | Topic | When to load |
 |-------|-------|-------------|
@@ -135,13 +135,12 @@ pytest skills/coso-internal-controls/tests/ -v
 ```
 skills/coso-internal-controls/
   README.md
-  SKILL.md                     # the router (214 lines, always loaded)
-  SKILL.md.bak                 # original monolithic 1,879-line version (preserved)
-  chunks/                      # 7 deep-dive files loaded on demand
-  industries/                  # 3 industry views
-  use-cases/                   # 2 worked examples (stub)
-  data/                        # data dictionary
-  tests/                       # conftest.py, test_lint.py
+  SKILL.md                     # the router (always loaded)
+  chunks/                      # 8 deep-dive files loaded on demand
+  industries/                  # 4 industry views (financial-services, public-sector, saas-technology, healthcare)
+  use-cases/                   # 3 worked examples
+  data/                        # data dictionary + seeds
+  tests/                       # 30 tests via 6 skill-specific files (lint + consistency run from repo root)
   telemetry/                   # schema, instrument, redaction, baseline
   docs/                        # architecture, limits, changelog, acceptance-gate
 ```

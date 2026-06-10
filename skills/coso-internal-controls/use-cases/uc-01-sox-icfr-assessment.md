@@ -16,12 +16,12 @@ procedure:
   - "chunks/06-rcm-and-reports.md: Produce Management ICFR Report"
 expected_outputs:
   rcm: {processes: 3, total_controls_identified: 45, key_controls: 28, deficiencies_identified: 3}
-  management_icfr_report: {conclusion: "Effective, subject to remediation"}
+  management_icfr_report: {conclusion: "Effective"}  # SEC 33-8810 prohibits "effective subject to..." qualifications; with an MW the only conclusion is "not effective". The SD is communicated to the audit committee in writing.
 oracle:
   type: schema_match
   assertion: "RcM template 17 columns, deficiency classification 3-step decision tree, Management ICFR Report per SEC Reg S-K Item 308"
 data_refs: []
-tests: ["tests/test_lint.py"]
+tests: ["tests/test_coso_internal_controls_oracle.py::test_uc_01_oracle"]
 status: stub
 ---
 

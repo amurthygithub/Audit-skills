@@ -73,7 +73,7 @@ Per SEC Reg S-K Item 308. Must include:
 - Framework used for evaluation (COSO 2013 ICIF)
 - Assessment conclusion (effective, or MWs identified)
 - If MWs: describe each MW and remediation actions
-- Statement that registered public accounting firm issued attestation report
+- Statement that the registered public accounting firm issued an attestation report — ONLY where 404(b) applies (Item 308(a)(4): accelerated/large accelerated filers); 404(b)-exempt issuers omit it
 - Signatures of Principal Executive Officer and Principal Financial Officer
 
 ## Auditor''s ICFR Report Template

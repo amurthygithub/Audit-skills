@@ -21,7 +21,7 @@ oracle:
   type: schema_match
   assertion: "All 17 principle assessments completed with PoF-by-PoF evaluation"
 data_refs: []
-tests: ["tests/test_lint.py"]
+tests: ["tests/test_coso_internal_controls_oracle.py::test_uc_03_oracle"]
 status: stub
 ---
 

@@ -6,7 +6,7 @@ Public-sector entities (federal agencies, state governments, special-purpose gov
 
 | Entity | Framework | COSO application |
 |--------|-----------|-----------------|
-| Federal CFO Act agency | OMB Circular A-123, Appendix A | COSO 2013 ICIF explicitly referenced; ICFR-like assessment required |
+| Federal CFO Act agency | OMB Circular A-123, Appendix A | A-123 (per M-16-17) requires GAO's Green Book (GAO-14-704G) — which adapts COSO's 17 principles for government — as the internal-control framework; ICFR-like assessment required |
 | State government | Single Audit (2 CFR Part 200) | Internal control over compliance per COSO framework |
 | Government corporation (e.g., GSE) | SOX 404 applies if publicly traded | Full COSO 2013 ICIF |
 | Public pension fund | GASB 67/68 | Actuarial controls; COSO applied to investment valuation and benefit payments |

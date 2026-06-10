@@ -95,8 +95,8 @@ def _uc01_icfr_assessment(inputs: dict) -> dict:
         "deficiencies": deficiencies,
         "entity_level_controls": elc,
         "management_icfr_report": {
-            "conclusion": "Effective, subject to remediation",
-            "basis": "1 SD + 2 D identified; no MW; compensating controls sufficient.",
+            "conclusion": "Effective",
+            "basis": "1 SD + 2 D identified; no MW. SEC guidance (33-8810) prohibits qualified ICFR conclusions — the SD is communicated to the audit committee in writing (AS 2201.78-.84), not disclosed as a qualification.",
             "format": "SEC Reg S-K Item 308",
         },
     }

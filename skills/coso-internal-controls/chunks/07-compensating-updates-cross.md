@@ -29,7 +29,7 @@ Has the control been tested in the current period? Did it operate effectively? W
 
 ### Step 5: Determine Impact on Classification
 
-IF an effective compensating control EXISTS that is precise enough to mitigate the risk: The severity MAY be reduced by one level (MW→SD, SD→D, D→D). Document the compensating control, precision, operating effectiveness, and rationale.
+IF an effective, TESTED compensating control exists that addresses the same risk with sufficient precision: re-run the Step 2 (likelihood) and Step 3 (magnitude) analysis with the compensating control in scope, and classify on the RESIDUAL risk. There is no mechanical one-notch demotion rule in AS 2201 — the re-assessment may move a finding two levels, one, or not at all. Document the compensating control, its precision, operating-effectiveness testing, and the re-assessment rationale.
 
 IF NO effective compensating control exists: Maintain original severity classification. Document why no or insufficient compensating controls exist.
 
@@ -81,21 +81,22 @@ All 5 COSO components map to SOX 404 requirements — Control Environment (ELCs,
 |----------------------|-----|
 | Control Environment | CC1.1-CC1.5 |
 | Communication and Information | CC2.1-CC2.3 |
+| Risk Assessment | CC3.1-CC3.4 |
+| Control Activities | CC5.1-CC5.3 |
+| Monitoring Activities | CC4.1-CC4.2 |
 
-## CRITICAL OVERRIDE: Per-Se Material Weakness Indicators (AS 2201.69)
+## CRITICAL OVERRIDE: Material Weakness Indicators (AS 2201.69)
 
-Compensating controls CANNOT reduce severity below MW when any per-se material weakness indicator is present (AS 2201.69). These indicators establish that a material weakness exists by definition, regardless of any compensating controls that may be operating elsewhere:
+When any AS 2201.69 indicator is present, treat material weakness as a strong, rebuttable presumption — the standard lists these as INDICATORS, not per-se determinations (AS 5 deliberately retired AS 2's per-se treatment). Overcoming an indicator requires explicit, documented evaluation and is rare; compensating-control analysis alone does not rebut it:
 
 1. **Fraud by senior management** (whether or not material) — no compensating control can remediate the control environment failure.
 2. **Restatement of previously issued financial statements** to correct a material misstatement — the ICFR failure has already manifested.
 3. **Identification of material misstatement by auditor** that would not have been detected by ICFR — the deficiency has already resulted in audit-detected error.
 4. **Ineffective oversight** of external financial reporting and ICFR by the audit committee — the governance-level control environment failure cannot be compensated at the process level.
 
-RULE: IF any AS 2201.69 indicator is present → CLASSIFY AS: MATERIAL WEAKNESS. Compensating control analysis is IRRELEVANT for severity reduction. Do NOT apply Step 5 severity demotion for per-se MW indicators.
+RULE: IF any AS 2201.69 indicator is present → start from MATERIAL WEAKNESS as the presumed classification. Do NOT reduce severity via compensating-control analysis; departing from MW requires a documented evaluation showing why the indicator does not reflect a deficiency of MW severity (rare; expect auditor and inspection scrutiny).
 
-| Risk Assessment | CC3.1-CC3.4 |
-| Control Activities | CC5.1-CC5.3 |
-| Monitoring Activities | CC4.1-CC4.2 |
+
 
 ### COSO ↔ ISACA/COBIT 2019
 Control Environment → EDM01-05 (Governance). Risk Assessment → APO12 (Managed Risk). Control Activities → APO, BAI domains. Info & Communication → DSS. Monitoring → MEA.
@@ -111,12 +112,14 @@ COSO ERM 2017 vs ISO 31000: Risk definition (negative vs positive/negative), ris
 
 COSO uses a 3-tier deficiency severity scale: Control Deficiency → Significant Deficiency → Material Weakness. ISACA/COBIT and NIST use 4-tier scales. The following table maps COSO severity to these frameworks for cross-framework assessments:
 
-| COSO (3-Tier) | ISACA/COBIT (4-Tier) | NIST CSF/RMF (4-Tier) | Description |
+| COSO (3-Tier) | ISACA/COBIT (4-Tier) | FedRAMP POA&M risk rating | Description |
 |---------------|----------------------|----------------------|-------------|
 | Control Deficiency | Minor / Low | Low | Noteworthy deficiency, not significant |
 | Significant Deficiency | Significant / Medium | Moderate | Important enough to merit attention |
 | Material Weakness | Critical / High | High | Reasonable possibility of material impact |
-| — (no equivalent) | Catastrophic / Very High | Critical | Systemic failure, existential risk |
+| — (no equivalent) | Catastrophic / Very High | Critical (original risk rating; treated as High for remediation) | Systemic failure, existential risk |
+
+NOTE: NIST itself defines no finding-severity scale — SP 800-53A Rev 5 produces Satisfied / Other-Than-Satisfied determinations and FIPS 199 has three impact levels; the Low/Moderate/High (+Critical) column is the FedRAMP POA&M program layer. This mapping is this skill's own construct, not a NIST artifact.
 
 Note: ISACA and NIST both add a fourth severity tier above COSO's highest tier. See the master reconciliation table in `audit-workpapers/chunks/07-qc-compliance-cross-refs.md` for the authoritative cross-reference across all four frameworks. At the "Very High" or "Critical" level, these frameworks capture catastrophic or existential risk beyond material financial impact. In COSO assessments, such severity would still map to Material Weakness but warrants escalated remediation priority.
 

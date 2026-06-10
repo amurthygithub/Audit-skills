@@ -19,7 +19,7 @@ def test_uc_01_oracle():
     assert len(out["deficiencies"]) == 3
     assert out["deficiencies"][0]["classification"] == "Significant Deficiency"
     assert out["entity_level_controls"]["P1_integrity_commitment"]["present"] is True
-    assert out["management_icfr_report"]["conclusion"] == "Effective, subject to remediation"
+    assert out["management_icfr_report"]["conclusion"] == "Effective"  # 33-8810: no qualified ICFR conclusions; SD goes to the audit committee, not the report
 
 def test_uc_02_oracle():
     payload = _load("uc-02-input.json")
