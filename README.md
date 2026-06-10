@@ -10,9 +10,16 @@ Production-grade audit, compliance, and security skills for AI agents. Encode IS
 
 ---
 
-## What's in this release (v0.3.0)
+## What's in this release (v0.3.1)
 
-v0.3.0 adds NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass across all skills (fabricated identifiers, dead URLs, wrong counts fixed), a pre-build Day 0 research phase, auto-loaded AGENTS.md instructions, and a fact-sheet template for future skill builds. The library now has a builder and is a skill factory, not just a static collection.
+v0.3.1 completes the consumer-ready (G4.5) vetting sweep across all 6 skills and hardens the build process around what the sweep found:
+
+- **6/6 skills G4.5-vetted.** Every skill went through practitioner-persona vetting plus live-source verification of every factual claim — ~37 CRITICAL and ~80 HIGH verified findings fixed (fabricated control IDs, invented statutes and SLAs, stale editions, use-case docs that contradicted their own test fixtures). Per-skill evidence lives in `skills/*/docs/persona-review.md` and `docs/acceptance-gate.md`.
+- **Process v3.** The sweep's lessons are baked into the verification prompts (`prompts/`), `AGENTS.md`, and the linter: currency claims are always settled by a live fetch (reviewer consensus was refuted 4× — every time on post-cutoff events), framework catalogs get full inventory-diffs instead of spot checks (offsetting errors defeat sampling), anti-hallucination and limits sections are verified *first* (that's where fabrications concentrated), house conventions are labeled instead of attributed to publications, and a verification ✓ without a verbatim source quote doesn't count.
+- **Derivability oracles.** Use-case expected outputs are now recomputed independently from the shipped seed data instead of echoing fixture numbers — non-circular tests (e.g., the SOC 2 → 800-53 crosswalk summary is computed from the crosswalk + gap register, and overlap percentages that aren't derivable from a sample are no longer emitted).
+- **Citation registry refresh.** All 76 registry URLs liveness-checked; dead links replaced with live equivalents.
+
+**v0.3.0 recap:** added NIST CSF 2.0, a three-round §5.11 source-of-truth verification pass across all skills, a pre-build Day 0 research phase, auto-loaded AGENTS.md instructions, and a fact-sheet template for future skill builds. The library now has a builder and is a skill factory, not just a static collection.
 
 | | v0.2.1 | **v0.3.0** |
 |---|--------|------------|
@@ -212,8 +219,8 @@ This repo is hardened for outside contributions.
 
 **On every PR (`.github/workflows/ci.yml`):**
 - `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
-- `Lint skill structure` — runs `tools/lint_skill.py` on all 5 skills
-- `pytest` — runs `pytest skills/ tests/ -q` (190 tests)
+- `Lint skill structure` — runs `tools/lint_skill.py` on all 6 skills
+- `pytest` — runs `pytest skills/ tests/ -q` (306 tests)
 
 **Nightly (`.github/workflows/nightly.yml`):**
 - Link rot check on every URL in the §10 References & Citation Manifest sections
@@ -244,8 +251,7 @@ Audit-skills/
 │   ├── coso-internal-controls/  # v0.3.0 on Spine (37 tests)
 │   ├── aicpa-soc-reporting/     # v0.3.0 on Spine (32 tests)
 │   ├── audit-workpapers/        # v0.3.0 on Spine (49 tests)
-│   ├── nist-csf-2/              # v0.3.0 on Spine (76 tests)
-│   └── TEMPLATE/                # Tier 0 Spine scaffold — every new skill starts here
+│   └── nist-csf-2/              # v0.3.0 on Spine (76 tests)
 │
 ├── tests/
 │   ├── test_consistency_lib.py  # cross-skill consistency library (6 functions)
@@ -266,19 +272,20 @@ Audit-skills/
 
 ## Quality
 
-Each skill was reviewed across multiple cycles before v0.2.0:
+Each skill is reviewed across multiple cycles:
 
 - **Cycle 1 — Structure & completeness:** the linter (`tools/lint_skill.py`) enforces folder contract, section contract, frontmatter contract, citations, no TODO/FIXME outside changelog.
 - **Cycle 2 — Factual verification:** every in-body citation `[LABEL §N]` resolves to `## 10. References & Citation Manifest`. UC procedure references resolve to `SKILL.md` sections.
 - **Cycle 3 — Production readiness:** oracle tests pass, telemetry schema validates, baseline measured after instrumented run, reviewer sign-off in `docs/acceptance-gate.md`.
 - **Cycle 4 — Multi-lens review:** 5 reviewer lenses (framework fidelity, completeness, usability, convention compliance, cross-skill alignment) + 5 practitioner personas (FedRAMP 3PAO, Big 4 SOX partner, SaaS compliance lead, healthcare CISO, state gov IT audit director).
 - **Cycle 5 — Drift detection:** shared `test_consistency_lib.py` catches cross-document drift (routing table, frontmatter schema, manifest, cross-skill references, industry/UC sync).
+- **Cycle 6 — G4.5 consumer-ready gate (v0.3.1):** practitioner-persona vetting plus live-source verification of every factual claim, with evidence per row (verbatim source quote, retrieval date). Findings are treated as hypotheses until verified against a live authoritative source — reviewer consensus is a triage signal, never verification. Verification prompts are versioned in `prompts/`.
 
 ### Known limitations
 
 - **800-53 control counts** (~156 Low / ~325 Moderate / ~421 High) are approximate; actual count varies with enhancement counting. Verify against the current NIST publication.
 - **FedRAMP overlays** — FedRAMP High baseline ≠ NIST 800-53 High baseline. Consult the current FedRAMP Baselines document on fedramp.gov.
-- **ITAF numbering, COSO Points of Focus, TSP criteria counts** — some skills use pedagogical reconstructions. Always verify against current publications.
+- **House conventions are labeled, not hidden** — any scale, weighting, severity rollup, or formula that is not verbatim in a cited source is explicitly marked as a house convention / illustrative heuristic. Framework facts (ITAF series numbers, COSO Points of Focus, TSP criteria counts) were verified against current publications in the v0.3.1 sweep; still verify against the current edition before client use.
 - **Auditor vs auditee perspective** — most UCs are auditor-perspective. Auditee playbooks (questionnaire reuse, evidence prep) are growing but not complete.
 - **LLM-backed executor** is currently `tests/<skill>_stub.py` (deterministic reference). The production LLM-backed `run.py` ships in a later phase; until then, use Path 1 for real LLM calls.
 
