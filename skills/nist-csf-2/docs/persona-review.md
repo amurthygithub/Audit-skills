@@ -49,7 +49,7 @@ ISO row fix (A.5.30 ICT readiness; A.5.26 is incident response) — **FIXED**. M
 cites; chunk 06 §-numbering used by UC-02; mixed-format control IDs noted — **FIXED**. CJIS
 v6.0; TX §2054.515 vs §2054.0593; 44 USC §3554; EO 13800 mandate; BOD 22-01/23-01 currency;
 state/SLTT reality (NASCIO/StateRAMP/MS-ISAC/CIS IG1) — **FIXED**. README/SKILL frontmatter
-contradictions (status/risk/date/budget), "9 test files" (7 exist), broken links, [VERIFY] tags
+contradictions (status/risk/date/budget), "9 test files" (7 exist), broken links, unresolved VERIFY-markers
 in active UCs, unsourced statistics (60% CAIQ, half-tier/quarter, "most orgs...") hedged or
 removed — **FIXED**. Manufacturing corrupted sentence repaired — **FIXED**.
 

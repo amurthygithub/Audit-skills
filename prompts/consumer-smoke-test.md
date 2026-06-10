@@ -15,6 +15,7 @@ When the Epic 6 harness lands (SOX-600), this becomes automated (N runs per gold
    - routing: did the agent reach the right chunk(s) via SKILL.md §11, or wander?
    - citations: does the output cite real manifest entries (§10), or invent sources?
    - fabrication: any identifier/count/claim not present in the skill or its sources?
+   - **contradictions: report EVERY cross-file disagreement noticed along the way** (UC doc vs seed, template vs oracle, README vs disk, counts that differ between files). In the M1 sweep, smoke-agent contradiction lists were the highest-yield detector of seed/doc drift — treat this as a primary output, not a side note.
 
 ## Grading
 

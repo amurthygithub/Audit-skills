@@ -53,7 +53,7 @@ Key takeaway: GOVERN maps most heavily to Prepare and Monitor -- the bookend ste
 
 ## Table 2 -- CSF 2.0 GOVERN to FISMA CIO metrics
 
-FISMA CIO metrics are reported annually to OMB and CISA per 44 USC §3554(c). Each GOVERN Category maps to FISMA metric domains. This mapping is interpretive -- the FISMA CIO metrics framework evolves annually under CISA management. [FISMA-2014; OMB-A130 Section 5] [VERIFY: current FY FISMA CIO metrics from CISA]
+FISMA CIO metrics are reported annually to OMB and CISA per 44 USC §3554(c). Each GOVERN Category maps to FISMA metric domains. This mapping is interpretive -- the FISMA CIO metrics framework evolves annually under CISA management. [FISMA-2014; OMB-A130 Section 5] (The FISMA CIO metrics framework evolves annually — verify the current-FY metrics at cisa.gov before mapping.)
 
 | GOVERN Category | FISMA CIO metric domain | How the Category feeds the metric |
 |---|---|---|
@@ -81,7 +81,7 @@ For federal civilian agencies: the CPGs should already be covered by the agency 
 
 ## Table 4 -- State RMF / CSF variants
 
-States have adopted frameworks adapting the federal RMF/CSF model. Variants share the core NIST catalog but differ in authorization authority, assessment cadence, and compliance requirements. [VERIFY: CA SAM 5300-series current URL; TX DIR SCSC current edition; NY RRF; FL Section 282.318]
+States have adopted frameworks adapting the federal RMF/CSF model. Variants share the core NIST catalog but differ in authorization authority, assessment cadence, and compliance requirements. (Verify CA SAM 5300-series, the TX DIR SCSC edition, NY RRF, and FL §282.318 against current state publications before citing.)
 
 | State / Framework | Relationship to CSF 2.0 | Control baseline | Key difference from federal |
 |---|---|---|---|
@@ -128,4 +128,4 @@ The state and local landscape. As of 2026, approximately 30 states have enacted 
 
 - **CJIS Security Policy is policy-based, not RMF-based** (current version: v6.0, issued Dec 27, 2024; verified at le.fbi.gov 2026-06-10 — transition audits may still reference v5.9.x): CJIS does not use the RMF 7-step process or issue ATOs. CJIS requirements map to 800-53 controls and can be expressed as a CSF 2.0 Organizational Profile.
 
-- **IRS Pub 1075 is a safeguarding standard, not an RMF framework**: IRS Pub 1075 applies to agencies receiving FTI. It references 800-53 with IRS-specific requirements. CSF 2.0 Profiles for tax agencies should address Pub 1075 under GV.OC, PR.DS, and PR.AA. [VERIFY: IRS Pub 1075 current edition]
+- **IRS Pub 1075 is a safeguarding standard, not an RMF framework**: IRS Pub 1075 applies to agencies receiving FTI. It references 800-53 with IRS-specific requirements. CSF 2.0 Profiles for tax agencies should address Pub 1075 under GV.OC, PR.DS, and PR.AA. (Verify the current IRS Pub 1075 edition before citing.)

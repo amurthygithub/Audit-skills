@@ -278,3 +278,18 @@ another CRITICAL.
 > 6. **Commit messages use `type(skill-slug): description` convention.** No exceptions.
 > 7. **Always run linter + pytest + consistency lib before committing.** Every time.
 > 8. **Verify file paths after agent completion.** Agents write to config path ~60% of the time.
+
+---
+
+## 11. The M1 vetting sweep (2026-06-10): six lessons that became process v3
+
+The G4.5 retrofit of all 6 skills (PRs #32–#41; ~37 CRITICAL clusters, ~80 HIGH verified findings) added these to AGENTS.md G4/§3.3.1, the prompts, and the linter:
+
+1. **Currency claims defeat persona consensus.** Tier-2 verification refuted unanimous/near-unanimous persona findings FOUR times — ITAF 5th Edition exists (Feb 2026), ISACA is the CMMC CAICO (2025), CISA CPG 2.0 exists (Dec 2025), and the "tiers are not maturity levels" quote lives in NIST's 1.1-era FAQ, not CSF 2.0. Every refutation involved a post-training-cutoff event. Rule: "doesn't exist" / "is current" / "was never published" / role claims are ALWAYS Tier-2, from any LLM source, at any level of agreement.
+2. **The seed + oracle are the contract.** One skill shipped all three UC documents describing different companies than their own tested seeds — and the suite stayed green because the tests only read the seeds. Docs rebuild to the tested fixture; contract changes happen everywhere at once.
+3. **Inventory-diff beats spot-checking for catalogs.** An invented BAI12 masked a missing MEA04 because the total still summed to 40; CC8.2/CC8.3 and GV.PO-03/-04 were invented inside otherwise-correct lists. Transcribe/parse the full official inventory once (PDF extraction or official JSON export) and diff.
+4. **Fabrications concentrate in trust anchors.** Invented statutes (a "12-month FedRAMP ATO" law), fake SLAs, wrong editions, and fabricated citations appeared INSIDE anti-hallucination/limits sections in 4 of 6 skills — and one acceptance gate carried "hmm = 27, need recount" marked ✓-verified. Verify trust-anchor sections first; a ✓ without a verbatim quote is concurrence, not verification; the linter now rejects `[VERIFY` author-tags outside the changelog.
+5. **Unsourced math gets attributed.** Risk formulas, tier averages, %-gap math, status scales, and design-factor weights were repeatedly attributed to named publications that contain no such thing. Anything not verbatim in a source is labeled "house convention / illustrative" — attribution of invented math is a CRITICAL.
+6. **Smoke agents are drift detectors.** Clean-session smoke agents that self-grade against the oracle and report every cross-file contradiction found the seed/doc mismatches as reliably as the persona panel — at a fraction of the cost. Contradiction reporting is now a primary smoke-test output.
+
+Meta-lesson: the gates compound. Structure (linter) → consistency (tests) → conventions (5-lens) → facts (§5.11 + inventory-diff) → usability (smokes) → adversarial judgment (personas) → currency (mandatory Tier-2). Remove any layer and its failure class ships.
