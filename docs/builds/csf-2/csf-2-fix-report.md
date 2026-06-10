@@ -1,7 +1,7 @@
 # NIST CSF 2.0 — Fact-Fix Report
 
 **Date:** 2026-06-07
-**Fix pass:** Apply verification report (`docs/csf-2-verification-report.md`) CRITICAL and HIGH items to the skill at `skills/nist-csf-2/`
+**Fix pass:** Apply verification report (`docs/builds/csf-2/csf-2-verification-report.md`) CRITICAL and HIGH items to the skill at `skills/nist-csf-2/`
 **Source of truth:** NIST CSF 2.0 PDF (CSWP 29, Feb 26 2024) and NIST CSF 2.0 Informative References spreadsheet (downloaded 2026-06-07)
 
 ---
