@@ -48,3 +48,36 @@ work demands 27002 guidance. Human verification labor (the licence's practical c
 ~60–100 fact-sheet rows to check manually against the DRM PDF during G1 and again at G4 —
 budget 2–3 hours of reviewer time across the build. Build order unaffected: pci-dss (free
 source) can open M5 while the purchase + human-verification scheduling happens.
+
+## §2 — Subscription / package options (extension, retrieved live 2026-06-11)
+
+Buyer profile for the comparison: solo practitioner, US, ~5–7 ISO documents over ~a year;
+baseline = à-la-carte EVS DRM PDFs (~€20–25/doc, ~€130–200 total, owned files, current editions).
+
+| option | provider | model | published price (verbatim) | scope | access form | users | notes | URL |
+|---|---|---|---|---|---|---|---|---|
+| BSOL / BSI Knowledge | BSI (UK) | annual subscription, 54 modules incl. Digital/ICT (27000 family confirmed) | Quote-only ("tailored"); secondary indications: BSOL Select "from £3,254/yr per site for 2 modules" (undated price list); Jisc education £220/yr (institutions only) | 140,000+ standards | online reading | organisational; no solo tier advertised | no external sharing/redistribution | bsigroup.com/.../bsi-knowledge-subscription/ |
+| NEN Connect "Informatiebeveiliging" | NEN (NL) | annual subscription (smallest infosec package) | **€513/yr (1–2 users)**; €641/yr w/ compliance tool | ISO/IEC 27000, 27001, 27002, 27003 only (no 27701/42001/22301) | **online reading only** — "no PDF… cannot download or save" (verbatim, translated) | 1–2 | view-only DRM; nothing owned | connect.nen.nl/.../Informatiebeveiliging |
+| Accuris per-doc (ex-Techstreet) | Accuris (US) | per-document | $254.00 for 27001:2022 PDF (search-snippet grade; store bot-walled, Cloudflare 403) | full ISO catalogue | PDF download | 1 | ~10× EVS for identical text | store.accuristech.com |
+| Accuris Engineering Workbench | Accuris | enterprise subscription | Quote-only (nothing published) | multi-SDO | platform | org | corporate/university product | store.accuristech.com |
+| DS cyber package | Dansk Standard (DK) | ONE-TIME package (not a subscription) | "4.395,00 kr" (~€590; price API-gated — partially UNVERIFIED; package contents + single-user PDF licence confirmed via page metadata) | 27001, 27002, 27005 + related (710 pp) | PDF download, single-user | 1 | 25% off DS à-la-carte; DS single 27001 ≈ 779 kr ≈ €104 — still 4–5× EVS | webshop.ds.dk |
+| SFS Online | SFS (FI) | annual subscription, browse/print tiers | Quote-only | custom collection | browser reading | sized per org | advertises a paid tier for systems use — still within ISO licence limits | sfs.fi |
+| EVS browsing service | EVS (EE) | pay-per-view | **€2 / 30 min; €3 / 24 h (excl VAT)** — the €2.48 = €2 + Estonian VAT; ONE standard per purchase | any single standard | browser view only | 1 session | pre-purchase check, not an access strategy | evs.ee/en/browsing-service |
+| EVS online reading service | EVS | annual subscription | Quote-only (up to 5 users incl.) | 47,000+ EVS/EN adoptions (pure ISO originals excluded) | online reading, no print/save | ≤5 | requires Estonian ID/Smart-ID — practical blocker for a US buyer | evs.ee/en/online-reading-service |
+| EVS e-shop "Pakett 12" (IT security) | EVS | one-time package | **€180.79 incl VAT** | 27000/27001:**2017**/27002:**2017**/27003:2011/27005:2019/27033/27035 | DRM PDF | 1 | **TRAP: pre-2022 editions — do not buy** | evs.ee/et/standardite-pakett-12 |
+| ISO direct bundle PUB200270 | ISO | one-time bundle (no end-user subscription exists; OBP subs are codes/T&D collections only) | ~CHF 546 (search-snippet grade; page bot-walled). À-la-carte sum CHF 607 → ~10% discount | 27000+27001+27002+27005 | watermarked PDF / OBP view | 1 (name-watermarked) | full ISO licence incl. AI/ML prohibition | iso.org/publication/PUB200270.html |
+| Library route | e.g., Linda Hall Library (Kansas City); academic Techstreet subs (USC, MIT) | library access | free (on-site) | 150,000+ standards (Linda Hall) | on-site consultation; academic remote access is affiliate-only | — | viable for reading sessions, never for owned PDFs; no remote public-library ISO access found | libguides.lindahall.org/standards_specifications |
+
+### §2 verdict
+
+1. **No subscription beats à-la-carte EVS for this buyer.** Cheapest verified subscription
+   (NEN Connect €513/yr, 1–2 users) costs 2.5–4× the entire multi-year baseline, covers only
+   4 standards, is read-only (nothing owned), and recurs annually.
+2. BSOL, SFS, EVS-reading, Accuris Workbench: quote-only, organisation-oriented; no solo tier.
+3. One-time bundles (DS ~€590; ISO ~CHF 546) carry 27002/27005 at 3–4× the EVS cost of the
+   same titles; EVS's own €180.79 infosec package is a trap (2017 editions).
+4. The €2.48 EVS "browse" = 30 minutes of viewing one standard (€2 + VAT) — pre-purchase
+   check only.
+5. **The ISO AI/ML licence prohibition applies identically under every option above** — no
+   subscription buys extra usage rights. Recommendation unchanged: à-la-carte EVS, one
+   purchase per skill at its Day-0. Revisit only at ~10+ docs/year cadence.
