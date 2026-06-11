@@ -45,29 +45,51 @@ def test_uc_02_oracle():
         assert a["addresses_assertion_at_risk"] is False
         assert a["ipe_impaired_by_deficiency"] is True
 
-    # Pervasive ITGC + authority-driven unbounded magnitude + no lookback -> MW.
+    # Pervasive ITGC + material (authority-driven, not-capped) magnitude + no lookback -> MW.
     assert out["itgc_pervasive"] is True
-    assert out["magnitude"]["material"] is True and out["magnitude"]["unbounded"] is True
+    assert out["magnitude"]["material"] is True  # no hard "unbounded" overclaim
     assert out["lookback"]["performed"] is False and out["lookback"]["rules_out_occurrence"] is False
     assert out["classification"] == "Material Weakness"
-    # The preliminary "Significant Deficiency" was the unsound conclusion this rework overturns.
+    # The conclusion is reached on the ordinary severity test, not an AS 2201.69 indicator.
+    assert "ordinary severity test" in out["basis"] and "presumption" not in out["basis"].lower()
     assert out["preliminary_classification"] == "Significant Deficiency"
     assert out["remediation"]["owner"] == "IT Security Manager"
 
 
-def test_uc_02_lookback_and_qualifying_control_can_lower_severity():
-    """Metamorphic: an affirmative lookback PLUS a qualifying occurrence-control
-    moves the conclusion off MW — proving the MW result is fact-driven, not hardcoded."""
-    payload = dict(_load("uc-02-input.json"))
-    payload["lookback"] = {"performed": True, "improper_transactions_found": False}
+def _add_occurrence_control(payload, tested):
+    payload = dict(payload)
     payload["compensating_controls_candidates"] = payload["compensating_controls_candidates"] + [{
         "control": "Independent re-authorization review of terminated-user transactions",
         "assertions_addressed": ["occurrence"], "relies_on_ipe_from": "access-logs",
-        "precision_for_own_assertion": "high"}]
+        "precision_for_own_assertion": "high", "tested_effective": tested}]
+    return payload
+
+
+def test_uc_02_tested_control_plus_clean_lookback_drops_to_deficiency():
+    """A tested, precise occurrence-control AND a clean lookback reduce residual risk
+    below the SD threshold -> Deficiency (the MW result is fact-driven)."""
+    payload = _add_occurrence_control(_load("uc-02-input.json"), tested=True)
+    payload["lookback"] = {"performed": True, "improper_transactions_found": False}
     out = run_skill("UC-02", payload)
     assert out["qualifying_compensating_controls"] == [
         "Independent re-authorization review of terminated-user transactions"]
-    assert out["classification"] != "Material Weakness"
+    assert out["classification"] == "Deficiency"
+
+
+def test_uc_02_untested_qualifying_control_does_not_demote_below_sd():
+    """The over-correction the verifier caught: an UNtested qualifying control, with no
+    lookback, must NOT collapse MW->D. No mechanical demotion (chunk 07 Step 5) -> SD."""
+    payload = _add_occurrence_control(_load("uc-02-input.json"), tested=False)  # not tested
+    out = run_skill("UC-02", payload)  # no lookback
+    assert out["classification"] == "Significant Deficiency"
+
+
+def test_uc_02_tested_control_but_no_lookback_stays_sd():
+    """Tested+precise qualifying control but residual magnitude still material absent a
+    clean lookback -> Significant Deficiency, not Deficiency."""
+    payload = _add_occurrence_control(_load("uc-02-input.json"), tested=True)
+    out = run_skill("UC-02", payload)  # no lookback
+    assert out["classification"] == "Significant Deficiency"
 
 def test_uc_03_oracle():
     payload = _load("uc-03-input.json")

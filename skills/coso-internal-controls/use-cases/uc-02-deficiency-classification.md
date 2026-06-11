@@ -15,13 +15,13 @@ procedure:
   - "chunks/05-deficiency-classification.md: Steps 1-3 — deficiency exists; reasonable possibility; magnitude from the AUTHORITY of the retained access (not a per-transaction cap)"
   - "chunks/07-compensating-updates-cross.md: the two-part compensating-control test — (1) does it address the ASSERTION AT RISK? (2) is it independent of the deficiency (IPE not drawn from the affected system)?"
   - "chunks/07-compensating-updates-cross.md: ITGC-pervasiveness step — every app control and IPE relying on the ERP, including the reconciliations themselves"
-  - "chunks/05-deficiency-classification.md: the lookback procedure gates the conclusion; absent it, the rebuttable presumption for an unmitigated pervasive ITGC is a material weakness"
+  - "chunks/05-deficiency-classification.md: the lookback gates the conclusion; absent it, an unmitigated pervasive ITGC with material magnitude classifies as a material weakness on the ordinary severity test (not an AS 2201.69 indicator)"
 expected_outputs:
   classification: "Material Weakness"
   assertion_at_risk: "occurrence"
   qualifying_compensating_controls: []
   itgc_pervasive: true
-  magnitude: {driver: "authority_of_retained_access", material: true, unbounded: true}
+  magnitude: {driver: "authority_of_retained_access", material: true, basis: "material; not capped at a per-transaction ceiling"}
   compensating_control_analysis: "each reconciliation fails BOTH tests: addresses completeness/accuracy not occurrence, and draws IPE from the affected ERP"
   lookback: {performed: false, rules_out_occurrence: false}
 oracle:
@@ -31,13 +31,15 @@ oracle:
     classification from the seed: a compensating control qualifies only if it addresses
     the assertion at risk (occurrence) AND is independent of the affected system; none of
     the three reconciliations qualify (wrong assertion + ERP-IPE-impaired) → zero qualifying
-    controls; pervasive ITGC + authority-driven unbounded magnitude + no lookback →
-    Material Weakness. The metamorphic test proves an affirmative lookback plus a qualifying
-    occurrence-control moves the conclusion off MW (the result is fact-driven, not hardcoded).
+    controls; pervasive ITGC + material (authority-driven, not-capped) magnitude + no lookback →
+    Material Weakness on the ordinary severity test. The demotion tests prove the result is
+    fact-driven: an untested qualifying control does NOT demote below SD, and only a tested,
+    precise occurrence-control plus a clean lookback reduces it to Deficiency.
 data_refs: ["data/seeds/uc-02-input.json"]
 tests:
   - "tests/test_coso_internal_controls_oracle.py::test_uc_02_oracle"
-  - "tests/test_coso_internal_controls_oracle.py::test_uc_02_lookback_and_qualifying_control_can_lower_severity"
+  - "tests/test_coso_internal_controls_oracle.py::test_uc_02_tested_control_plus_clean_lookback_drops_to_deficiency"
+  - "tests/test_coso_internal_controls_oracle.py::test_uc_02_untested_qualifying_control_does_not_demote_below_sd"
 status: active
 ---
 
@@ -69,9 +71,9 @@ access).
 **Step 2 — Reasonable possibility.** Improper access with no detective review → yes.
 
 **Step 3 — Magnitude from authority, not transaction size.** The exposure is whatever the
-retained access can *authorize*: vendor creation (fictitious-vendor scheme → unbounded), payment
-approval with no enforced ceiling, payroll changes. Magnitude is **material and effectively
-unbounded** — not a "$5K × 120 terminations" cap.
+retained access can *authorize*: vendor creation (fictitious-vendor scheme → effectively unbounded), payment
+approval with no enforced ceiling, payroll changes. Magnitude is **material and not capped at a per-transaction ceiling** (vendor creation, uncapped
+payment approval) — not a "$5K × 120 terminations" cap.
 
 **Step 4 — The two-part compensating-control test.** A candidate mitigates only if it:
 1. **addresses the assertion at risk** (occurrence), and
@@ -96,16 +98,21 @@ transactions initiated or approved by the terminated users during their retained
 focused on occurrence/authorization and independent of the ERP's automated controls. It was not
 performed here.
 
-**Conclusion: Material Weakness.** Unmitigated pervasive ITGC, material (authority-driven)
-magnitude, reasonable possibility, no lookback ruling out improper activity — the rebuttable
-presumption is a material weakness (the Partner independently put MW on the table; the 3PAO
-flagged the original SD conclusion as security-unsound).
+**Conclusion: Material Weakness.** On the **ordinary AS 2201 severity test** — reasonable
+possibility of a material misstatement at a material (authority-driven) magnitude, with no
+qualifying compensating control and no lookback ruling out improper activity — this is a
+material weakness. (This is reached through the routine likelihood/magnitude analysis, NOT
+through an AS 2201.69 indicator — none of the four is present. A clean occurrence-focused
+lookback is the principal evidence that could rebut it.) The Partner independently put MW on
+the table; the 3PAO flagged the original SD conclusion as security-unsound.
 
 ## What WOULD mitigate (recommended procedures)
 
 - An **occurrence-focused lookback** of terminated-user transactions — the evidence that gates
-  the conclusion. If it affirmatively finds no improper activity *and* a qualifying
-  occurrence-relevant control exists, severity can come down (proven by the metamorphic test).
+  the conclusion. If it affirmatively finds no improper activity *and* a **tested, precise** qualifying
+  occurrence-relevant control exists, severity can come down — to SD if residual magnitude is
+  still material, to D only when residual risk is below the SD threshold (no mechanical
+  one-notch rule; chunk 07 Step 5). The oracle tests pin each of these branches.
 - **Independent re-authorization / SoD review** of vendor and payroll changes in the window,
   sourced independently of the ERP.
 

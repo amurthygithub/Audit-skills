@@ -158,29 +158,59 @@ def _uc02_deficiency_classification(inputs: dict) -> dict:
                     "ipe_impaired_by_deficiency": ipe_impaired, "qualifies": qualifies,
                     "reason": reason})
     qualifying = [a for a in cca if a["qualifies"]]
+    # A qualifying control only MITIGATES if it is tested-effective AND precise enough to
+    # detect a material misstatement (chunk 07 Step 5 — no mechanical one-notch demotion;
+    # an untested or imprecise qualifying control does not reduce severity below SD).
+    mitigating = [c for c in inputs.get("compensating_controls_candidates", [])
+                  if assertion_at_risk in c.get("assertions_addressed", [])
+                  and c.get("relies_on_ipe_from") not in affected_systems
+                  and c.get("tested_effective")
+                  and c.get("precision_for_own_assertion") in ("high", "sufficient")]
 
-    # Magnitude from authority of retained access (unbounded if vendor-creation
-    # or no enforced payment ceiling).
-    unbounded = bool(auth.get("can_create_vendors")) or auth.get("payment_approval_limit") is None
-    magnitude_material = unbounded or (auth.get("payment_approval_limit") or 0) >= materiality
+    # Magnitude from the AUTHORITY of the retained access — material and not capped at a
+    # per-transaction ceiling (vendor creation / uncapped payment approval). We do NOT
+    # assert a hard "unbounded" — exposure is bounded by window, volume, and detection.
+    not_capped = bool(auth.get("can_create_vendors")) or auth.get("payment_approval_limit") is None
+    magnitude_material = not_capped or (auth.get("payment_approval_limit") or 0) >= materiality
 
-    reasonable_possibility = True  # improper access + no detective review
+    # Scenario fact (improper access + no detective review). Asserted, not derived — flagged.
+    reasonable_possibility = True
     lookback_rules_out = bool(lookback.get("performed")) and lookback.get("improper_transactions_found") is False
 
-    # Classification (rebuttable presumption; conservative default).
-    if not qualifying and magnitude_material and reasonable_possibility and not lookback_rules_out:
-        classification = "Material Weakness"
-        basis = ("No proposed compensating control addresses the occurrence assertion the access "
-                 "deficiency threatens, and each is impaired by IPE from the affected ERP; the "
-                 "deficiency is a pervasive ITGC with material (authority-driven, unbounded) "
-                 "magnitude and a reasonable possibility of material misstatement, and no lookback "
-                 "rules out improper activity. Rebuttable presumption -> material weakness.")
-    elif not qualifying and reasonable_possibility:
-        classification = "Significant Deficiency"
-        basis = "Unmitigated deficiency with reasonable possibility but less-than-material magnitude."
+    # Classification — ordinary AS 2201 severity test (reasonable possibility + magnitude),
+    # NOT an AS 2201.69 indicator (none is present here). Demotion re-assesses residual risk.
+    if not qualifying:
+        if magnitude_material and reasonable_possibility and not lookback_rules_out:
+            classification = "Material Weakness"
+            basis = ("On the ordinary severity test: no compensating control addresses the "
+                     "occurrence assertion the access deficiency threatens (each addresses "
+                     "recording assertions and draws IPE from the affected ERP), the deficiency is "
+                     "a pervasive ITGC with material, authority-driven magnitude, there is a "
+                     "reasonable possibility of material misstatement, and no lookback rules out "
+                     "improper activity -> material weakness (a clean occurrence-focused lookback "
+                     "is the principal evidence that could rebut it).")
+        elif reasonable_possibility:
+            classification = "Significant Deficiency"
+            basis = "Unmitigated deficiency with reasonable possibility but less-than-material magnitude."
+        else:
+            classification = "Deficiency"
+            basis = "No reasonable possibility of material misstatement."
     else:
-        classification = "Deficiency"
-        basis = "Mitigated by a qualifying compensating control, or no reasonable possibility."
+        # Qualifying control(s) exist -> re-assess residual risk; no mechanical demotion.
+        if mitigating and lookback_rules_out:
+            classification = "Deficiency"
+            basis = ("A tested, precise, assertion-relevant compensating control AND a clean "
+                     "occurrence-focused lookback reduce residual risk below the SD threshold.")
+        elif mitigating:
+            classification = "Significant Deficiency"
+            basis = ("A tested, precise, assertion-relevant compensating control exists, but "
+                     "residual magnitude remains material absent a clean lookback -> no demotion "
+                     "below significant deficiency.")
+        else:
+            classification = "Significant Deficiency"
+            basis = ("A qualifying compensating control exists but is not yet tested-effective or "
+                     "sufficiently precise; residual risk remains -> no mechanical demotion below "
+                     "significant deficiency (chunk 07 Step 5).")
 
     return {
         "classification": classification,
@@ -188,8 +218,10 @@ def _uc02_deficiency_classification(inputs: dict) -> dict:
         "basis": basis,
         "assertion_at_risk": assertion_at_risk,
         "itgc_pervasive": is_itgc,
+        "reasonable_possibility": {"value": reasonable_possibility,
+                                   "note": "scenario assumption (improper access, no detective review) — not derived"},
         "magnitude": {"driver": "authority_of_retained_access", "material": magnitude_material,
-                      "unbounded": unbounded},
+                      "basis": "material and not capped at a per-transaction ceiling (vendor creation / uncapped payment approval)"},
         "compensating_control_analysis": cca,
         "qualifying_compensating_controls": [a["control"] for a in qualifying],
         "lookback": {"performed": bool(lookback.get("performed")),
