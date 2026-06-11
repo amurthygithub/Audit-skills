@@ -1,0 +1,16 @@
+id: uc-03-comp
+skill: pci-dss-assessment
+use_case: UC-03
+description: >
+  Compensating-control worksheet completeness — six Appendix-C rows all present
+  -> complete; control_type compensating_control (constraint-driven).
+input_from_seeds:
+  base: data/seeds/uc-03-input.json
+expected:
+  control_type: "compensating_control"
+  worksheet_elements_present: 6
+  worksheet_complete: true
+  classification: "COMP_CONTROL_COMPLETE"
+stub_only_paths: [classification, worksheet_elements_present]
+validators: [oracle_match]
+coverage_tags: [pci.compensating-control, pci.worksheet-six-rows]

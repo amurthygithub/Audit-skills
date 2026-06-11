@@ -1,0 +1,15 @@
+{
+ "skill": "pci-dss-assessment",
+ "cases": 4,
+ "coverage_tags": {
+  "invariant.idempotence": 1,
+  "pci.client-side-scripts": 1,
+  "pci.compensating-control": 1,
+  "pci.customized-approach": 1,
+  "pci.saq-selection": 1,
+  "pci.scoping": 1,
+  "pci.segmentation": 1,
+  "pci.worksheet-six-rows": 1
+ },
+ "note": "tags are DECLARED per case, not derived from the skill's decision tree \u2014 decision-path derivation is a later Epic 6 slice (SOX-603)"
+}

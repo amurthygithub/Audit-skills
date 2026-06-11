@@ -1,0 +1,14 @@
+id: uc-01-saq
+skill: pci-dss-assessment
+use_case: UC-01
+description: >
+  SAQ eligibility derived from the payment-page architecture (B19 -> A-EP);
+  client-side script requirements 6.4.3 and 11.6.1 apply.
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+expected:
+  saq_eligibility: "SAQ A-EP"
+  classification: "VALIDATION_SAQ_A-EP"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [pci.saq-selection, pci.client-side-scripts]

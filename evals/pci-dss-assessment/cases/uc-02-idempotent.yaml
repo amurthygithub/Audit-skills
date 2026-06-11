@@ -1,0 +1,11 @@
+id: uc-02-idempotent
+skill: pci-dss-assessment
+use_case: UC-02
+description: Same inventory repeated yields the same in-scope count (idempotence).
+input_from_seeds:
+  base: data/seeds/uc-02-input.json
+invariant:
+  type: idempotent
+  metric: in_scope_systems
+validators: [invariant]
+coverage_tags: [invariant.idempotence]
