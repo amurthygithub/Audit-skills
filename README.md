@@ -56,8 +56,9 @@ v0.3.2 ships the library's **7th skill — hipaa-security-rule — the first ski
 | **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 42 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
 | **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 69 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 | **[hipaa-security-rule](skills/hipaa-security-rule/README.md)** | v0.3.2 on Spine (born-vetted) | 61 | HIPAA Security Rule (45 CFR 164 Subpart C), HITECH, NIST SP 800-66r2 | BA risk analysis + addressable dispositions, hospital OCR readiness, solo-consultant BAA + right-sized checklist |
+| **[pci-dss-assessment](skills/pci-dss-assessment/README.md)** | v0.3.2 on Spine (born-vetted) | 62 | PCI DSS v4.0.1 (6 goals, 12 requirements, 10 SAQ types) | SAQ selection (A vs A-EP), ROC + CDE segmentation, compensating-control worksheet |
 
-**383 tests repo-wide (291 skill-local + shared lint/consistency/registry suites), 0 failures. All pass the Tier 0a linter. All 7 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
+**518 tests repo-wide (291 skill-local + shared lint/consistency/registry suites), 0 failures. All pass the Tier 0a linter. All 8 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
 
 ---
 
@@ -226,7 +227,7 @@ This repo is hardened for outside contributions.
 
 **On every PR (`.github/workflows/ci.yml`):**
 - `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
-- `Lint skill structure` — runs `tools/lint_skill.py` on all 7 skills
+- `Lint skill structure` — runs `tools/lint_skill.py` on all 8 skills
 - `pytest` — runs `pytest skills/ tests/ -q` (383 tests)
 
 **Nightly (`.github/workflows/nightly.yml`):**
