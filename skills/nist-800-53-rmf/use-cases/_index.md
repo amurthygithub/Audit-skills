@@ -5,6 +5,7 @@
 | UC-01 | FedRAMP-bound SaaS categorizes FIPS-199 Moderate | saas-technology, public-sector | active | TBD (run `tests/test_telemetry.py` to populate) |
 | UC-02 | Federal agency RMF Step 6 authorization (SAR + POA&M + ATO w/ conditions) | public-sector | active | TBD |
 | UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate | financial-services, saas-technology | active | TBD |
+| UC-04 | Hospital CPOE: clinical availability floor + HIPAA safeguard → 800-53 view | healthcare | active | TBD |
 
 ## How to read a use case
 

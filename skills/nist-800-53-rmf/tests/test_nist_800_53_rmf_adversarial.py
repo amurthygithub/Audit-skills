@@ -79,3 +79,42 @@ def test_uc_03_pii_volume_increase():
     gs = out["gap_register_summary"]
     assert gs["total_records"] == gs["pure_gaps"] + gs["strengthen_partial_coverage"] > 0
     assert out["baseline"]["baseline"] == "MODERATE"
+
+
+def test_uc_04_floor_never_low_for_clinical():
+    """All-LOW baselines on a patient-safety system still yield A >= MODERATE."""
+    payload = _load("uc-04-input.json")
+    payload = dict(payload)
+    payload["information_types"] = [
+        {"name": "Clinical Alerts", "description": "PHI clinical alerting",
+         "patient_safety_relevant": True,
+         "cia_baseline": {"c": "LOW", "i": "LOW", "a": "LOW"}},
+    ]
+    out = run_skill("UC-04", payload)
+    cat = out["fips_199_categorization"]["system_security_category"]
+    assert cat["a"] == "MODERATE" and cat["c"] == "LOW" and cat["i"] == "LOW"
+    assert out["fips_199_categorization"]["clinical_availability_floor"]["applied"] is True
+
+
+def test_uc_04_no_floor_without_clinical_flag():
+    """Without a patient-safety flag the floor never fires (no silent escalation)."""
+    payload = _load("uc-04-input.json")
+    payload = dict(payload)
+    payload["information_types"] = [
+        {"name": "Demographics", "description": "PHI registration data",
+         "patient_safety_relevant": False,
+         "cia_baseline": {"c": "MODERATE", "i": "LOW", "a": "LOW"}},
+    ]
+    out = run_skill("UC-04", payload)
+    assert out["fips_199_categorization"]["system_security_category"]["a"] == "LOW"
+    assert out["fips_199_categorization"]["clinical_availability_floor"]["applied"] is False
+
+
+def test_uc_04_unknown_hipaa_element_not_fabricated():
+    """An element absent from the crosswalk is reported, never invented."""
+    payload = _load("uc-04-input.json")
+    payload = dict(payload)
+    payload["in_scope_hipaa_elements"] = ["164.312(b)", "164.399(z)(9)"]
+    out = run_skill("UC-04", payload)
+    assert [v["hipaa_id"] for v in out["hipaa_800_53_view"]] == ["164.312(b)"]
+    assert out["hipaa_elements_not_in_crosswalk"] == ["164.399(z)(9)"]

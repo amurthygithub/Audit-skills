@@ -164,6 +164,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | UC-01 | FedRAMP-bound SaaS categorizes FIPS-199 Moderate | saas-technology, public-sector | Categorization, baseline, inheritance map |
 | UC-02 | Federal agency Step 6 authorization: SAR 22 findings → POA&M, AO risk-accepts 14, ATO w/ conditions | public-sector | ATO letter, POA&M, residual-risk memo |
 | UC-03 | Enterprise fin-svcs maps SOC 2 → 800-53 Moderate (curated-sample crosswalk + 93-record gap register, computed) | financial-services, saas-technology | Crosswalk sample, gap register, remediation plan |
+| UC-04 | Hospital CPOE categorization: clinical availability floor (house convention) + HIPAA safeguard → 800-53 view (CPRT OLIR crosswalk) | healthcare | Floored FIPS-199 categorization, HIPAA→800-53 view |
 
 ## 9. Anti-Hallucination Disclaimers
 
@@ -211,6 +212,7 @@ This is a router. Load chunks based on the user's intent.
 | User intent | Load chunk(s) | Industry hint | Use case |
 |-------------|---------------|---------------|----------|
 | "Categorize this system" / "FIPS 199" / "Step 2" | `chunks/02-categorize.md` | match industry | UC-01 |
+| "clinical system" / "patient safety" / "HIPAA to 800-53" / "hospital" | `chunks/02-categorize.md`, `chunks/09-crosswalk.md` | healthcare | UC-04 |
 | "Select baseline" / "tailor controls" / "Step 3" | `chunks/03-baseline.md` | match industry | UC-01 |
 | "Implement controls" / "draft SSP" / "Step 4" | `chunks/04-implement.md` | match industry | UC-01, UC-02 |
 | "Assess controls" / "800-53A" / "draft SAR" / "Step 5" | `chunks/05-assess.md` | match industry | UC-02 |

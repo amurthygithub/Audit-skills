@@ -51,3 +51,11 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 - §164.310 physical safeguards now fully covered (12 elements / 60 rows); emergency-access (break-glass) row present (164.312(a)(2)(ii) -> AC-2, AC-3, CP-2).
 - Generator: `data/generators/gen_hipaa_crosswalk.py` (deterministic; summary computed from rows).
 - Healthcare provider UC + FIPS-199 PHI guidance remain open under SOX-638 (part 2).
+
+## 2026-06-10 — SOX-638 (part 2): healthcare UC-04 + clinical availability floor
+
+- UC-04 (hospital CPOE) added with seed + derivability oracle: FIPS-199 categorization with the clinical availability floor (HOUSE CONVENTION, labeled: patient-safety-relevant information types force A >= MODERATE; manual-workaround rationales never lower clinical availability without clinical sign-off) + HIPAA safeguard -> 800-53 view as a pure lookup of the CPRT-generated crosswalk.
+- chunks/02-categorize.md: clinical systems note added (the "A: LOW via manual workaround" anti-pattern, flagged by the healthcare CISO persona, is now explicitly barred).
+- Crosswalk seed enriched with designation (Standard/Required/Addressable) per element, derived from the hipaa-security-rule fact sheet; CPRT's pre-Omnibus 164.308(b)(4) citation aliased to 164.308(b)(3) with a note (78 FR 5694).
+- README quickstart: PHI/BAA warning added.
+- Tests: +5 (UC-04 oracle, 3 adversarial floor/fabrication guards, 1 metamorphic).

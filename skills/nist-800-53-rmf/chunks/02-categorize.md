@@ -70,6 +70,17 @@ special_factors:
   - <e.g., "processes PII of 250k+ individuals", "processes CUI", "interconnected with HIGH system">
 ```
 
+## Clinical systems note (healthcare)
+
+**Clinical availability floor — HOUSE CONVENTION, not FIPS 199 text:** when any information
+type is patient-safety-relevant (clinical orders, results, alerting, bedside devices), set the
+availability objective to at least MODERATE. A manual-workaround rationale ("we can fall back
+to paper") is a contingency procedure, not a basis for A: LOW — never lower clinical
+availability on that rationale without documented clinical sign-off. Per-type provisional
+impact levels come from SP 800-60 Vol II [NIST-SP-800-60]; verify against the current
+revision. Worked example: `use-cases/uc-04-healthcare-provider.md` (the floor raises a
+submitted A: LOW to MODERATE and the oracle pins the behavior).
+
 ## Anti-hallucination note
 
 Categorization judgment is a professional determination informed by the system's business context; this skill encodes the framework but does not make the call for you. Validate with the AO before applying the baseline.

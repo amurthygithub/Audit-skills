@@ -135,3 +135,45 @@ def test_hipaa_crosswalk_derivability():
     vendored = json.loads((DATA.parent.parent.parent / "hipaa-security-rule" / "data"
                            / "crosswalks" / "hipaa-to-800-53-r511.json").read_text())
     assert vendored == seed
+
+
+def test_uc_04_oracle():
+    """UC-04 (SOX-638): clinical availability floor + HIPAA->800-53 view, all
+    derivable from seeds (independent recompute; nothing echoed)."""
+    payload = _load("uc-04-input.json")
+    out = run_skill("UC-04", payload)
+
+    # Independent recompute: high-water mark, then the clinical floor (house convention)
+    levels = ["LOW", "MODERATE", "HIGH"]
+    cat = {"c": "LOW", "i": "LOW", "a": "LOW"}
+    for it in payload["information_types"]:
+        for k in cat:
+            if levels.index(it["cia_baseline"][k]) > levels.index(cat[k]):
+                cat[k] = it["cia_baseline"][k]
+    floor = (any(it.get("patient_safety_relevant") for it in payload["information_types"])
+             and levels.index(cat["a"]) < levels.index("MODERATE"))
+    if floor:
+        cat["a"] = "MODERATE"
+    overall = max(cat.values(), key=lambda x: levels.index(x))
+
+    got = out["fips_199_categorization"]
+    assert got["system_security_category"] == cat
+    assert got["overall"] == overall == out["baseline"]["baseline"]
+    assert got["clinical_availability_floor"]["applied"] == floor
+    # The seed submits A: LOW on a patient-safety type — the floor MUST fire
+    assert floor is True and cat["a"] == "MODERATE"
+
+    # HIPAA view rows == crosswalk-seed lookup (designation + controls), order preserved
+    crosswalk = _load("hipaa-to-800-53.json")
+    by_id = {m["hipaa_id"]: m for m in crosswalk["mappings"]}
+    expected_view = [{"hipaa_id": el, "designation": by_id[el]["designation"],
+                      "nist_800_53_ids": by_id[el]["nist_800_53_ids"]}
+                     for el in payload["in_scope_hipaa_elements"]]
+    assert out["hipaa_800_53_view"] == expected_view
+    assert out["hipaa_elements_not_in_crosswalk"] == []
+
+    # Expected-output seed foots to the same recomputation
+    expected = _load("uc-04-expected.json")
+    assert expected["fips_199_categorization"]["system_security_category"] == cat
+    assert expected["fips_199_categorization"]["clinical_availability_floor_applied"] == floor
+    assert expected["hipaa_800_53_view"] == expected_view
