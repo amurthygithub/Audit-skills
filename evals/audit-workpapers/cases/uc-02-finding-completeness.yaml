@@ -1,0 +1,13 @@
+id: uc-02-finding-completeness
+skill: audit-workpapers
+use_case: UC-02
+description: The C-C-C-E-R finding + 5-field management response are both complete (from the seed).
+input_from_seeds:
+  base: data/seeds/uc-02-input.json
+expected:
+  ccc_er_complete: true
+  management_response_complete: true
+  classification: "SIGNIFICANT_DEFICIENCY"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [workpapers.cccer-finding, workpapers.management-response]

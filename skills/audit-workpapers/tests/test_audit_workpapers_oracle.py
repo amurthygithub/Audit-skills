@@ -36,23 +36,47 @@ def test_uc_01_oracle():
 
 
 def test_uc_02_oracle():
-    """UC-02: 5-part C-C-C-E-R finding with severity = Significant Deficiency."""
+    """UC-02 (SOX-640): the finding parts come FROM the seed (a preparer fills them);
+    completeness for both the C-C-C-E-R finding and the 5-field management response is
+    computed — recomputed here independently."""
     payload = _load("uc-02-input.json")
     out = run_skill("UC-02", payload)
-
     finding = out["finding"]
+
     assert finding["severity"] == "Significant Deficiency"
-    assert finding["finding_id"] == 3
-    assert finding["wp_index"] == "C-4.2"
-    assert finding["assertion"] == "Completeness (Accounts Payable)"
-    assert out["ccc_er_complete"] is True
+    assert finding["finding_id"] == 3 and finding["wp_index"] == "C-4.2"
+    assert finding["assertion"] == payload["assertion"]
     assert out["classification"] == "SIGNIFICANT_DEFICIENCY"
+
+    # Every C-C-C-E-R part is taken from the seed (derivability), not hardcoded.
     for part in ["condition", "criteria", "cause", "effect", "recommendation"]:
-        assert finding[part], f"Missing C-C-C-E-R part: {part}"
+        assert finding[part] == payload[part]
+    assert out["ccc_er_complete"] is True
+    assert finding["finding_missing_parts"] == []
     assert "16%" in finding["condition"]
     assert "AP Policy AP-200" in finding["criteria"]
     assert "ASC 606" not in finding["criteria"], "revenue-recognition criteria on an AP cutoff finding was a verified defect"
     assert "Implement ERP" in finding["recommendation"]
+
+    # Management-response completeness recomputed from the 5 required fields.
+    required = ["owner", "remediation_steps", "target_date",
+                "operating_effectiveness_evidence", "retest_window"]
+    resp = payload["management_response"]
+    assert out["management_response_complete"] == all(resp.get(f) for f in required) is True
+    assert out["management_response_missing"] == [f for f in required if not resp.get(f)] == []
+
+
+def test_uc_02_incomplete_finding_and_response_flagged():
+    """A preparer's draft missing a C-C-C-E-R part and a response field is flagged
+    (the company-side affordance: it tells you what is still missing)."""
+    payload = dict(_load("uc-02-input.json"))
+    payload["cause"] = ""  # preparer hasn't written the cause yet
+    payload["management_response"] = {**payload["management_response"], "retest_window": ""}
+    out = run_skill("UC-02", payload)
+    assert out["ccc_er_complete"] is False
+    assert "cause" in out["finding"]["finding_missing_parts"]
+    assert out["management_response_complete"] is False
+    assert "retest_window" in out["management_response_missing"]
 
 
 def test_uc_03_oracle():

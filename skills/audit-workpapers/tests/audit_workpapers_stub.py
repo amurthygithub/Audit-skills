@@ -74,21 +74,39 @@ def _mus_evaluate(inputs: dict) -> dict:
     }
 
 
+# The 5 C-C-C-E-R parts a complete finding must carry; and the 5 fields a complete
+# management response / remediation plan must carry (SOX-640: makes UC-02 usable by a
+# company-side preparer to WRITE a finding + response, not just format a pre-classified one).
+CCCER_PARTS = ["condition", "criteria", "cause", "effect", "recommendation"]
+RESPONSE_FIELDS = ["owner", "remediation_steps", "target_date",
+                   "operating_effectiveness_evidence", "retest_window"]
+
+
 def _finding_document(inputs: dict) -> dict:
-    """5-part C-C-C-E-R finding format per AS 2201 Appendix A, AS 2201.62-.70."""
+    """5-part C-C-C-E-R finding + completeness checks (SOX-640 rework).
+
+    Reads the finding parts FROM the seed (a preparer fills them) and computes
+    completeness for both the C-C-C-E-R finding and the 5-field management
+    response — the company-side affordance the SaaS persona flagged as missing.
+    """
     severity = inputs.get("severity", "Significant Deficiency")
+    finding = {p: inputs.get(p, "") for p in CCCER_PARTS}
+    finding_missing = [p for p in CCCER_PARTS if not finding[p]]
+    resp = inputs.get("management_response", {}) or {}
+    resp_present = [f for f in RESPONSE_FIELDS if resp.get(f)]
+    resp_missing = [f for f in RESPONSE_FIELDS if not resp.get(f)]
     return {
         "finding_id": inputs.get("finding_id", 3),
         "wp_index": inputs.get("wp_index", "C-4.2"),
         "severity": severity,
-        "assertion": "Completeness (Accounts Payable)",
-        "condition": "12 of 75 invoices (16%) recorded in incorrect period; $342,500+$128,750 misstated across periods",
-        "criteria": "Accrual-basis GAAP period-end liability/expense recognition; company AP Policy AP-200; AS 2201 ICFR",
-        "cause": "Receiving dept not notifying AP of goods received in last 3 days of month; 3-way match relies on invoice date",
-        "effect": "Actual: expenses understated by $342,500 in 2024; overstated in 2025. Net understatement $213,750",
-        "recommendation": "Implement ERP automated cutoff; daily receiving reports through month-end; internal audit monitoring for 6 months",
-        "impact": "Net $213,750 P&L impact; potential material misstatement if systemic",
-        "deviation_rate_pct": 16.0,
+        "assertion": inputs.get("assertion", ""),
+        **finding,
+        "deviation_rate_pct": inputs.get("deviation_rate_pct", 0.0),
+        "finding_complete": not finding_missing,
+        "finding_missing_parts": finding_missing,
+        "management_response_present": resp_present,
+        "management_response_missing": resp_missing,
+        "management_response_complete": not resp_missing,
         "classification": severity,
     }
 
@@ -156,9 +174,9 @@ def run_skill(use_case_id: str, payload: dict, model: str = "stub") -> dict:
         return {
             "classification": finding["severity"].upper().replace(" ", "_"),
             "finding": finding,
-            "ccc_er_complete": all(
-                finding.get(k) for k in ["condition", "criteria", "cause", "effect", "recommendation"]
-            ),
+            "ccc_er_complete": finding["finding_complete"],
+            "management_response_complete": finding["management_response_complete"],
+            "management_response_missing": finding["management_response_missing"],
         }
     if use_case_id == "UC-03":
         td = _td_calculate(payload)

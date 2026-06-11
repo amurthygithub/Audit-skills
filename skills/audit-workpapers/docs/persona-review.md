@@ -45,7 +45,7 @@ Resolution key: **FIXED** (PR `fix/SOX-636-vet-audit-workpapers`) · **TICKETED*
 ITAF 4th→5th in limits doc — **FIXED**. AS 1215.06A phantom cite — **FIXED** (.06). Jargon
 wall (RIA/TM/ULM undefined in README), glossary gaps, plain-language routing triggers,
 OpenAI-key prerequisites, FS-overlay depth (CECL/confirmations), controls-assessor evidence
-crosswalk (AS 1105 ↔ 800-53A) — **TICKETED — SOX-640**. SaaS view auditor-vs-company framing
+crosswalk (AS 1105 ↔ 800-53A) — **FIXED 2026-06-11 (SOX-640 slice)**: orientation crosswalk + explicit not-for-FedRAMP scope boundary in chunk 07. SaaS view auditor-vs-company framing
 — **TICKETED — SOX-640**.
 
 ## Verdict

@@ -1,1 +1,20 @@
-{"finding_id": 3, "wp_index": "C-4.2", "severity": "Significant Deficiency"}
+{
+ "finding_id": 3,
+ "wp_index": "C-4.2",
+ "severity": "Significant Deficiency",
+ "assertion": "Completeness (Accounts Payable)",
+ "condition": "12 of 75 invoices (16%) recorded in the incorrect period; $342,500 and $128,750 misstated across periods",
+ "criteria": "Accrual-basis GAAP period-end liability/expense recognition; company AP Policy AP-200; AS 2201 ICFR",
+ "cause": "Receiving department does not notify AP of goods received in the last 3 days of the month; the 3-way match relies on invoice date",
+ "effect": "Expenses understated by $342,500 in 2024 and overstated in 2025; net understatement $213,750",
+ "recommendation": "Implement ERP automated cutoff; daily receiving reports through month-end; internal-audit monitoring for 6 months",
+ "deviation_rate_pct": 16.0,
+ "management_response": {
+  "owner": "VP Controller",
+  "remediation_steps": "Configure ERP receiving-to-AP interface; enable daily receiving report; add month-end cutoff control",
+  "target_date": "2025-09-30",
+  "operating_effectiveness_evidence": "Two months of cutoff-control evidence + a sample retest",
+  "retest_window": "Q4 2025"
+ },
+ "notes": "company-side use: the finding fields and the management response are inputs the controller fills; the skill checks completeness of both the C-C-C-E-R finding and the 5-field management response."
+}

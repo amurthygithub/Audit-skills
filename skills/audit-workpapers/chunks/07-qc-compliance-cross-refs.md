@@ -56,6 +56,17 @@ Each framework uses a different severity tier system. The table below reconciles
 - NIST SP 800-53A Rev 5 itself produces only determinations — Satisfied / Other Than Satisfied; the Low/Moderate/High (+Critical original-rating) severity scale is the FedRAMP POA&M program layer, not an 800-53A construct.
 - See: `coso-internal-controls/chunks/07-compensating-updates-cross.md` (COSO cross-ref), `isaca-audit-methodology/chunks/05-risk-and-planning.md` (ISACA severity), `nist-800-53-rmf/chunks/05-assess.md` (NIST assessment).
 
+### Evidence-type crosswalk and the FedRAMP scope boundary
+
+The AS 1105 evidence types loosely correspond to the SP 800-53A assessment methods —
+**inspection/recalculation ↔ Examine**, **inquiry ↔ Interview**, **reperformance/observation ↔
+Test** — but treat this as an *orientation aid, not an equivalence*: AS 1105 governs sufficiency
+of *audit* evidence for an opinion, while 800-53A governs control-assessment *determinations* for
+an authorization. **This skill is scoped to financial-statement / ICFR / GAGAS workpapers, not
+FedRAMP control assessments.** For a 3PAO control-assessment workflow (SAP/SAR, examine-interview-
+test depth, POA&M severity), use `nist-800-53-rmf` — do not repurpose these workpaper templates as
+an 800-53A assessment record.
+
 
 ## Cross-Skill Citation Label Note
 
@@ -164,3 +175,5 @@ This use case extends the CUEC evaluation in `aicpa-soc-reporting/chunks/06-cuec
 | EQR | Quality review by qualified reviewer not on engagement team | AS 1220 |
 | ULM | Upper Limit on Misstatement = BP + sum of incremental allowances | AICPA Audit Guide |
 | Tainting Percentage | Misstatement relative to book value; used in MUS evaluation | AICPA Audit Guide |
+| RIA | Risk of Incorrect Acceptance — the sampling risk that a materially misstated balance is accepted as fair; drives the reliability factor and sample size | AS 2315; AICPA Audit Sampling Guide |
+| TD | Tolerable Deviation rate — the maximum control-deviation rate the auditor will accept and still rely on the control; for an attribute test it IS the risk of incorrect acceptance for that control | AS 2315 |
