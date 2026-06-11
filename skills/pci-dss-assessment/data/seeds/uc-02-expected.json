@@ -1,0 +1,11 @@
+{
+ "total_systems": 14,
+ "cde_systems": 5,
+ "in_scope_systems": 10,
+ "out_of_scope_systems": 4,
+ "customized_approach_accepted": [
+  "8.3.6"
+ ],
+ "customized_approach_rejected_no_tra": [],
+ "classification": "ROC_IN_SCOPE_10"
+}

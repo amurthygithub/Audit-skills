@@ -1,0 +1,78 @@
+{
+ "use_case": "UC-02",
+ "entity": {
+  "name": "Ironvale Retail",
+  "role": "merchant",
+  "level": "L1 (brand-defined)",
+  "annual_transactions": 8000000,
+  "validation": "ROC"
+ },
+ "system_inventory": [
+  {
+   "system": "POS-terminals",
+   "scope_tag": "cde"
+  },
+  {
+   "system": "payment-switch",
+   "scope_tag": "cde"
+  },
+  {
+   "system": "card-vault",
+   "scope_tag": "cde"
+  },
+  {
+   "system": "store-controller",
+   "scope_tag": "cde"
+  },
+  {
+   "system": "e-comm-web",
+   "scope_tag": "cde"
+  },
+  {
+   "system": "auth-AD",
+   "scope_tag": "connected"
+  },
+  {
+   "system": "siem",
+   "scope_tag": "connected"
+  },
+  {
+   "system": "jump-host",
+   "scope_tag": "connected"
+  },
+  {
+   "system": "patch-server",
+   "scope_tag": "connected"
+  },
+  {
+   "system": "backup",
+   "scope_tag": "connected"
+  },
+  {
+   "system": "corp-email",
+   "scope_tag": "out"
+  },
+  {
+   "system": "hr-system",
+   "scope_tag": "out"
+  },
+  {
+   "system": "guest-wifi",
+   "scope_tag": "out"
+  },
+  {
+   "system": "dev-sandbox",
+   "scope_tag": "out"
+  }
+ ],
+ "customized_approach_requests": [
+  {
+   "requirement": "8.3.6",
+   "topic": "password length/complexity",
+   "targeted_risk_analysis_present": true,
+   "rationale": "passphrase policy + adaptive lockout meets/exceeds the stated objective"
+  }
+ ],
+ "as_of_date": "2026-06-11",
+ "notes": "scope convention: in-scope = cde + connected/security-impacting; out = segmented & validated out of scope. Customized approach (Appendix D) requires a documented Targeted Risk Analysis (TRA); distinct from a compensating control."
+}

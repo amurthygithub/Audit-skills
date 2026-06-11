@@ -783,6 +783,26 @@
     "nist-800-53-rmf"
    ]
   },
+  "PCI-SSC-Blog-v401": {
+   "title": "Just Published: PCI DSS v4.0.1",
+   "publisher": "PCI Security Standards Council",
+   "identifier": "v4.0.1 limited revision announcement (no new or deleted requirements)",
+   "url": "https://blog.pcisecuritystandards.org/just-published-pci-dss-v4-0-1",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
+   ]
+  },
+  "PCI-SSC-Document-Library": {
+   "title": "PCI SSC Document Library",
+   "publisher": "PCI Security Standards Council",
+   "identifier": "PCI DSS v4.0.1 (June 2024) and supporting documents (SAQs, ROC/AOC templates)",
+   "url": "https://www.pcisecuritystandards.org/document_library/",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
+   ]
+  },
   "PL-116-321": {
    "title": "An Act to amend the HITECH Act to require consideration of certain recognized security practices (HR 7898)",
    "publisher": "U.S. Government Publishing Office (govinfo)",
