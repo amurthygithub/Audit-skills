@@ -7,7 +7,7 @@
 
 ## 1. Where we are
 
-- **7 skills shipped, 7/7 G4.5-vetted** (M1 retrofit sweep complete 2026-06-10, PRs #32-#40; hipaa-security-rule born-vetted 2026-06-10, PR #48 — 377 tests repo-wide). Every vetting run found 4–9 CRITICAL clusters that structural gates missed — fabricated criteria/objectives/subcategories, SEC-prohibited report language, invented citations and statutes, UC docs contradicting their own seeds. Persona vetting + Tier-2 live-source verification is what catches "consistently wrong" — and Tier-2 refuted persona consensus 4 times (ITAF 5th ed, ISACA-as-CAICO, CPG 2.0's existence, the tiers-FAQ citation), so neither personas nor concurrence substitute for sources.
+- **8 skills shipped, 8/8 G4.5-vetted** (M1 retrofit sweep complete 2026-06-10, PRs #32-#40; hipaa-security-rule born-vetted 2026-06-10, PR #48 — 377 tests repo-wide). Every vetting run found 4–9 CRITICAL clusters that structural gates missed — fabricated criteria/objectives/subcategories, SEC-prohibited report language, invented citations and statutes, UC docs contradicting their own seeds. Persona vetting + Tier-2 live-source verification is what catches "consistently wrong" — and Tier-2 refuted persona consensus 4 times (ITAF 5th ed, ISACA-as-CAICO, CPG 2.0's existence, the tiers-FAQ citation), so neither personas nor concurrence substitute for sources.
 - **Process v2 is live** (AGENTS.md): G0–G6 pipeline, verification tiers (Tier 3 concurrence ≠ verification), §3.3.1 per-skill vetting runbook, citation registry as source of truth, pre-merge §5.11 with verbatim quotes.
 - **Unvetted:** none. Structural-gap tickets: SOX-637-642, SOX-644 (isaca), SOX-645 (nist-csf-2).
 - **Structural-gap tickets filed from vetting:** SOX-637–642 (all Todo under SOX-633).
@@ -82,7 +82,7 @@ Cadence: **one new skill, then one structural-gap ticket**, repeating. New-skill
 | cycle | new skill (G0–G6, born-vetted) | then structural ticket |
 |---|---|---|
 | 1 | **iso-27001-isms** (SOX-567) — gate on a Day-0 source plan per SOX-618; if the full standard text can't be acquired, scope to what's publicly verifiable and label the rest | SOX-642 (aicpa: AU-C 402 user-auditor track, SOC 1 depth, first-timer playbook) |
-| 2 | **pci-dss-assessment** (SOX-568) — PCI DSS v4.x is a free download; strong SaaS-funnel pull | SOX-641 (coso: UC-02 rework, Green Book layer, 404(a) path) |
+| 2 | **pci-dss-assessment** (SOX-568) ✅ SHIPPED 2026-06-11 (PR #63) — born-vetted; PCI Read-and-Copy licence (3rd class: machine-verifiable). §5.11-vs-local-PDF caught a CRITICAL (6-row not 4-row compensating-control worksheet) hardcoded into the oracle — the licensed-copy payoff. Haiku 8/8. | SOX-641 (coso: UC-02 rework, Green Book layer, 404(a) path) — NEXT |
 | 3 | **sox-302-disclosure-controls** (SOX-570) — public SEC/PCAOB sources; adjacent to existing coso audience | SOX-640 (workpapers: company-side content, ITGC sampling, GAGAS formats) |
 | 4 | **fedramp-authorization** (SOX-574) — public; deepens the 3PAO persona that found the most CRITICALs | SOX-639 (rmf: non-federal adoption paths) |
 | 5 | **gdpr-dpia-privacy** (SOX-573), then **pcaob-as-deepening** (SOX-575), **soc-for-cybersecurity** (SOX-576, Backlog) | gap tickets filed in M1 for isaca/csf-2 |
