@@ -42,3 +42,4 @@ env/
 *.local
 /telemetry/
 evals/reports/*.json
+docs/builds/sox-568/pci-dss-v401-extracted.txt

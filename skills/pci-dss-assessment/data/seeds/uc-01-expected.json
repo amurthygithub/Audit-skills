@@ -1,0 +1,9 @@
+{
+ "saq_eligibility": "SAQ A-EP",
+ "deciding_factor": "merchant website controls payment-page elements/scripts (so it can affect PAN security) but its servers never receive PAN",
+ "client_side_script_requirements_apply": [
+  "6.4.3",
+  "11.6.1"
+ ],
+ "classification": "VALIDATION_SAQ_A-EP"
+}

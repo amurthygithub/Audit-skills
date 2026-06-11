@@ -1,0 +1,25 @@
+{
+ "use_case": "UC-03",
+ "entity": {
+  "name": "Meridian QSA-Support (solo)",
+  "role": "assessor_support",
+  "client": "30-location franchise",
+  "validation": "SAQ D"
+ },
+ "constraint": {
+  "requirement": "8.3.x",
+  "topic": "legacy POS cannot enforce the defined authentication control",
+  "legitimate_business_or_technical_constraint": true
+ },
+ "proposed_compensating_control": {
+  "constraints_documented": true,
+  "objective_of_original_requirement_stated": true,
+  "identified_risk_documented": true,
+  "controls": "network isolation of legacy POS + MFA at the jump host + enhanced logging/alerting",
+  "compensating_controls_defined": true,
+  "validation_of_compensating_controls": true,
+  "maintenance_documented": true
+ },
+ "as_of_date": "2026-06-11",
+ "notes": "Appendix C compensating-controls worksheet has SIX required rows (Constraints; Definition of Compensating Controls; Objective; Identified Risk; Validation; Maintenance). A compensating control addresses an EXISTING defined requirement an entity cannot meet due to a legitimate constraint; distinct from a customized approach (Appendix D), which meets the objective by a different method with a TRA and is NOT constraint-driven."
+}

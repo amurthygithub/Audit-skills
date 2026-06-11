@@ -1,0 +1,290 @@
+[
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": true,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "SAQ A-EP"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "redirect",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "iframe",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "direct_post",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": true,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": true
+  },
+  "expected_saq": "ROC"
+ },
+ {
+  "payment_page": {
+   "outsourced_to_compliant_third_party": false,
+   "method": "inline_js",
+   "merchant_javascript_on_payment_page": false,
+   "merchant_servers_touch_pan": false
+  },
+  "expected_saq": "ROC"
+ }
+]

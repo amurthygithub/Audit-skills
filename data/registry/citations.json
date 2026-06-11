@@ -495,6 +495,26 @@
     "nist-csf-2"
    ]
   },
+  "NIST-CSF-Informative-References": {
+   "title": "NIST CSF 2.0 Informative References",
+   "publisher": "NIST",
+   "identifier": "CSF 2.0 informative references incl. PCI-DSS-4.0.1-to-CSF-v2.0 (OLIR)",
+   "url": "https://www.nist.gov/cyberframework/informative-references",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
+   ]
+  },
+  "NIST-OLIR": {
+   "title": "National Online Informative References (OLIR) Program",
+   "publisher": "NIST",
+   "identifier": "OLIR catalog — PCI-DSS-4.0.1-to-CSF-v2.0 final reference (PCI SSC-submitted)",
+   "url": "https://csrc.nist.gov/projects/olir",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
+   ]
+  },
   "NIST-SP-1299": {
    "title": "NIST Cybersecurity Framework 2.0: Resource and Overview Guide",
    "publisher": "NIST",
@@ -781,6 +801,26 @@
    "retrieval_date": "2026-05-25",
    "cited_by": [
     "nist-800-53-rmf"
+   ]
+  },
+  "PCI-SSC-Blog-v401": {
+   "title": "Just Published: PCI DSS v4.0.1",
+   "publisher": "PCI Security Standards Council",
+   "identifier": "v4.0.1 limited revision announcement (no new or deleted requirements)",
+   "url": "https://blog.pcisecuritystandards.org/just-published-pci-dss-v4-0-1",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
+   ]
+  },
+  "PCI-SSC-Document-Library": {
+   "title": "PCI SSC Document Library",
+   "publisher": "PCI Security Standards Council",
+   "identifier": "PCI DSS v4.0.1 (June 2024) and supporting documents (SAQs, ROC/AOC templates)",
+   "url": "https://www.pcisecuritystandards.org/document_library/",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "pci-dss-assessment"
    ]
   },
   "PL-116-321": {

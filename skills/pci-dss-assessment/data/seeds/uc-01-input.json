@@ -1,0 +1,18 @@
+{
+ "use_case": "UC-01",
+ "entity": {
+  "name": "CartNimbus",
+  "role": "merchant",
+  "channel": "e-commerce",
+  "annual_transactions": 2000000,
+  "is_service_provider": false
+ },
+ "payment_page": {
+  "outsourced_to_compliant_third_party": true,
+  "method": "direct_post",
+  "merchant_javascript_on_payment_page": true,
+  "merchant_servers_touch_pan": false
+ },
+ "as_of_date": "2026-06-11",
+ "notes": "house decision convention: SAQ-A eligible iff fully outsourced (redirect/iframe to a compliant TPSP) AND no merchant code touches PAN AND merchant servers never receive PAN; if the merchant controls page elements/scripts but does not store/process/transmit PAN on its servers -> SAQ A-EP; if merchant servers touch PAN or volume/brand requires -> full ROC. Brand/acquirer can always mandate ROC regardless (brand-defined)."
+}
