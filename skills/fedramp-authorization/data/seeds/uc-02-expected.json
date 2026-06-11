@@ -1,0 +1,8 @@
+{
+  "overall_impact": "Low",
+  "li_saas_eligible": true,
+  "baseline": "LI-SaaS",
+  "baseline_controls": 156,
+  "classification": "LI_SAAS_ELIGIBLE",
+  "_note": "The Rev 5 Tailored LI-SaaS profile gives per-control method designations (ASSESS/ATTEST/NSO/FED), not a flat tested-vs-attested split. The legacy Rev 4 '66 tested / 90 attested' figure is not reproducible from the Rev 5 profile, so it is not asserted (G4.5 §5.11)."
+}

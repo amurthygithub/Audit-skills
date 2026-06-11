@@ -1,0 +1,15 @@
+id: uc-01-categorization-idempotent
+skill: fedramp-authorization
+use_case: UC-01
+description: The same FIPS 199 seed repeated yields the same selected baseline control count
+  (idempotence on a canonical numeric field; the high-water-mark categorization is deterministic).
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+invariant:
+  type: idempotent
+  metric: baseline_controls
+validators:
+- invariant
+coverage_tags:
+- invariant.idempotence
+- fedramp.categorization-deterministic

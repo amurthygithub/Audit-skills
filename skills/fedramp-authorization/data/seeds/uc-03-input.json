@@ -1,0 +1,15 @@
+{
+  "system_name": "Acme Cloud Suite (3PAO assessment)",
+  "baseline": "Moderate",
+  "assessor": "Example 3PAO LLP (A2LA-accredited)",
+  "controls": [
+    {"id": "AC-2", "tested": true, "passed": false, "inherited": false, "severity": "High"},
+    {"id": "SI-2", "tested": true, "passed": false, "inherited": false, "severity": "High"},
+    {"id": "AU-6", "tested": true, "passed": false, "inherited": false, "severity": "Moderate"},
+    {"id": "CM-6", "tested": true, "passed": false, "inherited": false, "severity": "Low"},
+    {"id": "AU-2", "tested": true, "passed": true, "inherited": false, "severity": null},
+    {"id": "CA-7", "tested": true, "passed": true, "inherited": false, "severity": null},
+    {"id": "SC-7", "tested": false, "passed": null, "inherited": true, "severity": "High"},
+    {"id": "PE-3", "tested": false, "passed": null, "inherited": true, "severity": "Moderate"}
+  ]
+}

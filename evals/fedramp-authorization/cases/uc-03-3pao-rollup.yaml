@@ -1,0 +1,17 @@
+id: uc-03-3pao-rollup
+skill: fedramp-authorization
+use_case: UC-03
+description: 3PAO finding roll-up -> 4 findings (CSP-owned failed controls); 2 inherited-and-failed
+  excluded; POA&M item count = 4; a residual high finding raises the AO risk note.
+input_from_seeds:
+  base: data/seeds/uc-03-input.json
+expected:
+  controls_total: 8
+  inherited_count: 2
+  findings: ["AC-2", "SI-2", "AU-6", "CM-6"]
+  poam_item_count: 4
+  has_high_severity_finding: true
+  classification: "SAR_FINDINGS_4"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [fedramp.sar-finding-rollup, fedramp.control-inheritance, fedramp.poam-item-count]

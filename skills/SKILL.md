@@ -1,6 +1,6 @@
 ---
 name: audit-category-pointer
-description: "Pointer to a library of 9 specialized audit/compliance skills — ISACA, COSO, AICPA SOC, Audit Workpapers, NIST 800-53/RMF, NIST CSF 2.0, HIPAA Security Rule, PCI DSS, and SOX §302 disclosure controls. Use when working on IT audit, internal controls, SOC reporting, audit documentation, federal control baselines, cybersecurity maturity, or HIPAA security, PCI DSS payment-security, or SOX §302 disclosure-controls certification tasks."
+description: "Pointer to a library of 10 specialized audit/compliance skills — ISACA, COSO, AICPA SOC, Audit Workpapers, NIST 800-53/RMF, NIST CSF 2.0, HIPAA Security Rule, PCI DSS, SOX §302 disclosure controls, and FedRAMP cloud authorization. Use when working on IT audit, internal controls, SOC reporting, audit documentation, federal control baselines, cybersecurity maturity, HIPAA security, PCI DSS payment-security, SOX §302 disclosure-controls certification, or FedRAMP cloud-authorization tasks."
 category: audit
 risk: safe
 source: custom
@@ -10,7 +10,7 @@ tags: [audit, isaca, coso, aicpa, soc, itgc, sox, workpapers, compliance, govern
 
 # Audit Capability Library
 
-This is a **pointer skill**. The 9 specialized skills are stored on disk to keep your startup
+This is a **pointer skill**. The 10 specialized skills are stored on disk to keep your startup
 context minimal. Counts and framework facts live in each skill (verified against live
 sources at its G4.5 gate) — this pointer deliberately repeats none of them.
 
@@ -25,6 +25,7 @@ sources at its G4.5 gate) — this pointer deliberately repeats none of them.
 - **hipaa-security-rule** — 45 CFR Part 164 Subpart C safeguards, required-vs-addressable dispositions, risk analysis, BAA requirements, OCR readiness, enforcement and (proposed) NPRM context.
 - **pci-dss-assessment** — PCI DSS v4.0.1 scoping and segmentation, SAQ selection, ROC/AOC validation, defined-vs-customized approach, compensating controls, QSA workflow.
 - **sox-302-disclosure-controls** — SOX §302 disclosure controls & procedures (DC&P) certification, DC&P-vs-ICFR boundary, 302-vs-404, the 6-element officer certification, disclosure committee and sub-certification cascade.
+- **fedramp-authorization** — FedRAMP cloud-authorization program (Rev 5): the FedRAMP Authorization Act of 2022 and OMB M-24-15 governance (FedRAMP Board, not the retired JAB), FIPS 199 categorization and the Low/Moderate/High/LI-SaaS baselines (tailored from NIST SP 800-53 Rev 5), the SSP/SAP/SAR/POA&M package, 3PAO assessment, monthly ConMon, and the FedRAMP 20x direction.
 
 ## How to load a skill
 
@@ -49,3 +50,4 @@ sources at its G4.5 gate) — this pointer deliberately repeats none of them.
 | HIPAA safeguards, addressable decisions, BAAs, OCR readiness | hipaa-security-rule |
 | PCI DSS scoping, SAQ selection, ROC/AOC, compensating controls | pci-dss-assessment |
 | SOX §302 DC&P certification, disclosure committee, sub-cert cascade | sox-302-disclosure-controls |
+| FedRAMP authorization, baseline selection, SSP/SAR/POA&M, 3PAO assessment, ConMon, ATO path | fedramp-authorization |

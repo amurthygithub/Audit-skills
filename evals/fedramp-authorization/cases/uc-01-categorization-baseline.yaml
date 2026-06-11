@@ -1,0 +1,16 @@
+id: uc-01-categorization-baseline
+skill: fedramp-authorization
+use_case: UC-01
+description: Per-objective FIPS 199 (C=Moderate, I=Low, A=Low) -> overall Moderate (high-water mark)
+  -> 323-control baseline; one POA&M item per SAR finding with severity-driven deadlines.
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+expected:
+  overall_impact: "Moderate"
+  baseline: "Moderate"
+  baseline_controls: 323
+  poam_open: 5
+  classification: "FEDRAMP_MODERATE"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [fedramp.fips199-high-water-mark, fedramp.baseline-selection, fedramp.poam-deadlines]
