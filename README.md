@@ -10,9 +10,15 @@ Production-grade audit, compliance, and security skills for AI agents. Encode IS
 
 ---
 
-## What's in this release (v0.3.2)
+## What's in this release (v0.3.3)
 
-v0.3.2 ships the library's **7th skill — hipaa-security-rule — the first skill born-vetted under process v3** (research-first build: Day-0 fact sheet from the official eCFR XML, contract-first seeds/oracles, G4.5 vetting inside the build PR). First-pass verification found **zero CRITICAL/HIGH/MEDIUM factual errors** (the six retrofitted skills averaged ~6 CRITICAL clusters each). Also in this release:
+v0.3.3 ships the library's **8th skill — pci-dss-assessment — and a measured-reliability eval harness**:
+
+- **PCI DSS v4.0.1 skill (born-vetted).** SAQ selection, CDE scoping & segmentation, ROC/AOC validation, the defined-vs-customized-vs-compensating-control distinction. Built under a new third source-licence class (PCI "Read and Copy" — machine-verifiable against a local licensed copy, repo stores paraphrase + IDs only). The §5.11 machine-verification against that copy caught a CRITICAL nothing else could: the Compensating Controls Worksheet has **six** Appendix-C rows, not four — an error that had been hardcoded into the test oracle and self-cited in its own acceptance gate (the trust-anchor fabrication class CI cannot otherwise catch).
+- **Shared eval harness with measured reliability rows.** One runner all skills plug into (`evals/`), oracle-labeled cases, and the first published pass-rate measurements over N≥20 runs across two consumer models (Haiku 4.5 + Sonnet 4.6) — "fully tested" now means a measured pass rate, not a smoke test.
+- **Licensed-source workflow (process v3.1).** Three source-licence classes codified (public-domain → vendor; read-and-copy → machine-verify locally; AI-restricted → human-verify), with a source manifest and a human-verification worksheet for licensed standards.
+
+**v0.3.2 recap:** shipped the **7th skill — hipaa-security-rule — the first born-vetted under process v3**; first-pass verification found **zero CRITICAL/HIGH/MEDIUM factual errors** (the six retrofitted skills averaged ~6 CRITICAL clusters each). Also:
 
 - **Complete HIPAA ↔ 800-53 crosswalk** — the 12-row partly-wrong seed replaced by the full authoritative mapping extracted from the NIST CPRT REST API (68 Security Rule elements → 279 OLIR rows → 108 controls, Required/Addressable designations, no invented strength ratings; extraction archived with provenance and regenerable).
 - **Healthcare UC for nist-800-53-rmf (UC-04)** — FIPS-199 categorization with a clinical availability floor (house convention, oracle-pinned): patient-safety-relevant systems can never be rated A: LOW on a manual-workaround rationale.
@@ -53,12 +59,12 @@ v0.3.2 ships the library's **7th skill — hipaa-security-rule — the first ski
 | **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.3.0 on Spine | 36 | ISACA CISA CRM, COBIT 2019 (11 design factors), ITAF 5th Ed, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
 | **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.3.0 on Spine | 30 | COSO 2013 ICIF (17 principles, 71 PoF), COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM (with Risk ID) |
 | **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.3.0 on Spine | 25 | AICPA SOC 1/2/3, TSP §100 (33 common criteria, 61 total), SSAE 21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
-| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 42 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
+| **[audit-workpapers](skills/audit-workpapers/README.md)** | v0.3.0 on Spine | 43 | PCAOB AS 1215/AS 1305/AS 2201/AS 2315, AU-C 230, ISA 230 | Workpaper documentation, evidence hierarchy, sampling (MUS/attribute), 5-part findings, substantive analytical procedures |
 | **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 69 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 | **[hipaa-security-rule](skills/hipaa-security-rule/README.md)** | v0.3.2 on Spine (born-vetted) | 61 | HIPAA Security Rule (45 CFR 164 Subpart C), HITECH, NIST SP 800-66r2 | BA risk analysis + addressable dispositions, hospital OCR readiness, solo-consultant BAA + right-sized checklist |
 | **[pci-dss-assessment](skills/pci-dss-assessment/README.md)** | v0.3.2 on Spine (born-vetted) | 62 | PCI DSS v4.0.1 (6 goals, 12 requirements, 10 SAQ types) | SAQ selection (A vs A-EP), ROC + CDE segmentation, compensating-control worksheet |
 
-**518 tests repo-wide (291 skill-local + shared lint/consistency/registry suites), 0 failures. All pass the Tier 0a linter. All 8 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
+**523 tests repo-wide (354 skill-local + shared lint/consistency/registry/eval suites), 0 failures. All pass the Tier 0a linter. All 8 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
 
 ---
 
@@ -228,7 +234,7 @@ This repo is hardened for outside contributions.
 **On every PR (`.github/workflows/ci.yml`):**
 - `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
 - `Lint skill structure` — runs `tools/lint_skill.py` on all 8 skills
-- `pytest` — runs `pytest skills/ tests/ -q` (383 tests)
+- `pytest` — runs `pytest skills/ tests/ -q` (523 tests)
 
 **Nightly (`.github/workflows/nightly.yml`):**
 - Link rot check on every URL in the §10 References & Citation Manifest sections
@@ -316,7 +322,7 @@ python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
 
 # 4. Run the test suite
 pytest skills/ tests/ -q
-# → 383 passed across all 7 skills
+# → 523 passed across all 8 skills
 
 # (Optional) Install all skills into opencode as full packages
 ./install.sh

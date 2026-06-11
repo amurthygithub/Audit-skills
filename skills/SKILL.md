@@ -1,6 +1,6 @@
 ---
 name: audit-category-pointer
-description: "Pointer to a library of 8 specialized audit/compliance skills — ISACA, COSO, AICPA SOC, Audit Workpapers, NIST 800-53/RMF, NIST CSF 2.0, and HIPAA Security Rule. Use when working on IT audit, internal controls, SOC reporting, audit documentation, federal control baselines, cybersecurity maturity, or HIPAA security compliance tasks."
+description: "Pointer to a library of 8 specialized audit/compliance skills — ISACA, COSO, AICPA SOC, Audit Workpapers, NIST 800-53/RMF, NIST CSF 2.0, HIPAA Security Rule, and PCI DSS. Use when working on IT audit, internal controls, SOC reporting, audit documentation, federal control baselines, cybersecurity maturity, or HIPAA security, or PCI DSS payment-security compliance tasks."
 category: audit
 risk: safe
 source: custom

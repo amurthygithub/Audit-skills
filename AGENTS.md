@@ -104,6 +104,7 @@ Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval da
 
 ### G6 — Release
 - Update the skill's `docs/changelog.md` and bump its semver (per the architecture constitution, SOX-608).
+- **README + pointer sync (process v3.1, mandatory):** a new skill changes the skill count, the test totals, and the framework list. Run `python3 tools/check_readme_sync.py` and fix every drift item before merge — it asserts the README skills table, banner/CI/quickstart test counts, and the category-pointer body+description all match what is actually on disk (CI-enforced via `tests/test_readme_sync.py`). When the library version bumps, add the new `## What's in this release` section. This catches the partial-update rot where a PR fixes some numbers but not all.
 - **Reliability rows (process v3.1):** before the build PR merges, run a calibration sweep (`evals/harness/runner.py --executor llm`, N=2, Haiku) and fix contract-grammar findings. Before any release/GTM claim about the skill, run the publication sweep (N>=20, Haiku + Sonnet — never Fable/Opus, measurement-mismatched) and publish the rows in `docs/acceptance-gate.md`. "Fully tested" means a measured pass rate.
 - README version table updated when the library-level version bumps.
 
