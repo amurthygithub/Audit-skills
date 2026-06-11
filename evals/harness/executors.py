@@ -83,8 +83,9 @@ class LLMExecutor:
         paths = ""
         if required_paths:
             paths = ("Your JSON object MUST contain exactly these paths (dot = nesting; "
-                     "use these key names verbatim):\n  " + "\n  ".join(required_paths)
-                     + "\n")
+                     "use these key names verbatim, with the stated JSON type — a path "
+                     "typed 'integer' wants the COUNT, never a list of records):\n  "
+                     + "\n  ".join(required_paths) + "\n")
         return (
             "You are an agent that has loaded the following skill. Apply it to the "
             "input exactly as the skill instructs.\n\n"

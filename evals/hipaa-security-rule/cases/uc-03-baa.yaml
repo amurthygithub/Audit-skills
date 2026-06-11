@@ -1,17 +1,26 @@
 id: uc-03-baa
 skill: hipaa-security-rule
 use_case: UC-03
-description: >
-  Solo-consultant BAA completeness vs 164.314(a)(2)(i) + 164.308(b)(3); the
-  seeded omissions are exactly the two missing provisions.
+description: Solo-consultant BAA completeness vs 164.314(a)(2)(i) + 164.308(b)(3); the seeded omissions
+  are exactly the two missing provisions. The 10-item checklist decomposition is the stub's house mapping
+  (not in the skill text); the LLM lane asserts the BAA-completeness substance only.
 input_from_seeds:
   base: data/seeds/uc-03-input.json
   merge:
     baa_terms: data/seeds/uc-03-baa-terms.json
 expected:
-  baa_check.missing_provisions: [incident_reporting, subcontractor_flowdown]
+  baa_check.missing_provisions:
+  - incident_reporting
+  - subcontractor_flowdown
   checklist_summary.items: 10
   checklist_summary.scaled_down: 3
   classification: BAA_MISSING_2
-validators: [oracle_match]
-coverage_tags: [hipaa.baa-completeness, hipaa.right-sizing]
+validators:
+- oracle_match
+coverage_tags:
+- hipaa.baa-completeness
+- hipaa.right-sizing
+stub_only_paths:
+- classification
+- checklist_summary.items
+- checklist_summary.scaled_down

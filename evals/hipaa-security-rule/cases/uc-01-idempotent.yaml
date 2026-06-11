@@ -1,7 +1,7 @@
 id: uc-01-idempotent
 skill: hipaa-security-rule
 use_case: UC-01
-description: Same seeds repeated must yield the same classification.
+description: Same seeds repeated must yield the same implement-disposition count (idempotence on substance).
 input_from_seeds:
   base: data/seeds/uc-01-input.json
   merge:
@@ -9,6 +9,8 @@ input_from_seeds:
     addressable_register: data/seeds/uc-01-addressable-register.json
 invariant:
   type: idempotent
-  metric: classification
-validators: [invariant]
-coverage_tags: [invariant.idempotence]
+  metric: disposition_summary.implement
+validators:
+- invariant
+coverage_tags:
+- invariant.idempotence

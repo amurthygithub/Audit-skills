@@ -1,9 +1,10 @@
 id: uc-01-dispositions
 skill: hipaa-security-rule
 use_case: UC-01
-description: >
-  Born-vetted pilot: CareSync Relay risk rollup + 164.306(d)(3) dispositions
-  from the shipped seeds; expected values are the oracle-labeled fixture.
+description: 'Born-vetted pilot: CareSync Relay risk rollup + 164.306(d)(3) dispositions from the shipped
+  seeds; expected values are the oracle-labeled fixture.
+
+  '
 input_from_seeds:
   base: data/seeds/uc-01-input.json
   merge:
@@ -20,5 +21,11 @@ expected:
   decision_required_count: 12
   encryption_at_rest_disposition: implement
   classification: RISKS_15_HIGH_4
-validators: [oracle_match]
-coverage_tags: [hipaa.risk-bands, hipaa.dispositions, hipaa.encryption-decision]
+validators:
+- oracle_match
+coverage_tags:
+- hipaa.risk-bands
+- hipaa.dispositions
+- hipaa.encryption-decision
+stub_only_paths:
+- classification
