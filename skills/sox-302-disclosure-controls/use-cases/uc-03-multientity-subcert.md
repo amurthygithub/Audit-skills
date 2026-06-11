@@ -87,6 +87,8 @@ The DC&P-evaluation **frequency** depends on issuer type. Management evaluates D
 
 The two foot to 15. The cascade design therefore runs the domestic sub-certifications on a quarterly cadence and the three FPI sub-certifications on an annual cadence, while the group-level §302 certification itself is filed with each periodic report.
 
+**Scoping nuance (the registrant drives frequency).** The annual DC&P-evaluation frequency under 13a-15(b) attaches to a **foreign private issuer that is itself an SEC registrant** — not to a foreign *subsidiary* inside a domestic filer's consolidated group. A domestic parent's consolidated DC&P evaluation is quarterly regardless of its foreign-sub composition. This UC treats the 3 FPI entities as **separate FPI registrants** (the seed's `type: fpi`); a foreign entity that were merely a consolidated subsidiary of a domestic filer would fall under that filer's quarterly cadence, not the FPI annual one.
+
 ## §5 Order invariance and the empty-list edge
 
 The cascade roll-up is **order-invariant**: reversing the entity list changes none of the counts — covered, gaps, and the quarterly/annual split are all the same (`test_uc03_entity_order_invariance`). The adversarial edge: an **empty** entity list yields zero coverage, an empty gap list, and `CASCADE_GAPS_0` — the cascade never invents entities (`test_uc03_empty_entities_zero_coverage`).

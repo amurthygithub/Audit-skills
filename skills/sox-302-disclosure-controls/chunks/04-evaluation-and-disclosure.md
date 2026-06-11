@@ -37,7 +37,7 @@ Item 307 is where the DC&P **effectiveness conclusion** is publicly disclosed (t
 
 ## 4. The ICFR report and change disclosure — Item 308
 
-- **Item 308(a)** — management's **annual** report on ICFR: a statement of responsibility, the framework used, and management's assessment of ICFR effectiveness as of fiscal-year end, including disclosure of any material weakness. Management **may not conclude ICFR is effective if one or more material weaknesses exist** [Reg-S-K-Item-308 §a]. This is the §404(a) deliverable — covered in depth by `coso-internal-controls`; do not re-teach §404 here.
+- **Item 308(a)** — management's **annual** report on ICFR. This is the §404(a) deliverable; its contents and the ICFR assessment methodology are covered in depth by `coso-internal-controls` and are **not re-taught here**. The one boundary fact this skill needs: management may not conclude ICFR is effective if one or more material weaknesses exist [Reg-S-K-Item-308 §a] — which feeds the §302 DC&P conclusion (`chunks/05`, `chunks/07`).
 - **Item 308(c)** — disclose any **change in ICFR** identified in connection with the §240.13a-15(d) evaluation that occurred during the last fiscal quarter (fourth quarter for an annual report) that has materially affected, or is reasonably likely to materially affect, ICFR [Reg-S-K-Item-308 §a]. This pairs with certification ¶6.
 - The §404(b) auditor attestation and the newly-public/EGC exemptions live in `chunks/05-section-302-vs-404.md` [Reg-S-K-Item-308 §b].
 

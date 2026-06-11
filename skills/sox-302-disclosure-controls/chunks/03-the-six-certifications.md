@@ -15,7 +15,7 @@ The §302 certification has **6 numbered paragraphs** in the Regulation S-K Item
 
 **¶2 — No untrue statement / no material omission.** Based on the officer's knowledge, the report does not contain any untrue statement of a material fact or omit to state a material fact necessary to make the statements made, in light of the circumstances, not misleading, for the period covered [SOX-302-Statute-15USC7241 §a].
 
-**¶3 — Fair presentation.** Based on the officer's knowledge, the financial statements, and other financial information included in the report, fairly present in all material respects the financial condition, results of operations, and cash flows of the issuer for the periods presented [SOX-302-Statute-15USC7241 §a]. (Note: "fairly present" is broader than "in conformity with GAAP.")
+**¶3 — Fair presentation.** Based on the officer's knowledge, the financial statements, and other financial information included in the report, fairly present in all material respects the financial condition, results of operations, and cash flows of the issuer for the periods presented. (The statute [SOX-302-Statute-15USC7241 §a] states "financial condition and results of operations"; **"cash flows" is added by the certification exhibit form** [Reg-S-K-Item-308 §a-601b31], not the statute. "Fairly present" is broader than "in conformity with GAAP.")
 
 **¶4 — Responsibility, design, and evaluation of DC&P and ICFR.** The signing officers are responsible for establishing and maintaining DC&P and ICFR, and have:
 - (a) designed (or supervised the design of) DC&P to ensure material information is made known to them;

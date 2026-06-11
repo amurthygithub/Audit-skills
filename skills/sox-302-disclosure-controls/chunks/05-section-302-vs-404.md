@@ -25,7 +25,7 @@ The second most-confused distinction (after DC&P-vs-ICFR). **§302 is a certific
 ## 2. The exemptions — precisely
 
 - **§404(b) auditor attestation is required only for accelerated and large accelerated filers**, and is **exempt** for an **emerging growth company (EGC)**: the rule provides the attestation report is required "If the registrant, **other than a registrant that is an emerging growth company** … is an accelerated filer or a large accelerated filer" [Reg-S-K-Item-308 §b]. Non-accelerated filers and EGCs do not provide a §404(b) auditor attestation.
-- **Newly-public companies** get a §404 **transition**: the first annual report need not include the Item 308(a) management ICFR report or the §404(b) attestation, and the issuer includes the SEC's prescribed transition-period statement instead [Reg-S-K-Item-308 §a]. A registrant "need not comply with paragraphs (a) and (b) of this Item until it … had been required to file an annual report … for the prior fiscal year" [Reg-S-K-Item-308 §a].
+- **Newly-public companies** get a §404 **transition**: the first annual report need not include the Item 308(a) management ICFR report or the §404(b) attestation, and the issuer includes the SEC's prescribed transition-period statement instead. Per **Instruction 1 to Item 308**, a registrant "need not comply with paragraphs (a) and (b) of this Item until it … had been required to file an annual report … for the prior fiscal year" [Reg-S-K-Item-308 §Instruction-1] — the transition language is in the Instructions, not paragraph (a).
 - **§302 has NO such exemption.** The §302 certification applies from the **first periodic report**. A newly-public issuer certifies §302 immediately; it may only omit the **ICFR** references in certification ¶4 until subject to the ICFR requirement [CFR-17-240.13a-14 §a] — the DC&P certification still applies in full from day one. **Never state the §404(b) (or §404 transition) exemption as also exempting §302.**
 
 ## 3. Decision logic — which obligation applies
@@ -49,7 +49,7 @@ This is the logic exercised by `use-cases/uc-02-newly-public-first-302.md` (newl
 ## 4. The material-weakness interplay across the boundary
 
 A material weakness identified in the §404 ICFR work does not stay on the §404 side. Because ICFR is the financial subset of DC&P (`chunks/02`):
-- an **unremediated MW** over a disclosure-relevant area means the §302 **DC&P conclusion** is "not effective" for that area (disclosed under Item 307 — `chunks/04`);
+- an **unremediated MW** over a disclosure-relevant area means the officers cannot conclude DC&P are effective; Item 307 calls for a single **entity-wide** effectiveness conclusion, so the officers conclude DC&P are **"not effective"** as of period end (disclosed under Item 307 — `chunks/04`); you do not disclose "not effective for revenue but effective elsewhere";
 - it triggers the §302 certification **¶5 disclosure** to the auditors and audit committee (`chunks/03`);
 - management **cannot** report ICFR effective in the §404(a) Item 308(a) report with an MW present [Reg-S-K-Item-308 §a].
 

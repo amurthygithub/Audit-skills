@@ -28,7 +28,7 @@ The regulation skill for **SOX §302** (15 U.S.C. 7241) and its implementing rul
 - **UC-02 — Newly-public first §302** (Nimbus Cloud Inc, newly-public EGC): §302 **required from the first periodic report** (no exemption); §404(b) auditor attestation **exempt**; §404(a) management assessment required (first annual report); DC&P scope **7** items / ICFR scope **3**; cyber 8-K Item 1.05 in DC&P scope (`FIRST_302_404B_EXEMPT`).
 - **UC-03 — Multi-entity sub-cert cascade** (Meridian Group, 15 entities): **14 covered / 1 gap** (Entity-14, `CASCADE_GAPS_1`); the FPI evaluation split is **12 domestic (quarterly) / 3 foreign private issuers (annual)**; the cascade is labeled a house framework.
 
-Every UC is seed-backed with **derivability oracles**: the tests recompute each expected number independently from `data/seeds/` (~32 skill-local tests across oracle, metamorphic, adversarial, and structural suites, plus root-level lint/consistency/registry suites).
+Every UC is seed-backed with **derivability oracles**: the tests recompute each expected number independently from `data/seeds/` (56 skill-local tests across oracle, metamorphic, adversarial, and structural suites, plus root-level lint/consistency/registry suites).
 
 ## 30-second quick start
 

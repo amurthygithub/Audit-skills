@@ -43,3 +43,14 @@ live-source verification run inside the build PR (born-vetted, not retrofitted).
 - §906 criminal certification (18 U.S.C. 1350): mentioned as the companion cert; not detailed
 - Currency: the rule text (current through 2007 amendments) and the 2023 cyber additions must be
   re-verified at every G4 pass
+
+## 2026-06-11 — SOX-570 G4.5 corrections (citation precision + wording)
+
+- chunk 03 ¶3: "cash flows" re-attributed to the certification exhibit form (601(b)(31)), not the statute — 15 U.S.C. 7241(a)(3) says "financial condition and results of operations" only (verified against statute text).
+- chunk 05: the newly-public §404 transition re-cited to **Instruction 1 to Item 308** (verbatim "Instructions to Item 308: 1."), not paragraph (a).
+- chunk 05: the Item 307 DC&P conclusion reworded from area-scoped to a single **entity-wide** effective/not-effective determination (you do not disclose "not effective for revenue, effective elsewhere").
+- chunk 07: scope note that certification ¶5 is **ICFR-scoped** — a missed cyber 8-K affects the DC&P conclusion but is not itself a ¶5 item.
+- chunk 04: tightened the Item 308(a) boundary so §404 contents are referenced to coso-internal-controls, not described here.
+- UC-03: clarified that the FPI annual evaluation frequency attaches to an FPI **registrant**, not a foreign subsidiary inside a domestic filer's group.
+- README test count corrected (56); SKILL §8 label "3 FPI (annual)".
+- §5.11 CLEAN (0 findings, machine-verified vs eCFR/statute); persona PASS (3 MEDIUM citation/wording, all fixed); smokes 0 contradictions.

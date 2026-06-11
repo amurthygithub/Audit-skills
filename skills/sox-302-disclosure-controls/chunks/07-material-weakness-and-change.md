@@ -9,6 +9,8 @@ load_when: "user asks what a material weakness does to the certification, how to
 
 This chunk handles the edge that consumers most need: a newly identified **material weakness (MW)** or **significant deficiency (SD)**, what it does to the §302 DC&P conclusion, and the related change and timely-disclosure obligations — including the **non-financial** cyber 8-K timeliness touchpoint.
 
+**Scope note:** the certification ¶5 disclosure to auditors and the audit committee is **ICFR-scoped** (15 U.S.C. 7241(a)(5): SD/MW "in the design or operation of internal control over financial reporting"). A purely DC&P deficiency that is not an ICFR SD/MW — e.g., a missed cyber 8-K — affects the **DC&P effectiveness conclusion** (Item 307) but is **not** itself a ¶5 item.
+
 ## 1. MW → DC&P conclusion (the derivable logic)
 
 Because ICFR is the financial-reporting subset of DC&P (`chunks/02-dcp-vs-icfr.md`):

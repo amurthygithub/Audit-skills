@@ -125,7 +125,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 |----|-------|---------|------------|
 | UC-01 | Accelerated filer Q3 10-Q with a new MW — "Crestline Financial Corp" | controller | DC&P **not effective**; ¶5 disclosure required; 14-owner sub-cert roll-up (1 exception) |
 | UC-02 | Newly-public SaaS first §302 — "Nimbus Cloud Inc" | disclosure-committee chair | §302 required from first report; §404(b) **exempt**; DC&P scope = financial ∪ non-financial (incl. cyber 8-K) |
-| UC-03 | 15-entity group sub-cert framework — "Meridian Group" | Big-4 SOX advisor | Coverage check (1 gap: Entity-14); FPI annual-vs-quarterly split (12 quarterly / 3 annual) |
+| UC-03 | 15-entity group sub-cert framework — "Meridian Group" | Big-4 SOX advisor | Coverage check (1 gap: Entity-14); FPI annual-vs-quarterly split (12 quarterly (domestic) / 3 FPI (annual)) |
 
 ## 9. Anti-Hallucination Disclaimers
 
