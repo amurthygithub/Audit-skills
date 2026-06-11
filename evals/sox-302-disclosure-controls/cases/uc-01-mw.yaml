@@ -1,0 +1,13 @@
+id: uc-01-mw
+skill: sox-302-disclosure-controls
+use_case: UC-01
+description: An unremediated MW in a disclosure-relevant area -> DC&P not effective; cascade foots.
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+expected:
+  dcp_conclusion: "not effective"
+  subcert_exceptions: 1
+  classification: "DCP_NOT_EFFECTIVE"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [sox302.dcp-conclusion, sox302.subcert-cascade]

@@ -1,0 +1,11 @@
+id: uc-01-idempotent
+skill: sox-302-disclosure-controls
+use_case: UC-01
+description: Same seed repeated yields the same DC&P conclusion (idempotence).
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+invariant:
+  type: idempotent
+  metric: dcp_conclusion
+validators: [invariant]
+coverage_tags: [invariant.idempotence]
