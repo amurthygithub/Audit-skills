@@ -1,0 +1,122 @@
+[
+ {
+  "risk_id": "R-01",
+  "asset": "message relay store",
+  "threat": "ransomware",
+  "vulnerability": "EDR gaps on two build hosts",
+  "likelihood": 3,
+  "impact": 3
+ },
+ {
+  "risk_id": "R-02",
+  "asset": "care-coordination API",
+  "threat": "credential stuffing",
+  "vulnerability": "no rate limiting on legacy auth endpoint",
+  "likelihood": 3,
+  "impact": 2
+ },
+ {
+  "risk_id": "R-03",
+  "asset": "analytics warehouse",
+  "threat": "over-broad internal access",
+  "vulnerability": "unused admin grants",
+  "likelihood": 2,
+  "impact": 3
+ },
+ {
+  "risk_id": "R-04",
+  "asset": "backup snapshots",
+  "threat": "unencrypted copy in legacy bucket",
+  "vulnerability": "pre-KMS snapshots not migrated",
+  "likelihood": 3,
+  "impact": 3
+ },
+ {
+  "risk_id": "R-05",
+  "asset": "laptops",
+  "threat": "device theft",
+  "vulnerability": "FDE attestation missing for 3 devices",
+  "likelihood": 1,
+  "impact": 3
+ },
+ {
+  "risk_id": "R-06",
+  "asset": "IdP",
+  "threat": "MFA fatigue attack",
+  "vulnerability": "push-only second factor",
+  "likelihood": 3,
+  "impact": 1
+ },
+ {
+  "risk_id": "R-07",
+  "asset": "API gateway",
+  "threat": "DDoS-driven outage",
+  "vulnerability": "single-region deployment",
+  "likelihood": 2,
+  "impact": 2
+ },
+ {
+  "risk_id": "R-08",
+  "asset": "message relay store",
+  "threat": "insider exfiltration",
+  "vulnerability": "DLP alerts not reviewed weekly",
+  "likelihood": 2,
+  "impact": 2
+ },
+ {
+  "risk_id": "R-09",
+  "asset": "third-party email",
+  "threat": "ePHI in support attachments",
+  "vulnerability": "no attachment scrubbing",
+  "likelihood": 1,
+  "impact": 3
+ },
+ {
+  "risk_id": "R-10",
+  "asset": "CI/CD pipeline",
+  "threat": "secrets sprawl",
+  "vulnerability": "tokens in older repos",
+  "likelihood": 2,
+  "impact": 2
+ },
+ {
+  "risk_id": "R-11",
+  "asset": "vendor SDK",
+  "threat": "supply-chain compromise",
+  "vulnerability": "no SBOM review",
+  "likelihood": 1,
+  "impact": 1
+ },
+ {
+  "risk_id": "R-12",
+  "asset": "staging environment",
+  "threat": "prod data reuse",
+  "vulnerability": "masking job optional",
+  "likelihood": 1,
+  "impact": 2
+ },
+ {
+  "risk_id": "R-13",
+  "asset": "office wifi (none)",
+  "threat": "n/a (remote org)",
+  "vulnerability": "legacy policy references unused asset",
+  "likelihood": 2,
+  "impact": 1
+ },
+ {
+  "risk_id": "R-14",
+  "asset": "analytics warehouse",
+  "threat": "re-identification",
+  "vulnerability": "k-anonymity threshold undocumented",
+  "likelihood": 1,
+  "impact": 1
+ },
+ {
+  "risk_id": "R-15",
+  "asset": "status page",
+  "threat": "information disclosure",
+  "vulnerability": "incident details over-shared",
+  "likelihood": 1,
+  "impact": 2
+ }
+]

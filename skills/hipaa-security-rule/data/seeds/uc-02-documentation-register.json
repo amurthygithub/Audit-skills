@@ -1,0 +1,70 @@
+[
+ {
+  "doc_id": "POL-01",
+  "title": "Information Security Policy",
+  "covers": [
+   "164.316(a)"
+  ],
+  "last_reviewed": "2025-09-12"
+ },
+ {
+  "doc_id": "POL-02",
+  "title": "Risk Analysis and Risk Management SOP",
+  "covers": [
+   "164.308(a)(1)"
+  ],
+  "last_reviewed": "2023-04-20"
+ },
+ {
+  "doc_id": "POL-03",
+  "title": "Workforce Security and Sanctions Policy",
+  "covers": [
+   "164.308(a)(3)",
+   "164.308(a)(1)"
+  ],
+  "last_reviewed": "2024-10-02"
+ },
+ {
+  "doc_id": "POL-04",
+  "title": "Contingency and Disaster Recovery Plan",
+  "covers": [
+   "164.308(a)(7)",
+   "164.310(a)(1)"
+  ],
+  "last_reviewed": "2022-04-15"
+ },
+ {
+  "doc_id": "POL-05",
+  "title": "Access Management Standard",
+  "covers": [
+   "164.308(a)(4)",
+   "164.312(a)(1)"
+  ],
+  "last_reviewed": "2025-01-30"
+ },
+ {
+  "doc_id": "POL-06",
+  "title": "Media Disposal and Reuse Procedure",
+  "covers": [
+   "164.310(d)(1)"
+  ],
+  "last_reviewed": "2021-11-30"
+ },
+ {
+  "doc_id": "POL-07",
+  "title": "Incident Response Plan",
+  "covers": [
+   "164.308(a)(6)"
+  ],
+  "last_reviewed": "2025-11-05"
+ },
+ {
+  "doc_id": "POL-08",
+  "title": "BAA Management Standard",
+  "covers": [
+   "164.308(b)(1)",
+   "164.314(a)(1)"
+  ],
+  "last_reviewed": "2024-06-18"
+ }
+]

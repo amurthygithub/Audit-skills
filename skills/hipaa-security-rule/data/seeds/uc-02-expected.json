@@ -1,0 +1,19 @@
+{
+ "readiness": {
+  "total": 22,
+  "partial": 6,
+  "implemented": 14,
+  "missing": 2
+ },
+ "gap_priorities": {
+  "High": 2,
+  "Medium": 6,
+  "Low": 3
+ },
+ "stale_docs": [
+  "POL-02",
+  "POL-04",
+  "POL-06"
+ ],
+ "nprm_items_in_current_law_gaps": 0
+}

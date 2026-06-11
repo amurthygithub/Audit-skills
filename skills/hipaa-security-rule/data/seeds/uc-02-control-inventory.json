@@ -1,0 +1,156 @@
+[
+ {
+  "standard_id": "164.308(a)(1)",
+  "name": "Security management process",
+  "family": "administrative",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-308a1/"
+ },
+ {
+  "standard_id": "164.308(a)(2)",
+  "name": "Assigned security responsibility",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308a2/"
+ },
+ {
+  "standard_id": "164.308(a)(3)",
+  "name": "Workforce security",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308a3/"
+ },
+ {
+  "standard_id": "164.308(a)(4)",
+  "name": "Information access management",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308a4/"
+ },
+ {
+  "standard_id": "164.308(a)(5)",
+  "name": "Security awareness and training",
+  "family": "administrative",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-308a5/"
+ },
+ {
+  "standard_id": "164.308(a)(6)",
+  "name": "Security incident procedures",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308a6/"
+ },
+ {
+  "standard_id": "164.308(a)(7)",
+  "name": "Contingency plan",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308a7/"
+ },
+ {
+  "standard_id": "164.308(a)(8)",
+  "name": "Evaluation",
+  "family": "administrative",
+  "status": "missing",
+  "evidence_ref": "engagement-evidence/164-308a8/"
+ },
+ {
+  "standard_id": "164.308(b)(1)",
+  "name": "Business associate contracts and other arrangements",
+  "family": "administrative",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-308b1/"
+ },
+ {
+  "standard_id": "164.310(a)(1)",
+  "name": "Facility access controls",
+  "family": "physical",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-310a1/"
+ },
+ {
+  "standard_id": "164.310(b)",
+  "name": "Workstation use",
+  "family": "physical",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-310b/"
+ },
+ {
+  "standard_id": "164.310(c)",
+  "name": "Workstation security",
+  "family": "physical",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-310c/"
+ },
+ {
+  "standard_id": "164.310(d)(1)",
+  "name": "Device and media controls",
+  "family": "physical",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-310d1/"
+ },
+ {
+  "standard_id": "164.312(a)(1)",
+  "name": "Access control",
+  "family": "technical",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-312a1/"
+ },
+ {
+  "standard_id": "164.312(b)",
+  "name": "Audit controls",
+  "family": "technical",
+  "status": "missing",
+  "evidence_ref": "engagement-evidence/164-312b/"
+ },
+ {
+  "standard_id": "164.312(c)(1)",
+  "name": "Integrity",
+  "family": "technical",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-312c1/"
+ },
+ {
+  "standard_id": "164.312(d)",
+  "name": "Person or entity authentication",
+  "family": "technical",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-312d/"
+ },
+ {
+  "standard_id": "164.312(e)(1)",
+  "name": "Transmission security",
+  "family": "technical",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-312e1/"
+ },
+ {
+  "standard_id": "164.314(a)(1)",
+  "name": "Business associate contracts or other arrangements",
+  "family": "organizational",
+  "status": "partial",
+  "evidence_ref": "engagement-evidence/164-314a1/"
+ },
+ {
+  "standard_id": "164.314(b)(1)",
+  "name": "Requirements for group health plans",
+  "family": "organizational",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-314b1/"
+ },
+ {
+  "standard_id": "164.316(a)",
+  "name": "Policies and procedures",
+  "family": "policies-documentation",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-316a/"
+ },
+ {
+  "standard_id": "164.316(b)(1)",
+  "name": "Documentation",
+  "family": "policies-documentation",
+  "status": "implemented",
+  "evidence_ref": "engagement-evidence/164-316b1/"
+ }
+]

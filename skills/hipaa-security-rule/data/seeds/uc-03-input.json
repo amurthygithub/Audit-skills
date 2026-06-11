@@ -1,0 +1,16 @@
+{
+ "use_case": "UC-03",
+ "org": {
+  "name": "Meridian HIT Consulting",
+  "type": "business_associate",
+  "headcount": 1,
+  "model": "solo consultant",
+  "systems": [
+   "laptop",
+   "saas_ehr_access",
+   "email",
+   "cloud_storage"
+  ]
+ },
+ "as_of_date": "2026-06-01"
+}

@@ -1,806 +1,858 @@
 {
-  "_meta": {
-    "description": "Canonical citation registry (SOX-609). Source of truth for every §10 manifest entry across all skills. Manifests are vendored views; tests/test_citation_registry.py enforces label+URL sync. Add new citations HERE first, then to the skill manifest.",
-    "built": "2026-06-09",
-    "url_conflicts_resolved": {
-      "COSO-2013": "canonicalized to /guidance-on-ic (specific guidance page, live 200) over coso.org homepage",
-      "AICPA-TSC-2017": "canonicalized to /topic/audit-assurance/soc-2 (clean path, live 200) over the 'greater-than' breadcrumb URL",
-      "FedRAMP-Rev5": "canonicalized to fedramp.gov root; /resources/ returns 404 (live-checked 2026-06-09)"
-    },
-    "count": 75
+ "_meta": {
+  "description": "Canonical citation registry (SOX-609). Source of truth for every §10 manifest entry across all skills. Manifests are vendored views; tests/test_citation_registry.py enforces label+URL sync. Add new citations HERE first, then to the skill manifest.",
+  "built": "2026-06-09",
+  "url_conflicts_resolved": {
+   "COSO-2013": "canonicalized to /guidance-on-ic (specific guidance page, live 200) over coso.org homepage",
+   "AICPA-TSC-2017": "canonicalized to /topic/audit-assurance/soc-2 (clean path, live 200) over the 'greater-than' breadcrumb URL",
+   "FedRAMP-Rev5": "canonicalized to fedramp.gov root; /resources/ returns 404 (live-checked 2026-06-09)"
   },
-  "citations": {
-    "AICPA-AU-C-230": {
-      "title": "Audit Documentation",
-      "publisher": "AICPA",
-      "identifier": "AU-C 230",
-      "url": "https://www.aicpa-cima.com/resources/landing/au-c-section-230",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "AICPA-AU-C-265": {
-      "title": "Communicating Internal Control Related Matters Identified in an Audit",
-      "publisher": "AICPA",
-      "identifier": "Current",
-      "url": "https://us.aicpa.org/research/standards/auditattest/clarifiedsas",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "AICPA-AU-C-315": {
-      "title": "Understanding the Entity and Its Environment and Assessing the Risks of Material Misstatement",
-      "publisher": "AICPA",
-      "identifier": "SAS 145",
-      "url": "https://us.aicpa.org/research/standards/auditattest/clarifiedsas",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "AICPA-Code-of-Conduct": {
-      "title": "Code of Professional Conduct",
-      "publisher": "AICPA",
-      "identifier": "Current",
-      "url": "https://www.aicpa-cima.com/topic/ethics",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "AICPA-TSC-2017": {
-      "title": "Trust Services Criteria",
-      "publisher": "AICPA",
-      "identifier": "2017 (TSP sect.100, 2022 revised PoF)",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance/soc-2",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls",
-        "isaca-audit-methodology"
-      ]
-    },
-    "AT-C-105": {
-      "title": "Concepts Common to All Attestation Engagements",
-      "publisher": "AICPA",
-      "identifier": "AT-C 105 (SSAE 18, as amended)",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "AT-C-205": {
-      "title": "Assertion-Based Examination Engagements",
-      "publisher": "AICPA",
-      "identifier": "AT-C 205 (SSAE 21, eff. June 15 2022)",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "AT-C-320": {
-      "title": "Reporting on an Examination of Controls at a Service Organization (SOC 1)",
-      "publisher": "AICPA",
-      "identifier": "AT-C 320 (SSAE 18)",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "CISA-CRM-28E": {
-      "title": "CISA Review Manual 28th Edition",
-      "publisher": "ISACA",
-      "identifier": "28th Ed (2024)",
-      "url": "https://www.isaca.org/credentialing/cisa",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "CMMC-2.0": {
-      "title": "Cybersecurity Maturity Model Certification",
-      "publisher": "DoD",
-      "identifier": "2.0",
-      "url": "https://dodcio.defense.gov/CMMC/",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "COBIT-2019": {
-      "title": "COBIT 2019 Framework: Introduction and Methodology",
-      "publisher": "ISACA",
-      "identifier": "2019",
-      "url": "https://www.isaca.org/resources/cobit",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "isaca-audit-methodology",
-        "nist-csf-2"
-      ]
-    },
-    "COSO-2013": {
-      "title": "Internal Control - Integrated Framework",
-      "publisher": "COSO",
-      "identifier": "2013 (17 principles)",
-      "url": "https://www.coso.org/guidance-on-ic",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting",
-        "isaca-audit-methodology"
-      ]
-    },
-    "COSO-Blockchain-2020": {
-      "title": "Blockchain and Internal Control",
-      "publisher": "COSO",
-      "identifier": "2020",
-      "url": "https://www.coso.org/guidance-on-ic",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-ERM-2017": {
-      "title": "Enterprise Risk Management — Integrating with Strategy and Performance",
-      "publisher": "COSO",
-      "identifier": "2017",
-      "url": "https://www.coso.org/guidance-erm",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-Fraud-2023": {
-      "title": "Fraud Risk Management Guide, 2nd Edition",
-      "publisher": "COSO/ACFE",
-      "identifier": "May 2023",
-      "url": "https://www.coso.org/frauddeterrence",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-GenAI-2026": {
-      "title": "Internal Control Over Generative AI and LLMs",
-      "publisher": "COSO",
-      "identifier": "2026",
-      "url": "https://www.coso.org/guidance-on-ic",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-ICIF-2013": {
-      "title": "Internal Control Integrated Framework",
-      "publisher": "COSO",
-      "identifier": "2013",
-      "url": "https://www.coso.org/guidance-on-ic",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers",
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-ICSR-2023": {
-      "title": "Internal Control Over Sustainability Reporting (ICSR)",
-      "publisher": "COSO",
-      "identifier": "2023",
-      "url": "https://www.coso.org/new-icsr",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-Monitoring-2009": {
-      "title": "Guidance on Monitoring Internal Control Systems",
-      "publisher": "COSO",
-      "identifier": "2009",
-      "url": "https://www.coso.org/monitoring-internal-control-system",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "COSO-RPA-2024": {
-      "title": "Internal Control Over Robotic Process Automation",
-      "publisher": "COSO",
-      "identifier": "2024",
-      "url": "https://www.coso.org/guidance-on-ic",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "CSF-2.0-Informative-References": {
-      "title": "NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth)",
-      "publisher": "NIST",
-      "identifier": "2024 (OLIR catalog)",
-      "url": "https://www.nist.gov/cyberframework/informative-references",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "FFIEC-CAT": {
-      "title": "Cybersecurity Assessment Tool (SUNSET effective Aug 31, 2025 — historical reference only)",
-      "publisher": "FFIEC",
-      "identifier": "May 2017 (final version; no v2 was ever published)",
-      "url": "https://www.ffiec.gov/sites/default/files/media/press-releases/2024/cat-sunset-statement-ffiec-letterhead.pdf",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "FIPS-199": {
-      "title": "Standards for Security Categorization",
-      "publisher": "NIST",
-      "identifier": "FIPS 199 (Feb 2004)",
-      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "FIPS-200": {
-      "title": "Minimum Security Requirements for Federal Information and Information Systems",
-      "publisher": "NIST",
-      "identifier": "FIPS 200 (Mar 2006)",
-      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.200.pdf",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "FedRAMP-Rev5": {
-      "title": "FedRAMP Baselines and ConMon Strategy Guide",
-      "publisher": "FedRAMP PMO",
-      "identifier": "Rev 5",
-      "url": "https://www.fedramp.gov",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "GDPR": {
-      "title": "General Data Protection Regulation",
-      "publisher": "EU",
-      "identifier": "Regulation 2016/679",
-      "url": "https://gdpr-info.eu/",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "HIPAA-Security-Rule": {
-      "title": "45 CFR § 164.302–164.318",
-      "publisher": "HHS",
-      "identifier": "as amended",
-      "url": "https://www.hhs.gov/hipaa/for-professionals/security/",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "IAASB-ISA-230": {
-      "title": "Audit Documentation",
-      "publisher": "IAASB",
-      "identifier": "ISA 230 (in the 2023-2024 IAASB Handbook, Vol 1)",
-      "url": "https://www.iaasb.org/publications/2023-2024-handbook-international-quality-management-auditing-review-other-assurance-and-related",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "IRS-Pub-1075": {
-      "title": "IRS Publication 1075",
-      "publisher": "IRS",
-      "identifier": "as amended",
-      "url": "https://www.irs.gov/pub/irs-pdf/p1075.pdf",
-      "retrieval_date": "2026-06-08",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "ISACA-COBIT-2019": {
-      "title": "Control Objectives for Information and Related Technologies",
-      "publisher": "ISACA",
-      "identifier": "2019",
-      "url": "https://www.isaca.org/resources/cobit",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "ISACA-ETHICS": {
-      "title": "ISACA Code of Professional Ethics",
-      "publisher": "ISACA",
-      "identifier": "current edition",
-      "url": "https://www.isaca.org/credentialing/code-of-professional-ethics",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "ISACA-ITAF": {
-      "title": "IT Audit Framework (ITAF), 5th Edition",
-      "publisher": "ISACA",
-      "identifier": "5th Ed (2026)",
-      "url": "https://www.isaca.org/resources/it-audit",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "ISAE-3000-3402": {
-      "title": "International Standards on Assurance Engagements",
-      "publisher": "IAASB",
-      "identifier": "ISAE 3000/3402",
-      "url": "https://www.iaasb.org/",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "ISO-27001-2022": {
-      "title": "Information security management systems",
-      "publisher": "ISO/IEC",
-      "identifier": "2022",
-      "url": "https://www.iso.org/standard/27001",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "aicpa-soc-reporting",
-        "isaca-audit-methodology",
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "ISO-31000-2018": {
-      "title": "Risk Management — Guidelines",
-      "publisher": "ISO",
-      "identifier": "2018",
-      "url": "https://www.iso.org/standard/65694.html",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "ISO-38500": {
-      "title": "Governance of IT for the organization",
-      "publisher": "ISO/IEC",
-      "identifier": "2024",
-      "url": "https://www.iso.org/standard/81684.html",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "ITAF": {
-      "title": "IT Audit Framework (ITAF), 5th Edition",
-      "publisher": "ISACA",
-      "identifier": "5th Ed (2026)",
-      "url": "https://www.isaca.org/resources/it-audit",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "ITIL": {
-      "title": "ITIL 4 Foundation",
-      "publisher": "Axelos",
-      "identifier": "2019",
-      "url": "https://www.axelos.com",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "JOBS-Act-2012": {
-      "title": "Jumpstart Our Business Startups Act",
-      "publisher": "U.S. Congress",
-      "identifier": "2012",
-      "url": "https://www.congress.gov/bill/112th-congress/house-bill/3606",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "NIST-CSF-2.0": {
-      "title": "Cybersecurity Framework",
-      "publisher": "NIST",
-      "identifier": "2.0 (Feb 2024)",
-      "url": "https://www.nist.gov/cyberframework",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "coso-internal-controls",
-        "isaca-audit-methodology",
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-1299": {
-      "title": "NIST Cybersecurity Framework 2.0: Resource and Overview Guide",
-      "publisher": "NIST",
-      "identifier": "SP 1299 (Feb 2024)",
-      "url": "https://csrc.nist.gov/pubs/sp/1299/final",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-1300": {
-      "title": "NIST Cybersecurity Framework 2.0: Small Business Quick-Start Guide",
-      "publisher": "NIST",
-      "identifier": "SP 1300 (Feb 2024)",
-      "url": "https://csrc.nist.gov/pubs/sp/1300/final",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-137": {
-      "title": "Information Security Continuous Monitoring",
-      "publisher": "NIST",
-      "identifier": "Sept 2011",
-      "url": "https://csrc.nist.gov/pubs/sp/800/137/final",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "NIST-SP-800-171": {
-      "title": "Protecting Controlled Unclassified Information in Nonfederal Systems",
-      "publisher": "NIST",
-      "identifier": "Rev 3 (2024)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/171/r3/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-30-Rev1": {
-      "title": "Guide for Conducting Risk Assessments",
-      "publisher": "NIST",
-      "identifier": "Rev 1 (Sept 2012)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-37-Rev2": {
-      "title": "Risk Management Framework for Information Systems and Organizations",
-      "publisher": "NIST",
-      "identifier": "Rev 2 (Dec 2018)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-53-Rev5": {
-      "title": "Security and Privacy Controls",
-      "publisher": "NIST",
-      "identifier": "Rev 5",
-      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "aicpa-soc-reporting",
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-53-Rev5.1.1": {
-      "title": "Security and Privacy Controls (Rev 5.1.1)",
-      "publisher": "NIST",
-      "identifier": "Rev 5.1.1 (2024)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-53A-Rev5": {
-      "title": "Assessing Security and Privacy Controls",
-      "publisher": "NIST",
-      "identifier": "Rev 5 (Jan 2022)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "NIST-SP-800-60": {
-      "title": "Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II)",
-      "publisher": "NIST",
-      "identifier": "Rev 1 (Aug 2008; current as of 2026)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "NIST-SP-800-61": {
-      "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
-      "publisher": "NIST",
-      "identifier": "Rev 3 (2025)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "NIST-SP-800-61-Rev2": {
-      "title": "Computer Security Incident Handling Guide",
-      "publisher": "NIST",
-      "identifier": "Rev 2 (Aug 2012)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/61/r2/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-66-Rev2": {
-      "title": "Implementing the HIPAA Security Rule",
-      "publisher": "NIST",
-      "identifier": "Rev 2 (Feb 2024)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "NIST-SP-800-82-Rev3": {
-      "title": "Guide to Industrial Control Systems (ICS) Security",
-      "publisher": "NIST",
-      "identifier": "Rev 3 (2023)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NY-DFS-Part-500": {
-      "title": "Cybersecurity Requirements for Financial Services Companies",
-      "publisher": "NY DFS",
-      "identifier": "23 NYCRR Part 500 (as amended 2023)",
-      "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "OMB-A-130": {
-      "title": "Managing Information as a Strategic Resource",
-      "publisher": "OMB",
-      "identifier": "July 28, 2016",
-      "url": "https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "OMB-M-24-15": {
-      "title": "Modernizing the Federal Risk and Authorization Management Program (FedRAMP)",
-      "publisher": "OMB",
-      "identifier": "M-24-15 (July 2024)",
-      "url": "https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "PCAOB-AS-1105": {
-      "title": "Audit Evidence",
-      "publisher": "PCAOB",
-      "identifier": "AS 1105",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1105",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "PCAOB-AS-1215": {
-      "title": "Audit Documentation",
-      "publisher": "PCAOB",
-      "identifier": "AS 1215",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1215",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "PCAOB-AS-1305": {
-      "title": "Communications About Control Deficiencies",
-      "publisher": "PCAOB",
-      "identifier": "AS 1305",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305",
-      "retrieval_date": "2026-06-08",
-      "cited_by": [
-        "audit-workpapers",
-        "coso-internal-controls"
-      ]
-    },
-    "PCAOB-AS-2110": {
-      "title": "Identifying and Assessing Risks",
-      "publisher": "PCAOB",
-      "identifier": "AS 2110",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2110",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "PCAOB-AS-2201": {
-      "title": "Audit of ICFR",
-      "publisher": "PCAOB",
-      "identifier": "AS 2201",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers",
-        "coso-internal-controls"
-      ]
-    },
-    "PCAOB-AS-2315": {
-      "title": "Audit Sampling",
-      "publisher": "PCAOB",
-      "identifier": "AS 2315",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "PCAOB-AS-3101": {
-      "title": "The Auditor's Report on an Audit of Financial Statements",
-      "publisher": "PCAOB",
-      "identifier": "Current",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "PCAOB-AS-3105": {
-      "title": "Departures from Unqualified Opinions",
-      "publisher": "PCAOB",
-      "identifier": "AS 3105",
-      "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3105",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "audit-workpapers"
-      ]
-    },
-    "PCI-DSS-4.0.1": {
-      "title": "Payment Card Industry Data Security Standard",
-      "publisher": "PCI SSC",
-      "identifier": "v4.0.1 (2024)",
-      "url": "https://www.pcisecuritystandards.org/document_library",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "PCI-DSS-v4.0": {
-      "title": "Payment Card Industry Data Security Standard",
-      "publisher": "PCI SSC",
-      "identifier": "v4.0 (Mar 2022)",
-      "url": "https://www.pcisecuritystandards.org/document_library",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    },
-    "SEC-Reg-S-K-Item-308": {
-      "title": "Management's Report on Internal Control Over Financial Reporting",
-      "publisher": "SEC",
-      "identifier": "Current",
-      "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "SOC-2-TSC-2017": {
-      "title": "Trust Services Criteria",
-      "publisher": "AICPA",
-      "identifier": "2017 (TSP §100, 2022 revised points of focus)",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2",
-      "retrieval_date": "2026-06-09",
-      "cited_by": [
-        "nist-800-53-rmf",
-        "nist-csf-2"
-      ]
-    },
-    "SOC-for-Cybersecurity": {
-      "title": "SOC for Cybersecurity Examination",
-      "publisher": "AICPA",
-      "identifier": "2017 / updated",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "SOC-for-Supply-Chain": {
-      "title": "SOC for Supply Chain Examination",
-      "publisher": "AICPA",
-      "identifier": "2020",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "SOX-404": {
-      "title": "Sarbanes-Oxley Act Section 404 — Management Assessment of Internal Controls",
-      "publisher": "U.S. Congress",
-      "identifier": "2002",
-      "url": "https://www.sec.gov/rules/final/33-8230.htm",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "coso-internal-controls"
-      ]
-    },
-    "SSAE-21": {
-      "title": "SSAE No. 21 — Direct Examination Engagements (amends AT-C; adds AT-C 206)",
-      "publisher": "AICPA",
-      "identifier": "Effective for reports dated on/after June 15, 2022",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "TSP-Section-100": {
-      "title": "Trust Services Criteria",
-      "publisher": "AICPA ASEC",
-      "identifier": "2017 TSC, 2022 Revised Points of Focus",
-      "url": "https://www.aicpa-cima.com/topic/audit-assurance",
-      "retrieval_date": "2026-05-25",
-      "cited_by": [
-        "aicpa-soc-reporting"
-      ]
-    },
-    "CSA-CCM-v4": {
-      "title": "Cloud Controls Matrix (CCM) v4",
-      "publisher": "Cloud Security Alliance",
-      "identifier": "v4 (17 domains)",
-      "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "isaca-audit-methodology"
-      ]
-    },
-    "CISA-CPG": {
-      "title": "Cross-Sector Cybersecurity Performance Goals",
-      "publisher": "CISA",
-      "identifier": "CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A)",
-      "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-csf-2"
-      ]
-    },
-    "NIST-SP-800-53B": {
-      "title": "Control Baselines for Information Systems and Organizations",
-      "publisher": "NIST",
-      "identifier": "SP 800-53B (Oct 2020, incl. updates)",
-      "url": "https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final",
-      "retrieval_date": "2026-06-10",
-      "cited_by": [
-        "nist-800-53-rmf"
-      ]
-    }
+  "count": 75
+ },
+ "citations": {
+  "AICPA-AU-C-230": {
+   "title": "Audit Documentation",
+   "publisher": "AICPA",
+   "identifier": "AU-C 230",
+   "url": "https://www.aicpa-cima.com/resources/landing/au-c-section-230",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "AICPA-AU-C-265": {
+   "title": "Communicating Internal Control Related Matters Identified in an Audit",
+   "publisher": "AICPA",
+   "identifier": "Current",
+   "url": "https://us.aicpa.org/research/standards/auditattest/clarifiedsas",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "AICPA-AU-C-315": {
+   "title": "Understanding the Entity and Its Environment and Assessing the Risks of Material Misstatement",
+   "publisher": "AICPA",
+   "identifier": "SAS 145",
+   "url": "https://us.aicpa.org/research/standards/auditattest/clarifiedsas",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "AICPA-Code-of-Conduct": {
+   "title": "Code of Professional Conduct",
+   "publisher": "AICPA",
+   "identifier": "Current",
+   "url": "https://www.aicpa-cima.com/topic/ethics",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "AICPA-TSC-2017": {
+   "title": "Trust Services Criteria",
+   "publisher": "AICPA",
+   "identifier": "2017 (TSP sect.100, 2022 revised PoF)",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance/soc-2",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls",
+    "isaca-audit-methodology"
+   ]
+  },
+  "AT-C-105": {
+   "title": "Concepts Common to All Attestation Engagements",
+   "publisher": "AICPA",
+   "identifier": "AT-C 105 (SSAE 18, as amended)",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "AT-C-205": {
+   "title": "Assertion-Based Examination Engagements",
+   "publisher": "AICPA",
+   "identifier": "AT-C 205 (SSAE 21, eff. June 15 2022)",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "AT-C-320": {
+   "title": "Reporting on an Examination of Controls at a Service Organization (SOC 1)",
+   "publisher": "AICPA",
+   "identifier": "AT-C 320 (SSAE 18)",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "CFR-45-102": {
+   "title": "Adjustment of Civil Monetary Penalties for Inflation (45 CFR Part 102)",
+   "publisher": "eCFR (Office of the Federal Register)",
+   "identifier": "45 CFR § 102.3 Table 1 (HIPAA rows: 42 U.S.C. 1320d-5 / 45 CFR 160.404)",
+   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "CFR-45-164-Subpart-C": {
+   "title": "Security Standards for the Protection of Electronic Protected Health Information (45 CFR Part 164, Subpart C)",
+   "publisher": "eCFR (Office of the Federal Register)",
+   "identifier": "45 CFR §§ 164.302–164.318 and Appendix A",
+   "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "CISA-CPG": {
+   "title": "Cross-Sector Cybersecurity Performance Goals",
+   "publisher": "CISA",
+   "identifier": "CPG 2.0 (Dec 11, 2025; ~34 goals, IDs 1.A-6.A)",
+   "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "CISA-CRM-28E": {
+   "title": "CISA Review Manual 28th Edition",
+   "publisher": "ISACA",
+   "identifier": "28th Ed (2024)",
+   "url": "https://www.isaca.org/credentialing/cisa",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "CMMC-2.0": {
+   "title": "Cybersecurity Maturity Model Certification",
+   "publisher": "DoD",
+   "identifier": "2.0",
+   "url": "https://dodcio.defense.gov/CMMC/",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "COBIT-2019": {
+   "title": "COBIT 2019 Framework: Introduction and Methodology",
+   "publisher": "ISACA",
+   "identifier": "2019",
+   "url": "https://www.isaca.org/resources/cobit",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "isaca-audit-methodology",
+    "nist-csf-2"
+   ]
+  },
+  "COSO-2013": {
+   "title": "Internal Control - Integrated Framework",
+   "publisher": "COSO",
+   "identifier": "2013 (17 principles)",
+   "url": "https://www.coso.org/guidance-on-ic",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting",
+    "isaca-audit-methodology"
+   ]
+  },
+  "COSO-Blockchain-2020": {
+   "title": "Blockchain and Internal Control",
+   "publisher": "COSO",
+   "identifier": "2020",
+   "url": "https://www.coso.org/guidance-on-ic",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-ERM-2017": {
+   "title": "Enterprise Risk Management — Integrating with Strategy and Performance",
+   "publisher": "COSO",
+   "identifier": "2017",
+   "url": "https://www.coso.org/guidance-erm",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-Fraud-2023": {
+   "title": "Fraud Risk Management Guide, 2nd Edition",
+   "publisher": "COSO/ACFE",
+   "identifier": "May 2023",
+   "url": "https://www.coso.org/frauddeterrence",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-GenAI-2026": {
+   "title": "Internal Control Over Generative AI and LLMs",
+   "publisher": "COSO",
+   "identifier": "2026",
+   "url": "https://www.coso.org/guidance-on-ic",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-ICIF-2013": {
+   "title": "Internal Control Integrated Framework",
+   "publisher": "COSO",
+   "identifier": "2013",
+   "url": "https://www.coso.org/guidance-on-ic",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers",
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-ICSR-2023": {
+   "title": "Internal Control Over Sustainability Reporting (ICSR)",
+   "publisher": "COSO",
+   "identifier": "2023",
+   "url": "https://www.coso.org/new-icsr",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-Monitoring-2009": {
+   "title": "Guidance on Monitoring Internal Control Systems",
+   "publisher": "COSO",
+   "identifier": "2009",
+   "url": "https://www.coso.org/monitoring-internal-control-system",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "COSO-RPA-2024": {
+   "title": "Internal Control Over Robotic Process Automation",
+   "publisher": "COSO",
+   "identifier": "2024",
+   "url": "https://www.coso.org/guidance-on-ic",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "CSA-CCM-v4": {
+   "title": "Cloud Controls Matrix (CCM) v4",
+   "publisher": "Cloud Security Alliance",
+   "identifier": "v4 (17 domains)",
+   "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "CSF-2.0-Informative-References": {
+   "title": "NIST CSF 2.0 Informative References spreadsheet (crosswalk source of truth)",
+   "publisher": "NIST",
+   "identifier": "2024 (OLIR catalog)",
+   "url": "https://www.nist.gov/cyberframework/informative-references",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "FFIEC-CAT": {
+   "title": "Cybersecurity Assessment Tool (SUNSET effective Aug 31, 2025 — historical reference only)",
+   "publisher": "FFIEC",
+   "identifier": "May 2017 (final version; no v2 was ever published)",
+   "url": "https://www.ffiec.gov/sites/default/files/media/press-releases/2024/cat-sunset-statement-ffiec-letterhead.pdf",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "FIPS-199": {
+   "title": "Standards for Security Categorization",
+   "publisher": "NIST",
+   "identifier": "FIPS 199 (Feb 2004)",
+   "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "FIPS-200": {
+   "title": "Minimum Security Requirements for Federal Information and Information Systems",
+   "publisher": "NIST",
+   "identifier": "FIPS 200 (Mar 2006)",
+   "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.200.pdf",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "FedRAMP-Rev5": {
+   "title": "FedRAMP Baselines and ConMon Strategy Guide",
+   "publisher": "FedRAMP PMO",
+   "identifier": "Rev 5",
+   "url": "https://www.fedramp.gov",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "GDPR": {
+   "title": "General Data Protection Regulation",
+   "publisher": "EU",
+   "identifier": "Regulation 2016/679",
+   "url": "https://gdpr-info.eu/",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "HHS-SRA-Tool": {
+   "title": "Security Risk Assessment (SRA) Tool",
+   "publisher": "HHS ONC / OCR (HealthIT.gov)",
+   "identifier": "Current",
+   "url": "https://www.healthit.gov/privacy-security/security-risk-assessment-tool",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "HIPAA-Security-NPRM-2025": {
+   "title": "HIPAA Security Rule To Strengthen the Cybersecurity of Electronic Protected Health Information (Proposed Rule)",
+   "publisher": "HHS Office for Civil Rights / Federal Register",
+   "identifier": "90 FR 898; RIN 0945-AA22; PROPOSED, not final as of 2026-06-10",
+   "url": "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "HIPAA-Security-Rule": {
+   "title": "HIPAA Security Rule guidance & combined regulation text portal",
+   "publisher": "HHS",
+   "identifier": "as amended",
+   "url": "https://www.hhs.gov/hipaa/for-professionals/security/",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "hipaa-security-rule",
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "IAASB-ISA-230": {
+   "title": "Audit Documentation",
+   "publisher": "IAASB",
+   "identifier": "ISA 230 (in the 2023-2024 IAASB Handbook, Vol 1)",
+   "url": "https://www.iaasb.org/publications/2023-2024-handbook-international-quality-management-auditing-review-other-assurance-and-related",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "IRS-Pub-1075": {
+   "title": "IRS Publication 1075",
+   "publisher": "IRS",
+   "identifier": "as amended",
+   "url": "https://www.irs.gov/pub/irs-pdf/p1075.pdf",
+   "retrieval_date": "2026-06-08",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "ISACA-COBIT-2019": {
+   "title": "Control Objectives for Information and Related Technologies",
+   "publisher": "ISACA",
+   "identifier": "2019",
+   "url": "https://www.isaca.org/resources/cobit",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "ISACA-ETHICS": {
+   "title": "ISACA Code of Professional Ethics",
+   "publisher": "ISACA",
+   "identifier": "current edition",
+   "url": "https://www.isaca.org/credentialing/code-of-professional-ethics",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "ISACA-ITAF": {
+   "title": "IT Audit Framework (ITAF), 5th Edition",
+   "publisher": "ISACA",
+   "identifier": "5th Ed (2026)",
+   "url": "https://www.isaca.org/resources/it-audit",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "ISAE-3000-3402": {
+   "title": "International Standards on Assurance Engagements",
+   "publisher": "IAASB",
+   "identifier": "ISAE 3000/3402",
+   "url": "https://www.iaasb.org/",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "ISO-27001-2022": {
+   "title": "Information security management systems",
+   "publisher": "ISO/IEC",
+   "identifier": "2022",
+   "url": "https://www.iso.org/standard/27001",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "aicpa-soc-reporting",
+    "isaca-audit-methodology",
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "ISO-31000-2018": {
+   "title": "Risk Management — Guidelines",
+   "publisher": "ISO",
+   "identifier": "2018",
+   "url": "https://www.iso.org/standard/65694.html",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "ISO-38500": {
+   "title": "Governance of IT for the organization",
+   "publisher": "ISO/IEC",
+   "identifier": "2024",
+   "url": "https://www.iso.org/standard/81684.html",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "ITAF": {
+   "title": "IT Audit Framework (ITAF), 5th Edition",
+   "publisher": "ISACA",
+   "identifier": "5th Ed (2026)",
+   "url": "https://www.isaca.org/resources/it-audit",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "ITIL": {
+   "title": "ITIL 4 Foundation",
+   "publisher": "Axelos",
+   "identifier": "2019",
+   "url": "https://www.axelos.com",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "JOBS-Act-2012": {
+   "title": "Jumpstart Our Business Startups Act",
+   "publisher": "U.S. Congress",
+   "identifier": "2012",
+   "url": "https://www.congress.gov/bill/112th-congress/house-bill/3606",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "NIST-CSF-2.0": {
+   "title": "Cybersecurity Framework",
+   "publisher": "NIST",
+   "identifier": "2.0 (Feb 2024)",
+   "url": "https://www.nist.gov/cyberframework",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "coso-internal-controls",
+    "isaca-audit-methodology",
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-1299": {
+   "title": "NIST Cybersecurity Framework 2.0: Resource and Overview Guide",
+   "publisher": "NIST",
+   "identifier": "SP 1299 (Feb 2024)",
+   "url": "https://csrc.nist.gov/pubs/sp/1299/final",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-1300": {
+   "title": "NIST Cybersecurity Framework 2.0: Small Business Quick-Start Guide",
+   "publisher": "NIST",
+   "identifier": "SP 1300 (Feb 2024)",
+   "url": "https://csrc.nist.gov/pubs/sp/1300/final",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-137": {
+   "title": "Information Security Continuous Monitoring",
+   "publisher": "NIST",
+   "identifier": "Sept 2011",
+   "url": "https://csrc.nist.gov/pubs/sp/800/137/final",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "NIST-SP-800-171": {
+   "title": "Protecting Controlled Unclassified Information in Nonfederal Systems",
+   "publisher": "NIST",
+   "identifier": "Rev 3 (2024)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/171/r3/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-30-Rev1": {
+   "title": "Guide for Conducting Risk Assessments",
+   "publisher": "NIST",
+   "identifier": "Rev 1 (Sept 2012)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-37-Rev2": {
+   "title": "Risk Management Framework for Information Systems and Organizations",
+   "publisher": "NIST",
+   "identifier": "Rev 2 (Dec 2018)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-53-Rev5": {
+   "title": "Security and Privacy Controls",
+   "publisher": "NIST",
+   "identifier": "Rev 5",
+   "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "aicpa-soc-reporting",
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-53-Rev5.1.1": {
+   "title": "Security and Privacy Controls (Rev 5.1.1)",
+   "publisher": "NIST",
+   "identifier": "Rev 5.1.1 (2024)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-53A-Rev5": {
+   "title": "Assessing Security and Privacy Controls",
+   "publisher": "NIST",
+   "identifier": "Rev 5 (Jan 2022)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "NIST-SP-800-53B": {
+   "title": "Control Baselines for Information Systems and Organizations",
+   "publisher": "NIST",
+   "identifier": "SP 800-53B (Oct 2020, incl. updates)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "NIST-SP-800-60": {
+   "title": "Guide for Mapping Types of Information and Information Systems to Security Categories (Vol I & II)",
+   "publisher": "NIST",
+   "identifier": "Rev 1 (Aug 2008; current as of 2026)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "NIST-SP-800-61": {
+   "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+   "publisher": "NIST",
+   "identifier": "Rev 3 (2025)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "isaca-audit-methodology"
+   ]
+  },
+  "NIST-SP-800-61-Rev2": {
+   "title": "Computer Security Incident Handling Guide",
+   "publisher": "NIST",
+   "identifier": "Rev 2 (Aug 2012)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/61/r2/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NIST-SP-800-66-Rev2": {
+   "title": "Implementing the Health Insurance Portability and Accountability Act (HIPAA) Security Rule: A Cybersecurity Resource Guide",
+   "publisher": "NIST",
+   "identifier": "Rev 2 (Feb 2024)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "hipaa-security-rule",
+    "nist-800-53-rmf"
+   ]
+  },
+  "NIST-SP-800-82-Rev3": {
+   "title": "Guide to Industrial Control Systems (ICS) Security",
+   "publisher": "NIST",
+   "identifier": "Rev 3 (2023)",
+   "url": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "NY-DFS-Part-500": {
+   "title": "Cybersecurity Requirements for Financial Services Companies",
+   "publisher": "NY DFS",
+   "identifier": "23 NYCRR Part 500 (as amended 2023)",
+   "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "OMB-A-130": {
+   "title": "Managing Information as a Strategic Resource",
+   "publisher": "OMB",
+   "identifier": "July 28, 2016",
+   "url": "https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m-16-17.pdf",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "OMB-M-24-15": {
+   "title": "Modernizing the Federal Risk and Authorization Management Program (FedRAMP)",
+   "publisher": "OMB",
+   "identifier": "M-24-15 (July 2024)",
+   "url": "https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "PCAOB-AS-1105": {
+   "title": "Audit Evidence",
+   "publisher": "PCAOB",
+   "identifier": "AS 1105",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1105",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "PCAOB-AS-1215": {
+   "title": "Audit Documentation",
+   "publisher": "PCAOB",
+   "identifier": "AS 1215",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1215",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "PCAOB-AS-1305": {
+   "title": "Communications About Control Deficiencies",
+   "publisher": "PCAOB",
+   "identifier": "AS 1305",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305",
+   "retrieval_date": "2026-06-08",
+   "cited_by": [
+    "audit-workpapers",
+    "coso-internal-controls"
+   ]
+  },
+  "PCAOB-AS-2110": {
+   "title": "Identifying and Assessing Risks",
+   "publisher": "PCAOB",
+   "identifier": "AS 2110",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2110",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "PCAOB-AS-2201": {
+   "title": "Audit of ICFR",
+   "publisher": "PCAOB",
+   "identifier": "AS 2201",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers",
+    "coso-internal-controls"
+   ]
+  },
+  "PCAOB-AS-2315": {
+   "title": "Audit Sampling",
+   "publisher": "PCAOB",
+   "identifier": "AS 2315",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "PCAOB-AS-3101": {
+   "title": "The Auditor's Report on an Audit of Financial Statements",
+   "publisher": "PCAOB",
+   "identifier": "Current",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "PCAOB-AS-3105": {
+   "title": "Departures from Unqualified Opinions",
+   "publisher": "PCAOB",
+   "identifier": "AS 3105",
+   "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3105",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "audit-workpapers"
+   ]
+  },
+  "PCI-DSS-4.0.1": {
+   "title": "Payment Card Industry Data Security Standard",
+   "publisher": "PCI SSC",
+   "identifier": "v4.0.1 (2024)",
+   "url": "https://www.pcisecuritystandards.org/document_library",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-csf-2"
+   ]
+  },
+  "PCI-DSS-v4.0": {
+   "title": "Payment Card Industry Data Security Standard",
+   "publisher": "PCI SSC",
+   "identifier": "v4.0 (Mar 2022)",
+   "url": "https://www.pcisecuritystandards.org/document_library",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "nist-800-53-rmf"
+   ]
+  },
+  "PL-116-321": {
+   "title": "An Act to amend the HITECH Act to require consideration of certain recognized security practices (HR 7898)",
+   "publisher": "U.S. Government Publishing Office (govinfo)",
+   "identifier": "Public Law 116-321, 134 Stat. 5072, approved Jan. 5, 2021; adds HITECH §13412 (42 U.S.C. 17941)",
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-116publ321/html/PLAW-116publ321.htm",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "hipaa-security-rule"
+   ]
+  },
+  "SEC-Reg-S-K-Item-308": {
+   "title": "Management's Report on Internal Control Over Financial Reporting",
+   "publisher": "SEC",
+   "identifier": "Current",
+   "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "SOC-2-TSC-2017": {
+   "title": "Trust Services Criteria",
+   "publisher": "AICPA",
+   "identifier": "2017 (TSP §100, 2022 revised points of focus)",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2",
+   "retrieval_date": "2026-06-09",
+   "cited_by": [
+    "nist-800-53-rmf",
+    "nist-csf-2"
+   ]
+  },
+  "SOC-for-Cybersecurity": {
+   "title": "SOC for Cybersecurity Examination",
+   "publisher": "AICPA",
+   "identifier": "2017 / updated",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "SOC-for-Supply-Chain": {
+   "title": "SOC for Supply Chain Examination",
+   "publisher": "AICPA",
+   "identifier": "2020",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "SOX-404": {
+   "title": "Sarbanes-Oxley Act Section 404 — Management Assessment of Internal Controls",
+   "publisher": "U.S. Congress",
+   "identifier": "2002",
+   "url": "https://www.sec.gov/rules/final/33-8230.htm",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "coso-internal-controls"
+   ]
+  },
+  "SSAE-21": {
+   "title": "SSAE No. 21 — Direct Examination Engagements (amends AT-C; adds AT-C 206)",
+   "publisher": "AICPA",
+   "identifier": "Effective for reports dated on/after June 15, 2022",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-06-10",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
+  },
+  "TSP-Section-100": {
+   "title": "Trust Services Criteria",
+   "publisher": "AICPA ASEC",
+   "identifier": "2017 TSC, 2022 Revised Points of Focus",
+   "url": "https://www.aicpa-cima.com/topic/audit-assurance",
+   "retrieval_date": "2026-05-25",
+   "cited_by": [
+    "aicpa-soc-reporting"
+   ]
   }
+ }
 }

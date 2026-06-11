@@ -1,0 +1,25 @@
+{
+ "proposed_clauses": [
+  {
+   "clause_id": "C-1",
+   "provision": "comply_with_subpart",
+   "text": "Consultant shall comply with the applicable requirements of 45 CFR Part 164 Subpart C with respect to ePHI."
+  },
+  {
+   "clause_id": "C-2",
+   "provision": "written_contract",
+   "text": "This Agreement constitutes the written contract required by 45 CFR 164.308(b)(3)."
+  },
+  {
+   "clause_id": "C-3",
+   "provision": "permitted_uses",
+   "text": "Consultant may use ePHI solely to perform the services described in the SOW."
+  },
+  {
+   "clause_id": "C-4",
+   "provision": "termination_return",
+   "text": "Upon termination, Consultant shall return or destroy all ePHI where feasible."
+  }
+ ],
+ "required_provisions_note": "Required set per 164.314(a)(2)(i)(A)-(C) plus 164.308(b)(3): comply_with_subpart, subcontractor_flowdown, incident_reporting, written_contract"
+}
