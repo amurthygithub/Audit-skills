@@ -155,6 +155,11 @@ remediation_plan:
 
 ## 30-second quick start (Path 1 — system prompt)
 
+> **PHI warning:** never paste real PHI/ePHI into prompts or seeds. The healthcare worked
+> example (UC-04) uses synthetic data only. If you process ePHI with an LLM vendor, that
+> vendor is a business associate — a BAA must be in place before any real-data use
+> (45 CFR 164.308(b); see the hipaa-security-rule skill).
+
 ```bash
 git clone https://github.com/amurthygithub/Audit-skills.git
 cd Audit-skills

@@ -55,6 +55,51 @@ def _uc01_categorize(inputs: dict) -> dict:
     return _categorize(inputs)
 
 
+def _uc04_clinical(payload: dict) -> dict:
+    """UC-04 (SOX-638): healthcare provider categorization + HIPAA safeguard view.
+
+    Clinical availability floor — HOUSE CONVENTION, labeled in the UC doc and
+    chunk 02: if any information type is patient-safety-relevant, the system's
+    availability objective is at least MODERATE. A manual-workaround rationale
+    never lowers clinical availability without documented clinical sign-off.
+    FIPS 199 high-water-mark applies otherwise; SP 800-60 Vol II provisional
+    impact levels are the lookup source for type-level baselines.
+    """
+    levels = ["LOW", "MODERATE", "HIGH"]
+    cat = _categorize(payload)
+    floor_applied = False
+    if any(it.get("patient_safety_relevant") for it in payload.get("information_types", [])):
+        if levels.index(cat["system_security_category"]["a"]) < levels.index("MODERATE"):
+            cat["system_security_category"]["a"] = "MODERATE"
+            floor_applied = True
+    overall = max(cat["system_security_category"].values(), key=lambda x: levels.index(x))
+    cat["overall"] = cat["high_water_mark"] = overall
+    cat["clinical_availability_floor"] = {
+        "applied": floor_applied,
+        "basis": "house convention: patient-safety-relevant information type present; "
+                 "availability >= MODERATE (manual-workaround rationales do not lower "
+                 "clinical availability without documented clinical sign-off)",
+    }
+    base = _select_baseline(cat)
+    crosswalk = _load("hipaa-to-800-53.json")
+    by_id = {m["hipaa_id"]: m for m in crosswalk["mappings"]}
+    view, unmapped = [], []
+    for el in payload.get("in_scope_hipaa_elements", []):
+        m = by_id.get(el)
+        if m is None:
+            unmapped.append(el)
+            continue
+        view.append({"hipaa_id": el, "designation": m["designation"],
+                     "nist_800_53_ids": m["nist_800_53_ids"]})
+    return {
+        "classification": cat["overall"],
+        "fips_199_categorization": cat,
+        "baseline": base,
+        "hipaa_800_53_view": view,
+        "hipaa_elements_not_in_crosswalk": unmapped,
+    }
+
+
 def _uc02_aggregate(findings: list[dict]) -> dict:
     sev = {"High": 0, "Moderate": 0, "Low": 0}
     for f in findings:
@@ -124,6 +169,8 @@ def run_skill(use_case_id: str, payload: dict, model: str = "stub") -> dict:
             "sar": agg["sar"],
             "ato_decision": {"decision": decision, "duration": "1 year", "residual_risk": "MODERATE"},
         }
+    if use_case_id == "UC-04":
+        return _uc04_clinical(payload)
     if use_case_id == "UC-03":
         crosswalk = payload.get("crosswalk", {})
         gap_register = payload.get("gap_register", [])

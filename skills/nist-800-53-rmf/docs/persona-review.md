@@ -37,7 +37,7 @@ Resolution key: **FIXED** (PR `feat/SOX-636-vet-nist-800-53-rmf`) ·
 | Partner, CISO | chunks/09 procedure references nonexistent data/crosswalks/800-53-default.json. | **FIXED** — points at the real soc2-to-800-53-mod.json, labeled as a curated sample |
 | 3PAO | UC-02 finding cites AC-2(4) "Automated Audit Actions" for a missed account review (correct element: AC-2j) with invented 800-53A criteria text; no 800-53A objective data shipped. | **FIXED 2026-06-10 (SOX-637, M2)** — seed/doc/generator re-cited to AC-2 base control element j; OSCAL objective shipping deferred to Epic 6 harness work |
 | State Dir | IRS Pub 1075 in manifest but unused; MARS-E/SSA overlays absent for the benefits-eligibility scenario; assessment procedure offers no risk-based scoping for small shops. | **TICKETED — SOX-639** |
-| CISO | UC-01's "Availability: LOW because manual workaround" pattern is unsafe if copied for clinical systems; no PHI/patient-safety categorization guidance; no healthcare UC (industries/healthcare.md says "Planned UC-04"). | **TICKETED — SOX-638** |
+| CISO | UC-01's "Availability: LOW because manual workaround" pattern is unsafe if copied for clinical systems; no PHI/patient-safety categorization guidance; no healthcare UC (industries/healthcare.md says "Planned UC-04"). | **FIXED 2026-06-10 — SOX-638 part 2**: UC-04 shipped (clinical availability floor pinned by oracle + adversarial tests in both directions); chunk 02 clinical systems note; README PHI/BAA warning. |
 | SaaS | Procedures end at "document in SSP §2/§8/§9/§10" with no SSP template shipped or linked; no sponsorship/3PAO/before-you-start path. | **TICKETED — SOX-639** (consumer affordances) |
 
 ## MEDIUM / LOW (disposition summary)

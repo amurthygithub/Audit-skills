@@ -11,6 +11,7 @@
   {
    "hipaa_id": "164.308(a)(1)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "RA-1"
    ],
@@ -19,6 +20,7 @@
   {
    "hipaa_id": "164.308(a)(1)(ii)(A)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "RA-2",
     "RA-3"
@@ -28,6 +30,7 @@
   {
    "hipaa_id": "164.308(a)(1)(ii)(B)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "PL-2",
     "RA-2",
@@ -38,6 +41,7 @@
   {
    "hipaa_id": "164.308(a)(1)(ii)(C)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "PS-8"
    ],
@@ -46,6 +50,7 @@
   {
    "hipaa_id": "164.308(a)(1)(ii)(D)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AU-6",
     "AU-7",
@@ -59,6 +64,7 @@
   {
    "hipaa_id": "164.308(a)(2)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CA-6",
     "PM-2"
@@ -68,6 +74,7 @@
   {
    "hipaa_id": "164.308(a)(3)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AC-1",
     "AC-2",
@@ -80,6 +87,7 @@
   {
    "hipaa_id": "164.308(a)(3)(ii)(A)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AC-1",
     "AC-2",
@@ -96,6 +104,7 @@
   {
    "hipaa_id": "164.308(a)(3)(ii)(B)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AC-2",
     "PS-1",
@@ -110,6 +119,7 @@
   {
    "hipaa_id": "164.308(a)(3)(ii)(C)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "PS-1",
     "PS-4",
@@ -120,6 +130,7 @@
   {
    "hipaa_id": "164.308(a)(4)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AC-1",
     "AC-2",
@@ -131,6 +142,7 @@
   {
    "hipaa_id": "164.308(a)(4)(ii)(A)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AC-5",
     "AC-6",
@@ -141,6 +153,7 @@
   {
    "hipaa_id": "164.308(a)(4)(ii)(B)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AC-1",
     "AC-2",
@@ -154,6 +167,7 @@
   {
    "hipaa_id": "164.308(a)(4)(ii)(C)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AC-1",
     "AC-2"
@@ -163,6 +177,7 @@
   {
    "hipaa_id": "164.308(a)(5)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AT-1",
     "AT-2",
@@ -174,6 +189,7 @@
   {
    "hipaa_id": "164.308(a)(5)(ii)(A)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AT-2",
     "AT-3"
@@ -183,6 +199,7 @@
   {
    "hipaa_id": "164.308(a)(5)(ii)(B)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AT-2",
     "AT-3"
@@ -192,6 +209,7 @@
   {
    "hipaa_id": "164.308(a)(5)(ii)(C)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AT-3",
     "AU-6"
@@ -201,6 +219,7 @@
   {
    "hipaa_id": "164.308(a)(5)(ii)(D)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AT-2",
     "AT-3"
@@ -210,6 +229,7 @@
   {
    "hipaa_id": "164.308(a)(6)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "IR-1",
     "IR-2",
@@ -221,6 +241,7 @@
   {
    "hipaa_id": "164.308(a)(6)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "IR-4",
     "IR-5",
@@ -234,6 +255,7 @@
   {
    "hipaa_id": "164.308(a)(7)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CP-1",
     "CP-2"
@@ -243,6 +265,7 @@
   {
    "hipaa_id": "164.308(a)(7)(ii)(A)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "CP-6",
     "CP-9(01)",
@@ -253,6 +276,7 @@
   {
    "hipaa_id": "164.308(a)(7)(ii)(B)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "CP-2",
     "CP-6",
@@ -266,6 +290,7 @@
   {
    "hipaa_id": "164.308(a)(7)(ii)(C)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "CP-2",
     "CP-10"
@@ -275,6 +300,7 @@
   {
    "hipaa_id": "164.308(a)(7)(ii)(D)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "CP-2",
     "CP-3",
@@ -285,17 +311,19 @@
   {
    "hipaa_id": "164.308(a)(7)(ii)(E)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
-    "CP-2",
     "CP-2(08)",
-    "RA-2(01)",
-    "RA-2"
+    "CP-2",
+    "RA-2",
+    "RA-2(01)"
    ],
    "relationship": "informative_reference_olir"
   },
   {
    "hipaa_id": "164.308(a)(8)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CA-1",
     "CA-2",
@@ -308,6 +336,7 @@
   {
    "hipaa_id": "164.308(b)(1)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CA-3",
     "PS-7",
@@ -318,16 +347,20 @@
   {
    "hipaa_id": "164.308(b)(4)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "CA-3",
     "SA-4",
     "SA-9"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.308(b)(3)",
+   "citation_note": "CPRT carries the pre-Omnibus citation; the 2013 Omnibus Rule (78 FR 5694) renumbered Written Contract to 164.308(b)(3)"
   },
   {
    "hipaa_id": "164.310(a)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "PE-1",
     "PE-2",
@@ -336,11 +369,13 @@
     "PE-4",
     "PE-5"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.310(a)(1)"
   },
   {
    "hipaa_id": "164.310(a)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "CP-2",
     "CP-6",
@@ -354,6 +389,7 @@
   {
    "hipaa_id": "164.310(a)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "PE-1",
     "PL-2"
@@ -363,6 +399,7 @@
   {
    "hipaa_id": "164.310(a)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "PE-1",
     "PE-2",
@@ -376,6 +413,7 @@
   {
    "hipaa_id": "164.310(a)(2)(iv)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "MA-1",
     "MA-2",
@@ -386,6 +424,7 @@
   {
    "hipaa_id": "164.310(b)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AC-3",
     "AC-4",
@@ -404,6 +443,7 @@
   {
    "hipaa_id": "164.310(c)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "MP-2",
     "MP-3",
@@ -419,6 +459,7 @@
   {
    "hipaa_id": "164.310(d)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CM-8",
     "MP-1",
@@ -430,11 +471,13 @@
     "PE-16",
     "PE-20"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.310(d)(1)"
   },
   {
    "hipaa_id": "164.310(d)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "MP-6"
    ],
@@ -443,6 +486,7 @@
   {
    "hipaa_id": "164.310(d)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "MP-6"
    ],
@@ -451,6 +495,7 @@
   {
    "hipaa_id": "164.310(d)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "CM-8",
     "MP-5",
@@ -463,6 +508,7 @@
   {
    "hipaa_id": "164.310(d)(2)(iv)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "CP-9",
     "MP-4"
@@ -472,17 +518,20 @@
   {
    "hipaa_id": "164.312(a)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AC-1",
     "AC-3",
     "AC-5",
     "AC-6"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.312(a)(1)"
   },
   {
    "hipaa_id": "164.312(a)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AC-2",
     "AC-3",
@@ -496,6 +545,7 @@
   {
    "hipaa_id": "164.312(a)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AC-2",
     "AC-3",
@@ -506,6 +556,7 @@
   {
    "hipaa_id": "164.312(a)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "AC-12"
    ],
@@ -514,6 +565,7 @@
   {
    "hipaa_id": "164.312(a)(2)(iv)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "SC-13"
    ],
@@ -522,6 +574,7 @@
   {
    "hipaa_id": "164.312(b)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "AU-1",
     "AU-2",
@@ -536,6 +589,7 @@
   {
    "hipaa_id": "164.312(c)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CP-9",
     "MP-2",
@@ -544,11 +598,13 @@
     "SI-1",
     "SI-7"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.312(c)(1)"
   },
   {
    "hipaa_id": "164.312(c)(2)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "SC-8",
     "SI-7"
@@ -558,6 +614,7 @@
   {
    "hipaa_id": "164.312(d)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "IA-2",
     "IA-3",
@@ -570,6 +627,7 @@
   {
    "hipaa_id": "164.312(e)(1)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "SC-8"
    ],
@@ -578,6 +636,7 @@
   {
    "hipaa_id": "164.312(e)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "SC-8",
     "SI-7"
@@ -587,6 +646,7 @@
   {
    "hipaa_id": "164.312(e)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Addressable",
    "nist_800_53_ids": [
     "SC-8",
     "SC-12",
@@ -597,17 +657,20 @@
   {
    "hipaa_id": "164.314(a)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "PS-6",
     "PS-7",
     "SA-4",
     "SA-9"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.314(a)(1)"
   },
   {
    "hipaa_id": "164.314(a)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "IR-6",
     "PS-6",
@@ -620,6 +683,7 @@
   {
    "hipaa_id": "164.314(a)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "CA-3",
     "PS-6",
@@ -631,6 +695,7 @@
   {
    "hipaa_id": "164.314(a)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "IR-6",
     "PS-6",
@@ -643,14 +708,17 @@
   {
    "hipaa_id": "164.314(b)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "PL-2"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.314(b)(1)"
   },
   {
    "hipaa_id": "164.314(b)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "PL-2"
    ],
@@ -659,6 +727,7 @@
   {
    "hipaa_id": "164.314(b)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "PL-2"
    ],
@@ -667,6 +736,7 @@
   {
    "hipaa_id": "164.314(b)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "SA-9"
    ],
@@ -675,6 +745,7 @@
   {
    "hipaa_id": "164.314(b)(2)(iv)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "IR-6"
    ],
@@ -683,6 +754,7 @@
   {
    "hipaa_id": "164.316(a)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "PL-1",
     "PL-2",
@@ -694,15 +766,18 @@
   {
    "hipaa_id": "164.316(b)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Standard",
    "nist_800_53_ids": [
     "CA-2",
     "PL-2"
    ],
-   "relationship": "informative_reference_olir"
+   "relationship": "informative_reference_olir",
+   "current_cfr_cite": "164.316(b)(1)"
   },
   {
    "hipaa_id": "164.316(b)(2)(i)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "SI-12"
    ],
@@ -711,6 +786,7 @@
   {
    "hipaa_id": "164.316(b)(2)(ii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AC-1",
     "AT-1",
@@ -738,6 +814,7 @@
   {
    "hipaa_id": "164.316(b)(2)(iii)",
    "hipaa_id_note": "verbatim CPRT element identifier (CPRT granularity)",
+   "designation": "Required",
    "nist_800_53_ids": [
     "AC-1",
     "AT-1",

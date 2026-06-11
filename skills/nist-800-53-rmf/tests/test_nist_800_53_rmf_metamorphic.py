@@ -81,3 +81,14 @@ def test_uc_03_overlap_decreases_with_pii_volume():
     # No overlap percentage may be emitted — not derivable from a sample crosswalk
     # (a HIGH-baseline variant would only ADD gap records, never remove them).
     assert "overlap_pct" not in out_mod["crosswalk_summary"]
+
+
+def test_uc_04_information_type_order_invariance():
+    """Reversing information-type order must not change the categorization."""
+    p1 = _load("uc-04-input.json")
+    p2 = dict(p1)
+    p2["information_types"] = list(reversed(p1["information_types"]))
+    o1, o2 = run_skill("UC-04", p1), run_skill("UC-04", p2)
+    assert o1["fips_199_categorization"]["system_security_category"] == \
+           o2["fips_199_categorization"]["system_security_category"]
+    assert o1["baseline"] == o2["baseline"]

@@ -32,7 +32,7 @@ Healthcare entities (HIPAA-covered entities and business associates) have the **
 
 ## 5. Top use cases
 
-- (Planned UC-04 — HIPAA + 800-53 crosswalk for a health-tech SaaS)
+- **UC-04 — Hospital CPOE categorization + HIPAA → 800-53 view** (`use-cases/uc-04-healthcare-provider.md`): the clinical availability floor (house convention — patient-safety-relevant types force A ≥ MODERATE; manual workarounds never justify A: LOW), then the in-scope HIPAA safeguards read against the complete CPRT-generated crosswalk (`data/seeds/hipaa-to-800-53.json`).
 
 ## 6. Pain points (healthcare)
 

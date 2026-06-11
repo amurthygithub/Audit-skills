@@ -1,0 +1,35 @@
+{
+ "system_name": "MedFlow Clinical Orders",
+ "system_description": "Computerized provider order entry (CPOE) module at Bellbrook Regional Health (6,000-staff hospital system, 4 facilities). Processes PHI: medication and lab orders, results, and clinical alerts. Order delays directly affect patient care. The hospital is aligning the system to 800-53 ahead of a federal health-agency data exchange.",
+ "information_types": [
+  {
+   "name": "Clinical Orders and Results",
+   "description": "PHI: medication orders, lab orders and results, clinical alerts",
+   "patient_safety_relevant": true,
+   "cia_baseline": {
+    "c": "MODERATE",
+    "i": "MODERATE",
+    "a": "LOW"
+   },
+   "a_as_submitted_rationale": "paper-order manual workaround exists (submitted A: LOW \u2014 see clinical availability floor)"
+  },
+  {
+   "name": "Patient Demographics",
+   "description": "PHI: registration and encounter demographics",
+   "patient_safety_relevant": false,
+   "cia_baseline": {
+    "c": "MODERATE",
+    "i": "LOW",
+    "a": "LOW"
+   }
+  }
+ ],
+ "in_scope_hipaa_elements": [
+  "164.312(a)(2)(ii)",
+  "164.312(b)",
+  "164.308(a)(7)(ii)(B)",
+  "164.310(d)(2)(i)"
+ ],
+ "as_of_date": "2026-06-10",
+ "floor_note": "house convention: clinical availability floor \u2014 patient-safety-relevant information types force availability >= MODERATE; FIPS 199 high-water mark otherwise; SP 800-60 Vol II provisional impact levels are the type-level lookup source"
+}

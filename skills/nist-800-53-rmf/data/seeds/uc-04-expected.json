@@ -1,0 +1,58 @@
+{
+ "fips_199_categorization": {
+  "system_security_category": {
+   "c": "MODERATE",
+   "i": "MODERATE",
+   "a": "MODERATE"
+  },
+  "overall": "MODERATE",
+  "clinical_availability_floor_applied": true
+ },
+ "baseline": {
+  "baseline": "MODERATE"
+ },
+ "hipaa_800_53_view": [
+  {
+   "hipaa_id": "164.312(a)(2)(ii)",
+   "designation": "Required",
+   "nist_800_53_ids": [
+    "AC-2",
+    "AC-3",
+    "CP-2"
+   ]
+  },
+  {
+   "hipaa_id": "164.312(b)",
+   "designation": "Standard",
+   "nist_800_53_ids": [
+    "AU-1",
+    "AU-2",
+    "AU-3",
+    "AU-4",
+    "AU-6",
+    "AU-7",
+    "AU-8"
+   ]
+  },
+  {
+   "hipaa_id": "164.308(a)(7)(ii)(B)",
+   "designation": "Required",
+   "nist_800_53_ids": [
+    "CP-2",
+    "CP-6",
+    "CP-7",
+    "CP-8",
+    "CP-9",
+    "CP-10"
+   ]
+  },
+  {
+   "hipaa_id": "164.310(d)(2)(i)",
+   "designation": "Required",
+   "nist_800_53_ids": [
+    "MP-6"
+   ]
+  }
+ ],
+ "hipaa_elements_not_in_crosswalk": []
+}
