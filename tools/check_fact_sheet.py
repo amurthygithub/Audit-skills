@@ -130,6 +130,11 @@ def check_fact_sheet(path: Path) -> Tuple[int, List[str]]:
     if data.get("sign_off") is not True:
         err("'sign_off' must be true (complete the §8 checklist first)")
 
+    # process v3.1 (SOX-618): licensed-source rows must be human-verified before sign-off
+    if data.get("sign_off") is True and "pending_human_verification" in text:
+        err("sign_off is true but 'pending_human_verification' rows remain — "
+            "complete the human-verification worksheet (prompts/human-verification-worksheet.md)")
+
     return fail, msgs
 
 

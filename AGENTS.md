@@ -62,6 +62,7 @@ Every change belongs to exactly one work type. All four run the same G0–G6 spi
 - A research agent **with webfetch access** populates it: every identifier, every count, every crosswalk row, every URL (live-checked, status recorded), version/supersession info, exact terminology.
 - The fact-sheet's **machine-readable data block** (§0 of the template) must be filled — it is what G3 tests assert against.
 - **Gate:** `python3 tools/check_fact_sheet.py docs/<slug>-fact-sheet.md` passes. Do not proceed until it does. If a build agent later needs a fact that isn't in the fact-sheet, the fact-sheet is incomplete — return to G1.
+- **Licensed sources (process v3.1, SOX-618):** when a framework's normative text is licence-restricted (ISO, COSO): (a) the licensed file lives OUTSIDE the repo (`~/Standards-licensed/`) and is NEVER read by any agent, entered into any prompt/pipeline, or quoted beyond short attributed excerpts — ISO's licence has an explicit AI/ML prohibition (no prompting, querying, extraction; survey: `docs/builds/sox-618/iso-source-survey.md`); (b) the fact sheet builds its machine-verifiable layer from free sources and marks requirement-semantics rows `pending_human_verification` with a clause pointer; (c) generate a human-verification worksheet (`prompts/human-verification-worksheet.md`), the human ticks/corrects against the licensed copy and signs; (d) rows flip to `verified_by: human-licensed-copy` — the G1 gate fails while any `pending_human_verification` remains; (e) acquisition is recorded in `source-texts/manifest.json` (à-la-carte at each skill's Day-0; EVS for EN ISO adoptions).
 
 ### G2 — Design
 - Copy `docs/skill-design-template.md` → `docs/<slug>-design.md`; fill all 15 sections. Write the file-requirements spec (`docs/<slug>-file-requirements.md`).
@@ -69,6 +70,7 @@ Every change belongs to exactly one work type. All four run the same G0–G6 spi
 
 ### G3 — Build
 - 1 router agent for SKILL.md (knows full architecture) + N parallel chunk/industry/UC agents.
+- **Eval lane ships with the build (process v3.1, M4):** `evals/<slug>/cases/` with at least the UC substance cases + 1 idempotence invariant + the perturbation set (refusal contract), oracle-labeled via the stub. They run in CI against the stub executor from the build PR onward.
 - Build agents cite **only the fact-sheet** — never their own recall. Build agents do NOT get webfetch (they hallucinate anyway; building is for structure, G1/G4 are for facts).
 - **Gate:** `tools/lint_skill.py` passes; per-skill tests + consistency lib pass; every count/identifier in chunks matches the fact-sheet data block.
 
@@ -102,6 +104,7 @@ Output: `skills/<slug>/docs/acceptance-gate.md` — fact | source | retrieval da
 
 ### G6 — Release
 - Update the skill's `docs/changelog.md` and bump its semver (per the architecture constitution, SOX-608).
+- **Reliability rows (process v3.1):** before the build PR merges, run a calibration sweep (`evals/harness/runner.py --executor llm`, N=2, Haiku) and fix contract-grammar findings. Before any release/GTM claim about the skill, run the publication sweep (N>=20, Haiku + Sonnet — never Fable/Opus, measurement-mismatched) and publish the rows in `docs/acceptance-gate.md`. "Fully tested" means a measured pass rate.
 - README version table updated when the library-level version bumps.
 
 ---

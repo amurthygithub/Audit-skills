@@ -1,0 +1,80 @@
+{
+ "_meta": {
+  "description": "Source-text acquisition registry (SOX-618). One row per framework whose skill exists or is queued. licence_class: public (machine-verifiable) | licensed (human-verification workflow per AGENTS.md G1). Details verified at each skill's Day-0.",
+  "created": "2026-06-11"
+ },
+ "sources": {
+  "45-CFR-164-HIPAA": {
+   "licence_class": "public",
+   "access": "eCFR API (XML)",
+   "skill": "hipaa-security-rule",
+   "status": "acquired-and-used (2026-06-10)"
+  },
+  "NIST-SP-800-53-R5": {
+   "licence_class": "public",
+   "access": "csrc.nist.gov PDFs + CPRT/OLIR",
+   "skill": "nist-800-53-rmf",
+   "status": "in use"
+  },
+  "NIST-CSF-2.0": {
+   "licence_class": "public",
+   "access": "nvlpubs PDF + informative references",
+   "skill": "nist-csf-2",
+   "status": "in use"
+  },
+  "PCI-DSS-4.0.1": {
+   "licence_class": "public (click-through licence \u2014 verify reproduction terms at Day-0)",
+   "access": "PCI SSC document library, free download",
+   "skill": "pci-dss-assessment (SOX-568)",
+   "status": "pending Day-0"
+  },
+  "SOX-302-SEC-rules": {
+   "licence_class": "public (US public domain)",
+   "access": "eCFR/SEC.gov (sec.gov bot-walled \u2014 use eCFR/govinfo)",
+   "skill": "sox-302-disclosure-controls (SOX-570)",
+   "status": "pending Day-0"
+  },
+  "FedRAMP": {
+   "licence_class": "public",
+   "access": "fedramp.gov",
+   "skill": "fedramp-authorization (SOX-574)",
+   "status": "pending Day-0"
+  },
+  "GDPR": {
+   "licence_class": "public",
+   "access": "EUR-Lex consolidated text",
+   "skill": "gdpr-dpia-privacy (SOX-573)",
+   "status": "pending Day-0"
+  },
+  "PCAOB-AS": {
+   "licence_class": "public",
+   "access": "pcaobus.org standards pages",
+   "skill": "pcaob-as-deepening (SOX-575)",
+   "status": "in use (audit-workpapers, coso)"
+  },
+  "ISO-IEC-27001-2022-A1": {
+   "licence_class": "licensed (ISO ECLA incl. AI/ML prohibition)",
+   "access": "EVS-EN ISO/IEC 27001:2023+A1:2024 consolidated PDF, EUR 24.80, evs.ee \u2014 survey: docs/builds/sox-618/iso-source-survey.md",
+   "skill": "iso-27001-isms (SOX-567)",
+   "status": "PENDING PURCHASE (user)"
+  },
+  "ISO-IEC-27000-2018": {
+   "licence_class": "free-with-licence (ISO PAS click-through; no redistribution)",
+   "access": "standards.iso.org PAS zip (verified 2026-06-11)",
+   "skill": "iso-27001-isms (definitions layer)",
+   "status": "available"
+  },
+  "ISO-IEC-27002-2022": {
+   "licence_class": "licensed",
+   "access": "EVS (~EUR 25) when chunk-depth work begins",
+   "skill": "iso-27001-isms (deferred)",
+   "status": "deferred"
+  },
+  "COSO-2013-ICIF": {
+   "licence_class": "licensed (purchased per SOX-618 ticket)",
+   "access": "purchased copy (outside repo)",
+   "skill": "coso-internal-controls",
+   "status": "held"
+  }
+ }
+}

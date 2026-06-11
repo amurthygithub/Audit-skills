@@ -62,6 +62,16 @@ sign_off: false                       # flip to true ONLY when the §8 checklist
 
 ---
 
+## 0.5 Licensed-source workflow (only when the framework text is licence-restricted)
+
+If the normative text is licensed (ISO, COSO): build everything machine-verifiable from free
+sources; for requirement-semantics claims add `verification: pending_human_verification` plus
+a clause pointer to the row/section, generate the worksheet per
+`prompts/human-verification-worksheet.md`, and record the acquisition in
+`source-texts/manifest.json`. The gate refuses `sign_off: true` while any pending rows
+remain. Verified rows carry `verification: human-licensed-copy (<copy>, <date>)` and NO
+verbatim quote (§5.11 check 15a — the one exception to the quote rule).
+
 ## 1. Primary sources
 
 | # | Source | URL | Version/Edition | Retrieval date | Verifier |

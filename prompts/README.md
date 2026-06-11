@@ -11,6 +11,7 @@ If a prompt is inadequate, improve the file in a PR. That is the ratchet — the
 | [fix-pass.md](fix-pass.md) | 3. Apply findings | 1 agent per skill, parallel across skills |
 | [persona-vetting.md](persona-vetting.md) | 5a. Practitioner + industry vetting (G4.5) | 5 agents in parallel, one per persona |
 | [consumer-smoke-test.md](consumer-smoke-test.md) | 5b. Fresh-agent usability test (G4.5) | 1 clean agent session per use case |
+| [human-verification-worksheet.md](human-verification-worksheet.md) | G1/G4 licensed-source verification (process v3.1) | 1 worksheet per licensed standard; human verifies against the licensed copy |
 
 Findings from every pass use the shared severity scale:
 
