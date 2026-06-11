@@ -1,0 +1,14 @@
+{
+  "overall_impact": "Moderate",
+  "baseline": "Moderate",
+  "baseline_controls": 323,
+  "poam_open": 5,
+  "poam": [
+    {"id": "F-001", "severity": "High", "remediation_due": "2025-03-31"},
+    {"id": "F-002", "severity": "High", "remediation_due": "2025-03-31"},
+    {"id": "F-003", "severity": "Moderate", "remediation_due": "2025-05-30"},
+    {"id": "F-004", "severity": "Moderate", "remediation_due": "2025-05-30"},
+    {"id": "F-005", "severity": "Low", "remediation_due": "2025-08-28"}
+  ],
+  "classification": "FEDRAMP_MODERATE"
+}

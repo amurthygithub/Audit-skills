@@ -1,0 +1,11 @@
+{
+  "system_name": "Beacon Forms (low-impact SaaS)",
+  "csp": "Beacon Software, LLC",
+  "saas_delivery": true,
+  "fips199": {
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "Low"
+  },
+  "context": "readiness assessment / FedRAMP Ready"
+}

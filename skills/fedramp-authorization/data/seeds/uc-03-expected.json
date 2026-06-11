@@ -1,0 +1,11 @@
+{
+  "controls_total": 8,
+  "controls_tested_own": 6,
+  "inherited_count": 2,
+  "findings": ["AC-2", "SI-2", "AU-6", "CM-6"],
+  "poam_item_count": 4,
+  "findings_by_severity": {"High": 2, "Moderate": 1, "Low": 1},
+  "has_high_severity_finding": true,
+  "recommendation_note": "residual high-severity finding(s) present — authorizing official risk acceptance required before an ATO decision",
+  "classification": "SAR_FINDINGS_4"
+}

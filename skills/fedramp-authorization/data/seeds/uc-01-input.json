@@ -1,0 +1,18 @@
+{
+  "system_name": "Acme Cloud Suite (CSO)",
+  "csp": "Acme SaaS, Inc.",
+  "authorization_path": "agency",
+  "sponsoring_agency": "Department of Example",
+  "fips199": {
+    "confidentiality": "Moderate",
+    "integrity": "Low",
+    "availability": "Low"
+  },
+  "sar_findings": [
+    {"id": "F-001", "control": "AC-2", "severity": "High", "identified_date": "2025-03-01"},
+    {"id": "F-002", "control": "SI-2", "severity": "High", "identified_date": "2025-03-01"},
+    {"id": "F-003", "control": "AU-6", "severity": "Moderate", "identified_date": "2025-03-01"},
+    {"id": "F-004", "control": "CM-6", "severity": "Moderate", "identified_date": "2025-03-01"},
+    {"id": "F-005", "control": "CP-9", "severity": "Low", "identified_date": "2025-03-01"}
+  ]
+}

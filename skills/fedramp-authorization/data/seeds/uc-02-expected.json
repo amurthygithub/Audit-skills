@@ -1,0 +1,9 @@
+{
+  "overall_impact": "Low",
+  "li_saas_eligible": true,
+  "baseline": "LI-SaaS",
+  "baseline_controls": 156,
+  "controls_3pao_tested": 66,
+  "controls_attested": 90,
+  "classification": "LI_SAAS_ELIGIBLE"
+}
