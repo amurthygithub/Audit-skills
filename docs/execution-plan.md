@@ -63,7 +63,8 @@ The proving run for process v2 on a *build* (every prior G4.5 was a retrofit). *
 **Exit:** first born-vetted skill shipped; SOX-572 + SOX-638 closed; process-v2 lessons folded back into AGENTS.md.
 **Est:** 2–3 sessions.
 
-### M4 — Epic 6 harness, minimum viable slice (SOX-600 → SOX-601)
+### M4 — Epic 6 harness, minimum viable slice (SOX-600 → SOX-601) — steps 1–2 ✅ 2026-06-10
+Steps 1–2 shipped: ONE Python runner (`evals/harness/`, stack decision recorded), executor-agnostic fixture schema, validators (oracle_match / invariant / refusal), 2 pilot skills (audit-workpapers + hipaa-security-rule), the SIEVE MUS PoC wired end-to-end, and 2 of 4 generators (boundary sampler: 45 oracle-labeled cases; adversarial perturbation: 5). First harness dividend before the LLM executor even exists: the probe caught the MUS stub silently defaulting missing BV/TM and emitting a negative interval for negative TM — and an adversarial test that ASSERTED the silent default. All 58 cases run in CI against the stub oracle. Step 3 (measured reliability rows) requires the LLM executor (V3, SOX-602) — model + run-budget decisions pending.
 Can start in parallel with M3 (disjoint files) if running parallel sessions; otherwise directly after.
 
 | step | what | tickets |

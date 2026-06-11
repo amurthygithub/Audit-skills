@@ -1,0 +1,24 @@
+id: uc-01-dispositions
+skill: hipaa-security-rule
+use_case: UC-01
+description: >
+  Born-vetted pilot: CareSync Relay risk rollup + 164.306(d)(3) dispositions
+  from the shipped seeds; expected values are the oracle-labeled fixture.
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+  merge:
+    risks: data/seeds/uc-01-risks.json
+    addressable_register: data/seeds/uc-01-addressable-register.json
+expected:
+  risk_summary.total: 15
+  risk_summary.by_band.High: 4
+  risk_summary.by_band.Medium: 6
+  risk_summary.by_band.Low: 5
+  disposition_summary.implement: 15
+  disposition_summary.alternative_measure: 3
+  disposition_summary.not_reasonable_documented: 4
+  decision_required_count: 12
+  encryption_at_rest_disposition: implement
+  classification: RISKS_15_HIGH_4
+validators: [oracle_match]
+coverage_tags: [hipaa.risk-bands, hipaa.dispositions, hipaa.encryption-decision]

@@ -1,0 +1,14 @@
+id: gen-perturb-missing-bv
+skill: audit-workpapers
+use_case: UC-01
+description: "Generated perturbation (perturb.py): Drop the population book value \u2014 load-bearing\
+  \ fact gone; must ask, not assume."
+generated_by: evals/generators/perturb.py
+input:
+  tolerable_misstatement: 200000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+validators:
+- refusal
+coverage_tags:
+- perturbation.ask-vs-fabricate

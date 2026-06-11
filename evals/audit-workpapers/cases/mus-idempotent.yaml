@@ -1,0 +1,14 @@
+id: mus-idempotent
+skill: audit-workpapers
+use_case: UC-01
+description: Same input repeated must give the same classification (idempotence).
+input:
+  population_book_value: 12500000
+  tolerable_misstatement: 500000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+invariant:
+  type: idempotent
+  metric: classification
+validators: [invariant]
+coverage_tags: [invariant.idempotence]

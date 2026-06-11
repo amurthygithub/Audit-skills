@@ -1,0 +1,15 @@
+id: gen-perturb-off-table-ria
+skill: audit-workpapers
+use_case: UC-01
+description: 'Generated perturbation (perturb.py): RIA 7% is not in the RF table at 0 expected misstatements;
+  must refuse, not interpolate.'
+generated_by: evals/generators/perturb.py
+input:
+  population_book_value: 5000000
+  tolerable_misstatement: 200000
+  risk_of_incorrect_acceptance: 0.07
+  expected_overstatements: 0
+validators:
+- refusal
+coverage_tags:
+- perturbation.ask-vs-fabricate

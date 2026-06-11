@@ -1,0 +1,14 @@
+id: gen-perturb-missing-tm
+skill: audit-workpapers
+use_case: UC-01
+description: "Generated perturbation (perturb.py): Drop tolerable misstatement \u2014 must ask, not default\
+  \ to a materiality."
+generated_by: evals/generators/perturb.py
+input:
+  population_book_value: 5000000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+validators:
+- refusal
+coverage_tags:
+- perturbation.ask-vs-fabricate

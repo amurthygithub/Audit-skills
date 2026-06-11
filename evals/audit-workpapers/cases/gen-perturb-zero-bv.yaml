@@ -1,0 +1,17 @@
+id: gen-perturb-zero-bv
+skill: audit-workpapers
+use_case: UC-01
+description: "Generated perturbation (perturb.py): Zero population is degenerate but legal: n=0, NOT a\
+  \ refusal \u2014 the defective/unusual boundary."
+generated_by: evals/generators/perturb.py
+input:
+  population_book_value: 0
+  tolerable_misstatement: 200000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+validators:
+- oracle_match
+coverage_tags:
+- boundary.zero-population
+expected:
+  mus_evaluation.sample_size: 0

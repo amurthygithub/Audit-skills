@@ -1,0 +1,19 @@
+id: mus-tm-monotonic
+skill: audit-workpapers
+use_case: UC-01
+description: >
+  Metamorphic invariant (spec section 4): larger tolerable misstatement must
+  never increase the sample size.
+input:
+  population_book_value: 5000000
+  tolerable_misstatement: 200000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+invariant:
+  type: monotonic
+  param: tolerable_misstatement
+  values: [100000, 200000, 250000, 500000]
+  metric: mus_evaluation.sample_size
+  direction: non_increasing
+validators: [invariant]
+coverage_tags: [mus.sample-size, invariant.tm-monotonicity]

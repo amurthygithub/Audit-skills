@@ -1,0 +1,20 @@
+{
+ "skill": "audit-workpapers",
+ "cases": 54,
+ "coverage_tags": {
+  "boundary.ria-0.01": 10,
+  "boundary.ria-0.05": 10,
+  "boundary.ria-0.1": 9,
+  "boundary.ria-0.15": 9,
+  "boundary.ria-0.2": 9,
+  "boundary.ria-0.20": 1,
+  "boundary.zero-population": 1,
+  "invariant.idempotence": 1,
+  "invariant.ria-monotonicity": 1,
+  "invariant.tm-monotonicity": 1,
+  "mus.sample-size": 48,
+  "mus.sampling-interval": 46,
+  "perturbation.ask-vs-fabricate": 4
+ },
+ "note": "tags are DECLARED per case, not derived from the skill's decision tree \u2014 decision-path derivation is a later Epic 6 slice (SOX-603)"
+}
