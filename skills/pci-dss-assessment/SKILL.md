@@ -30,7 +30,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 - **Scoping a cardholder data environment (CDE)** — identifying system components that store, process, or transmit account data, plus connected-to and security-impacting systems, and using segmentation to reduce scope (the highest-leverage decision).
 - **Selecting a validation path** — choosing among the **10 SAQ types** (A, A-EP, B, B-IP, C, C-VT, D-Merchant, D-Service-Provider, P2PE, SPoC) or determining that a full **ROC** is required.
 - **Walking Requirements 1-12** — the 6 goals → 12 principal requirements → 63 sections structure, with paraphrased intent and evidence expectations.
-- **Distinguishing the defined vs customized approach** (Appendix D; requires a Targeted Risk Analysis) from a **compensating control** (Appendix B/C; four-element worksheet) — the single most confused topic in v4.
+- **Distinguishing the defined vs customized approach** (Appendix D; requires a Targeted Risk Analysis) from a **compensating control** (Appendix B/C; six-row worksheet) — the single most confused topic in v4.
 - **Building an AOC / ROC / SAQ submission package** or a service-provider responsibility matrix.
 - **Confirming v4.0.1 currency** — that v4.0.1 is the only active version and that all future-dated requirements are mandatory now (since 2025-03-31).
 
@@ -73,7 +73,7 @@ Everything downstream — which requirements apply, which SAQ fits, assessment e
 ### 3.4 Defined vs customized approach — and compensating controls
 - **Defined approach** — meet the requirement as written, validated by the stated testing procedures.
 - **Customized approach** (Appendix D/E) — meet the requirement's **objective** by a different method; **requires a Targeted Risk Analysis (TRA)**. Some requirements have **no customized-approach option**.
-- **Compensating control** (Appendix B/C) — for an **existing defined requirement** an entity **cannot meet** due to a **legitimate constraint**; documented via the **four worksheet elements** (constraints / objective / risk / controls-in-place). These are **distinct**: customized = meet the objective differently by design; compensating = a fallback for a requirement you cannot meet. See `chunks/07`.
+- **Compensating control** (Appendix B/C) — for an **existing defined requirement** an entity **cannot meet** due to a **legitimate constraint**; documented via the **six worksheet rows** (Constraints / Definition of Compensating Controls / Objective / Identified Risk / Validation of Compensating Controls / Maintenance). These are **distinct**: customized = meet the objective differently by design; compensating = a fallback for a requirement you cannot meet. See `chunks/07`.
 
 ### 3.5 Validation levels are brand-defined, not PCI SSC facts
 Merchant and service-provider "levels" (L1/L2/etc.) and any transaction thresholds are defined by the **payment brands and acquirers**, not by PCI SSC or the standard, and they **vary**. Never assert a level threshold as an SSC rule. See `chunks/08` and §9.
@@ -97,7 +97,7 @@ Merchant and service-provider "levels" (L1/L2/etc.) and any transaction threshol
 
 - **SAQ-eligibility selection** (page-architecture facts → A / A-EP / ROC + client-side-script flags) — `use-cases/uc-01-saq-selection.md`, `chunks/03 §Procedure`.
 - **CDE scope determination + segmentation effect** (system inventory tagged cde/connected/out → in-scope count) — `use-cases/uc-02-roc-segmentation.md`, `chunks/02 §Procedure`.
-- **Compensating-control worksheet** (four Appendix-C elements; customized-vs-compensating classification) — `use-cases/uc-03-compensating-control.md`, `chunks/07 §Procedure`.
+- **Compensating-control worksheet** (six Appendix-C rows; customized-vs-compensating classification) — `use-cases/uc-03-compensating-control.md`, `chunks/07 §Procedure`.
 - **ROC / AOC assembly** (assessor sampling, responsibility matrix, AOC parts) — `chunks/06 §Procedure`.
 - **Targeted Risk Analysis for a customized approach** — `chunks/07 §Procedure`.
 
@@ -105,7 +105,7 @@ Merchant and service-provider "levels" (L1/L2/etc.) and any transaction threshol
 
 - **SAQ-eligibility determination** (deciding factor + applicable client-side-script requirements 6.4.3 / 11.6.1) — `chunks/03 §Output template`.
 - **Scope inventory** (system, scope_tag, in/out, in-scope count, segmentation note) — `chunks/02 §Output template`.
-- **Compensating-control worksheet** (constraints / objective / risk / controls-in-place — exactly four elements) — `chunks/07 §Output template`.
+- **Compensating-control worksheet** (Constraints / Definition of Compensating Controls / Objective / Identified Risk / Validation of Compensating Controls / Maintenance — six rows) — `chunks/07 §Output template`.
 - **Customized-approach record** (requirement, objective, method, TRA reference) — `chunks/07 §Output template`.
 - **Requirement-coverage matrix** (section → applicable? → evidence) — `chunks/04` / `chunks/05 §Output template`.
 
@@ -124,8 +124,8 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | UC | Title | Persona | Key output |
 |----|-------|---------|------------|
 | UC-01 | E-commerce SaaS SAQ selection — "CartNimbus" (~2M txns, merchant) | auditee | SAQ A-EP (merchant scripts on the page, servers never touch PAN); 6.4.3 / 11.6.1 apply |
-| UC-02 | Retail full-ROC scoping + customized approach — "Ironvale Retail" (~8M txns) | assessor | In-scope system count from cde+connected tags; 8.3.6 customized approach accepted with a TRA |
-| UC-03 | Franchise SAQ-D compensating control — "Meridian QSA-Support" (solo, 30 sites) | assessor-support | Four-element worksheet complete; classified compensating-control (constraint-driven), not customized |
+| UC-02 | Retail full-ROC scoping + customized approach — "Ironvale Retail" (~8M txns) | auditee (retail security manager + QSA support) | In-scope system count from cde+connected tags; 8.3.6 customized approach accepted with a TRA |
+| UC-03 | Franchise SAQ-D compensating control — "Meridian QSA-Support" (solo, 30 sites) | assessor-support | Six-row worksheet complete; classified compensating-control (constraint-driven), not customized |
 
 ## 9. Anti-Hallucination Disclaimers
 
@@ -135,7 +135,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 - **No PAN in examples.** Full PAN is never shown in this skill's examples or outputs — model this as a teaching point.
 - **Count with a labeled convention.** 6 goals / 12 principal requirements / 63 sections / 249 main-body defined requirements (205 depth-3 + 44 depth-4) / 30 Appendix-A requirements / 10 SAQ types / appendices A-G. Never assert a bare requirement total.
 - **SAQ eligibility is derived, not assumed.** It follows from the payment-page architecture and entity role (service provider → ROC; merchant servers touch PAN → ROC; fully outsourced redirect/iframe with no merchant script → SAQ A; merchant controls scripts but servers never receive PAN → SAQ A-EP). If a deciding architecture fact is missing, ask for it rather than guessing.
-- **Customized ≠ compensating.** Customized approach (App D) meets the objective differently and needs a TRA; a compensating control (App B/C) is a fallback for an existing requirement an entity cannot meet due to a legitimate constraint, with the four worksheet elements. Some requirements have no customized-approach option.
+- **Customized ≠ compensating.** Customized approach (App D) meets the objective differently and needs a TRA; a compensating control (App B/C) is a fallback for an existing requirement an entity cannot meet due to a legitimate constraint, with the six worksheet rows. Some requirements have no customized-approach option.
 - **No crosswalk rows are encoded here.** The PCI↔CSF mapping anchor is the NIST OLIR reference [NIST-OLIR]; this skill ships zero rows.
 - **v4.0.1 is the only active version** (v4.0 retired 2024-12-31); no successor announced as of 2026-06-11. Re-verify currency before any version-sensitive answer.
 

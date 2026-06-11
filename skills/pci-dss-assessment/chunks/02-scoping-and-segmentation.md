@@ -55,7 +55,7 @@ This rule **applies** the standard's scoping criteria; it is labeled as decision
 
 Rollup: `total_systems`, `cde_systems`, `in_scope_systems` (cde+connected), `out_of_scope_systems`, with `in_scope + out_of_scope == total` enforced.
 
-**Worked illustration (UC-02 shape):** a 14-system retail inventory tagged 5 `cde` (POS terminals, payment switch, card vault, store controller, e-comm web), 4 `connected` (AD, SIEM, jump host, patch server, backup), and the remainder `out` (corp email, HR, guest wifi, dev sandbox) yields **9 in scope, 5 out of scope** — see `use-cases/uc-02-roc-segmentation.md`. Reordering the inventory does not change the counts.
+**Worked illustration (UC-02 shape):** a 14-system retail inventory tagged 5 `cde` (POS terminals, payment switch, card vault, store controller, e-comm web), 5 `connected` (AD, SIEM, jump host, patch server, backup), and the remainder `out` (corp email, HR, guest wifi, dev sandbox) yields **10 in scope, 4 out of scope** — see `use-cases/uc-02-roc-segmentation.md`. Reordering the inventory does not change the counts.
 
 ## 6. Assessor sampling
 

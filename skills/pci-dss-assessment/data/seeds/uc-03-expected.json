@@ -1,6 +1,6 @@
 {
  "control_type": "compensating_control",
- "worksheet_elements_present": 4,
+ "worksheet_elements_present": 6,
  "worksheet_complete": true,
  "missing_elements": [],
  "classification": "COMP_CONTROL_COMPLETE"

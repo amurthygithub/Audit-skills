@@ -32,9 +32,9 @@ These are three separate things and the skill keeps them distinct:
   inability to comply. Several requirements have no customized-approach option.
 - **Compensating control (Appendix B/C)** — for an **existing defined requirement** an entity
   **cannot meet because of a legitimate business or technical constraint**. It must meet the
-  intent and rigor of the original requirement and is documented with the **four Compensating
-  Controls Worksheet elements** (constraints, original objective, identified risk, controls in
-  place). It is **constraint-driven**.
+  intent and rigor of the original requirement and is documented with the **six Compensating
+  Controls Worksheet rows** (Constraints; Definition of Compensating Controls; Objective;
+  Identified Risk; Validation of Compensating Controls; Maintenance). It is **constraint-driven**.
 
 Confusing these is the most common substantive error in PCI scoping; the chunks and use cases
 label which mechanism applies in every example.

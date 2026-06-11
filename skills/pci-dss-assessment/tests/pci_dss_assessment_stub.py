@@ -18,8 +18,8 @@ licensed copy, but the *routing decision* is the skill's own logic):
   - Scope: in-scope = CDE + connected/security-impacting; out = segmented-and-
     validated out of scope.
   - Customized approach (Appendix D) requires a Targeted Risk Analysis; a
-    compensating control (Appendix B/C) requires the four worksheet elements and
-    a legitimate constraint against an existing defined requirement.
+    compensating control (Appendix B/C) requires the six Appendix-C worksheet
+    rows and a legitimate constraint against an existing defined requirement.
 """
 
 from __future__ import annotations
@@ -32,11 +32,15 @@ from typing import Any
 DATA = Path(__file__).resolve().parent.parent / "data"
 SEEDS = DATA / "seeds"
 
+# PCI DSS v4.0.1 Appendix C "Compensating Controls Worksheet" — the SIX required rows
+# (verified against the licensed copy 2026-06-11; an earlier build wrongly used four).
 WORKSHEET_ELEMENTS = [
-    "constraints_documented",
-    "objective_of_original_requirement_stated",
-    "identified_risk_documented",
-    "controls_in_place_described",
+    "constraints_documented",                 # 1. Constraints
+    "compensating_controls_defined",          # 2. Definition of Compensating Controls
+    "objective_of_original_requirement_stated",  # 3. Objective
+    "identified_risk_documented",             # 4. Identified Risk
+    "validation_of_compensating_controls",    # 5. Validation of Compensating Controls
+    "maintenance_documented",                 # 6. Maintenance
 ]
 
 

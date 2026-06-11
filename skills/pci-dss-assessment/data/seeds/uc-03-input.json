@@ -15,9 +15,11 @@
   "constraints_documented": true,
   "objective_of_original_requirement_stated": true,
   "identified_risk_documented": true,
-  "controls_in_place_described": true,
-  "controls": "network isolation of legacy POS + MFA at the jump host + enhanced logging/alerting"
+  "controls": "network isolation of legacy POS + MFA at the jump host + enhanced logging/alerting",
+  "compensating_controls_defined": true,
+  "validation_of_compensating_controls": true,
+  "maintenance_documented": true
  },
  "as_of_date": "2026-06-11",
- "notes": "Appendix B/C: a compensating control addresses an EXISTING defined requirement an entity cannot meet due to a legitimate constraint, and must meet the intent/rigor via the 4 worksheet elements. Distinct from a customized approach (Appendix D), which meets the requirement's objective by a different method with a TRA and is NOT constraint-driven."
+ "notes": "Appendix C compensating-controls worksheet has SIX required rows (Constraints; Definition of Compensating Controls; Objective; Identified Risk; Validation; Maintenance). A compensating control addresses an EXISTING defined requirement an entity cannot meet due to a legitimate constraint; distinct from a customized approach (Appendix D), which meets the objective by a different method with a TRA and is NOT constraint-driven."
 }

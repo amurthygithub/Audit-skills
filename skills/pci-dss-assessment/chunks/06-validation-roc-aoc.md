@@ -29,7 +29,7 @@ Every assessment, whether SAQ- or ROC-based, produces an **AOC**. The AOC is wha
 
 A ROC documents, per the assessor template:
 - **Scope** — the CDE, in-scope components, segmentation, and connected-to systems (`chunks/02`).
-- **Per-requirement findings** — for each applicable section: the **approach used** (defined or customized — `chunks/07`), the testing performed, and the finding (In Place / Not Applicable / Not Tested / Not in Place), with any **compensating controls** documented via the worksheet.
+- **Per-requirement findings** — for each applicable section: the **approach used** (defined or customized — `chunks/07`), the testing performed, and the finding (In Place / Not Applicable / Not Tested / Not in Place), with any **compensating controls** documented via the worksheet. (Those four statuses are the defined-approach set; the customized-approach finding column and the exact status set are defined by the governing PCI SSC assessor ROC template — verify against it.)
 - **Sampling rationale** — where representative samples were tested instead of full populations (`chunks/02 §6`); sampling never narrows scope.
 - **Evidence references** — interviews, observations, documentation, and configuration reviews supporting each finding.
 
@@ -46,7 +46,7 @@ Where a service provider performs PCI DSS controls on a customer's behalf (Req 1
 1. **Confirm scope** (`chunks/02`) and the validation path (SAQ vs ROC, `chunks/03`).
 2. For each applicable section, record the **approach** (defined/customized) and gather testing evidence.
 3. Document **sampling** rationale where populations are large and centrally managed.
-4. Record any **compensating controls** with the four-element worksheet and any **customized approaches** with their TRA (`chunks/07`).
+4. Record any **compensating controls** with the six-row worksheet and any **customized approaches** with their TRA (`chunks/07`).
 5. Capture the **service-provider responsibility matrix** for outsourced functions.
 6. Produce the **AOC** summary consistent with the ROC/SAQ findings; reconcile every "In Place" to evidence.
 

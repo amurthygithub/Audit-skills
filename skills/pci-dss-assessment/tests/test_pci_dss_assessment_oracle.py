@@ -101,7 +101,7 @@ def test_uc_03_oracle():
             if payload["constraint"]["legitimate_business_or_technical_constraint"]
             else "customized_approach")
     assert out["control_type"] == kind == "compensating_control"
-    assert len(WORKSHEET_ELEMENTS) == 4  # Appendix C: exactly four elements
+    assert len(WORKSHEET_ELEMENTS) == 6  # Appendix C: six required rows
     assert out["classification"] == f"COMP_CONTROL_{'COMPLETE' if not missing else 'INCOMPLETE'}"
 
     expected = _load("uc-03-expected.json")

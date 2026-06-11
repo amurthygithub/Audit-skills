@@ -10,7 +10,7 @@ The skill's spine is **routing**: PCI's value to a consumer is "which validation
 
 - **UC-01 — E-commerce SAQ selection** (CartNimbus, a ~2M-transaction merchant): a direct-post payment page with merchant scripts on it but whose servers never receive PAN resolves to **SAQ A-EP** — and the client-side script requirements **6.4.3 / 11.6.1** apply (they do not on a pure SAQ A redirect/iframe with no merchant script; merchant servers touching PAN would force a full ROC).
 - **UC-02 — Full ROC scoping + segmentation + customized approach** (Ironvale Retail, a ~8M-transaction L1 merchant): a 14-system inventory scopes to **10 in-scope / 4 out-of-scope** (5 CDE), segmentation lowers the in-scope count deterministically, and one customized-approach request (req 8.3.6) **with a Targeted Risk Analysis is accepted**.
-- **UC-03 — Compensating-control worksheet** (Meridian QSA-Support, a solo consultant supporting a 30-location franchise on SAQ D): a legacy POS that cannot meet a Req-8 auth control is a **compensating control** (not a customized approach), and with all four Appendix-C worksheet elements present the **worksheet is complete**.
+- **UC-03 — Compensating-control worksheet** (Meridian QSA-Support, a solo consultant supporting a 30-location franchise on SAQ D): a legacy POS that cannot meet a Req-8 auth control is a **compensating control** (not a customized approach), and with all six Appendix-C worksheet rows present the **worksheet is complete**.
 
 Every UC is seed-backed with **derivability oracles**: the tests recompute each expected number independently from `data/seeds/` (no echoed verdicts). The skill ships **~30 tests** across oracle, metamorphic, adversarial, and structural suites.
 

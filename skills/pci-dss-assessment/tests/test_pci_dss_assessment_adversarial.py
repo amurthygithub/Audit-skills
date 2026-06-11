@@ -70,11 +70,11 @@ def test_uc03_incomplete_worksheet_flagged():
     """A compensating control missing a worksheet element is incomplete."""
     payload = _load("uc-03-input.json")
     payload = dict(payload)
-    pcc = {**payload["proposed_compensating_control"], "identified_risk_documented": False}
+    pcc = {**payload["proposed_compensating_control"], "maintenance_documented": False}
     payload["proposed_compensating_control"] = pcc
     out = run_skill("UC-03", payload)
     assert out["worksheet_complete"] is False
-    assert "identified_risk_documented" in out["missing_elements"]
+    assert "maintenance_documented" in out["missing_elements"]
     assert out["classification"] == "COMP_CONTROL_INCOMPLETE"
 
 

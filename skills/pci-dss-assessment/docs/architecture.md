@@ -81,9 +81,9 @@ are asserted on every output. Concretely:
 - UC-02: the in-scope count (CDE + connected/security-impacting), out-of-scope count, and the
   customized-approach accept/reject split (Appendix D requires a documented Targeted Risk
   Analysis) are each recomputed from the seed inventory, with the footing invariant asserted.
-- UC-03: the four-element compensating-control worksheet completeness (Appendix B/C) and the
+- UC-03: the six-row compensating-control worksheet completeness (Appendix B/C) and the
   compensating-control-vs-customized-approach control-type classification (constraint-driven vs
-  TRA-driven) are re-derived from the seed, and `len(WORKSHEET_ELEMENTS) == 4` is asserted.
+  TRA-driven) are re-derived from the seed, and `len(WORKSHEET_ELEMENTS) == 6` is asserted.
 
 The stub (`pci_dss_assessment_stub.py`) is a deterministic reference implementation — it
 computes, it never echoes fixture values. The seed + oracle pair is the contract; the UC docs
