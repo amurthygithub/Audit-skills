@@ -59,8 +59,12 @@ Each framework uses a different severity tier system. The table below reconciles
 ### Evidence-type crosswalk and the FedRAMP scope boundary
 
 The AS 1105 evidence types loosely correspond to the SP 800-53A assessment methods —
-**inspection/recalculation ↔ Examine**, **inquiry ↔ Interview**, **reperformance/observation ↔
-Test** — but treat this as an *orientation aid, not an equivalence*: AS 1105 governs sufficiency
+**inspection / observation / recalculation ↔ Examine**, **inquiry ↔ Interview**, **reperformance
+↔ Test** — but treat this as an *orientation aid, not an equivalence*. Under 800-53A, *Examine*
+is "reviewing, inspecting, observing, studying, analyzing" — so observation sits on the Examine
+side, not Test, which *exercises* an object. **Confirmation and analytical procedures have no clean
+800-53A analog** — 800-53A has no third-party-confirmation or financial-relationship method.
+The deeper reason this is orientation and not a mapping: AS 1105 governs sufficiency
 of *audit* evidence for an opinion, while 800-53A governs control-assessment *determinations* for
 an authorization. **This skill is scoped to financial-statement / ICFR / GAGAS workpapers, not
 FedRAMP control assessments.** For a 3PAO control-assessment workflow (SAP/SAR, examine-interview-

@@ -14,7 +14,7 @@ Status: **draft v0.2.0**, on Tier 0 Spine, 44 tests passing, linter-clean. The s
 | **SI** | Sampling interval (BV ÷ sample size, or TM ÷ reliability factor) |
 | **BP** | Basic precision (reliability factor × SI) |
 | **ULM** | Upper limit on misstatement |
-| **TD** | Tolerable deviation rate (= the risk of incorrect acceptance for an attribute test) |
+| **TD** | Allowable risk of incorrect acceptance for a substantive test of details — the detection-risk term in the audit risk model AR = IR×CR×AP×TD (this is what UC-03 computes; *not* the attribute-sampling tolerable deviation rate for controls) |
 | **PM** | Performance materiality · **RF** Reliability factor · **PEO/PFO** principal executive/financial officer |
 | **C-C-C-E-R** | Condition · Criteria · Cause · Effect · Recommendation (the 5-part finding) |
 

@@ -81,7 +81,9 @@ Recommendation (what to do — specific, ownerable actions): ___________________
 ```
 
 The skill reports `ccc_er_complete: false` and lists `finding_missing_parts` until all five
-are filled — so a preparer knows exactly what is still missing.
+are filled — so a preparer knows exactly what is still missing. **Completeness is not
+correctness:** a finding with all five parts present can still cite the wrong criteria or
+mis-quantify the effect — the green check means "nothing left blank," not "audit-ready."
 
 ## C — Management response / remediation template
 
