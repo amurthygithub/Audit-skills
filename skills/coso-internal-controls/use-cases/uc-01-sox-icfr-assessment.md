@@ -31,6 +31,15 @@ status: stub
 
 Mid-cap public regional bank ($12B assets, accelerated filer) performing annual SOX 404 ICFR assessment. Three processes: loan origination, deposit operations, investment securities. COSO 2013 ICIF framework.
 
+## Scoping note (always-in-scope items)
+
+Two scope elements are **always in scope** for an accelerated filer and must not be scoped out
+by a risk-based narrowing: (1) the **period-end financial reporting process** (consolidation,
+journal entries, the financial close, and the controls over them), and (2) the **IT general
+controls (ITGCs)** supporting any system relied on for financially significant application
+controls or IPE. A top-down, risk-based scope reduces *transaction-level* coverage; it never
+removes the period-end close or the ITGCs underneath the controls that remain in scope.
+
 ## Walk-through
 
 Phase 1: Scope significant accounts and relevant assertions per AS 2201.

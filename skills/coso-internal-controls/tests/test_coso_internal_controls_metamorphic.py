@@ -3,16 +3,26 @@ from __future__ import annotations
 from coso_internal_controls_stub import run_skill
 
 def test_uc02_deficiency_removed():
-    out = run_skill("UC-02", {"deficiency_description": "", "affected_accounts": [], "affected_assertions": [], "compensating_controls_candidates": [], "preliminary_classification": "D"})
-    assert out["classification"] == "Significant Deficiency"
+    out = run_skill("UC-02", {"deficiency": {}, "preliminary_classification": "D"})
+    assert out["classification"] == "INSUFFICIENT_INPUT"
     assert len(out["compensating_control_analysis"]) == 0
 
-def test_uc02_compensating_controls_match():
-    out = run_skill("UC-02", {"deficiency_description": "ERP gap", "affected_accounts": ["OpEx","Payroll"], "affected_assertions": ["Existence"], "compensating_controls_candidates": ["Bank reconciliation (monthly, precise)","Payroll reconciliation (monthly, precise)","Budget variance analysis (monthly, low precision)"], "preliminary_classification": "SD"})
+def test_uc02_reconciliations_fail_occurrence_test():
+    """Reconciliations address completeness/accuracy and draw IPE from the affected
+    system, so none qualify against the occurrence assertion (SOX-641 contract)."""
+    out = run_skill("UC-02", {
+        "deficiency": {"type": "itgc_logical_access", "affected_systems": ["ERP"],
+                       "assertion_at_risk": "occurrence"},
+        "authority_of_retained_access": {"can_create_vendors": True}, "materiality": 100000,
+        "compensating_controls_candidates": [
+            {"control": "Bank reconciliation", "assertions_addressed": ["completeness","accuracy"], "relies_on_ipe_from": "ERP"},
+            {"control": "Payroll reconciliation", "assertions_addressed": ["completeness","accuracy"], "relies_on_ipe_from": "ERP"},
+            {"control": "Budget variance analysis", "assertions_addressed": ["completeness"], "relies_on_ipe_from": "ERP"}],
+        "lookback": {"performed": False}})
     analysis = out["compensating_control_analysis"]
     assert len(analysis) == 3
-    assert len([a for a in analysis if a["precision"]=="sufficient"]) == 2
-    assert len([a for a in analysis if a["precision"]=="insufficient"]) == 1
+    assert all(not a["qualifies"] for a in analysis)
+    assert out["qualifying_compensating_controls"] == []
 
 def test_uc01_more_processes_more_controls():
     o1 = run_skill("UC-01", {"entity_description": "Bank", "processes": ["Loan Origination"]})

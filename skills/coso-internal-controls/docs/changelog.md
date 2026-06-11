@@ -26,3 +26,10 @@ All notable changes are documented here.
 
 ### Added
 - Initial monolithic SKILL.md (1,879 lines) covering COSO ICIF 2013, ERM 2017, SOX 404, PCAOB AS 2201, walkthroughs, deficiency classification, RcM, report templates, compensating controls, emerging tech, cross-references, and examples.
+
+## 2026-06-11 — SOX-641 (correctness slice): UC-02 occurrence-assertion rework + citation hygiene
+
+- **UC-02 reworked from a security-unsound SD to a derivable Material Weakness** (3PAO CRITICAL; Partner put MW on the table). The compensating-control test is now two-part: a control mitigates only if it (1) addresses the ASSERTION AT RISK (improper access → occurrence/validity, not the completeness/accuracy that reconciliations cover) AND (2) is independent of the deficiency (not drawing IPE from the affected system). The three reconciliations fail both. Added: ITGC-pervasiveness step, authority-driven magnitude (not a per-transaction cap), and the lookback procedure that gates the conclusion. Full-stack: seed + stub (computes the classification) + derivability oracle + metamorphic test (a qualifying occurrence-control + affirmative lookback moves it off MW) + UC doc + chunk 07.
+- **Citation hygiene:** COSO-RPA-2024 and COSO-GenAI-2026 verified REAL (not fabricated) and re-cited with correct titles ("Achieving Effective Internal Control Over Robotic Process Automation", Dec 2024; "Achieving Effective Internal Control Over Generative AI (GenAI)", Feb 2026, coso.org/generative-ai).
+- **UC-01 scoping note:** the period-end financial reporting process and ITGCs are always in scope for an accelerated filer (a risk-based scope reduces transaction coverage, never these).
+- Split to own tickets: Green Book layer (SOX-668), 404(a) path (SOX-669), non-issuer branch (SOX-670). PoF-count audit gated on the COSO 2013 copy.

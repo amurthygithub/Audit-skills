@@ -29,11 +29,17 @@ def test_uc01_trace_has_processes():
     assert out["rcm"]["processes"] == 1
     assert "entity_level_controls" in out
 
-def test_uc02_trace_decision_tree():
-    out = run_skill("UC-02", {"deficiency_description": "IT gap", "affected_accounts": ["OpEx"], "affected_assertions": ["Existence"], "compensating_controls_candidates": ["Bank reconciliation"], "preliminary_classification": "SD"})
-    for step in ["step1", "step2", "step3"]:
-        assert step in out["decision_tree"]
-    assert out["mw_indicators"]["any_present"] is False
+def test_uc02_trace_compensating_analysis():
+    out = run_skill("UC-02", {
+        "deficiency": {"type": "itgc_logical_access", "affected_systems": ["ERP"],
+                       "assertion_at_risk": "occurrence"},
+        "authority_of_retained_access": {"can_create_vendors": True}, "materiality": 100000,
+        "compensating_controls_candidates": [
+            {"control": "Bank reconciliation", "assertions_addressed": ["completeness"], "relies_on_ipe_from": "ERP"}],
+        "lookback": {"performed": False}})
+    assert "compensating_control_analysis" in out
+    assert "recommended_procedures" in out
+    assert out["assertion_at_risk"] == "occurrence"
 
 def test_uc03_trace_17_principles():
     out = run_skill("UC-03", {"entity_description": "TestCo", "assessment_date": "2026-06-30"})
