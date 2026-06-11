@@ -1,29 +1,35 @@
 ---
 name: audit-category-pointer
-description: "Pointer to a library of 4 specialized Audit skills — ISACA, COSO, AICPA SOC, and Audit Workpapers. Use when working on IT audit, internal controls, SOC reporting, or audit documentation tasks."
+description: "Pointer to a library of 7 specialized audit/compliance skills — ISACA, COSO, AICPA SOC, Audit Workpapers, NIST 800-53/RMF, NIST CSF 2.0, and HIPAA Security Rule. Use when working on IT audit, internal controls, SOC reporting, audit documentation, federal control baselines, cybersecurity maturity, or HIPAA security compliance tasks."
 category: audit
 risk: safe
 source: custom
 date_added: "2026-05-25"
-tags: [audit, isaca, coso, aicpa, soc, itgc, sox, workpapers, compliance, governance]
+tags: [audit, isaca, coso, aicpa, soc, itgc, sox, workpapers, compliance, governance, nist, 800-53, rmf, fedramp, csf, hipaa, security-rule]
 ---
 
 # Audit Capability Library
 
-This is a **pointer skill**. The 4 specialized Audit skills are stored on disk to keep your startup context minimal.
+This is a **pointer skill**. The 7 specialized skills are stored on disk to keep your startup
+context minimal. Counts and framework facts live in each skill (verified against live
+sources at its G4.5 gate) — this pointer deliberately repeats none of them.
 
 ## Available skills in this category
 
-- **isaca-audit-methodology** — ISACA CISA audit methodology, COBIT 2019 (40 objectives), ITAF standards, ITGC/ITAC testing, risk-based audit planning, 5-part observation format, maturity assessment.
-- **coso-internal-controls** — COSO 2013 ICIF (17 principles, 77 points of focus), COSO 2017 ERM, SOX 404 readiness, PCAOB AS 2201 top-down approach, deficiency classification (material weakness/significant deficiency/deficiency).
-- **aicpa-soc-reporting** — AICPA SOC 1/2/3 reporting, 64 TSP Section 100 criteria, CUECs/CSOCs, bridge letters, management assertions, opinion determination, SOC for Cybersecurity/Supply Chain.
-- **audit-workpapers** — Audit workpaper standards (AS 1215, AU-C 230), sampling methodology (MUS/PPS, attribute, variables), evidence hierarchy, 5-part finding format, engagement completion, opinion determination.
+- **isaca-audit-methodology** — ISACA CISA audit methodology, COBIT 2019, ITAF (5th Edition), ITGC/ITAC testing, risk-based audit planning, maturity assessment.
+- **coso-internal-controls** — COSO 2013 ICIF and 2017 ERM, SOX 404 readiness, PCAOB AS 2201 top-down approach, deficiency classification (MW/SD/D), walkthroughs, RCM.
+- **aicpa-soc-reporting** — SOC 1/2/3 engagements, Trust Services Criteria (TSP §100), CUECs/CSOCs, bridge letters, management assertions, opinion determination.
+- **audit-workpapers** — workpaper standards (PCAOB AS 1215, AU-C 230, ISA 230), evidence hierarchy, sampling (MUS/attribute/variables), finding formats, engagement completion.
+- **nist-800-53-rmf** — NIST SP 800-53 Rev 5 control baselines, SP 800-37 RMF steps, FIPS 199 categorization, FedRAMP context, SOC 2/ISO/PCI/HIPAA crosswalks, ATO artifacts.
+- **nist-csf-2** — NIST CSF 2.0 organizational profiles, tiers, gap analysis, board-level maturity reporting, crosswalks to 800-53/ISO/SOC 2/CMMC.
+- **hipaa-security-rule** — 45 CFR Part 164 Subpart C safeguards, required-vs-addressable dispositions, risk analysis, BAA requirements, OCR readiness, enforcement and (proposed) NPRM context.
 
 ## How to load a skill
 
 1. Identify the skill name above matching your task.
-2. Read its `SKILL.md` from the skill directory:
-   - `/Users/akshaya.murthy/.config/opencode/skills/audit-category-pointer/<skill-name>/SKILL.md`
+2. Read `skills/<skill-name>/SKILL.md` (the router); load the chunks its §11 routing table
+   selects for your intent. In an installed environment, read the skill's `SKILL.md` from
+   wherever this library was installed.
 3. Follow those instructions to complete the request.
 
 > Do not guess best practices — always read from the skill file first.
@@ -36,3 +42,6 @@ This is a **pointer skill**. The 4 specialized Audit skills are stored on disk t
 | SOX 404, internal control evaluation, deficiency classification | coso-internal-controls |
 | SOC 1/2/3 scoping, TSC criteria, service org reporting | aicpa-soc-reporting |
 | Workpapers, sampling, evidence documentation, findings | audit-workpapers |
+| FIPS-199 categorization, 800-53 baselines, ATO/POA&M, FedRAMP | nist-800-53-rmf |
+| Cyber maturity profiles, board reporting, framework crosswalks | nist-csf-2 |
+| HIPAA safeguards, addressable decisions, BAAs, OCR readiness | hipaa-security-rule |
