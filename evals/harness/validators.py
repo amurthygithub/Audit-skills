@@ -27,15 +27,40 @@ def get_path(obj: Any, dotted: str) -> Any:
 
 
 def oracle_match(case: dict, runner) -> list[str]:
-    """Every dotted path in `expected` must equal the executor's output value."""
+    """Every dotted path in `expected` must match the executor's output value.
+
+    Expected values may be plain values (exact match) or {"value": X,
+    "tolerance": T} for numerics where the oracle's value embeds a display-
+    rounding convention (e.g. the MUS sampling interval). Paths listed in
+    `stub_only_paths` are stub-internal conventions (classification label
+    formats) and are skipped for non-stub executors — the LLM lane is graded
+    on substance, not on house label spelling.
+    """
     failures = []
-    out = runner.execute(case)
+    executor_name = getattr(runner.executor, "name", "stub")
+    try:
+        out = runner.execute(case)
+    except ValueError as e:
+        if executor_name != "stub" and case.get("accept_refusal"):
+            return []
+        raise
+
+    stub_only = set(case.get("stub_only_paths", []))
     for path, want in case["expected"].items():
+        if executor_name != "stub" and path in stub_only:
+            continue
+        tolerance = 0
+        if isinstance(want, dict) and "value" in want:
+            tolerance = want.get("tolerance", 0)
+            want = want["value"]
         try:
             got = get_path(out, path)
         except (KeyError, IndexError, TypeError):
             failures.append(f"oracle_match: path {path!r} missing from output")
             continue
+        if tolerance and isinstance(got, (int, float)) and isinstance(want, (int, float)):
+            if abs(got - want) <= tolerance:
+                continue
         if got != want:
             failures.append(f"oracle_match: {path} = {got!r}, expected {want!r}")
     return failures

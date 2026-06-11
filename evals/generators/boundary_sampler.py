@@ -58,10 +58,13 @@ def main() -> None:
                     "input": payload,
                     "expected": {
                         "mus_evaluation.sample_size": mus["sample_size"],
-                        "mus_evaluation.sampling_interval": mus["sampling_interval"],
+                        # display-rounded by the stub; true interval may differ by <1
+                        "mus_evaluation.sampling_interval": {
+                            "value": mus["sampling_interval"], "tolerance": 1},
                         "mus_evaluation.reliability_factor": mus["reliability_factor"],
                         "classification": label["classification"],
                     },
+                    "stub_only_paths": ["classification"],
                     "validators": ["oracle_match"],
                     "coverage_tags": [f"boundary.ria-{ria}", "mus.sample-size",
                                       "mus.sampling-interval"],

@@ -54,3 +54,10 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 - This skill is an eval-harness pilot: 54 cases under `evals/audit-workpapers/cases/`
   (4 hand-written incl. the SIEVE MUS PoC, 45 boundary-sampled, 5 perturbations),
   oracle-labeled and CI-enforced.
+
+## 2026-06-10 — eval-driven skill fix: RF table interpolation barred
+
+- chunks/03-sampling.md: explicit "off-table parameters: do not interpolate" instruction
+  after the RF table. Found by the LLM eval lane (sweep 1): at RIA 7% the model answered by
+  interpolating instead of refusing — ambiguous instructions are a skill bug
+  (validation-harness-design.md section 7). Post-fix: 2/2 refusals.

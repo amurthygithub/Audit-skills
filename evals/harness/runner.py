@@ -62,7 +62,14 @@ class Runner:
         return payload
 
     def execute(self, case: dict) -> dict:
-        return self.executor.run(case["skill"], case["use_case"], self.build_payload(case))
+        kwargs = {}
+        if getattr(self.executor, "name", "") == "llm":
+            if "expected" in case:
+                kwargs["required_paths"] = sorted(case["expected"])
+            elif "invariant" in case:
+                kwargs["required_paths"] = [case["invariant"].get("metric", "classification")]
+        return self.executor.run(case["skill"], case["use_case"],
+                                 self.build_payload(case), **kwargs)
 
     def run_case(self, case: dict, runs: int) -> dict:
         passes, failures = 0, []
@@ -70,7 +77,10 @@ class Runner:
         for i in range(n):
             run_failures = []
             for v in case["validators"]:
-                run_failures.extend(VALIDATORS[v](case, self))
+                try:
+                    run_failures.extend(VALIDATORS[v](case, self))
+                except Exception as e:  # an unexpected executor/parse error is a failed run
+                    run_failures.append(f"{v}: {type(e).__name__}: {e}")
             if run_failures:
                 failures.append({"run": i + 1, "failures": run_failures})
             else:
@@ -105,10 +115,15 @@ def eval_skills() -> list[str]:
     return sorted(p.parent.name for p in EVALS.glob("*/cases") if p.is_dir())
 
 
-def run_skill_evals(skill: str, executor_name: str, runs: int) -> dict:
-    executor = EXECUTORS[executor_name]()
+def run_skill_evals(skill: str, executor_name: str, runs: int,
+                    model: str | None = None, only: list[str] | None = None) -> dict:
+    executor = (EXECUTORS[executor_name](model=model) if model and executor_name == "llm"
+                else EXECUTORS[executor_name]())
     runner = Runner(executor)
-    results = [runner.run_case(c, runs) for c in load_cases(skill)]
+    cases = load_cases(skill)
+    if only:
+        cases = [c for c in cases if c["id"] in only]
+    results = [runner.run_case(c, runs) for c in cases]
     tags: dict[str, int] = {}
     for r in results:
         for t in r["coverage_tags"]:
@@ -116,11 +131,13 @@ def run_skill_evals(skill: str, executor_name: str, runs: int) -> dict:
     report = {
         "skill": skill,
         "executor": executor_name,
+        "model": model,
         "cases": len(results),
         "overall_pass_rate": (sum(r["passes"] for r in results)
                               / max(1, sum(r["runs"] for r in results))),
         "results": results,
     }
+    write_coverage = executor_name == "stub" and not only
     coverage = {
         "skill": skill,
         "cases": len(results),
@@ -128,10 +145,12 @@ def run_skill_evals(skill: str, executor_name: str, runs: int) -> dict:
         "note": "tags are DECLARED per case, not derived from the skill's decision "
                 "tree — decision-path derivation is a later Epic 6 slice (SOX-603)",
     }
-    (EVALS / skill / "coverage.json").write_text(json.dumps(coverage, indent=1) + "\n")
+    if write_coverage:
+        (EVALS / skill / "coverage.json").write_text(json.dumps(coverage, indent=1) + "\n")
     reports = EVALS / "reports"
     reports.mkdir(exist_ok=True)
-    (reports / f"{skill}.{executor_name}.latest.json").write_text(
+    suffix = f".{model}" if model else ""
+    (reports / f"{skill}.{executor_name}{suffix}.latest.json").write_text(
         json.dumps(report, indent=1) + "\n")
     return report
 
@@ -145,13 +164,16 @@ def main() -> int:
                     help="default runs per case (case-level `runs` overrides)")
     ap.add_argument("--pass-rate", type=float, default=1.0,
                     help="minimum per-case pass rate to exit 0")
+    ap.add_argument("--model", help="model id for --executor llm")
+    ap.add_argument("--only", nargs="*", help="run only these case ids")
     args = ap.parse_args()
     skills = eval_skills() if args.all else [args.skill]
     if not skills or skills == [None]:
         ap.error("--skill <name> or --all required")
     ok = True
     for skill in skills:
-        report = run_skill_evals(skill, args.executor, args.runs)
+        report = run_skill_evals(skill, args.executor, args.runs,
+                                 model=args.model, only=args.only)
         for r in report["results"]:
             flag = "PASS" if r["pass_rate"] >= args.pass_rate else "FAIL"
             if flag == "FAIL":

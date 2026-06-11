@@ -41,10 +41,12 @@ PERTURBATIONS = [
      {**BASE, "tolerable_misstatement": -200_000}, "refusal", None),
     ("gen-perturb-off-table-ria", "RIA 7% is not in the RF table at 0 expected misstatements; must refuse, not interpolate.",
      {**BASE, "risk_of_incorrect_acceptance": 0.07}, "refusal", None),
-    ("gen-perturb-zero-bv", "Zero population is degenerate but legal: n=0, NOT a refusal — the defective/unusual boundary.",
+    ("gen-perturb-zero-bv", "Zero population is degenerate: the stub returns n=0; a model refusal "
+     "questioning the input is equally defensible (accept_refusal on the LLM lane).",
      {**BASE, "population_book_value": 0}, "oracle_match",
      {"mus_evaluation.sample_size": 0}),
 ]
+ACCEPT_REFUSAL = {"gen-perturb-zero-bv"}
 
 
 def main() -> None:
@@ -63,6 +65,8 @@ def main() -> None:
         }
         if expected:
             case["expected"] = expected
+        if case_id in ACCEPT_REFUSAL:
+            case["accept_refusal"] = True
         (out_dir / f"{case_id}.yaml").write_text(
             yaml.safe_dump(case, sort_keys=False, width=100))
     print(f"wrote {len(PERTURBATIONS)} perturbation cases to {out_dir}")

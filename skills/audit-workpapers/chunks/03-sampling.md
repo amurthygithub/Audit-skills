@@ -65,6 +65,12 @@ Parameters: Tolerable Misstatement (TM), Risk of Incorrect Acceptance (RIA), Exp
 | 2 | 8.41 | 6.30 | 5.33 | 4.72 | 4.28 |
 | 3 | 10.05 | 7.76 | 6.69 | 6.02 | 5.52 |
 
+**Off-table parameters: do not interpolate.** The RF table is discrete (AICPA Audit
+Sampling Guide). If the engagement's risk of incorrect acceptance is not a table column
+(e.g., 7%), do not interpolate or pick the nearest value — ask for a supported RIA or the
+engagement's own RF table. A silently interpolated factor sizes the sample without a
+citable basis.
+
 ### Formulas
 
 ```
