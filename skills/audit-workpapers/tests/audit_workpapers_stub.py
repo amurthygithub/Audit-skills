@@ -29,8 +29,20 @@ def _load(name: str) -> dict:
 
 def _mus_evaluate(inputs: dict) -> dict:
     """MUS evaluation per AS 2315: n = (BV x RF) / TM, ULM = BP + sum(IA)."""
-    bv = inputs.get("population_book_value", 12500000)
-    tm = inputs.get("tolerable_misstatement", 500000)
+    # SOX-600/601: no silent defaults for sizing parameters — a defaulted BV or
+    # TM sizes the sample against the wrong population. Missing -> refuse and ask
+    # (abstention is the passing answer; validation-harness-design.md section 5).
+    if "population_book_value" not in inputs or "tolerable_misstatement" not in inputs:
+        missing = [k for k in ("population_book_value", "tolerable_misstatement")
+                   if k not in inputs]
+        raise ValueError(f"missing required sampling parameter(s) {missing}; "
+                         "ask for them — do not assume a population or materiality")
+    bv = inputs["population_book_value"]
+    tm = inputs["tolerable_misstatement"]
+    if tm <= 0 or bv < 0:
+        raise ValueError(f"invalid sampling parameters (BV={bv}, TM={tm}): TM must be "
+                         "positive and BV non-negative — refusing rather than emitting "
+                         "a nonsense interval")
     ria = inputs.get("risk_of_incorrect_acceptance", 0.05)
     expected = inputs.get("expected_overstatements", 0)
 
@@ -46,7 +58,7 @@ def _mus_evaluate(inputs: dict) -> dict:
         )
     rf = RF_TABLE[ria]
     si = round(tm / rf)              # display value (rounded)
-    n = int((bv * rf) / tm) if tm > 0 else 0
+    n = int((bv * rf) / tm)
     bp = int(round(rf * (tm / rf)))  # BP = RF x unrounded SI = TM exactly
 
     return {

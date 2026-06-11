@@ -1,0 +1,23 @@
+id: uc-02-readiness
+skill: hipaa-security-rule
+use_case: UC-02
+description: >
+  Bellbrook readiness matrix from seeds — 22 standards, status mix and gap
+  priorities oracle-labeled; NPRM items never in the current-law register.
+input_from_seeds:
+  base: data/seeds/uc-02-input.json
+  merge:
+    control_inventory: data/seeds/uc-02-control-inventory.json
+    documentation_register: data/seeds/uc-02-documentation-register.json
+expected:
+  readiness_summary.total: 22
+  readiness_summary.implemented: 14
+  readiness_summary.partial: 6
+  readiness_summary.missing: 2
+  gap_priorities.High: 2
+  gap_priorities.Medium: 6
+  gap_priorities.Low: 3
+  nprm_items_in_current_law_gaps: 0
+  classification: READINESS_GAPS_11
+validators: [oracle_match]
+coverage_tags: [hipaa.readiness-matrix, hipaa.gap-priorities, hipaa.nprm-quarantine]

@@ -28,13 +28,21 @@ def test_uc_01_zero_population():
     assert mus["sample_size"] >= 0
 
 
-def test_uc_01_missing_tm():
-    """Edge case: missing tolerable misstatement should use default."""
+def test_uc_01_missing_tm_refuses():
+    """Missing tolerable misstatement must REFUSE, never default — a defaulted TM
+    sizes the sample against the wrong materiality (SOX-600 harness probe finding;
+    abstention is the passing answer)."""
     payload = {"population_book_value": 12500000}
-    out = run_skill("UC-01", payload)
-    mus = out["mus_evaluation"]
-    assert mus["sample_size"] > 0
-    assert mus["basic_precision"] > 0
+    with pytest.raises(ValueError, match="missing required sampling parameter"):
+        run_skill("UC-01", payload)
+
+
+def test_uc_01_negative_tm_refuses():
+    """Negative TM must refuse rather than emit a nonsense negative interval
+    (pre-fix behavior: n=0, SI=-66,667)."""
+    payload = {"population_book_value": 5000000, "tolerable_misstatement": -200000}
+    with pytest.raises(ValueError, match="invalid sampling parameters"):
+        run_skill("UC-01", payload)
 
 
 def test_uc_02_empty_input():

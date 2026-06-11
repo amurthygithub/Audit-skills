@@ -1,0 +1,20 @@
+id: mus-ria-monotonic
+skill: audit-workpapers
+use_case: UC-01
+description: >
+  Metamorphic invariant: lower risk of incorrect acceptance (more assurance
+  required) must never decrease the sample size. Swept ascending RIA, so the
+  sample size must be non-increasing.
+input:
+  population_book_value: 5000000
+  tolerable_misstatement: 200000
+  risk_of_incorrect_acceptance: 0.05
+  expected_overstatements: 0
+invariant:
+  type: monotonic
+  param: risk_of_incorrect_acceptance
+  values: [0.01, 0.05, 0.10, 0.20]
+  metric: mus_evaluation.sample_size
+  direction: non_increasing
+validators: [invariant]
+coverage_tags: [mus.sample-size, invariant.ria-monotonicity, boundary.ria-0.01, boundary.ria-0.20]

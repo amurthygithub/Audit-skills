@@ -1,0 +1,22 @@
+id: gen-boundary-ria15-bv12m-tm100k
+skill: audit-workpapers
+use_case: UC-01
+description: 'Generated boundary case (boundary_sampler.py, oracle-labeled): RIA 15%, BV $12,500,000,
+  TM $100,000.'
+generated_by: evals/generators/boundary_sampler.py
+input:
+  population_book_value: 12500000
+  tolerable_misstatement: 100000
+  risk_of_incorrect_acceptance: 0.15
+  expected_overstatements: 0
+expected:
+  mus_evaluation.sample_size: 237
+  mus_evaluation.sampling_interval: 52632
+  mus_evaluation.reliability_factor: 1.9
+  classification: MUS_SAMPLE_SIZE_237
+validators:
+- oracle_match
+coverage_tags:
+- boundary.ria-0.15
+- mus.sample-size
+- mus.sampling-interval

@@ -1,0 +1,16 @@
+{
+ "skill": "hipaa-security-rule",
+ "cases": 4,
+ "coverage_tags": {
+  "hipaa.baa-completeness": 1,
+  "hipaa.dispositions": 1,
+  "hipaa.encryption-decision": 1,
+  "hipaa.gap-priorities": 1,
+  "hipaa.nprm-quarantine": 1,
+  "hipaa.readiness-matrix": 1,
+  "hipaa.right-sizing": 1,
+  "hipaa.risk-bands": 1,
+  "invariant.idempotence": 1
+ },
+ "note": "tags are DECLARED per case, not derived from the skill's decision tree \u2014 decision-path derivation is a later Epic 6 slice (SOX-603)"
+}

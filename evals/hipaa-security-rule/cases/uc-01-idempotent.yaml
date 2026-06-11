@@ -1,0 +1,14 @@
+id: uc-01-idempotent
+skill: hipaa-security-rule
+use_case: UC-01
+description: Same seeds repeated must yield the same classification.
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+  merge:
+    risks: data/seeds/uc-01-risks.json
+    addressable_register: data/seeds/uc-01-addressable-register.json
+invariant:
+  type: idempotent
+  metric: classification
+validators: [invariant]
+coverage_tags: [invariant.idempotence]

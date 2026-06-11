@@ -42,3 +42,15 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 - Key terminology glossary (64 terms).
 - 14 agent behavioral requirements.
 - 5 complete worked examples (MUS, attribute, variables, finding, mock workpaper).
+
+## 2026-06-10 — SOX-600/601: silent-default contract fix (found by the eval harness probe)
+
+- `_mus_evaluate` no longer silently defaults a missing `population_book_value` or
+  `tolerable_misstatement` (pre-fix: missing BV defaulted to $12.5M and sized n=187 against
+  the wrong population) and refuses on TM <= 0 / BV < 0 (pre-fix: negative TM emitted
+  SI=-66,667). Abstention is the passing answer — ask, never assume a materiality.
+- `test_uc_01_missing_tm` previously ASSERTED the silent default; replaced by two refusal
+  tests. Found by the SOX-600 perturbation probe before the generator even ran.
+- This skill is an eval-harness pilot: 54 cases under `evals/audit-workpapers/cases/`
+  (4 hand-written incl. the SIEVE MUS PoC, 45 boundary-sampled, 5 perturbations),
+  oracle-labeled and CI-enforced.
