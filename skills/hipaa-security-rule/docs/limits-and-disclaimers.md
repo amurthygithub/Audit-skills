@@ -47,9 +47,10 @@ appropriate. Every "Addressable" mention in this skill carries that decision log
 
 ## Penalty amounts adjust annually
 
-Civil monetary penalty amounts are pinned in **one in-skill location only**:
+Civil monetary penalty amounts are pinned in **one content location only**:
 `chunks/08-enforcement-audit-and-nprm.md` §1 (the 2025 inflation-adjusted values, as of
-2026-06-10; adjusted annually per 45 CFR 102.3 [CFR-45-102]). This file deliberately restates
+2026-06-10; adjusted annually per 45 CFR 102.3 [CFR-45-102]); `docs/acceptance-gate.md`
+additionally records them as verification evidence. This file deliberately restates
 none of them. **These amounts adjust annually** — check the current 45 CFR 102.3 table before
 quoting them. OCR's 2019 Notification of Enforcement Discretion (lower annual caps for tiers
 1-3) is enforcement posture, not codified law, and is labeled as such wherever mentioned.
