@@ -42,6 +42,16 @@ models? Pass rate, not vibes. With the stub executor the harness validates its
 own plumbing and auto-labels generated inputs (the oracle-anchored self-labeling
 flywheel); with the LLM executor (V3) the same cases measure skill fidelity.
 
+## Sweep log (LLM executor — preliminary, NOT published reliability rows)
+
+| Sweep | Date | Model | Cases x N | Result | Notes |
+|---|---|---|---|---|---|
+| smoke | 2026-06-10 | haiku-4.5 | 2 x 1 | calibration | found: output-shape contract needed (required paths); display-rounding tolerance; stub-only labels |
+| 1 | 2026-06-10 | haiku-4.5 | 7 x 2 | 8/14 -> after fixes 12/14 | off-table-RIA failure was a SKILL-TEXT GAP — chunk 03 "do not interpolate" added, then 2/2; zero-BV refusal accepted as defensible (accept_refusal); idempotence 1/2 = real shape variance to quantify at N>=20 |
+
+Published acceptance-gate reliability rows require N>=20 on >=2 models; nothing above
+qualifies yet. Sweeps run one at a time against the operator's session limits.
+
 ## Reading a report
 
 `reports/<skill>.<executor>.latest.json`: per-case `pass_rate` (passes/runs)

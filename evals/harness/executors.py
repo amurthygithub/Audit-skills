@@ -51,25 +51,78 @@ class StubExecutor:
 
 
 class LLMExecutor:
-    """Skill-loaded agent executor (V3, SOX-602). Interface pinned, not implemented.
+    """Skill-loaded agent executor — measures skill fidelity to the oracle.
 
-    Contract: run() loads skills/<skill>/SKILL.md plus the chunks its routing
-    table selects for the case's use case, presents the payload, and parses the
-    agent's structured output into the same shape the stub returns. Cases,
-    validators, and reports are executor-agnostic by design.
+    Runs the case through `claude -p` (headless CLI; consumes the operator's
+    plan/session limits, no separate API billing). The prompt is fully
+    self-contained: SKILL.md + the skill's chunks + the payload + a strict
+    JSON-only output contract, with tools disabled — so a run measures what the
+    skill TEXT teaches the model, not what the model can dig up.
+
+    Refusal contract: defective inputs must yield {"refusal": "<why>"} — the
+    validators map that to the stub's ValueError refusal path.
     """
 
     name = "llm"
 
-    def __init__(self, model: str = "claude-sonnet-4-6") -> None:
+    def __init__(self, model: str = "claude-haiku-4-5-20251001",
+                 timeout: int = 180) -> None:
         self.model = model
+        self.timeout = timeout
 
-    def run(self, skill: str, use_case: str, payload: dict) -> dict:
-        raise NotImplementedError(
-            "LLMExecutor is the V3 slice (SOX-602): requires model access, run "
-            "budget, and an output-parsing contract. Use --executor stub for "
-            "plumbing and oracle labeling."
+    def _context(self, skill: str) -> str:
+        root = REPO_ROOT / "skills" / skill
+        parts = [f"===== skills/{skill}/SKILL.md =====\n{(root / 'SKILL.md').read_text()}"]
+        for chunk in sorted((root / "chunks").glob("*.md")):
+            parts.append(f"===== chunks/{chunk.name} =====\n{chunk.read_text()}")
+        return "\n\n".join(parts)
+
+    def _prompt(self, skill: str, use_case: str, payload: dict,
+                required_paths: list[str] | None = None) -> str:
+        import json as _json
+        paths = ""
+        if required_paths:
+            paths = ("Your JSON object MUST contain exactly these paths (dot = nesting; "
+                     "use these key names verbatim):\n  " + "\n  ".join(required_paths)
+                     + "\n")
+        return (
+            "You are an agent that has loaded the following skill. Apply it to the "
+            "input exactly as the skill instructs.\n\n"
+            f"{self._context(skill)}\n\n"
+            f"===== TASK =====\n"
+            f"Use case: {use_case}. Input parameters (JSON):\n"
+            f"{_json.dumps(payload, indent=1)}\n\n"
+            "===== OUTPUT CONTRACT =====\n"
+            "Respond with ONLY a single JSON object — no markdown fences, no prose.\n"
+            + paths +
+            "Numeric values as numbers, classifications as strings.\n"
+            "If a required input parameter is missing or invalid such that the skill "
+            "says to refuse or ask rather than assume, respond with exactly: "
+            '{"refusal": "<one-line reason>"}.'
         )
+
+    def run(self, skill: str, use_case: str, payload: dict,
+            required_paths: list[str] | None = None) -> dict:
+        import json as _json
+        import subprocess
+        prompt = self._prompt(skill, use_case, payload, required_paths)
+        cmd = ["claude", "-p", prompt, "--model", self.model,
+               "--output-format", "json", "--disallowedTools", "*"]
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=self.timeout,
+                              cwd=str(REPO_ROOT))
+        if proc.returncode != 0:
+            raise RuntimeError(f"claude CLI failed (rc={proc.returncode}): "
+                               f"{proc.stderr[:300]}")
+        envelope = _json.loads(proc.stdout)
+        text = envelope.get("result", "") if isinstance(envelope, dict) else str(envelope)
+        text = text.strip()
+        if text.startswith("```"):
+            text = text.strip("`")
+            text = text[text.find("{"):text.rfind("}") + 1]
+        out = _json.loads(text[text.find("{"):text.rfind("}") + 1])
+        if isinstance(out, dict) and out.get("refusal"):
+            raise ValueError(f"model refusal: {out['refusal']}")
+        return out
 
 
 EXECUTORS = {"stub": StubExecutor, "llm": LLMExecutor}

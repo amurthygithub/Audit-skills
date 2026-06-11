@@ -11,9 +11,13 @@ input:
   expected_overstatements: 0
 expected:
   mus_evaluation.sample_size: 8
-  mus_evaluation.sampling_interval: 124224
+  mus_evaluation.sampling_interval:
+    value: 124224
+    tolerance: 1
   mus_evaluation.reliability_factor: 1.61
   classification: MUS_SAMPLE_SIZE_8
+stub_only_paths:
+- classification
 validators:
 - oracle_match
 coverage_tags:
