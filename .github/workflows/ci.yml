@@ -45,7 +45,9 @@ jobs:
         run: python -m pip install pyyaml
       - name: Run Tier 0a linter
         # TEMPLATE is the scaffold - it intentionally fails lint. Skip it.
-        run: python tools/lint_skill.py skills/nist-800-53-rmf skills/isaca-audit-methodology skills/coso-internal-controls skills/aicpa-soc-reporting skills/audit-workpapers skills/nist-csf-2
+        # Auto-discover so the list can never go stale (caught 2026-06-11: hipaa
+        # and pci-dss had been built but were absent from this hardcoded list).
+        run: python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
 
   test:
     name: pytest
