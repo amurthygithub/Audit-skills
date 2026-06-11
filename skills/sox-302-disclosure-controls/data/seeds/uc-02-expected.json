@@ -1,0 +1,9 @@
+{
+ "section_302_certification_required": true,
+ "section_404a_management_assessment_required": true,
+ "section_404b_auditor_attestation_required": false,
+ "dcp_scope_count": 7,
+ "icfr_scope_count": 3,
+ "cyber_8k_in_dcp_scope": true,
+ "classification": "FIRST_302_404B_EXEMPT"
+}

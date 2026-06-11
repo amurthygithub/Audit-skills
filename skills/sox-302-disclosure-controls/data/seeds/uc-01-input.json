@@ -1,0 +1,86 @@
+{
+ "use_case": "UC-01",
+ "filer": {
+  "name": "Crestline Financial Corp",
+  "status": "accelerated",
+  "report": "Q3 10-Q"
+ },
+ "material_weakness": {
+  "area": "IT general controls (logical access to the revenue system)",
+  "affects_disclosure_relevant_area": true,
+  "remediated": false
+ },
+ "sub_certifications": [
+  {
+   "owner": "Revenue",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "AR/Collections",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Inventory",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Payroll",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Treasury",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Tax",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "IT/ITGC",
+   "status": "exception",
+   "exception_note": "ITGC access MW \u2014 see remediation plan"
+  },
+  {
+   "owner": "Legal",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "HR",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Procurement",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "FP&A",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "External Reporting",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Investor Relations",
+   "status": "clean",
+   "exception_note": ""
+  },
+  {
+   "owner": "Internal Audit",
+   "status": "clean",
+   "exception_note": ""
+  }
+ ],
+ "as_of_date": "2026-09-30"
+}
