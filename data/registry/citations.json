@@ -91,6 +91,26 @@
     "aicpa-soc-reporting"
    ]
   },
+  "CFR-17-240.13a-14": {
+   "title": "Certification of disclosure in annual and quarterly reports",
+   "publisher": "eCFR (SEC, Exchange Act rules)",
+   "identifier": "17 CFR 240.13a-14",
+   "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-240/section-240.13a-14",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "sox-302-disclosure-controls"
+   ]
+  },
+  "CFR-17-240.13a-15": {
+   "title": "Controls and procedures (DC&P and ICFR definitions and evaluations)",
+   "publisher": "eCFR (SEC, Exchange Act rules)",
+   "identifier": "17 CFR 240.13a-15",
+   "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-240/section-240.13a-15",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "sox-302-disclosure-controls"
+   ]
+  },
   "CFR-45-102": {
    "title": "Adjustment of Civil Monetary Penalties for Inflation (45 CFR Part 102)",
    "publisher": "eCFR (Office of the Federal Register)",
@@ -833,6 +853,26 @@
     "hipaa-security-rule"
    ]
   },
+  "Reg-S-K-Item-307": {
+   "title": "Regulation S-K Item 307 — Disclosure controls and procedures",
+   "publisher": "eCFR (SEC)",
+   "identifier": "17 CFR 229.307",
+   "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229/section-229.307",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "sox-302-disclosure-controls"
+   ]
+  },
+  "Reg-S-K-Item-308": {
+   "title": "Regulation S-K Item 308 — Internal control over financial reporting",
+   "publisher": "eCFR (SEC)",
+   "identifier": "17 CFR 229.308",
+   "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229/section-229.308",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "sox-302-disclosure-controls"
+   ]
+  },
   "SEC-Reg-S-K-Item-308": {
    "title": "Management's Report on Internal Control Over Financial Reporting",
    "publisher": "SEC",
@@ -872,6 +912,16 @@
    "retrieval_date": "2026-05-25",
    "cited_by": [
     "aicpa-soc-reporting"
+   ]
+  },
+  "SOX-302-Statute-15USC7241": {
+   "title": "SOX §302 — Corporate Responsibility for Financial Reports",
+   "publisher": "U.S. Code (Office of the Law Revision Counsel)",
+   "identifier": "15 U.S.C. 7241",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section7241&num=0&edition=prelim",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "sox-302-disclosure-controls"
    ]
   },
   "SOX-404": {
