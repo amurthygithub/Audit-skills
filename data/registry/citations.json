@@ -7,7 +7,7 @@
    "AICPA-TSC-2017": "canonicalized to /topic/audit-assurance/soc-2 (clean path, live 200) over the 'greater-than' breadcrumb URL",
    "FedRAMP-Rev5": "canonicalized to fedramp.gov root; /resources/ returns 404 (live-checked 2026-06-09)"
   },
-  "count": 75
+  "count": 98
  },
  "citations": {
   "AICPA-AU-C-230": {
@@ -302,6 +302,7 @@
    "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf",
    "retrieval_date": "2026-06-09",
    "cited_by": [
+    "fedramp-authorization",
     "nist-800-53-rmf",
     "nist-csf-2"
    ]
@@ -718,6 +719,7 @@
    "url": "https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf",
    "retrieval_date": "2026-06-09",
    "cited_by": [
+    "fedramp-authorization",
     "nist-800-53-rmf"
    ]
   },
@@ -952,6 +954,66 @@
    "retrieval_date": "2026-05-25",
    "cited_by": [
     "aicpa-soc-reporting"
+   ]
+  },
+  "FEDRAMP-ACT-2022": {
+   "title": "FedRAMP Authorization Act of 2022 (the FedRAMP Board, 44 U.S.C. 3610)",
+   "publisher": "U.S. Code (via Cornell LII)",
+   "identifier": "44 U.S.C. 3607-3616 (PL 117-263)",
+   "url": "https://www.law.cornell.edu/uscode/text/44/3610",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
+   ]
+  },
+  "FEDRAMP-REV5-BASELINES": {
+   "title": "FedRAMP Rev 5 baseline profiles (control totals counted from OSCAL)",
+   "publisher": "FedRAMP PMO (OSCAL-Foundation mirror)",
+   "identifier": "Rev 5 Low/Moderate/High/LI-SaaS",
+   "url": "https://raw.githubusercontent.com/OSCAL-Foundation/fedramp-resources/main/baselines/rev5/json/FedRAMP_rev5_MODERATE-baseline_profile.json",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
+   ]
+  },
+  "FEDRAMP-CONMON": {
+   "title": "FedRAMP Rev 5 Continuous Monitoring (ConMon) overview",
+   "publisher": "FedRAMP PMO",
+   "identifier": "Rev 5 ConMon playbook",
+   "url": "https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
+   ]
+  },
+  "FEDRAMP-PLAYBOOK": {
+   "title": "FedRAMP Rev 5 Authorization Playbook — SSP / package",
+   "publisher": "FedRAMP PMO",
+   "identifier": "Rev 5 SSP doc",
+   "url": "https://www.fedramp.gov/docs/rev5/playbook/csp/authorization/ssp/",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
+   ]
+  },
+  "A2LA-3PAO": {
+   "title": "A2LA FedRAMP 3PAO Accreditation (ISO/IEC 17020)",
+   "publisher": "American Association for Laboratory Accreditation",
+   "identifier": "A2LA FedRAMP program",
+   "url": "https://a2la.org/accreditation/fedramp/",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
+   ]
+  },
+  "NIST-800-53R5": {
+   "title": "Security and Privacy Controls for Information Systems and Organizations",
+   "publisher": "NIST",
+   "identifier": "SP 800-53 Rev 5",
+   "url": "https://doi.org/10.6028/NIST.SP.800-53r5",
+   "retrieval_date": "2026-06-11",
+   "cited_by": [
+    "fedramp-authorization"
    ]
   }
  }

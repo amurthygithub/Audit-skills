@@ -16,7 +16,7 @@ EXPECTED_CHUNKS = [
     "02-impact-levels-and-baselines.md",
     "03-authorization-paths.md",
     "04-the-authorization-package.md",
-    "05-3pao-assessment-and-inheritance.md",
+    "05-assessment-and-inheritance.md",
     "06-continuous-monitoring.md",
     "07-poam-and-risk.md",
     "08-fedramp-20x-and-modernization.md",

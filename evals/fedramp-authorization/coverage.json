@@ -1,0 +1,17 @@
+{
+ "skill": "fedramp-authorization",
+ "cases": 4,
+ "coverage_tags": {
+  "fedramp.baseline-selection": 1,
+  "fedramp.categorization-deterministic": 1,
+  "fedramp.control-inheritance": 1,
+  "fedramp.fips199-high-water-mark": 1,
+  "fedramp.li-saas-eligibility": 1,
+  "fedramp.poam-deadlines": 1,
+  "fedramp.poam-item-count": 1,
+  "fedramp.sar-finding-rollup": 1,
+  "fedramp.tailored-split": 1,
+  "invariant.idempotence": 1
+ },
+ "note": "tags are DECLARED per case, not derived from the skill's decision tree \u2014 decision-path derivation is a later Epic 6 slice (SOX-603)"
+}
