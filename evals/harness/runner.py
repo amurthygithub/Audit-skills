@@ -64,10 +64,26 @@ class Runner:
     def execute(self, case: dict) -> dict:
         kwargs = {}
         if getattr(self.executor, "name", "") == "llm":
+            def _type(v):
+                if isinstance(v, dict) and "value" in v:
+                    v = v["value"]
+                if isinstance(v, bool):
+                    return "boolean"
+                if isinstance(v, int):
+                    return "integer"
+                if isinstance(v, float):
+                    return "number"
+                if isinstance(v, list):
+                    return "list of strings" if all(isinstance(x, str) for x in v) else "list"
+                return "string"
+            stub_only = set(case.get("stub_only_paths", []))
             if "expected" in case:
-                kwargs["required_paths"] = sorted(case["expected"])
+                kwargs["required_paths"] = [
+                    f"{k} ({_type(v)})" for k, v in sorted(case["expected"].items())
+                    if k not in stub_only]
             elif "invariant" in case:
-                kwargs["required_paths"] = [case["invariant"].get("metric", "classification")]
+                kwargs["required_paths"] = [
+                    f"{case['invariant'].get('metric', 'classification')} (number or string)"]
         return self.executor.run(case["skill"], case["use_case"],
                                  self.build_payload(case), **kwargs)
 

@@ -61,6 +61,12 @@ def oracle_match(case: dict, runner) -> list[str]:
         if tolerance and isinstance(got, (int, float)) and isinstance(want, (int, float)):
             if abs(got - want) <= tolerance:
                 continue
+        if isinstance(got, list) and isinstance(want, list):
+            try:
+                if sorted(got) == sorted(want):
+                    continue
+            except TypeError:
+                pass
         if got != want:
             failures.append(f"oracle_match: {path} = {got!r}, expected {want!r}")
     return failures

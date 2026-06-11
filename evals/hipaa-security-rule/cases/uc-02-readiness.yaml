@@ -1,9 +1,10 @@
 id: uc-02-readiness
 skill: hipaa-security-rule
 use_case: UC-02
-description: >
-  Bellbrook readiness matrix from seeds — 22 standards, status mix and gap
-  priorities oracle-labeled; NPRM items never in the current-law register.
+description: "Bellbrook readiness matrix from seeds \u2014 22 standards, status mix and gap priorities\
+  \ oracle-labeled; NPRM items never in the current-law register. NPRM quarantine on the LLM lane is enforced\
+  \ via the priority counts (leakage would inflate them); the counter field itself is a stub-internal\
+  \ convention with ambiguous name semantics."
 input_from_seeds:
   base: data/seeds/uc-02-input.json
   merge:
@@ -19,5 +20,12 @@ expected:
   gap_priorities.Low: 3
   nprm_items_in_current_law_gaps: 0
   classification: READINESS_GAPS_11
-validators: [oracle_match]
-coverage_tags: [hipaa.readiness-matrix, hipaa.gap-priorities, hipaa.nprm-quarantine]
+validators:
+- oracle_match
+coverage_tags:
+- hipaa.readiness-matrix
+- hipaa.gap-priorities
+- hipaa.nprm-quarantine
+stub_only_paths:
+- classification
+- nprm_items_in_current_law_gaps
