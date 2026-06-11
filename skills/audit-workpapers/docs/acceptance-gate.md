@@ -61,3 +61,18 @@ received only the skill folder + UC input.
 
 Persona vetting: 6 CRITICAL / 12 HIGH — all resolved; 1 persona claim refuted in
 verification and dropped. See docs/persona-review.md.
+
+## Measured reliability (LLM eval lane — SOX-599/600, M4 step 3)
+
+"Fully tested" is a measured pass rate, not a smoke test. Cases under `evals/audit-workpapers/cases/`
+(hand-written + perturbations), run via `evals/harness/runner.py --executor llm`, N=20 per case,
+2026-06-10. The deterministic stub lane (54 cases incl. 45 boundary-grid) runs in CI at 100% by
+construction.
+
+| Model | Cases x N | Pass rate | Dominant residual |
+|---|---|---|---|
+| claude-sonnet-4-6 | 7 x 20 | **100%** (140/140) | none |
+| claude-haiku-4-5 | 7 x 20 | **96.4%** (135/140) | off-table-RIA refusal adherence 17/20 (instruction holds 85% on the floor model); 2 output-shape slips |
+
+Eval-driven skill fix already shipped from these sweeps: chunks/03 "off-table parameters: do not
+interpolate" (pre-fix the floor model interpolated 2/2; post-fix refuses 17/20 at N=20).

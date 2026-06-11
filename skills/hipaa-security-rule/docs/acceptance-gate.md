@@ -66,3 +66,17 @@ fact-sheet inventory-diff CI test keeps rows 1-9 enforced on every run, not just
 Seeded 2026-06-10 from the Day 0 fact sheet's verified rows (SOX-572, born-vetted build).
 G4.5 persona vetting evidence lands in `docs/persona-review.md` within the same build PR.
 The skill ships `status: draft` v0.1.0 pending Epic 6 reliability measurement.
+
+## Measured reliability (LLM eval lane — SOX-599/600, M4 step 3)
+
+Cases under `evals/hipaa-security-rule/cases/` (UC-01/02/03 substance + idempotence), N=20 per case,
+2026-06-10. Stub lane runs in CI at 100% by construction.
+
+| Model | Cases x N | Pass rate | Dominant residual |
+|---|---|---|---|
+| claude-sonnet-4-6 | 4 x 20 | **98.8%** (79/80) | one POL-02 stale-doc boundary miss (doc 42 days past the 3-year engagement cycle) |
+| claude-haiku-4-5 | 4 x 20 | **85.0%** (68/80) | disposition-summary scope read 6/20 (summarizes the 12 decision-required specs instead of all 22 — floor-model; Sonnet 20/20); POL-02 boundary 5/20; 1 shape slip |
+
+Cross-model judgment edge: the POL-02 boundary (42-day margin) is the only failure shared by both
+models — near-threshold date arithmetic is the weakest measured behavior. UC-01 disposition
+substance: perfect on Sonnet, and Haiku's misses are scope-reading, never wrong dispositions.
