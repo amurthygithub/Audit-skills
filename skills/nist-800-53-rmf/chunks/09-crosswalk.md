@@ -33,7 +33,7 @@ The skill ships a curated crosswalk in `data/crosswalks/soc2-to-800-53-mod.json`
 | AICPA TSC 2017 (SOC 2) | CC1–CC9 ↔ 800-53 AC, AT, CM, IA, PM, SI; AICPA "Trust Services Criteria to 800-53" mapping |
 | ISO 27001:2022 | Annex A controls ↔ 800-53 families; 93 Annex A vs ~1,000+ 800-53 — 800-53 is more granular |
 | PCI DSS v4.0 | PCI's 12 requirements ↔ 800-53 families; cloud-computing guidance references 800-53 |
-| HIPAA Security Rule | 45 CFR 164.308–164.312 ↔ 800-53 AC, IA, AU, CM, SC, SI; NIST 800-66 Rev 2 maps |
+| HIPAA Security Rule | 45 CFR 164.308–164.316 ↔ 800-53 (108 controls incl. AC, AT, AU, CP, IR, MP, PE, PS, RA, SC, SI families); authoritative element-level rows in the NIST CPRT (SP 800-66 Rev 2 OLIR sets) |
 | NIST CSF 2.0 | Govern/Identify/Protect/Detect/Respond/Recover ↔ 800-53 families; CSF is outcome-oriented, 800-53 is control-oriented |
 | ISO 27701 | Privacy extension ↔ 800-53 PT family (Rev 5) |
 | FedRAMP Rev 5 | FedRAMP defines the cloud authorization overlay; uses 800-53 Rev 5 baselines |
@@ -54,7 +54,7 @@ In production use, expect:
   - **Specific enhancements** (e.g., AC-2(11) usage conditions, AC-2(13) account disable for high-risk users).
   - **Operational depth** (e.g., SI-4(2) automated tools, IR-4(1) automated IR).
 
-The skill ships authoritative crosswalks at `data/crosswalks/soc2-to-800-53-mod.json`, `data/seeds/hipaa-to-800-53.json`, `data/seeds/iso27001-2022-to-800-53.json`, and `data/seeds/pci-to-800-53.json`.
+The skill ships crosswalk data at `data/crosswalks/soc2-to-800-53-mod.json` (curated sample), `data/seeds/hipaa-to-800-53.json` (COMPLETE: 68 Security Rule elements -> 279 OLIR informative-reference rows -> 108 unique 800-53 Rev 5.1.1 controls, generated from the NIST CPRT extraction by `data/generators/gen_hipaa_crosswalk.py`; no exact/partial strength ratings — the OLIR source carries none), `data/seeds/iso27001-2022-to-800-53.json`, and `data/seeds/pci-to-800-53.json`.
 
 ## Anti-hallucination note
 

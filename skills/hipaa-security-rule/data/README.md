@@ -8,10 +8,9 @@
   `docs/hipaa-security-rule-fact-sheet.md` §0 by
   `tests/test_hipaa_security_rule_oracle.py::test_fact_sheet_inventory_diff` — the standing
   inventory-diff gate.
-- `crosswalks/` — **intentionally empty in v1.** The authoritative Security Rule ↔ NIST CSF /
-  SP 800-53 mapping was moved out of SP 800-66r2 into the NIST CPRT (and maps to CSF v1.1,
-  intentionally broad). Row-level encoding is tracked as SOX-638: extract from CPRT, verify
-  per row, then encode in this skill and nist-800-53-rmf in the same pass.
+- `crosswalks/` — the complete Security Rule -> SP 800-53 Rev 5.1.1 mapping, generated from
+  the NIST CPRT extraction (SOX-638; see `crosswalks/README.md` for provenance). The CSF
+  mapping in the same CPRT data targets CSF v1.1 only and is deliberately not encoded.
 
 No file in this directory contains PHI/ePHI — org-level synthetic facts only. Dates used in
 computations come from `as_of_date` seed fields, never the wall clock.

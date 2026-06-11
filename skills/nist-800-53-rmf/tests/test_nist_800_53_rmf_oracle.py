@@ -107,3 +107,31 @@ def test_uc_01_categorization_pattern(uc_id, expected_overall):
     cia = out["fips_199_categorization"]["system_security_category"]
     overall = max(cia.values(), key=lambda x: ["LOW", "MODERATE", "HIGH"].index(x))
     assert overall == expected_overall
+
+
+def test_hipaa_crosswalk_derivability():
+    """SOX-638: the HIPAA crosswalk seed is generated from the archived CPRT
+    extraction — summary foots to rows, no invented strength ratings, and the
+    rows that were wrong in the 12-row predecessor are now source-correct."""
+    seed = _load("hipaa-to-800-53.json")
+    maps = seed["mappings"]
+    # Summary recomputed independently
+    assert seed["summary"]["security_rule_elements_mapped"] == len(maps)
+    assert seed["summary"]["mapping_rows"] == sum(len(m["nist_800_53_ids"]) for m in maps)
+    assert seed["summary"]["unique_800_53_controls"] == len(
+        {c for m in maps for c in m["nist_800_53_ids"]})
+    # OLIR semantics: no strength ratings anywhere
+    assert all(m["relationship"] == "informative_reference_olir" for m in maps)
+    assert not any("strength" in m for m in maps)
+    by_id = {m["hipaa_id"]: m["nist_800_53_ids"] for m in maps}
+    # Log-in monitoring: AT-3 + AU-6 per CPRT (predecessor said AT-2 "exact";
+    # the persona-proposed AC-7/AU-2/AU-6 was also wrong — source wins)
+    assert by_id["164.308(a)(5)(ii)(C)"] == ["AT-3", "AU-6"]
+    # Break-glass row exists
+    assert by_id["164.312(a)(2)(ii)"] == ["AC-2", "AC-3", "CP-2"]
+    # Physical safeguards covered
+    assert sum(1 for h in by_id if h.startswith("164.310")) >= 12
+    # Vendored copy in hipaa-security-rule is the identical artifact
+    vendored = json.loads((DATA.parent.parent.parent / "hipaa-security-rule" / "data"
+                           / "crosswalks" / "hipaa-to-800-53-r511.json").read_text())
+    assert vendored == seed
