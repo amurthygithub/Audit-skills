@@ -1,0 +1,11 @@
+{
+ "entities_total": 15,
+ "entities_covered": 14,
+ "coverage_gaps": [
+  "Entity-14"
+ ],
+ "fully_covered": false,
+ "quarterly_eval_entities": 12,
+ "annual_eval_entities": 3,
+ "classification": "CASCADE_GAPS_1"
+}

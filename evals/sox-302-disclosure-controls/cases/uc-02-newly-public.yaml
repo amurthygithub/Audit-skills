@@ -1,0 +1,15 @@
+id: uc-02-newly-public
+skill: sox-302-disclosure-controls
+use_case: UC-02
+description: Newly-public/EGC -> 404(b) exempt but 302 required from first periodic report; DC&P scope broader than ICFR.
+input_from_seeds:
+  base: data/seeds/uc-02-input.json
+expected:
+  section_302_certification_required: true
+  section_404b_auditor_attestation_required: false
+  dcp_scope_count: 7
+  icfr_scope_count: 3
+  classification: "FIRST_302_404B_EXEMPT"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [sox302.302-vs-404, sox302.dcp-vs-icfr-scope]

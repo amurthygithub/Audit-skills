@@ -1,0 +1,100 @@
+{
+ "use_case": "UC-03",
+ "group": {
+  "name": "Meridian Group",
+  "parent_filer": "Meridian Holdings Inc"
+ },
+ "entities": [
+  {
+   "entity": "Entity-01",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-01",
+   "covered": true
+  },
+  {
+   "entity": "Entity-02",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-02",
+   "covered": true
+  },
+  {
+   "entity": "Entity-03",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-03",
+   "covered": true
+  },
+  {
+   "entity": "Entity-04",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-04",
+   "covered": true
+  },
+  {
+   "entity": "Entity-05",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-05",
+   "covered": true
+  },
+  {
+   "entity": "Entity-06",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-06",
+   "covered": true
+  },
+  {
+   "entity": "Entity-07",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-07",
+   "covered": true
+  },
+  {
+   "entity": "Entity-08",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-08",
+   "covered": true
+  },
+  {
+   "entity": "Entity-09",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-09",
+   "covered": true
+  },
+  {
+   "entity": "Entity-10",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-10",
+   "covered": true
+  },
+  {
+   "entity": "Entity-11",
+   "type": "fpi",
+   "sub_certifier": "Controller-Entity-11",
+   "covered": true
+  },
+  {
+   "entity": "Entity-12",
+   "type": "fpi",
+   "sub_certifier": "Controller-Entity-12",
+   "covered": true
+  },
+  {
+   "entity": "Entity-13",
+   "type": "fpi",
+   "sub_certifier": "Controller-Entity-13",
+   "covered": true
+  },
+  {
+   "entity": "Entity-14",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-14",
+   "covered": false
+  },
+  {
+   "entity": "Entity-15",
+   "type": "domestic",
+   "sub_certifier": "Controller-Entity-15",
+   "covered": true
+  }
+ ],
+ "as_of_date": "2026-06-11"
+}

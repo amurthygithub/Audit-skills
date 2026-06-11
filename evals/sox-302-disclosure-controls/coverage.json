@@ -1,0 +1,14 @@
+{
+ "skill": "sox-302-disclosure-controls",
+ "cases": 4,
+ "coverage_tags": {
+  "invariant.idempotence": 1,
+  "sox302.302-vs-404": 1,
+  "sox302.dcp-conclusion": 1,
+  "sox302.dcp-vs-icfr-scope": 1,
+  "sox302.fpi-frequency": 1,
+  "sox302.multi-entity-cascade": 1,
+  "sox302.subcert-cascade": 1
+ },
+ "note": "tags are DECLARED per case, not derived from the skill's decision tree \u2014 decision-path derivation is a later Epic 6 slice (SOX-603)"
+}

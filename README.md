@@ -63,8 +63,9 @@ v0.3.3 ships the library's **8th skill — pci-dss-assessment — and a measured
 | **[nist-csf-2](skills/nist-csf-2/README.md)** | v0.3.0 on Spine | 69 | NIST CSF 2.0 (6 Functions, 22 Categories, 106 Subcategories), CMMC L2, FFIEC CAT | First organizational profile, board maturity report, CSF → 800-53 crosswalk |
 | **[hipaa-security-rule](skills/hipaa-security-rule/README.md)** | v0.3.2 on Spine (born-vetted) | 61 | HIPAA Security Rule (45 CFR 164 Subpart C), HITECH, NIST SP 800-66r2 | BA risk analysis + addressable dispositions, hospital OCR readiness, solo-consultant BAA + right-sized checklist |
 | **[pci-dss-assessment](skills/pci-dss-assessment/README.md)** | v0.3.2 on Spine (born-vetted) | 62 | PCI DSS v4.0.1 (6 goals, 12 requirements, 10 SAQ types) | SAQ selection (A vs A-EP), ROC + CDE segmentation, compensating-control worksheet |
+| **[sox-302-disclosure-controls](skills/sox-302-disclosure-controls/README.md)** | v0.3.3 on Spine (born-vetted) | 56 | SOX §302 / SEC Rules 13a-14, 13a-15; Reg S-K Items 307/308 | MW→DC&P-conclusion interplay, newly-public first 302, multi-entity sub-cert cascade |
 
-**526 tests repo-wide (357 skill-local + shared lint/consistency/registry/eval suites), 0 failures. All pass the Tier 0a linter. All 8 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
+**596 tests repo-wide (413 skill-local + shared lint/consistency/registry/eval suites), 0 failures. All pass the Tier 0a linter. All 9 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
 
 ---
 
@@ -233,8 +234,8 @@ This repo is hardened for outside contributions.
 
 **On every PR (`.github/workflows/ci.yml`):**
 - `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
-- `Lint skill structure` — runs `tools/lint_skill.py` on all 8 skills
-- `pytest` — runs `pytest skills/ tests/ -q` (526 tests)
+- `Lint skill structure` — runs `tools/lint_skill.py` on all 9 skills
+- `pytest` — runs `pytest skills/ tests/ -q` (596 tests)
 
 **Nightly (`.github/workflows/nightly.yml`):**
 - Link rot check on every URL in the §10 References & Citation Manifest sections
@@ -322,7 +323,7 @@ python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
 
 # 4. Run the test suite
 pytest skills/ tests/ -q
-# → 526 passed across all 8 skills
+# → 596 passed across all 9 skills
 
 # (Optional) Install all skills into opencode as full packages
 ./install.sh

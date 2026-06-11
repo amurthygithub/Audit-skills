@@ -1,0 +1,9 @@
+{
+ "dcp_conclusion": "not effective",
+ "par5_disclosure_required": true,
+ "subcert_total": 14,
+ "subcert_exceptions": 1,
+ "subcert_clean": 13,
+ "top_level_cert_clean": false,
+ "classification": "DCP_NOT_EFFECTIVE"
+}

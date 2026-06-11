@@ -1,0 +1,14 @@
+id: uc-01-idempotent
+skill: sox-302-disclosure-controls
+use_case: UC-01
+description: Same seed repeated yields the same sub-cert exception count (idempotence on a canonical numeric
+  field; dcp_conclusion text casing varies on floor models and is not a substantive non-determinism).
+input_from_seeds:
+  base: data/seeds/uc-01-input.json
+invariant:
+  type: idempotent
+  metric: subcert_exceptions
+validators:
+- invariant
+coverage_tags:
+- invariant.idempotence

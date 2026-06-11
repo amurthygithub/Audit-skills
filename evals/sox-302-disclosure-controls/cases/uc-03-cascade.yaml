@@ -1,0 +1,15 @@
+id: uc-03-cascade
+skill: sox-302-disclosure-controls
+use_case: UC-03
+description: 15-entity cascade -> 14 covered / 1 gap; 12 quarterly / 3 FPI-annual.
+input_from_seeds:
+  base: data/seeds/uc-03-input.json
+expected:
+  entities_total: 15
+  entities_covered: 14
+  quarterly_eval_entities: 12
+  annual_eval_entities: 3
+  classification: "CASCADE_GAPS_1"
+stub_only_paths: [classification]
+validators: [oracle_match]
+coverage_tags: [sox302.multi-entity-cascade, sox302.fpi-frequency]

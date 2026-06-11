@@ -1,0 +1,41 @@
+{
+ "use_case": "UC-02",
+ "filer": {
+  "name": "Nimbus Cloud Inc",
+  "newly_public": true,
+  "egc": true,
+  "accelerated": false,
+  "first_periodic_report": true
+ },
+ "disclosure_inventory": [
+  {
+   "item": "Revenue recognition (ASC 606)",
+   "category": "financial"
+  },
+  {
+   "item": "Cash & investments",
+   "category": "financial"
+  },
+  {
+   "item": "Stock-based comp",
+   "category": "financial"
+  },
+  {
+   "item": "Risk factors",
+   "category": "non_financial"
+  },
+  {
+   "item": "Legal proceedings",
+   "category": "non_financial"
+  },
+  {
+   "item": "Cybersecurity incident (8-K Item 1.05)",
+   "category": "non_financial"
+  },
+  {
+   "item": "MD&A",
+   "category": "non_financial"
+  }
+ ],
+ "as_of_date": "2026-06-11"
+}
