@@ -7,7 +7,7 @@
 
 ## 1. Where we are
 
-- **6 skills shipped, 6/6 G4.5-vetted** (M1 complete 2026-06-10; PRs #32-#40). Every vetting run found 4–9 CRITICAL clusters that structural gates missed — fabricated criteria/objectives/subcategories, SEC-prohibited report language, invented citations and statutes, UC docs contradicting their own seeds. Persona vetting + Tier-2 live-source verification is what catches "consistently wrong" — and Tier-2 refuted persona consensus 4 times (ITAF 5th ed, ISACA-as-CAICO, CPG 2.0's existence, the tiers-FAQ citation), so neither personas nor concurrence substitute for sources.
+- **7 skills shipped, 7/7 G4.5-vetted** (M1 retrofit sweep complete 2026-06-10, PRs #32-#40; hipaa-security-rule born-vetted 2026-06-10, PR #48 — 377 tests repo-wide). Every vetting run found 4–9 CRITICAL clusters that structural gates missed — fabricated criteria/objectives/subcategories, SEC-prohibited report language, invented citations and statutes, UC docs contradicting their own seeds. Persona vetting + Tier-2 live-source verification is what catches "consistently wrong" — and Tier-2 refuted persona consensus 4 times (ITAF 5th ed, ISACA-as-CAICO, CPG 2.0's existence, the tiers-FAQ citation), so neither personas nor concurrence substitute for sources.
 - **Process v2 is live** (AGENTS.md): G0–G6 pipeline, verification tiers (Tier 3 concurrence ≠ verification), §3.3.1 per-skill vetting runbook, citation registry as source of truth, pre-merge §5.11 with verbatim quotes.
 - **Unvetted:** none. Structural-gap tickets: SOX-637-642, SOX-644 (isaca), SOX-645 (nist-csf-2).
 - **Structural-gap tickets filed from vetting:** SOX-637–642 (all Todo under SOX-633).
@@ -48,8 +48,8 @@ Outcome: SOX-627/628/629/631 audited and closed (two ticket claims refuted: Rev 
 **Exit:** every open ticket maps to real remaining work; rmf UC-03 honest.
 **Est:** 1 session.
 
-### M3 — First new skill through full G0–G6: **hipaa-security-rule (SOX-572)**
-The proving run for process v2 on a *build* (every prior G4.5 was a retrofit).
+### M3 — First new skill through full G0–G6: **hipaa-security-rule (SOX-572)** — steps 1–3 ✅ COMPLETE 2026-06-10 (PR #48)
+The proving run for process v2 on a *build* (every prior G4.5 was a retrofit). **Outcome: the bet paid off** — §5.11 found ZERO CRITICAL/HIGH/MEDIUM factual errors on first pass (M1 retrofits averaged ~6 CRITICAL clusters); all G4.5 findings were consistency-level (2 HIGH: a chunk-vs-UC disposition-path contradiction, a phantom sibling-skill cross-reference), fixed and re-verified inside the build PR. Persona currency instinct refuted by live fetch a 5th time (no 2026 penalty adjustment). Bonus: documented an error inside NIST SP 800-66r2 itself (footnote 9 misdates PL 116-321). Step 4 (SOX-638) remains — note the gating discovered at G1: the authoritative mapping moved out of SP 800-66r2 into NIST CPRT (CSF v1.1 only, "intentionally broad"), and CPRT's JSON endpoints were not fetchable on 2026-06-10; SOX-638 needs an extraction method (CPRT UI export or OLIR catalog) before row-level encoding.
 
 **Why HIPAA before ISO 27001 (re-orders the A-wave):** the authoritative source is 45 CFR Part 164 Subpart C — free, public, stable — so 100% of claims are Tier-2 verifiable at build time. ISO 27001 is paywalled; running it first would force either recall-based content (the exact failure mode vetting kept finding) or a blocked G1. Second payoff: the HIPAA Day-0 fact sheet (full Subpart C standard/implementation-spec inventory with Required/Addressable flags) is **exactly the input SOX-638 needs**.
 
