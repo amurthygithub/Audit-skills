@@ -61,3 +61,10 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
   after the RF table. Found by the LLM eval lane (sweep 1): at RIA 7% the model answered by
   interpolating instead of refusing — ambiguous instructions are a skill bug
   (validation-harness-design.md section 7). Post-fix: 2/2 refusals.
+
+## 2026-06-11 — SOX-640 (correctness/usability slice)
+
+- **UC-02 reworked to be usable company-side (SaaS CRITICAL):** the C-C-C-E-R finding parts now derive FROM the seed (a preparer fills them), not hardcoded; added a finding-completeness check AND a 5-field management-response/remediation completeness check (owner, remediation steps, target date, operating-effectiveness evidence, retest window). UC doc now carries a full prose example finding, a blank fill-in template, a management-response template, and a company-side walkthrough. Empty/partial drafts are flagged with what is missing rather than papered over (new oracle + adversarial tests).
+- **Consumer affordances (item 5):** README acronym key (BV/TM/RIA/SI/BP/ULM/TD/C-C-C-E-R), OPENAI_API_KEY prerequisite in the quickstart, RIA + TD glossary entries in chunk 07.
+- **Controls-assessor crosswalk (item 6):** AS 1105 ↔ SP 800-53A orientation note + explicit not-for-FedRAMP scope boundary (use nist-800-53-rmf for 3PAO control assessments).
+- Split to own tickets: ITGC/control-population sampling (SOX-671), GAGAS formats (SOX-672), FS-overlay depth (SOX-673), healthcare PHI + patient-AR UC (SOX-674).

@@ -46,12 +46,13 @@ def test_uc_01_negative_tm_refuses():
 
 
 def test_uc_02_empty_input():
-    """Edge case: empty payload should produce a valid finding with defaults."""
+    """SOX-640: an empty payload now yields an INCOMPLETE finding (a preparer has
+    written nothing) — the skill lists what is missing rather than fabricating a finding."""
     out = run_skill("UC-02", {})
-    finding = out["finding"]
-    assert finding["severity"] == "Significant Deficiency"
-    assert finding["finding_id"] == 3
-    assert out["ccc_er_complete"] is True
+    assert out["ccc_er_complete"] is False
+    assert set(out["finding"]["finding_missing_parts"]) == {
+        "condition", "criteria", "cause", "effect", "recommendation"}
+    assert out["management_response_complete"] is False
 
 
 def test_uc_02_different_severities():

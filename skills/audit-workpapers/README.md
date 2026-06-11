@@ -2,7 +2,21 @@
 
 **Encode PCAOB AS 1215/AS 1105/AS 2315/AS 3105, AICPA AU-C 230, ISA 230, COSO ICIF-2013, and ISACA ITAF audit workpaper standards into your AI agent.**
 
-Status: **draft v0.2.0**, on Tier 0 Spine, 42 tests passing, linter-clean. The skill uses the **router + chunks pattern** -- SKILL.md is the router, the deep-dive content lives in 9 chunk files loaded on demand. Retrofitted from a 2,060-line monolithic SKILL.md on 2026-06-03.
+Status: **draft v0.2.0**, on Tier 0 Spine, 44 tests passing, linter-clean. The skill uses the **router + chunks pattern** -- SKILL.md is the router, the deep-dive content lives in 9 chunk files loaded on demand. Retrofitted from a 2,060-line monolithic SKILL.md on 2026-06-03.
+
+## Acronym key
+
+| Acronym | Meaning |
+|---|---|
+| **BV** | Book value (population recorded amount) |
+| **TM** | Tolerable misstatement |
+| **RIA** | Risk of incorrect acceptance |
+| **SI** | Sampling interval (BV ÷ sample size, or TM ÷ reliability factor) |
+| **BP** | Basic precision (reliability factor × SI) |
+| **ULM** | Upper limit on misstatement |
+| **TD** | Allowable risk of incorrect acceptance for a substantive test of details — the detection-risk term in the audit risk model AR = IR×CR×AP×TD (this is what UC-03 computes; *not* the attribute-sampling tolerable deviation rate for controls) |
+| **PM** | Performance materiality · **RF** Reliability factor · **PEO/PFO** principal executive/financial officer |
+| **C-C-C-E-R** | Condition · Criteria · Cause · Effect · Recommendation (the 5-part finding) |
 
 ---
 
@@ -12,6 +26,7 @@ Status: **draft v0.2.0**, on Tier 0 Spine, 42 tests passing, linter-clean. The s
 git clone https://github.com/amurthygithub/Audit-skills.git
 cd Audit-skills
 pip install openai
+export OPENAI_API_KEY=sk-...   # required: the quickstart calls the OpenAI API (Path 1)
 ```
 
 ```python
