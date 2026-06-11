@@ -23,10 +23,10 @@
    "status": "in use"
   },
   "PCI-DSS-4.0.1": {
-   "licence_class": "public (click-through licence \u2014 verify reproduction terms at Day-0)",
-   "access": "PCI SSC document library, free download",
+   "licence_class": "read-and-copy (PCI SSC Read and Copy License: internal-use copying for study only; no redistribution/modification; NO AI/extraction clause \u2014 agents MAY machine-verify against the local copy; repo stores IDs/counts/paraphrase + short attributed excerpts only)",
+   "access": "PCI SSC document library (click-through licence accepted 2026-06-11 with maintainer-authorized details); local oracle at ~/Standards-licensed/PCI/PCI-DSS-v4_0_1.pdf",
    "skill": "pci-dss-assessment (SOX-568)",
-   "status": "pending Day-0"
+   "status": "acquired 2026-06-11; inventory extracted (docs/builds/sox-568/pci-dss-inventory.json)"
   },
   "SOX-302-SEC-rules": {
    "licence_class": "public (US public domain)",
