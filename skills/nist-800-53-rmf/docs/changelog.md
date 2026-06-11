@@ -42,3 +42,12 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 - 7 test files: `test_oracle.py`, `test_trace.py`, `test_grounding.py`, `test_metamorphic.py`, `test_adversarial.py`, `test_telemetry.py`, `test_lint.py`.
 - Telemetry: `schema.json`, `instrument.py`, `redaction.md`, `baseline.md`.
 - Docs: `architecture.md`, `limits-and-disclaimers.md`, `changelog.md`, `acceptance-gate.md`.
+
+## 2026-06-10 — SOX-638 (part 1): HIPAA crosswalk rebuilt from NIST CPRT
+
+- `data/seeds/hipaa-to-800-53.json` regenerated from the CPRT OLIR set SP-800-66-Rev-2-to-SP-800-53-Rev-5.1.1 (extraction archived at `docs/builds/sox-638/cprt-extraction.json`): 12 rows -> 68 Security Rule elements / 279 mapping rows / 108 unique 800-53 Rev 5.1.1 controls.
+- Invented `exact`/`partial` strength ratings removed — the OLIR source carries none (informative references).
+- Prior wrong rows corrected by regeneration, e.g. 164.308(a)(5)(ii)(C) log-in monitoring: was AT-2 "exact"; CPRT says AT-3 + AU-6 (the persona-suggested AC-7/AU-2/AU-6 was also wrong — source wins).
+- §164.310 physical safeguards now fully covered (12 elements / 60 rows); emergency-access (break-glass) row present (164.312(a)(2)(ii) -> AC-2, AC-3, CP-2).
+- Generator: `data/generators/gen_hipaa_crosswalk.py` (deterministic; summary computed from rows).
+- Healthcare provider UC + FIPS-199 PHI guidance remain open under SOX-638 (part 2).

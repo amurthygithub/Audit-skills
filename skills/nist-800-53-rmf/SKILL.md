@@ -73,7 +73,7 @@ The NIST 800-53 / RMF stack is the U.S. federal government's primary cybersecuri
 The 800-53 control catalog is the de-facto hub of the U.S. compliance ecosystem. The following frameworks are commonly crosswalked to or from 800-53 — see `chunks/09-crosswalk.md` for the point-of-control mappings:
 
 - **NIST CSF 2.0** ([NIST-CSF-2.0]) — the Cybersecurity Framework (Function/Category/Subcategory hierarchy) maps cleanly to 800-53 control families; used for executive-level risk reporting.
-- **NIST SP 800-66 Rev 2** ([NIST-SP-800-66-Rev2]) — implements the HIPAA Security Rule; the 800-53 ↔ HIPAA mapping is the de-facto standard for HIPAA-covered entities seeking federal contracts.
+- **NIST SP 800-66 Rev 2** ([NIST-SP-800-66-Rev2]) — implements the HIPAA Security Rule; its authoritative element-level mappings live in the NIST CPRT ([NIST-CPRT]) as OLIR informative references, and the shipped HIPAA crosswalk seed is generated from that source (SOX-638).
 - **HIPAA Security Rule** ([HIPAA-Security-Rule]) — 45 CFR § 164.302–164.318; crosswalked to 800-53 for federal-grant and contract scenarios.
 - **ISO 27001:2022** ([ISO-27001-2022]) — international ISMS standard; Annex A controls map to 800-53 with ~70% overlap.
 - **PCI DSS v4.0** ([PCI-DSS-v4.0]) — payment card industry; 12 requirements map to a subset of 800-53 families.
@@ -197,6 +197,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | PCI-DSS-v4.0 | Payment Card Industry Data Security Standard | PCI SSC | v4.0 (Mar 2022) | 2026-05-25 | https://www.pcisecuritystandards.org/document_library |
 | HIPAA-Security-Rule | 45 CFR § 164.302–164.318 | HHS | as amended | 2026-05-25 | https://www.hhs.gov/hipaa/for-professionals/security/ |
 | NIST-SP-800-66-Rev2 | Implementing the HIPAA Security Rule | NIST | Rev 2 (Feb 2024) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/66/r2/final |
+| NIST-CPRT | Cybersecurity and Privacy Reference Tool (CPRT) | NIST | SP 800-66 Rev 2 reference data + OLIR mapping sets | 2026-06-10 | https://csrc.nist.gov/projects/cprt |
 | NIST-CSF-2.0 | Cybersecurity Framework | NIST | 2.0 (Feb 2024) | 2026-05-25 | https://www.nist.gov/cyberframework |
 | CMMC-2.0 | Cybersecurity Maturity Model Certification | DoD | 2.0 | 2026-05-25 | https://dodcio.defense.gov/CMMC/ |
 | IRS-Pub-1075 | IRS Publication 1075 | IRS | as amended | 2026-06-08 | https://www.irs.gov/pub/irs-pdf/p1075.pdf |

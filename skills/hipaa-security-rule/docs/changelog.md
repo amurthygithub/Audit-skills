@@ -40,3 +40,8 @@ seed + derivability-oracle contracts were written before the UC docs; G4.5 perso
 - Crosswalk rows (Security Rule → CSF → 800-53): SOX-638, pending CPRT extraction
 - Breach Notification Rule (Subpart D) mechanics: future skill; touchpoints only here
 - NPRM status must be re-verified at every G4 pass (volatile claim)
+
+## 2026-06-10 — SOX-638 (part 1): crosswalk no longer deferred
+
+- `data/crosswalks/hipaa-to-800-53-r511.json` added — the complete Security Rule -> SP 800-53 Rev 5.1.1 OLIR mapping vendored from the CPRT extraction (same artifact as nist-800-53-rmf's seed; provenance in `data/crosswalks/README.md`).
+- The v1 "no crosswalk rows" limitation is lifted for 800-53; the CSF mapping stays un-encoded (CPRT targets CSF v1.1 only).
