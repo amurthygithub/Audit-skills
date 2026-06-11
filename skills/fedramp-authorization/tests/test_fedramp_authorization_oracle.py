@@ -56,7 +56,9 @@ def test_uc_01_oracle():
 
 
 def test_uc_02_oracle():
-    """LI-SaaS eligibility derived (Low AND SaaS); the 156 = 66 tested + 90 attested split."""
+    """LI-SaaS eligibility derived (Low AND SaaS); 156 total. The Rev 5 profile gives
+    method designations, NOT a flat 66/90 split — the skill must not assert 66/90 (a
+    Rev 4 figure not reproducible from the Rev 5 OSCAL profile; G4.5 §5.11)."""
     payload = _load("uc-02-input.json")
     out = run_skill("UC-02", payload)
     fips = payload["fips199"]
@@ -66,11 +68,14 @@ def test_uc_02_oracle():
     assert out["li_saas_eligible"] is expect_eligible is True
     assert out["baseline"] == "LI-SaaS"
     assert out["baseline_controls"] == 156
-    assert out["controls_3pao_tested"] + out["controls_attested"] == out["baseline_controls"]
-    assert out["controls_3pao_tested"] == 66 and out["controls_attested"] == 90
     assert out["classification"] == "LI_SAAS_ELIGIBLE"
+    # The honest characterization: method designations, not a flat 66/90.
+    assert "controls_3pao_tested" not in out and "controls_attested" not in out, \
+        "the Rev 4 66/90 flat split must not be asserted as a Rev 5 fact"
+    assert "ASSESS" in out["assessment_method_note"] and "Rev 4" in out["assessment_method_note"]
     expected = _load("uc-02-expected.json")
     assert expected["li_saas_eligible"] == out["li_saas_eligible"]
+    assert expected["baseline_controls"] == out["baseline_controls"] == 156
 
 
 def test_uc_03_oracle():
@@ -100,7 +105,9 @@ def test_fact_sheet_inventory_diff():
     assert c["baseline_moderate"] == 323
     assert c["baseline_high"] == 410
     assert c["baseline_li_saas"] == 156
-    assert c["li_saas_3pao_tested"] + c["li_saas_attested"] == 156
+    # No li_saas tested/attested flat-split count: the Rev 4 "66/90" is not reproducible
+    # from the Rev 5 OSCAL profile, so the fact sheet must not carry it (G4.5 §5.11).
+    assert "li_saas_3pao_tested" not in c and "li_saas_attested" not in c
     assert c["nist_800_53b_low"] == 149
     assert c["nist_800_53b_moderate"] == 287
     assert c["nist_800_53b_high"] == 370

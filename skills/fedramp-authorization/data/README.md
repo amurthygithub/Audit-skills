@@ -18,7 +18,7 @@
   `nist-800-53-rmf`.
 
 The Rev 5 baseline totals the stub uses (Low **156** / Moderate **323** / High **410** / LI-SaaS
-**156** = 66 tested + 90 attested) are framework constants counted directly from the PMO-authored
+**156** total; method-designated, not a flat 66/90 split) are framework constants counted directly from the PMO-authored
 OSCAL Rev 5 baseline profiles (fact sheet §0); the *derivation* the oracles check is the seed-driven
 selection / computation (the high-water-mark categorization, the baseline lookup, each POA&M
 due-date, the inheritance-aware finding roll-up), not the constants.

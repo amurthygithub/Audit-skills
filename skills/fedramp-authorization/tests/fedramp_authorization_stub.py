@@ -12,8 +12,11 @@ Program logic implemented here (from the public sources, fact sheet §0):
     remediation deadline = identified_date + the FedRAMP ConMon SLA for its
     severity (high/critical 30 days, moderate 90, low 180).
   - UC-02 (B35): LI-SaaS (Tailored) eligibility = overall impact Low AND SaaS
-    delivery. The Tailored baseline is 156 controls split 66 3PAO-tested + 90
-    CSP-attested. Moderate+SaaS is NOT LI-SaaS — it takes the full Moderate baseline.
+    delivery. The Tailored baseline is 156 controls; the Rev 5 OSCAL profile assigns
+    each a method designation (ASSESS=3PAO-assessed / ATTEST=CSP-attested / NSO / FED)
+    and does NOT yield a clean flat "tested vs attested" split — the legacy Rev 4
+    "66 tested / 90 attested" figure is not reproducible from the Rev 5 profile, so
+    the skill does not assert it. Moderate+SaaS is NOT LI-SaaS — it takes full Moderate.
   - UC-03 (B36): a 3PAO SAR finding roll-up. A finding is a control the CSP OWNS
     (not inherited/leveraged) that FAILED testing; inherited-and-failed controls
     are the provider's POA&M, not the leveraging CSP's. POA&M item count = findings;
@@ -44,8 +47,17 @@ _ORDER_LEVEL = {v: k for k, v in _LEVEL_ORDER.items()}
 # PMO-authored OSCAL profiles (fact sheet §0). LI-SaaS shares Low's 156.
 BASELINE_CONTROLS = {"Low": 156, "Moderate": 323, "High": 410}
 LI_SAAS_CONTROLS = 156
-LI_SAAS_3PAO_TESTED = 66
-LI_SAAS_ATTESTED = 90
+# The Rev 5 Tailored LI-SaaS profile assigns each control a method designation
+# (ASSESS / ATTEST / NSO / FED); it does NOT yield a clean flat "tested vs attested"
+# split. The legacy Rev 4 Tailored requirements doc used a 66-tested / 90-attested flat
+# split, which is NOT reproducible from the Rev 5 OSCAL profile (G4.5 §5.11 verified) —
+# so the skill states the total and the method-designation structure, not a fixed split.
+LI_SAAS_METHOD_NOTE = (
+    "156 controls; the Rev 5 Tailored method designations (ASSESS = 3PAO-assessed / "
+    "ATTEST = CSP-attested / NSO / FED in the OSCAL profile) split assessed vs attested "
+    "— there is no clean flat count. The legacy Rev 4 '66 tested / 90 attested' split is "
+    "not reproducible from the Rev 5 profile."
+)
 
 # FedRAMP ConMon remediation SLAs (days) by finding severity.
 REMEDIATION_SLA_DAYS = {"Critical": 30, "High": 30, "Moderate": 90, "Low": 180}
@@ -108,8 +120,7 @@ def _uc02(payload: dict) -> dict:
             "li_saas_eligible": True,
             "baseline": "LI-SaaS",
             "baseline_controls": LI_SAAS_CONTROLS,
-            "controls_3pao_tested": LI_SAAS_3PAO_TESTED,
-            "controls_attested": LI_SAAS_ATTESTED,
+            "assessment_method_note": LI_SAAS_METHOD_NOTE,
         }
     # Not LI-SaaS: a Moderate/High SaaS (or a non-SaaS Low) takes the full baseline.
     return {

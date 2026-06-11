@@ -22,7 +22,7 @@ The **Authorizing Official (AO)** grants the **Authorization to Operate (ATO)**.
 **OMB M-24-15 (2024-07-25)** modernized the program and reframed it around a **single FedRAMP authorization** that other agencies reuse [OMB-M-24-15 §authority]:
 
 1. **Multi-agency authorization** is permitted — more than one agency may participate in / sponsor an authorization.
-2. **Presumption of adequacy**: an agency **must presume** that the security assessment documented in a FedRAMP authorization package is **adequate** for a product at a given FIPS 199 impact level [OMB-M-24-15 §presumption]. This is what makes reuse real and reduces duplicative agency-by-agency reassessment.
+2. **Presumption of adequacy**: an agency **must presume** that the security assessment documented in a FedRAMP authorization package is **adequate** for a product at a given FIPS 199 impact level [OMB-M-24-15 §presumption]. This is what makes reuse real and reduces duplicative agency-by-agency reassessment. The presumption is an obligation on **federal agencies** under M-24-15; a **state/local (GovRAMP) entity is governed by its own law** and may *choose* to rely on a FedRAMP package but is not bound by M-24-15.
 
 ## 4. The JAB P-ATO is retired
 
@@ -48,7 +48,7 @@ A core principle of FedRAMP — enshrined by the 2022 Act and reinforced by M-24
 
 1. **Confirm the impact level.** Categorize the system (FIPS 199 high-water mark) and select the baseline — `chunks/02-impact-levels-and-baselines.md`.
 2. **Check for an existing authorization to leverage.** If the offering (or an underlying provider) is already FedRAMP-authorized at the needed impact level, **leverage** it under the presumption of adequacy rather than reassess.
-3. **Identify the sponsoring agency.** Agency Authorization requires an agency sponsor; multi-agency authorization is permitted under M-24-15.
+3. **Identify the sponsoring agency — the gating prerequisite.** Agency Authorization **requires a sponsoring federal agency** to grant the ATO: **no sponsor, no agency ATO.** For a CSP with no federal customer yet, securing a sponsor is often the hardest, earliest step — not a formality. Multi-agency authorization is permitted under M-24-15.
 4. **Decide on a readiness step (optional).** Engage a 3PAO for a **FedRAMP Ready / RAR** precursor, or proceed directly to the full assessment.
 5. **Run the full assessment.** 3PAO executes the SAP and produces the SAR (`chunks/05`).
 6. **Obtain the ATO.** The agency **AO** reviews the package and grants the ATO; then enter monthly ConMon (`chunks/06`).

@@ -36,9 +36,7 @@ counts:                             # totals counted directly from the PMO-autho
   baseline_high: 410                # FedRAMP Rev 5 High (191 base + 219 enhancements)
   baseline_high_base: 191
   baseline_high_enhancements: 219
-  baseline_li_saas: 156             # LI-SaaS shares Low's exact set (135 + 21); split 66 tested + 90 attested
-  li_saas_3pao_tested: 66           # of the 156, independently tested by a 3PAO (per Tailored LI-SaaS doc)
-  li_saas_attested: 90              # of the 156, satisfied by CSP attestation (per Tailored LI-SaaS doc)
+  baseline_li_saas: 156             # LI-SaaS = Low's exact set (135 + 21); Rev 5 method designations (ASSESS/ATTEST/NSO/FED), NOT a flat 66/90 split (that figure is Rev 4, not reproducible from the Rev 5 profile — G4.5 §5.11)
   nist_800_53b_low: 149             # NIST SP 800-53B Low baseline (FedRAMP tailors up from here)
   nist_800_53b_moderate: 287        # NIST SP 800-53B Moderate baseline
   nist_800_53b_high: 370            # NIST SP 800-53B High baseline
@@ -66,7 +64,7 @@ identifiers:
     name: "High-impact baseline (410 controls)"
     parent: "FedRAMP Rev 5 baselines"
   - code: "FedRAMP LI-SaaS"
-    name: "Low-Impact SaaS / Tailored baseline (156 controls; 66 3PAO-tested + 90 attested)"
+    name: "Low-Impact SaaS / Tailored baseline (156 controls; Rev 5 method designations ASSESS/ATTEST/NSO/FED — not a flat 66/90 split)"
     parent: "FedRAMP Rev 5 baselines"
   - code: "SSP"
     name: "System Security Plan — the 'security blueprint' for the Cloud Service Offering"
@@ -215,13 +213,16 @@ readable backup only.
 | Low | **156** (135 + 21) | Low high-water mark | 149 (Low) + FedRAMP additions | OSCAL `...LOW-baseline_profile.json` (PMO-authored) | ✓ primary |
 | Moderate | **323** (181 + 142) | Moderate high-water mark | 287 (Moderate) + additions | OSCAL `...MODERATE-baseline_profile.json` | ✓ primary (Rev 4 was 325) |
 | High | **410** (191 + 219) | High high-water mark | 370 (High) + additions | OSCAL `...HIGH-baseline_profile.json` | ✓ primary |
-| LI-SaaS (Tailored) | **156** (135 + 21); 66 tested + 90 attested | Low-impact SaaS | same set as Low | OSCAL `...LI-SaaS-baseline_profile.json`; 66/90 split per FedRAMP Tailored LI-SaaS baseline doc | ✓ primary (split: doc, not OSCAL flat count) |
+| LI-SaaS (Tailored) | **156** (135 + 21); method designations, no flat split | Low-impact SaaS | same set as Low | OSCAL `...LI-SaaS-baseline_profile.json` | ✓ primary (total); the Rev 4 "66/90" is NOT reproducible from the Rev 5 profile |
 
 **Counting method:** each total is **base controls + selected control enhancements** counted
 together (one `with-ids` entry each), extracted directly from the PMO-authored OSCAL profile.
-The 66-tested/90-attested LI-SaaS split is documented in the Tailored LI-SaaS baseline doc and is
-NOT a clean flat count in the OSCAL file (which uses 5 objective-level method props:
-ATTEST/ASSESS/CONDITIONAL/NSO/FED) — cite the split to the doc, not the OSCAL profile.
+**LI-SaaS split — corrected (G4.5 §5.11):** the Rev 5 Tailored profile assigns each control a
+method designation (ASSESS / ATTEST / CONDITIONAL / NSO / FED) and does **not** yield a clean
+flat "tested vs attested" count. The commonly-quoted **"66 tested / 90 attested" split is a
+**Rev 4** figure (from `REV_4_FedRAMP-Tailored-LI-SaaS-Requirements.docx`) and is **not
+reproducible** from the Rev 5 profile — so the skill states the 156 total and the
+method-designation structure, never a fixed 66/90.
 
 **Rule applied:** counts here are the single machine-checkable source of truth; the built chunks
 must state exactly these numbers.
@@ -270,7 +271,8 @@ of adequacy, ConMon, SSP, 3PAO/A2LA, and 20x is captured in §0. The build agent
 
 **Currency corrections to the source ticket (do NOT carry the ticket's framing into the skill):**
 1. **Counts:** ticket said "Moderate ~325 / Li-SaaS ~156"; correct Rev 5 = **156 / 323 / 410 / 156**
-   (325 was Rev 4 Moderate). LI-SaaS = same 156 as Low, split 66 tested / 90 attested.
+   (325 was Rev 4 Moderate). LI-SaaS = same 156 as Low; the Rev 4 "66 tested / 90 attested" flat
+   split is NOT reproducible from the Rev 5 profile (method designations only) — do not assert it.
 2. **"JAB→PMO" is outdated:** no live JAB. Current model = statutory **FedRAMP Board** + GSA/PMO;
    JAB P-ATO retired.
 3. **"Agency ATO only" is incomplete:** Agency Authorization is operative, but M-24-15 adds
@@ -288,7 +290,7 @@ of adequacy, ConMon, SSP, 3PAO/A2LA, and 20x is captured in §0. The build agent
 | The NIST SP 800-53 Rev 5 control catalog / general RMF | No | Covered by `nist-800-53-rmf`; this skill is the FedRAMP *program/process* layer (baselines, authorization path, package, ConMon, 20x) |
 | Control-by-control baseline listing (300+ rows per baseline) | No | v0.1.0 encodes the counts and the tailoring relationship, not the full per-control enumeration |
 | DoD Impact Levels (IL2/4/5/6) / DISA SRG | No | DoD cloud authorization is a separate regime; flag as adjacent, out of scope |
-| StateRAMP / agency-specific programs | No | Distinct programs that borrow FedRAMP's model; out of scope |
+| GovRAMP (formerly StateRAMP) / agency-specific programs | No | Distinct programs that borrow FedRAMP's model; out of scope |
 | CMMC | No | Defense contractor program; separate skill candidate |
 | Writing an actual SSP/SAR document | Partial | The skill explains the package and the process; document authoring is a downstream use case, not a control catalog |
 
@@ -307,8 +309,10 @@ of adequacy, ConMon, SSP, 3PAO/A2LA, and 20x is captured in §0. The build agent
 
 **Count provenance — RESOLVED.** The §2.1 counts are now anchored to the PMO-authored OSCAL Rev 5
 baseline profiles (control IDs counted directly), not secondary assessor pages. Caveats recorded:
-the fedramp.gov `.xlsx` workbook serves an empty stub, and the 66/90 LI-SaaS split cites the
-Tailored baseline doc (not derivable as a flat OSCAL count).
+the fedramp.gov `.xlsx` workbook serves an empty stub; and the **"66 tested / 90 attested" LI-SaaS
+split is a Rev 4 figure that is NOT reproducible from the Rev 5 profile** (which carries only
+per-control method designations) — corrected at G4.5 §5.11, so the skill asserts the 156 total and
+the method-designation structure, never a fixed 66/90.
 
 ---
 

@@ -37,9 +37,11 @@ The **LI-SaaS (Tailored)** baseline applies **only** to a **Low-impact** offerin
 **SaaS**. Eligibility = `overall FIPS 199 impact == Low AND SaaS-delivered`. A **Moderate** (or
 **High**) impact system — **even if SaaS-delivered** — takes the full Moderate (**323**) or High
 (**410**) baseline, **not** LI-SaaS. Treating "Moderate + SaaS" as LI-SaaS is a common, load-bearing
-misconception the skill exists to refuse; the eligible Tailored baseline is **156** controls = **66**
-3PAO-tested + **90** CSP-attested (the 66/90 split is documented in the Tailored LI-SaaS baseline
-doc, **not** a flat OSCAL count).
+misconception the skill exists to refuse; the eligible Tailored baseline is **156** controls. The
+Rev 5 profile assigns each a **method designation** (ASSESS / ATTEST / NSO / FED), with a lighter
+assessment burden than the full baseline — but the commonly-quoted **"66 tested / 90 attested" flat
+split is a Rev 4 figure and is NOT reproducible from the Rev 5 OSCAL profile**, so the skill states
+the 156 total and the method structure, never a fixed 66/90 (corrected at G4.5 §5.11).
 
 ## The ATO is the AO's decision — not derived here
 
@@ -61,9 +63,10 @@ CSP's POA&M (asserted as a metamorphic invariant).
 
 The baseline counts are **Rev 5** (post-May-2023 800-53 Rev 5 transition), counted directly from the
 PMO-authored OSCAL Rev 5 baseline profiles: **Low 156** (135 + 21), **Moderate 323** (181 + 142),
-**High 410** (191 + 219), **LI-SaaS 156** (= Low's set; 66 tested + 90 attested); 800-53B baselines
-**149 / 287 / 370**. **325 is the Rev 4 Moderate count, not Rev 5** — do not restate the totals with
-other numbers. Two source traps are recorded and avoided: the retired
+**High 410** (191 + 219), **LI-SaaS 156** (= Low's set; method-designated, not a flat split); 800-53B
+baselines **149 / 287 / 370**. **325 is the Rev 4 Moderate count, not Rev 5** — do not restate the
+totals with other numbers. **The LI-SaaS "66 tested / 90 attested" split is likewise a Rev 4 figure
+and is not reproducible from the Rev 5 profile** — do not assert it (corrected at G4.5 §5.11). Two source traps are recorded and avoided: the retired
 `github.com/GSA/fedramp-automation` repo (404 — use the OSCAL-Foundation mirror), and the fedramp.gov
 `.xlsx` baseline workbook URL that resolves 200 but serves an **empty S3 redirect stub** (not cited
 as the count source). **Re-verify currency before client use** — a later 800-53 maintenance release or
@@ -78,7 +81,7 @@ a 20x change may have landed (NIST SP 800-53 is still Rev 5 — no Rev 6 — as 
 - **Not the 800-53 catalog / RMF.** The control catalog, the control families, and the general RMF
   are `nist-800-53-rmf`; this skill references the boundary, it does not re-teach the catalog. No
   per-control baseline enumeration (300+ rows) in v0.1.0 — counts + tailoring relationship only.
-- **Not a DoD / StateRAMP / CMMC reference.** DoD Impact Levels (IL2/4/5/6) / DISA SRG, StateRAMP,
+- **Not a DoD / GovRAMP (formerly StateRAMP) / CMMC reference.** DoD Impact Levels (IL2/4/5/6) / DISA SRG, GovRAMP (formerly StateRAMP),
   and CMMC are distinct regimes — named as adjacent, not covered here.
 - **Not a substitute for the CSP's own package.** The SSP/SAP/SAR/POA&M are the CSP's and 3PAO's
   obligation; this skill structures the program and explains the package, it does not author a real

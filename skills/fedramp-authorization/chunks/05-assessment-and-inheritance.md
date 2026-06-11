@@ -34,6 +34,7 @@ A CSP rarely runs its own data centers. A SaaS offering is usually **built on an
 - **Inherited (leveraged) controls are NOT re-tested by the leveraging CSP's 3PAO.** They were already assessed in the **provider's** package and are tracked in the **provider's** POA&M.
 - The leveraging CSP is responsible only for the controls it **owns** — the controls implemented in its own layer of the stack. Those are what its 3PAO tests and what populate its SSP and POA&M.
 - Inheritance flows **down the stack**: IaaS/PaaS -> SaaS. The leveraging CSP documents which controls are inherited (and from whom) versus which it implements itself.
+- **Simplified model — Shared/Hybrid controls (caveat).** Real FedRAMP recognizes **five control-origination categories** (System-Specific, Inherited, Shared/Hybrid, Configured-by-Customer, Provided-by-Customer). This skill's binary **inherited vs CSP-owned** split is a simplification: for a **Shared/Hybrid** control the **customer-responsibility portion belongs to the leveraging CSP and stays in its POA&M** — only the provider-responsibility portion is inherited. Treat a fully-inherited control as the provider's; for a shared control the CSP still owns its half. (Full five-category modeling is a planned expansion.)
 
 This is why a SAR finding roll-up must separate **CSP-owned** failures from **inherited** ones: an inherited failure is the provider's to remediate, not the leveraging CSP's.
 

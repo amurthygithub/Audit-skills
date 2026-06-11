@@ -64,7 +64,7 @@ ConMon — **monthly**. After the ATO the CSP submits a monthly ConMon package: 
 ## Cross-references
 
 - `use-cases/uc-01-moderate-agency-ato.md` — the worked Moderate engagement: categorize → 323 controls → POA&M severity SLAs (30/90/180).
-- `use-cases/uc-02-li-saas-readiness.md` — the lighter LI-SaaS branch when the system is Low-impact and SaaS-delivered (156 = 66 tested + 90 attested).
+- `use-cases/uc-02-li-saas-readiness.md` — the lighter LI-SaaS branch when the system is Low-impact and SaaS-delivered (156 controls, method-designated; the Rev 4 "66/90" split is not asserted).
 - `chunks/02-impact-levels-and-baselines.md` — FIPS 199 categorization and the four baselines (the 800-53 boundary).
 - `chunks/04-the-authorization-package.md` — SSP / SAP / SAR / POA&M (who authors what).
 - `chunks/05-assessment-and-inheritance.md` — the 3PAO assessment and control inheritance / leveraging.

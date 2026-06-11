@@ -36,7 +36,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 
 ### Do NOT Use This Skill When:
 - The question is the **NIST SP 800-53 Rev 5 control catalog or the general RMF** (control families, the RMF 7 steps, control selection mechanics) — use `nist-800-53-rmf`. FedRAMP baselines are tailored 800-53 controls; this skill cites the boundary, it does not re-teach the catalog [NIST-800-53R5 §baselines].
-- The user needs **DoD Impact Levels (IL2/4/5/6) / DISA SRG**, **StateRAMP**, or **CMMC** — distinct regimes, named as adjacent, not covered here.
+- The user needs **DoD Impact Levels (IL2/4/5/6) / DISA SRG**, **GovRAMP (formerly StateRAMP)**, or **CMMC** — distinct regimes, named as adjacent, not covered here.
 - The user wants a **legal/authorization decision or an ATO guarantee** — the ATO is the authorizing official's risk-based decision; this skill encodes the program, it is not authorization or legal advice.
 
 ## 2. Framework Overview
@@ -54,7 +54,7 @@ FedRAMP is the U.S. government's standardized program for authorizing cloud serv
 | POA&M lifecycle + deviation requests + risk | FP / RA / OR; AO risk acceptance | `chunks/07` |
 | FedRAMP 20x + modernization (emerging) | KSIs; machine-readable packages; OSCAL | `chunks/08` |
 
-**Counting conventions (from the fact sheet §0, counted from the PMO OSCAL profiles):** baselines **Low 156** (135 base + 21 enhancements), **Moderate 323** (181 + 142), **High 410** (191 + 219), **LI-SaaS 156** (= Low's set; 66 tested + 90 attested); 800-53B baselines **149 / 287 / 370**; **3** FIPS 199 impact levels over **3** CIA objectives (high-water mark); **4** core package artifacts (SSP/SAP/SAR/POA&M); ConMon is **monthly**.
+**Counting conventions (from the fact sheet §0, counted from the PMO OSCAL profiles):** baselines **Low 156** (135 base + 21 enhancements), **Moderate 323** (181 + 142), **High 410** (191 + 219), **LI-SaaS 156** (= Low's set; method-designated, **not** a flat 66/90 split — see §9); 800-53B baselines **149 / 287 / 370**; **3** FIPS 199 impact levels over **3** CIA objectives (high-water mark); **4** core package artifacts (SSP/SAP/SAR/POA&M); ConMon is **monthly**.
 
 ## 3. Core Concepts
 
@@ -119,7 +119,7 @@ FedRAMP 20x is the automation-first, outcome-based modernization track (Key Secu
 - `nist-csf-2` — general cyber posture can feed the SSP narrative (pointer in `chunks/01`).
 - `aicpa-soc-reporting` — SOC 2 is the adjacent commercial assurance; FedRAMP is the federal authorization (one-line contrast in `chunks/01`).
 
-External: DoD Impact Levels / DISA SRG, StateRAMP, and CMMC are adjacent regimes, named not covered. fedramp.gov pages render client-side; the Rev 5 baseline totals are counted from the PMO OSCAL profiles, and `github.com/GSA/fedramp-automation` is retired (use the OSCAL-Foundation mirror).
+External: DoD Impact Levels / DISA SRG, GovRAMP (formerly StateRAMP), and CMMC are adjacent regimes, named not covered. fedramp.gov pages render client-side; the Rev 5 baseline totals are counted from the PMO OSCAL profiles, and `github.com/GSA/fedramp-automation` is retired (use the OSCAL-Foundation mirror).
 
 ## 8. Worked Examples (summary)
 
@@ -128,7 +128,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 | UC | Title | Persona | Key output |
 |----|-------|---------|------------|
 | UC-01 | SaaS FedRAMP Moderate via Agency Authorization — "Acme Cloud Suite" | CSP ISSO | Moderate (high-water mark); **323** controls; POA&M deadlines by severity (30/90/180) |
-| UC-02 | Cloud vendor LI-SaaS readiness — "Beacon Forms" | cloud-vendor founder | LI-SaaS **eligible** (Low + SaaS); **156** = 66 tested + 90 attested |
+| UC-02 | Cloud vendor LI-SaaS readiness — "Beacon Forms" | cloud-vendor founder | LI-SaaS **eligible** (Low + SaaS); **156** controls (method-designated; the Rev 4 "66/90" split is not asserted) |
 | UC-03 | Big-4 3PAO assessment of a Moderate CSP — "Example 3PAO" | 3PAO assessor | 4 findings (CSP-owned failed controls); inherited excluded; residual-high AO risk note |
 
 ## 9. Anti-Hallucination Disclaimers
@@ -140,7 +140,7 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 - **Inherited/leveraged controls are the provider's responsibility**, not the leveraging CSP's — they are not re-tested by, and not in the POA&M of, the leveraging CSP [A2LA-3PAO §17020].
 - **ConMon is monthly; remediation SLAs are 30 / 90 / 180 days** (high-critical / moderate / low) [FEDRAMP-CONMON §monthly]. The **ATO decision is the authorizing official's** risk-based call — a 3PAO recommends; it does not grant the ATO.
 - **FedRAMP 20x is an emerging direction, not the settled Rev 5 process** — label it as such; do not state 20x mechanics as current requirements.
-- **Counts are fixed (fact sheet §0, OSCAL-verified):** 156 / 323 / 410 / 156; 800-53B 149 / 287 / 370; 66 tested + 90 attested. Do not restate them with other numbers (e.g., 325 is the **Rev 4** Moderate count, not Rev 5).
+- **Counts are fixed (fact sheet §0, OSCAL-verified):** 156 / 323 / 410 / 156; 800-53B 149 / 287 / 370. Do not restate them with other numbers (e.g., 325 is the **Rev 4** Moderate count, not Rev 5). **The LI-SaaS "66 tested / 90 attested" flat split is a Rev 4 figure and is NOT reproducible from the Rev 5 OSCAL profile** (which carries per-control method designations only) — state the 156 total and the method structure, never the 66/90.
 - This skill encodes public FedRAMP/OMB/NIST text current to 2026-06; re-verify currency (and the active 20x RFCs) before an authorization-adjacent answer.
 
 > This skill encodes the FedRAMP program and is not authorization or legal advice. Verify outputs against the cited sources; the ATO is the authorizing official's decision.

@@ -22,7 +22,7 @@ Status: **draft v0.1.0**, on Tier 0 Spine, 65 skill-local tests passing (oracle,
 ## When NOT to use
 
 - The **NIST SP 800-53 Rev 5 control catalog or the general RMF** (control families, the RMF 7 steps, control-selection mechanics) — use `nist-800-53-rmf`. FedRAMP baselines are tailored 800-53 controls; this skill cites the boundary, it does not re-teach the catalog.
-- **DoD Impact Levels (IL2/4/5/6) / DISA SRG**, **StateRAMP**, or **CMMC** — distinct regimes, named as adjacent, not covered here.
+- **DoD Impact Levels (IL2/4/5/6) / DISA SRG**, **GovRAMP (formerly StateRAMP)**, or **CMMC** — distinct regimes, named as adjacent, not covered here.
 - A **legal/authorization decision or an ATO guarantee** — the ATO is the authorizing official's risk-based decision; this skill encodes the program, it is not authorization or legal advice.
 
 ## Use cases (3)
@@ -95,7 +95,7 @@ The stub is a **deterministic** reference executor — it COMPUTES its outputs f
 
 - Not authorization or legal advice — the ATO is the authorizing official's risk-based decision, and no output here is an authorization guarantee
 - Not the 800-53 control catalog or general RMF (it references the boundary; `nist-800-53-rmf` owns the catalog)
-- Not DoD Impact Levels / DISA SRG, StateRAMP, or CMMC (named as adjacent regimes only)
+- Not DoD Impact Levels / DISA SRG, GovRAMP (formerly StateRAMP), or CMMC (named as adjacent regimes only)
 - Not a per-control baseline enumeration — v0.1.0 encodes the four totals (OSCAL-verified) and the tailoring relationship, not the 300+-row per-control listing
 
 ## Public-source note

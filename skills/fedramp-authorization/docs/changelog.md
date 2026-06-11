@@ -27,7 +27,7 @@ is the statutory FedRAMP Board, NOT the retired JAB**.
   (FedRAMP + HIPAA overlap)
 - **3 use cases** (`use-cases/`): UC-01 SaaS FedRAMP Moderate via Agency Authorization (Acme Cloud
   Suite — categorization → 323 controls → POA&M deadlines by severity), UC-02 cloud-vendor LI-SaaS
-  readiness (Beacon Forms — Low + SaaS → 156 = 66 tested + 90 attested), UC-03 Big-4 3PAO assessment
+  readiness (Beacon Forms — Low + SaaS → 156 controls, method-designated), UC-03 Big-4 3PAO assessment
   of a Moderate CSP (Example 3PAO — inheritance-aware finding roll-up → POA&M)
 - `data/seeds/` (UC-01/02/03 self-contained inputs + expected outputs; no real package data; dates on
   POA&M-deadline computations) + `data/generators/` (`gen_fips199.py`, `gen_control_results.py` —
@@ -50,7 +50,7 @@ is the statutory FedRAMP Board, NOT the retired JAB**.
   (156/323/410/156, OSCAL-verified) and the tailoring relationship are encoded, not the full listing;
   the catalog itself is `nist-800-53-rmf`
 - Crosswalk rows: none in v1 (the baselines ARE 800-53 controls — identity, not a mapping)
-- DoD Impact Levels (IL2/4/5/6) / DISA SRG, StateRAMP, CMMC: named as adjacent regimes; not detailed
+- DoD Impact Levels (IL2/4/5/6) / DISA SRG, GovRAMP (formerly StateRAMP), CMMC: named as adjacent regimes; not detailed
 - Authoring a full SSP/SAR document: the skill explains the package + process; document drafting is a
   downstream use case, not a deliverable
 - Currency: the Rev 5 baseline counts, the M-24-15 governance model, and the FedRAMP 20x track must

@@ -1,6 +1,6 @@
 ---
 uc_id: UC-02
-title: "Cloud vendor LI-SaaS readiness — an all-Low FIPS 199 categorization plus SaaS delivery makes the offering LI-SaaS (Tailored) eligible, selecting the 156-control baseline split 66 3PAO-tested + 90 CSP-attested; Moderate+SaaS would NOT be LI-SaaS"
+title: "Cloud vendor LI-SaaS readiness — an all-Low FIPS 199 categorization plus SaaS delivery makes the offering LI-SaaS (Tailored) eligible, selecting the 156-control Tailored baseline; Moderate+SaaS would NOT be LI-SaaS"
 industries: [saas-technology]
 frameworks: [FedRAMP-Rev5, FedRAMP-Authorization-Act-2022, OMB-M-24-15, NIST-SP-800-53r5]
 inputs:
@@ -10,7 +10,7 @@ inputs:
 procedure:
   - "chunks/02-impact-levels-and-baselines.md — Categorize: the FIPS 199 overall impact is the high-water mark = max(C, I, A) [FIPS-199 §categorization]; all-Low -> overall Low."
   - "chunks/02-impact-levels-and-baselines.md — Determine LI-SaaS (Tailored) eligibility: eligible iff overall impact == Low AND saas_delivery == true [FEDRAMP-REV5-BASELINES §li-saas]."
-  - "chunks/02-impact-levels-and-baselines.md — If eligible, select the LI-SaaS Tailored baseline: 156 controls split 66 3PAO-tested + 90 CSP-attested [FEDRAMP-REV5-BASELINES §li-saas]."
+  - "chunks/02-impact-levels-and-baselines.md — If eligible, select the LI-SaaS Tailored baseline: 156 controls (the Rev 5 profile assigns each a method designation — ASSESS=3PAO-assessed / ATTEST=CSP-attested / NSO / FED — rather than a fixed flat split) [FEDRAMP-REV5-BASELINES §li-saas]."
   - "chunks/03-authorization-paths.md — Place it in readiness: this is a FedRAMP Ready / readiness-assessment context ahead of a full assessment and the AO's ATO."
   - "SKILL.md §1-§11 — route the engagement through the categorization -> LI-SaaS eligibility -> baseline procedure; Moderate+SaaS is NOT LI-SaaS (the trap)."
 expected_outputs:
@@ -19,12 +19,11 @@ expected_outputs:
   li_saas_eligible: true
   baseline: "LI-SaaS"
   baseline_controls: 156
-  controls_3pao_tested: 66
-  controls_attested: 90
+  assessment_method_note: "156 controls; Rev 5 method designations (ASSESS/ATTEST/NSO/FED), not a flat 66/90 split"
 oracle:
   - "overall_impact recomputed as the high-water mark max(C, I, A) over all-Low == 'Low'"
   - "li_saas_eligible recomputed = (overall_impact == 'Low' AND bool(saas_delivery)) == True; classification == LI_SAAS_ELIGIBLE"
-  - "on eligibility, baseline == 'LI-SaaS', baseline_controls == 156, controls_3pao_tested == 66, controls_attested == 90 (the fixed Tailored split; 66 + 90 == 156)"
+  - "on eligibility, baseline == 'LI-SaaS', baseline_controls == 156; the skill does NOT assert a flat 66/90 tested/attested split (a Rev 4 figure not reproducible from the Rev 5 OSCAL profile — G4.5 §5.11)"
   - "expected-seed agreement: uc-02-expected.json fields equal the recomputed values"
 data_refs:
   - data/seeds/uc-02-input.json
@@ -68,14 +67,11 @@ LI-SaaS (Tailored) is available iff **both** conditions hold [FEDRAMP-REV5-BASEL
 
 Beacon Forms is **Low AND SaaS-delivered**, so it is **LI-SaaS eligible** (classification `LI_SAAS_ELIGIBLE`). The eligibility is derived from the two seed facts — `overall_impact == 'Low'` and `saas_delivery` — not asserted.
 
-## §4 The LI-SaaS Tailored baseline — 156 = 66 tested + 90 attested
+## §4 The LI-SaaS Tailored baseline — 156 controls, method-designated
 
-On eligibility, the offering uses the **LI-SaaS Tailored baseline**: **156 controls** (the same set as the Low baseline), split into:
+On eligibility, the offering uses the **LI-SaaS Tailored baseline**: **156 controls** (the same set as the Low baseline). The lighter assessment burden is the whole point of LI-SaaS — a Low-impact SaaS offering does not have every control independently 3PAO-tested; some are satisfied by CSP attestation.
 
-- **66 controls 3PAO-tested** (independently assessed), and
-- **90 controls CSP-attested** (the CSP attests rather than having the 3PAO test them).
-
-`66 + 90 = 156` [FEDRAMP-REV5-BASELINES §li-saas]. The tested/attested split is the **fixed Tailored split** cited to the LI-SaaS baseline doc; the oracle uses this fixed split (it is documented but is not a flat OSCAL re-count). This lighter assessment burden is the whole point of LI-SaaS — a Low-impact SaaS offering does not need the full 3PAO test of every control.
+**How the split is structured (and a correction).** The Rev 5 Tailored OSCAL profile assigns each control a **method designation** — `ASSESS` (3PAO-assessed), `ATTEST` (CSP-attested), plus `NSO` (not selected/owned) and `FED` (federal/agency) — rather than a single clean "tested vs attested" count. The widely-quoted **"66 tested / 90 attested" flat split is a Rev 4 figure** (from `REV_4_FedRAMP-Tailored-LI-SaaS-Requirements.docx`) and is **not reproducible** from the Rev 5 profile, so this skill does **not** assert it (corrected at G4.5 §5.11). The load-bearing, derivable fact is the **eligibility determination** and the **156 total**; for the exact per-control method designations, read the Rev 5 LI-SaaS OSCAL profile.
 
 ## §5 The Moderate+SaaS trap — NOT LI-SaaS
 
@@ -92,16 +88,16 @@ The metamorphic and adversarial tests enforce this: a Moderate categorization wi
 
 - `overall_impact` recomputed as the high-water mark `max(C, I, A)` over all-Low == **Low**.
 - `li_saas_eligible` recomputed = `(overall_impact == 'Low' AND bool(saas_delivery))` == **True**; `classification == LI_SAAS_ELIGIBLE`.
-- On eligibility: `baseline == 'LI-SaaS'`, `baseline_controls == 156`, `controls_3pao_tested == 66`, `controls_attested == 90` — the fixed Tailored split, and `66 + 90 == 156`.
+- On eligibility: `baseline == 'LI-SaaS'`, `baseline_controls == 156`. The test also asserts the skill does **not** return a `controls_3pao_tested`/`controls_attested` flat split — the honest characterization is the `assessment_method_note`.
 - Expected-seed agreement: the `uc-02-expected.json` fields equal the recomputed values.
 
 **Metamorphic:** flipping the categorization to Moderate (keeping `saas_delivery=true`) makes it not LI-SaaS — it takes the full Moderate baseline (`test_uc02_moderate_saas_is_not_li_saas`). **Adversarial:** Moderate+SaaS is not LI-SaaS (`test_uc02_moderate_plus_saas_not_li_saas`); Low-but-not-SaaS is not LI-SaaS (`test_uc02_low_but_not_saas_not_li_saas`); a missing `saas_delivery` flag makes eligibility undeterminable and the stub refuses (`INSUFFICIENT_INPUT`, `test_uc02_missing_saas_flag_refuses`).
 
 ## §7 Anti-hallucination
 
-- **Beacon Forms is fictional**; the seed is the tested fixture and this UC's source of truth. The CIA values, the SaaS flag, and the 66/90 split are exactly as seeded.
+- **Beacon Forms is fictional**; the seed is the tested fixture and this UC's source of truth. The CIA values and the SaaS flag are exactly as seeded.
 - **LI-SaaS is Low-impact SaaS only** — a Moderate/High system, even SaaS-delivered, takes the full Moderate (323) / High (410) baseline, not LI-SaaS [FEDRAMP-REV5-BASELINES §li-saas].
-- **The LI-SaaS baseline is 156 = 66 3PAO-tested + 90 CSP-attested** [FEDRAMP-REV5-BASELINES §li-saas]; `66 + 90 = 156` (the same set as the Low baseline).
+- **The LI-SaaS baseline is 156 controls** (the same set as the Low baseline). Do **not** assert the Rev 4 "66 tested / 90 attested" flat split as a Rev 5 fact — it is not reproducible from the Rev 5 OSCAL profile (method designations only) [FEDRAMP-REV5-BASELINES §li-saas].
 - **FIPS 199 overall impact is the high-water mark (max of C/I/A)** — all-Low here makes the system Low [FIPS-199 §categorization]. Do not average.
 - **FedRAMP baselines ARE tailored 800-53 Rev 5 controls, not a separate catalog** [NIST-800-53R5 §baselines]. For the catalog / RMF, use `nist-800-53-rmf`.
 - **This is readiness, not authorization** — eligibility is the start of the path; the full assessment and the AO's ATO follow. This is not authorization or legal advice.

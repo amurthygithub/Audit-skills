@@ -47,7 +47,7 @@ FedRAMP is the **federal** authorization regime (statutory, agency-granted ATO, 
 ## 6. Adjacent regimes (named, not covered)
 
 - **DoD Impact Levels (IL2/IL4/IL5/IL6) / DISA Cloud Computing SRG** — the Department of Defense's cloud-authorization regime, built on but distinct from FedRAMP.
-- **StateRAMP** — a state/local analog that borrows FedRAMP's model.
+- **GovRAMP (formerly StateRAMP)** — a state/local analog that borrows FedRAMP's model.
 - **CMMC** — the defense-contractor cybersecurity certification.
 
 These are separate programs; this skill does not cover their mechanics.

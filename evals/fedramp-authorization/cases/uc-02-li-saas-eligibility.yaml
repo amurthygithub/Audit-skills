@@ -2,7 +2,8 @@ id: uc-02-li-saas-eligibility
 skill: fedramp-authorization
 use_case: UC-02
 description: Low-impact (all CIA = Low) + SaaS-delivered -> LI-SaaS eligible; Tailored baseline 156
-  = 66 3PAO-tested + 90 CSP-attested.
+  (method designations, not a flat 66/90 split — the Rev 4 figure is not reproducible from the
+  Rev 5 profile).
 input_from_seeds:
   base: data/seeds/uc-02-input.json
 expected:
@@ -10,9 +11,7 @@ expected:
   li_saas_eligible: true
   baseline: "LI-SaaS"
   baseline_controls: 156
-  controls_3pao_tested: 66
-  controls_attested: 90
   classification: "LI_SAAS_ELIGIBLE"
 stub_only_paths: [classification]
 validators: [oracle_match]
-coverage_tags: [fedramp.li-saas-eligibility, fedramp.tailored-split]
+coverage_tags: [fedramp.li-saas-eligibility, fedramp.tailored-baseline]

@@ -46,7 +46,7 @@ LI-SaaS is **not** a separate impact level — it is a **tailoring of the Low ba
 li_saas_eligible = (overall_impact == Low) AND (delivered as SaaS)
 ```
 
-- The LI-SaaS baseline is the same **156** controls as Low, but split by assessment method: **66** are independently **3PAO-tested** and **90** are satisfied by **CSP attestation** [FEDRAMP-REV5-BASELINES §li-saas]. (The 66/90 split is documented in the FedRAMP Tailored LI-SaaS baseline; the underlying OSCAL profile carries per-objective method props — ATTEST/ASSESS/etc. — rather than a single flat split.)
+- The LI-SaaS baseline is the same **156** controls as Low, but the assessment burden is lighter: some controls are independently **3PAO-assessed** and the rest are satisfied by **CSP attestation** [FEDRAMP-REV5-BASELINES §li-saas]. The Rev 5 Tailored OSCAL profile assigns each control a **method designation** — `ASSESS` (3PAO-assessed), `ATTEST` (CSP-attested), `NSO`, `FED` — rather than a single flat split. **Correction (G4.5 §5.11):** the widely-quoted **"66 tested / 90 attested" flat split is a Rev 4 figure** (`REV_4_FedRAMP-Tailored-LI-SaaS-Requirements.docx`) and is **not** reproducible from the Rev 5 profile — so state the 156 total and the method-designation structure, not a fixed 66/90.
 - **The trap:** a **Moderate** (or High) impact system is **not** LI-SaaS-eligible **even if** it is SaaS-delivered — it takes the full Moderate (323) or High (410) baseline. SaaS delivery alone does not make a system LI-SaaS; the impact must be **Low**.
 
 ## 4. The boundary: FedRAMP baselines ARE tailored 800-53 controls
@@ -68,7 +68,7 @@ FedRAMP does **not** define a separate control catalog. Each baseline is the cor
 
 1. **Rate each objective.** Assign Low/Moderate/High to Confidentiality, Integrity, Availability based on the data and the impact of a breach (FIPS 199; the system's information types per NIST SP 800-60 inform this).
 2. **Take the high-water mark.** Overall = max of the three.
-3. **Check LI-SaaS.** If overall = Low **and** the offering is SaaS, LI-SaaS (156; 66 tested + 90 attested) is available; otherwise use the full baseline for the level.
+3. **Check LI-SaaS.** If overall = Low **and** the offering is SaaS, LI-SaaS (156 controls, method-designated) is available; otherwise use the full baseline for the level.
 4. **Select the baseline** — Low 156 / Moderate 323 / High 410.
 5. **Record** the categorization rationale in the SSP (`chunks/04-the-authorization-package.md`).
 
@@ -78,13 +78,13 @@ FedRAMP does **not** define a separate control catalog. Each baseline is the cor
 System: <name>
 FIPS 199: C=<level>  I=<level>  A=<level>   ->  Overall impact = <max> (high-water mark)
 LI-SaaS eligible: <yes/no>  (Low AND SaaS)
-Selected baseline: <Low 156 | Moderate 323 | High 410 | LI-SaaS 156 (66 tested + 90 attested)>
+Selected baseline: <Low 156 | Moderate 323 | High 410 | LI-SaaS 156 (method-designated)>
 Catalog basis: NIST SP 800-53 Rev 5 (tailored from 800-53B <149|287|370>)
 ```
 
 ## 7. Anti-hallucination
 
 - **Overall impact is the high-water mark (max of C/I/A), never an average** [FIPS-199 §categorization].
-- **The Rev 5 counts are 156 / 323 / 410 / 156** (LI-SaaS = Low's 156, split 66 tested + 90 attested) [FEDRAMP-REV5-BASELINES §counts]. **325 is the Rev 4 Moderate count** — do not state it as current.
+- **The Rev 5 counts are 156 / 323 / 410 / 156** (LI-SaaS = Low's 156) [FEDRAMP-REV5-BASELINES §counts]. **325 is the Rev 4 Moderate count** — do not state it as current. The LI-SaaS **"66 tested / 90 attested" split is also Rev 4** and is not reproducible from the Rev 5 profile — do not assert it.
 - **LI-SaaS requires Low impact AND SaaS delivery.** Moderate/High + SaaS is not LI-SaaS — use the full baseline [FEDRAMP-REV5-BASELINES §li-saas].
 - **FedRAMP baselines are tailored NIST SP 800-53 Rev 5 controls** (800-53B 149/287/370 tailored up), same catalog IDs — not a separate catalog [NIST-800-53R5 §baselines]. For the catalog/RMF, use `nist-800-53-rmf`.

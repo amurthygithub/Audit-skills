@@ -9,6 +9,8 @@ load_when: "user asks about FedRAMP 20x, KSIs / Key Security Indicators, machine
 
 **FedRAMP 20x is an emerging direction, not the settled Rev 5 process a CSP certifies against today.** Treat everything in this chunk as **direction**: it orients you to where the program is heading (automation-first, outcome-based, machine-readable), but it is **not** a set of current binding requirements. When a question is about what to do today, the answer is the **settled Rev 5** process (chunks 01–07); 20x is the trajectory layered on top of it.
 
+**Status (2026-06):** 20x is past concept — it has **live pilot authorizations** (Phase 1 Low complete; a Phase 2 Moderate pilot underway) and binding standards for its own track (e.g., the Vulnerability Detection and Response Standard, effective for 20x Low). It is **on track to become the primary authorization path**, but is **not yet** the default/required path for a new Rev 5 authorization — re-verify the active phases and RFCs before choosing Rev 5 vs 20x.
+
 ## 1. What FedRAMP 20x is
 
 FedRAMP 20x is the **automation-first, outcome-based** modernization track for the program, pursued under the authority of the 2022 Act and OMB M-24-15 (`chunks/01-fedramp-and-governance.md`). Its goal is to shift authorization and continuous monitoring from document review toward **machine-readable evidence** and **measurable outcomes**.

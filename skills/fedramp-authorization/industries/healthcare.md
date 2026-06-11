@@ -28,6 +28,12 @@ The same way as any system — the **FIPS 199 high-water mark** across confident
 
 Evidence reuse on the **double-counting control families**. Where a FedRAMP control (e.g., access control, audit and accountability, system and communications protection) implements a safeguard the HIPAA Security Rule also requires, the implementation and its evidence serve both regimes. The CSP still authors the **SSP** describing FedRAMP control implementation and maintains the FedRAMP **POA&M** and monthly **ConMon** [FEDRAMP-PLAYBOOK §ssp; FEDRAMP-CONMON §monthly] — HIPAA does not change those FedRAMP artifacts; it sits alongside them.
 
+### "The BAA is the operative HIPAA instrument — don't skip it"
+
+For a CSP handling PHI for a federal health agency, the **Business Associate Agreement (BAA)** is the load-bearing HIPAA instrument: the CSP is a **business associate**, and the BAA (HIPAA §164.314(a)) binds it to the PHI safeguard and breach obligations. **FedRAMP authorization and a signed BAA are both required, and neither substitutes for the other** — no FedRAMP ATO and no HHS process replaces the BAA. Treat the BAA as a gating obligation, not an afterthought; for its contents use `hipaa-security-rule`.
+
+**Handoff boundary (be honest about the gap):** `hipaa-security-rule` covers the **Security Rule (Subpart C / ePHI)** only — it does **not** cover the **Breach Notification Rule (Subpart D)** or the **Privacy Rule (Subpart E)**. A real PHI-incident response is dominated by breach notification to OCR and affected individuals, which is **out of scope of both skills** — consult counsel / OCR guidance.
+
 ### "Who authorizes a health-tech CSP?"
 
 The same Agency Authorization path and governance: the statutory **FedRAMP Board** under the 2022 Act [FEDRAMP-ACT-2022 §3610], not the retired JAB, with the sponsoring health agency's AO granting the ATO. HIPAA does not change the FedRAMP path — it is an additional regime the same system must also satisfy.
@@ -47,6 +53,7 @@ The same Agency Authorization path and governance: the statutory **FedRAMP Board
 - **LI-SaaS is Low-impact only** — a Moderate/High PHI system, even if SaaS-delivered, takes the full Moderate/High baseline [FEDRAMP-REV5-BASELINES §li-saas].
 - **The JAB and its P-ATO are retired** — the current authorizer is the statutory FedRAMP Board; Agency Authorization is the operative path [FEDRAMP-ACT-2022 §3610; OMB-M-24-15 §authority].
 - **ConMon is monthly; SLAs are 30 / 90 / 180 days** (high-critical / moderate / low) [FEDRAMP-CONMON §monthly].
+- **The BAA is required and substitutes for nothing.** A FedRAMP ATO does not replace the HIPAA Business Associate Agreement; both are required for a CSP handling PHI for a federal health customer. `hipaa-security-rule` covers Subpart C only — breach notification (Subpart D) and the Privacy Rule (Subpart E) are out of scope of both skills.
 - **This is not authorization, legal, or HIPAA-compliance advice** — categorization and the ATO turn on the system's specific PHI and the AO's risk decision.
 
 ## Cross-references

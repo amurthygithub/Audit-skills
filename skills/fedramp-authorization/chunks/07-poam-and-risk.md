@@ -31,6 +31,8 @@ The severity of a finding sets the remediation deadline (the same SLAs ConMon en
 
 The due-date for a POA&M item is computed from the date the finding was identified plus the SLA window for its severity (identified-date + 30 / 90 / 180 days). These deadlines are the same ones tracked in monthly ConMon.
 
+The SAR **Risk Exposure Table** uses a **Critical / High / Moderate / Low** severity scale; **Critical and High share the 30-day window**. A Critical finding is the most urgent class and the AO weighs it most heavily at the risk-acceptance decision (§6).
+
 ## 3. The three deviation-request types
 
 When a scan finding is **not** a straightforward defect the CSP must remediate on the standard clock, the CSP files a **deviation request** so the finding is handled accurately rather than left as an unmitigated open item. There are **three** types:

@@ -23,7 +23,7 @@ Two facts are load-bearing in every view: **FedRAMP baselines ARE tailored NIST 
 ## How the views map to the use cases
 
 - `saas-technology.md` → UC-01 (Acme Cloud Suite — Moderate via Agency Authorization; categorize → 323 controls → POA&M severity SLAs).
-- `saas-technology.md` (LI-SaaS branch) → UC-02 (Beacon Forms — Low-impact SaaS LI-SaaS readiness; 156 = 66 tested + 90 attested).
+- `saas-technology.md` (LI-SaaS branch) → UC-02 (Beacon Forms — Low-impact SaaS LI-SaaS readiness; 156 controls, method-designated; Rev 4 "66/90" not asserted).
 - `public-sector.md` / 3PAO-assessor angle → UC-03 (Example 3PAO assessing Acme Cloud Suite — CSP-owned failed controls become findings; inherited excluded; residual-high AO risk note).
 - `financial-services.md` → no dedicated seeded UC in v1; it reuses the UC-01 categorization method with a High-impact categorization (any objective High → overall High → 410).
 - `healthcare.md` → no dedicated seeded UC in v1; it reuses the UC-01 / UC-02 categorization method with a PHI workload and a pointer to `hipaa-security-rule`.
@@ -34,7 +34,7 @@ Two facts are load-bearing in every view: **FedRAMP baselines ARE tailored NIST 
 |---|---|
 | The NIST SP 800-53 Rev 5 control catalog / general RMF (families, the RMF steps, selection mechanics) | `nist-800-53-rmf` — this skill cites the boundary (FedRAMP baselines are tailored 800-53 controls) and does not re-teach the catalog [NIST-800-53R5 §baselines] |
 | HIPAA Security Rule mechanics behind a health-tech CSP's PHI workload | `hipaa-security-rule` — pair with `healthcare.md` for the FedRAMP + HIPAA overlap |
-| DoD Impact Levels (IL2/4/5/6) / DISA SRG, StateRAMP, or CMMC | Distinct regimes — named as adjacent, not covered here |
+| DoD Impact Levels (IL2/4/5/6) / DISA SRG, GovRAMP (formerly StateRAMP), or CMMC | Distinct regimes — named as adjacent, not covered here |
 | SOC 2 as the adjacent commercial assurance vs FedRAMP's federal authorization | `aicpa-soc-reporting` — one-line contrast only |
 
 ## How to use an industry view

@@ -58,7 +58,7 @@ skills/fedramp-authorization/
 | # | File | Role |
 |---|------|------|
 | 01 | `01-fedramp-and-governance.md` | What FedRAMP is; the 2022 Authorization Act (44 U.S.C. 3607-3616); the **statutory FedRAMP Board (§3610), NOT the JAB**; OMB M-24-15 (rescinds the 2011 memo); the program-layer-on-800-53 framing |
-| 02 | `02-impact-levels-and-baselines.md` | **The spine + the boundary.** FIPS 199 categorization (CIA high-water mark → Low/Moderate/High); the 4 baselines with exact counts (156/323/410/156, base+enh); how FedRAMP tailors **up** from 800-53B (149/287/370); LI-SaaS Tailored (66 tested + 90 attested); the same 800-53 control IDs — boundary vs `nist-800-53-rmf` |
+| 02 | `02-impact-levels-and-baselines.md` | **The spine + the boundary.** FIPS 199 categorization (CIA high-water mark → Low/Moderate/High); the 4 baselines with exact counts (156/323/410/156, base+enh); how FedRAMP tailors **up** from 800-53B (149/287/370); LI-SaaS Tailored (156, method-designated — the Rev 4 "66/90" split is not reproducible from the Rev 5 profile); the same 800-53 control IDs — boundary vs `nist-800-53-rmf` |
 | 03 | `03-authorization-paths.md` | The **current** path: Agency Authorization (operative Rev 5); multi-agency; single-authorization + **presumption of adequacy** (M-24-15); **JAB P-ATO retired**; FedRAMP Ready → full assessment → ATO; the authorizing official |
 | 04 | `04-the-authorization-package.md` | The package: **SSP** (the "security blueprint," CSP-authored), **SAP** (3PAO plan), **SAR** (3PAO results), **POA&M** (CSP corrective-action plan); who authors what; how they sequence; attachments |
 | 05 | `05-assessment-and-inheritance.md` | The 3PAO: independent assessor; **A2LA** accreditation to **ISO/IEC 17020** (Type A or C; Type B prohibited); SAP → testing & sampling → SAR → risk + recommendation; **control inheritance / leveraging** (inherited controls not re-tested by the leveraging CSP) |
@@ -83,7 +83,7 @@ The seed + oracle pair is the **contract**, and the UC docs are written TO the p
 - **UC-02:** LI-SaaS eligibility is derived from `overall_impact == "Low" AND saas_delivery`; the 66-tested / 90-attested Tailored split is the fixed framework split (cited to the Tailored LI-SaaS baseline doc).
 - **UC-03:** findings are recomputed as the controls the CSP **owns** (`tested AND not passed AND not inherited`); the POA&M item count = `len(findings)`; inherited-and-failed controls are excluded (they belong to the provider's package and POA&M); the severity roll-up and the residual-high risk note are recomputed from the finding set.
 
-The stub (`fedramp_authorization_stub.py`) is a deterministic reference implementation — it computes, it never echoes fixture numbers. The baseline totals (156/323/410, 66/90) are framework **constants** taken from the PMO-authored OSCAL Rev 5 profiles; the *derivation* is the seed-driven selection/computation, not the constants.
+The stub (`fedramp_authorization_stub.py`) is a deterministic reference implementation — it computes, it never echoes fixture numbers. The baseline totals (156/323/410; LI-SaaS 156) are framework **constants** taken from the PMO-authored OSCAL Rev 5 profiles; the *derivation* is the seed-driven selection/computation, not the constants.
 
 ## The 800-53 boundary
 
