@@ -51,8 +51,9 @@ flywheel); with the LLM executor (V3) the same cases measure skill fidelity.
 | 2 | 2026-06-10 | sonnet-4.6 | 7 x 2 | **14/14 (100%)** | perfect sweep post-calibration; confirms the idempotence shape-variance is Haiku-floor-specific |
 | 3 | 2026-06-10 | haiku-4.5 | hipaa 4 x 2 | 0/8 -> 8/8 after calibration | ALL initial failures were contract grammar, zero substance errors (UC-02 gap register exactly right, returned as records not counts; BAA provisions right, order-differed). Substance findings kept live: POL-02 stale-doc boundary missed in 1 of 2 runs (42-day margin — real Haiku variance); UC-01 dispositions teach perfectly 2/2. Calibration: typed path hints; order-insensitive lists; stub-only conventions (classification labels, NPRM counter, house checklist decomposition) |
 
-Published acceptance-gate reliability rows require N>=20 on >=2 models; nothing above
-qualifies yet. Sweeps run one at a time against the operator's session limits.
+| pub | 2026-06-10 | haiku-4.5 + sonnet-4.6 | 11 x 20 x 2 | aw: 96.4% / 100% · hipaa: 85.0% / 98.8% | **First published reliability rows** (acceptance-gate.md of both pilots). Sonnet near-perfect (1 miss in 220 runs — the POL-02 42-day boundary, shared with Haiku). Haiku residuals: off-table-RIA adherence 17/20, disposition scope-read 14/20, boundary 15/20 |
+
+First publication sweep complete (rows above); subsequent skill versions re-run before release. Sweeps run one at a time against the operator's session limits.
 
 ## Reading a report
 
