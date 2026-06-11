@@ -26,7 +26,7 @@ HHS OCR enforces the Security Rule under 45 CFR Part 160; penalty tiers are set 
 
 ## 2. What OCR asks for first
 
-Investigation and audit document requests consistently lead with: (1) the **risk analysis** (§164.308(a)(1)(ii)(A)) and risk-management plan; (2) the **addressable disposition register** (`chunks/07`); (3) policies and procedures with revision history and the **6-year archive** (§164.316); (4) **BAA inventory** and chain; (5) training, incident, and activity-review records. The OCR audit protocol (hhs.gov; page is bot-walled to programmatic clients — cite in prose only) organizes line items along exactly these standards; this skill does not reproduce protocol line items.
+Practitioner observation (consistent with the OCR audit protocol's structure — protocol cited in prose; hhs.gov page is bot-walled to programmatic clients): investigation and audit document requests consistently lead with (1) the **risk analysis** (§164.308(a)(1)(ii)(A)) and risk-management plan; (2) the **addressable disposition register** (`chunks/07`); (3) policies and procedures with revision history and the **6-year archive** (§164.316); (4) **BAA inventory** and chain; (5) training, incident, and activity-review records. The protocol organizes line items along exactly these standards; this skill does not reproduce protocol line items.
 
 ## 3. Procedure — OCR readiness assessment
 
@@ -76,7 +76,7 @@ Headline level only by design — the Federal Register document is the source fo
 
 ## 7. Anti-hallucination notes for this chunk
 
-- Penalty amounts appear in this chunk **only**, always with the as-of date. Never quote them without checking §102.3 currency.
+- Penalty amounts are stated in this chunk **only** (verification evidence lives in `docs/acceptance-gate.md`), always with the as-of date. Never quote them without checking §102.3 currency.
 - The 2019 enforcement-discretion caps are posture, not codified law.
 - No NPRM item may be stated as a current requirement — encryption and MFA mandates, audit cadences, and the end of "addressable" are all **PROPOSED** [HIPAA-Security-NPRM-2025].
 - The gap-priority heuristic and the 3-year staleness threshold are **house conventions**, never OCR/HHS/NIST methodology.

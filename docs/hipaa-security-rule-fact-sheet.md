@@ -433,7 +433,7 @@ See §0 `terminology` block (verbatim quotes with citations). Additional usage r
 
 - [x] Full Subpart C inventory transcribed mechanically from official eCFR XML (2026-06-09 point-in-time, retrieved 2026-06-10)
 - [x] Every count in §0 computed from the transcription, both counting conventions documented
-- [x] All 58 identifiers listed with exact CFR cites and (R)/(A) designations
+- [x] All 61 identifiers listed with exact CFR cites and (R)/(A) designations (22 standards + 36 matrix-titled specs + 3 §164.316(b)(2) documentation specs)
 - [x] NPRM status settled at the docket level (RIN query — Proposed Rule only, no final rule)
 - [x] SP 800-66r2 currency verified (Final, supersedes Rev 1); its footnote-9 date error documented
 - [x] PL 116-321 verified against statute text (Jan. 5, 2021)

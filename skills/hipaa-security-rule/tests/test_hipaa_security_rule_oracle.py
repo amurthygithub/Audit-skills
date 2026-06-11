@@ -96,7 +96,10 @@ def test_uc_01_oracle():
         if row["disposition"] == "alternative_measure":
             assert row["alternative"], row["spec_id"]
         if row["disposition"] == "not_reasonable_documented":
+            # 164.306(d)(3)(ii)(B): both the why-not AND the equivalent-alternative
+            # question must be answered, even when the answer is "none is reasonable".
             assert row["justification"], row["spec_id"]
+            assert row["alternative_considered"], row["spec_id"]
 
     # Ticket B28: 12 decision-required specs; encryption-at-rest decision derived.
     assert out["decision_required_count"] == sum(1 for s in register if s["decision_required"])

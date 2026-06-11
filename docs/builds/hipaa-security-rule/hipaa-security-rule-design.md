@@ -43,7 +43,9 @@ right-sizing via §164.306(b)(2) flexibility factors.
 - Day 0 fact sheet (done, committed `a741ff2`).
 - nist-800-53-rmf: HIPAA crosswalk completion is **SOX-638**, gated on CPRT extraction — not
   this build.
-- nist-csf-2 healthcare industry view: cross-reference only (no shared data files).
+- nist-csf-2: defers its healthcare industry view to its v1.0 (not yet shipped); when it
+  ships it will reference into this skill rather than restate Subpart C facts (no shared
+  data files).
 - Registry: new citations (CFR-45-164-Subpart-C, HIPAA-Security-NPRM-2025, NIST-SP-800-66r2,
   HHS-SRA-Tool, PL-116-321) go to `data/registry/citations.json` FIRST.
 
@@ -191,8 +193,9 @@ SP 800-66r2, house-convention labeling (risk scale, gap-priority heuristic).
   reproducing them verbatim.
 - **Spine conventions:** ≤300-line router, ≤200-line chunks, §1–§11 contract, telemetry files,
   house-style §6 DoD per ticket.
-- **Cross-skill alignment:** healthcare views in nist-csf-2/aicpa-soc-reporting reference
-  HIPAA — cross-references must point at this skill's chunks, not restate facts (drift risk).
+- **Cross-skill alignment:** nist-csf-2 defers its healthcare industry view to its v1.0 —
+  when it ships it must point at this skill's chunks, not restate Subpart C facts; the same
+  one-way rule governs any aicpa-soc-reporting HIPAA touchpoint (drift risk).
 
 ## 7. PoV analyses — 5 practitioner personas
 
@@ -211,7 +214,7 @@ SP 800-66r2, house-convention labeling (risk scale, gap-priority heuristic).
 
 | Other skill | Touchpoint | Shape |
 |-------------|-----------|-------|
-| nist-csf-2 | healthcare.md HIPAA rows (§164.308/310/312/408) | one-way reference INTO hipaa-security-rule chunks; no new facts there |
+| nist-csf-2 | healthcare industry view — deferred to nist-csf-2 v1.0 (does not exist yet) | when it ships: one-way reference INTO hipaa-security-rule chunks; no new facts there |
 | nist-800-53-rmf | HIPAA crosswalk (SOX-638, deferred) | placeholder pointer only |
 | aicpa-soc-reporting | SOC 2 evidence reuse for BAs | hipaa chunk 07 references soc skill; labeled overlap-not-equivalence |
 | audit-workpapers | evidence/documentation standards | citation-style reference only |
@@ -252,8 +255,9 @@ the G4.5 pass inside this build PR.
    specs end-to-end.
 5. **Convention:** penalty numbers restated in multiple chunks → stated ONCE in chunk 08;
    grep test forbids amounts elsewhere.
-6. **Cross-skill:** nist-csf-2 healthcare HIPAA rows contradict this skill → alignment check
-   in G4 (grep both skills for §164 cites; one-way reference rule).
+6. **Cross-skill:** a future nist-csf-2 healthcare view (deferred to its v1.0) could
+   contradict this skill → alignment check in G4 (grep both skills for §164 cites; one-way
+   reference rule).
 
 ## 12. Build sequence
 

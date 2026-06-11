@@ -29,7 +29,7 @@ The regulation skill for **45 CFR Part 164, Subpart C** ("Security Standards for
 - Privacy Rule (Subpart E) or Breach Notification (Subpart D) mechanics — touchpoints only here
 - HITRUST certification, 42 CFR Part 2, state privacy/breach law — out of scope
 - SOC 2 engagement content (use `aicpa-soc-reporting`; the saas-technology view here covers evidence reuse — overlap, not equivalence)
-- Executive cyber-maturity narratives (use `nist-csf-2`, which references INTO this skill for HIPAA)
+- Executive cyber-maturity narratives (use `nist-csf-2`; it defers its healthcare industry view to its v1.0, which will reference INTO this skill for HIPAA rather than restate Subpart C facts)
 
 ## Use cases (3)
 
@@ -37,7 +37,7 @@ The regulation skill for **45 CFR Part 164, Subpart C** ("Security Standards for
 - **UC-02 — Hospital CE OCR-readiness assessment** (Bellbrook Regional Health, 6,000 staff, 4 facilities): 22-standard readiness matrix (14 implemented / 6 partial / 2 missing), prioritized gap register (High 2 / Medium 6 / Low 3), documentation-currency flags, NPRM pre-read with zero NPRM items in the current-law gap register.
 - **UC-03 — Solo consultant BAA check + right-sized checklist** (Meridian HIT Consulting, headcount 1): finds exactly the 2 missing required BAA provisions (incident_reporting, subcontractor_flowdown), 10-item safeguard checklist with 3 items scaled via §164.306(b)(2)(i) — scaled, documented, never exempted (no small-entity exemption exists).
 
-Every UC is seed-backed with **derivability oracles**: the tests recompute each expected number independently from `data/seeds/` (26+ tests across oracle, metamorphic, adversarial, and structural suites).
+Every UC is seed-backed with **derivability oracles**: the tests recompute each expected number independently from `data/seeds/` (61 skill-local tests across oracle, metamorphic, adversarial, and structural suites, plus root-level lint/consistency/registry suites).
 
 ## 30-second quick start
 
@@ -75,7 +75,7 @@ The stub is a deterministic reference executor — it demonstrates output struct
 
 ## Cross-references to other skills
 
-- `nist-csf-2` — executive maturity overlay; its healthcare HIPAA rows reference into this skill
+- `nist-csf-2` — executive maturity overlay; its healthcare industry view is deferred to its v1.0 — when it ships it will reference into this skill rather than restate Subpart C facts
 - `nist-800-53-rmf` — control-catalog depth; HIPAA crosswalk deferred (SOX-638)
 - `aicpa-soc-reporting` — SOC 2 report content for BAs reusing audit evidence
 - `audit-workpapers` — finding format and workpaper structure for assessment outputs

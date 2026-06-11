@@ -46,7 +46,7 @@ status: active
 
 ## §1 Context and persona
 
-**Bellbrook Regional Health** is a fictional covered-entity hospital system: 6,000 staff across 4 facilities, running an EHR, a legacy lab system, imaging/PACS, and a patient portal. The compliance office wants to know, before OCR ever asks: where do we stand against **every one of the 22 Subpart C standards**, which gaps matter most, and is our documentation current?
+**Bellbrook Regional Health** is a fictional covered-entity hospital system: 6,000 staff across 4 facilities, running an EHR, a legacy lab system, imaging/PACS, and a patient portal. Bellbrook also sponsors a self-funded employee group health plan, so the §164.314(b) group-health-plan standard applies and is assessed — that is why the readiness matrix carries a meaningful 164.314(b)(1) row. The compliance office wants to know, before OCR ever asks: where do we stand against **every one of the 22 Subpart C standards**, which gaps matter most, and is our documentation current?
 
 This is the auditor-readiness persona. The output is a 22-row readiness matrix, a prioritized gap register, documentation-currency flags, and an NPRM pre-read in which **every item is labeled PROPOSED**. The seeds are the tested fixture; `tests/test_hipaa_security_rule_oracle.py::test_uc_02_oracle` recomputes every number below from them.
 

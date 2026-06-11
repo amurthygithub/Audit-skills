@@ -49,11 +49,12 @@ addressable_disposition:
   decision_required: true                  # flagged for this engagement's active review
   reasonable_and_appropriate: true         # the 164.306(d)(3)(i) assessment outcome
   alternative: null                        # required (non-empty) iff disposition = alternative_measure
+  alternative_considered: null             # required (non-empty) iff disposition = not_reasonable_documented
   justification: "Cloud-hosted ePHI at scale; provider-native volume and database encryption available at negligible cost; no compensating control offsets exposure of unencrypted storage"
   disposition: implement                   # implement | alternative_measure | not_reasonable_documented
 ```
 
-Derivation rule (as implemented by the skill's reference stub): `reasonable_and_appropriate: true` → `implement`; otherwise a non-empty `alternative` → `alternative_measure`; otherwise → `not_reasonable_documented`. An `alternative_measure` record without a stated alternative is invalid. The UC-01 worked example (`use-cases/uc-01-ba-risk-analysis.md`) carries all 22 addressable specs through this template, walking the 12 `decision_required` ones in full.
+Derivation rule (as implemented by the skill's reference stub): `reasonable_and_appropriate: true` → `implement`; otherwise a non-empty `alternative` → `alternative_measure`; otherwise → `not_reasonable_documented`. An `alternative_measure` record without a stated alternative is invalid. On the `not_reasonable_documented` path the record must also carry `alternative_considered` — per §164.306(d)(3)(ii)(B) the equivalent-alternative question must be answered even when the answer is "none is reasonable and appropriate." The UC-01 worked example (`use-cases/uc-01-ba-risk-analysis.md`) carries all 22 addressable specs through this template, walking the 12 `decision_required` ones in full.
 
 ## 4. Evidence catalog per safeguard family
 
@@ -79,7 +80,7 @@ A BA holding a SOC 2 Type II report can **reuse evidence** (access reviews, logg
 2. Disposition register complete: one record per addressable spec, none blank, dates within the entity's own documented review cycle.
 3. Evidence catalog (§4) mapped to the 22 standards before the request list arrives.
 4. BAA chain verified down through subcontractors.
-5. Documentation archive demonstrably reaches back 6 years (§164.316(b)(2)(i)).
+5. Documentation archive covers the full §164.316(b)(2)(i) retention window (back to entity inception if the entity is younger than 6 years).
 
 ## 7. Anti-hallucination notes for this chunk
 

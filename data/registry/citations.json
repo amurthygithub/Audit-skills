@@ -321,7 +321,7 @@
    "title": "Security Risk Assessment (SRA) Tool",
    "publisher": "HHS ONC / OCR (HealthIT.gov)",
    "identifier": "Current",
-   "url": "https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool",
+   "url": "https://www.healthit.gov/privacy-security/security-risk-assessment-tool",
    "retrieval_date": "2026-06-10",
    "cited_by": [
     "hipaa-security-rule"
@@ -620,7 +620,7 @@
    ]
   },
   "NIST-SP-800-66-Rev2": {
-   "title": "Implementing the HIPAA Security Rule",
+   "title": "Implementing the Health Insurance Portability and Accountability Act (HIPAA) Security Rule: A Cybersecurity Resource Guide",
    "publisher": "NIST",
    "identifier": "Rev 2 (Feb 2024)",
    "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",

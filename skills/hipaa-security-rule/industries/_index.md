@@ -7,7 +7,7 @@ last_verified: "2026-06-10"
 
 # Industry views — HIPAA Security Rule
 
-The Security Rule is one regulation with one standard set (22 standards), but it lands very differently on a 6,000-bed hospital system, a 40-person health-tech SaaS, a bank's benefits function, and a state Medicaid agency. Each industry view shows the sector-specific angle: which standards dominate, which addressable dispositions recur, and which adjacent regimes (SOC 2, ERISA plan documents, public-records law) get confused with Subpart C obligations.
+The Security Rule is one regulation with one standard set (22 standards), but it lands very differently on a 6,000-staff hospital system, a 40-person health-tech SaaS, a bank's benefits function, and a state Medicaid agency. Each industry view shows the sector-specific angle: which standards dominate, which addressable dispositions recur, and which adjacent regimes (SOC 2, ERISA plan documents, public-records law) get confused with Subpart C obligations.
 
 ## Available industry views (alphabetical)
 
@@ -28,7 +28,7 @@ The Security Rule is one regulation with one standard set (22 standards), but it
 
 | Need | Where to go instead |
 |---|---|
-| Executive cyber-maturity narrative on top of HIPAA compliance | `nist-csf-2` (its healthcare HIPAA touchpoints reference INTO this skill) |
+| Executive cyber-maturity narrative on top of HIPAA compliance | `nist-csf-2` (its healthcare industry view is deferred to its v1.0; when it ships it will reference INTO this skill rather than restate Subpart C facts) |
 | SOC 2 report content and engagement lifecycle for a BA | `aicpa-soc-reporting` (pair with `saas-technology.md` here for the evidence-reuse pattern) |
 | NIST control-catalog depth (800-53) for a government health agency | `nist-800-53-rmf` — the HIPAA crosswalk is deferred to SOX-638; no mapping rows asserted yet |
 | Privacy Rule, Breach Notification mechanics, 42 CFR Part 2, state privacy law | Out of this skill's scope entirely (see chunk 01, scope and general rules) |

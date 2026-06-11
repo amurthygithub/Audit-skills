@@ -14,7 +14,7 @@ context_budget:
   always_loaded_tokens: 3500      # this SKILL.md (router)
   per_call_typical_tokens: 7000   # router + 1 chunk + 1 industry + 1 UC
   per_call_max_tokens: 16000      # router + all chunks + industry + UC
-  per_call_p90_tokens: 9000       # measured after first instrumented run
+  per_call_p90_tokens: 9000       # estimate — no instrumented baseline yet
 tags: [hipaa, security-rule, ephi, 45-cfr-164, subpart-c, addressable, required, risk-analysis, risk-management, administrative-safeguards, physical-safeguards, technical-safeguards, baa, business-associate, ocr, enforcement, hitech, recognized-security-practices, sp-800-66, sra-tool, healthcare, covered-entity]
 ---
 
@@ -110,14 +110,14 @@ Persona triage: an auditee asking "what do we have to do" starts at `chunks/02` 
 ## 6. Output Templates (summary)
 
 - **Risk register** (asset, threat, vulnerability, likelihood, impact, score, band — scoring scale is a labeled house convention) — `chunks/02 §Output template`.
-- **Addressable disposition record** (spec_id, decision_required, reasonable_and_appropriate, alternative, justification, disposition) — `chunks/07 §Output template`.
+- **Addressable disposition record** (spec_id, decision_required, reasonable_and_appropriate, alternative, alternative_considered, justification, disposition) — `chunks/07 §Output template`.
 - **22-standard readiness matrix + prioritized gap list** — `chunks/08 §Output template`.
 - **BAA provision checklist** (§164.314(a)(2)(i)(A)-(C) + §164.308(b)(3)) — `chunks/06 §Output template`.
 - **Evidence catalog per safeguard family** — `chunks/07 §Evidence catalog`.
 
 ## 7. Cross-References (summary)
 
-- `nist-csf-2` — executive maturity language; its healthcare industry view references this skill's chunks (one-way; facts live here).
+- `nist-csf-2` — executive maturity language; it defers its healthcare industry view to its v1.0 — when that view ships it will reference into this skill's chunks rather than restate Subpart C facts (one-way; facts live here).
 - `nist-800-53-rmf` — control-catalog sibling. The authoritative Security Rule ↔ CSF ↔ 800-53 mapping was **removed from SP 800-66r2 and placed online in the NIST CPRT** (Appendix D) [NIST-SP-800-66-Rev2]; the CPRT mapping targets **CSF v1.1** and is "intentionally broad" — never claim a CSF 2.0 mapping. Row-level encoding is deferred (SOX-638); this skill ships zero crosswalk rows.
 - `aicpa-soc-reporting` — SOC 2 evidence reuse for BAs: overlap, not equivalence (`chunks/07`).
 - `audit-workpapers` — finding and evidence formats for readiness reviews.
@@ -155,13 +155,15 @@ Full worked examples live in `use-cases/`. Each has complete input, procedure, e
 |-------|-------|-----------|------------|-----------|-----|
 | CFR-45-164-Subpart-C | Security Standards for the Protection of Electronic Protected Health Information (45 CFR Part 164, Subpart C) | eCFR (Office of the Federal Register) | 45 CFR §§ 164.302–164.318 and Appendix A | 2026-06-10 | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C |
 | HIPAA-Security-NPRM-2025 | HIPAA Security Rule To Strengthen the Cybersecurity of Electronic Protected Health Information (Proposed Rule) | HHS Office for Civil Rights / Federal Register | 90 FR 898; RIN 0945-AA22; PROPOSED, not final as of 2026-06-10 | 2026-06-10 | https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information |
-| NIST-SP-800-66-Rev2 | Implementing the HIPAA Security Rule | NIST | Rev 2 (Feb 2024) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/66/r2/final |
-| HIPAA-Security-Rule | 45 CFR § 164.302–164.318 | HHS | as amended | 2026-06-09 | https://www.hhs.gov/hipaa/for-professionals/security/ |
-| HHS-SRA-Tool | Security Risk Assessment (SRA) Tool | HHS ONC / OCR (HealthIT.gov) | Current | 2026-06-10 | https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool |
+| NIST-SP-800-66-Rev2 | Implementing the Health Insurance Portability and Accountability Act (HIPAA) Security Rule: A Cybersecurity Resource Guide | NIST | Rev 2 (Feb 2024) | 2026-05-25 | https://csrc.nist.gov/pubs/sp/800/66/r2/final |
+| HIPAA-Security-Rule | HIPAA Security Rule guidance & combined regulation text portal | HHS | as amended | 2026-06-09 | https://www.hhs.gov/hipaa/for-professionals/security/ |
+| HHS-SRA-Tool | Security Risk Assessment (SRA) Tool | HHS ONC / OCR (HealthIT.gov) | Current | 2026-06-10 | https://www.healthit.gov/privacy-security/security-risk-assessment-tool |
 | PL-116-321 | An Act to amend the HITECH Act to require consideration of certain recognized security practices (HR 7898) | U.S. Government Publishing Office (govinfo) | Public Law 116-321, 134 Stat. 5072, approved Jan. 5, 2021; adds HITECH §13412 (42 U.S.C. 17941) | 2026-06-10 | https://www.govinfo.gov/content/pkg/PLAW-116publ321/html/PLAW-116publ321.htm |
 | CFR-45-102 | Adjustment of Civil Monetary Penalties for Inflation (45 CFR Part 102) | eCFR (Office of the Federal Register) | 45 CFR § 102.3 Table 1 (HIPAA rows: 42 U.S.C. 1320d-5 / 45 CFR 160.404) | 2026-06-10 | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102 |
 
 In-body citations use the form `[LABEL §N]` and resolve to this manifest.
+
+Note: hhs.gov URLs return 403 to programmatic clients (bot-wall; verified in-browser). The OCR audit protocol (also hhs.gov) is cited in prose only.
 
 ## 11. Routing
 

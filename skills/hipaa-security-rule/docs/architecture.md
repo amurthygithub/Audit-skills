@@ -62,6 +62,10 @@ skills/hipaa-security-rule/
 
 Chunk 08 deliberately isolates the volatile content (penalty amounts, the 2025 NPRM, OCR enforcement posture) so re-verification at each G4 pass touches one file.
 
+Packaging note: the test suite (including the fact-sheet inventory-diff test) runs from the
+full repo checkout — an installed copy of `skills/hipaa-security-rule/` alone cannot run it
+(the fact sheet lives in repo-root `docs/`).
+
 ## Derivability-oracle pattern (SOX-637)
 
 Every oracle test in `tests/test_hipaa_security_rule_oracle.py` **recomputes the expected
@@ -111,7 +115,8 @@ row, and the skill never claims an 800-66r2 mapping to CSF 2.0.
 
 ## Cross-skill architecture
 
-- `nist-csf-2` — healthcare industry view references INTO this skill's chunks (one-way; no
+- `nist-csf-2` — defers its healthcare industry view to its v1.0; when it ships it will
+  reference INTO this skill's chunks rather than restate Subpart C facts (one-way; no
   restated facts)
 - `nist-800-53-rmf` — crosswalk placeholder only until SOX-638
 - `aicpa-soc-reporting` — SOC 2 evidence reuse for BAs (labeled overlap, not equivalence)
@@ -119,7 +124,10 @@ row, and the skill never claims an 800-66r2 mapping to CSF 2.0.
 
 ## Context budget
 
-Always-loaded (router only): ~2,000-2,500 tokens
-Per-chunk (loaded on demand): 800-1,500 tokens
-Per-call typical: 2,500-4,000 tokens (router + 1-2 chunks)
-Per-call max: 8,000-10,000 tokens (router + industry + 3-4 chunks)
+All figures are pre-baseline estimates (no instrumented run yet — see `telemetry/baseline.md`);
+they mirror the SKILL.md frontmatter `context_budget` block:
+
+- Always-loaded (router only): 3,500 tokens (estimate)
+- Per-call typical: 7,000 tokens — router + 1 chunk + 1 industry + 1 UC (estimate)
+- Per-call max: 16,000 tokens — router + all chunks + industry + UC (estimate)
+- Per-call p90: 9,000 tokens (estimate — no instrumented baseline yet)

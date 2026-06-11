@@ -52,8 +52,8 @@ Three artifacts, current and producible on request:
 
 ## Cross-references
 
-- `use-cases/uc-02-ocr-readiness.md` — the worked hospital engagement (22-standard matrix, gap priorities, stale-doc flags, NPRM pre-read).
+- `use-cases/uc-02-ocr-readiness.md` — the worked hospital engagement (22-standard matrix, gap priorities, stale-doc flags, NPRM pre-read); its §164.314(b) row is assessed because Bellbrook sponsors a self-funded employee group health plan.
 - `chunks/02-risk-analysis-and-management.md` — risk analysis as the anchor control; SP 800-66r2 cyclical approach; the HHS SRA Tool [HHS-SRA-Tool] (sized for small/medium practices; hospitals typically outgrow it).
 - `chunks/05-technical-safeguards.md` — the §164.312 standards, including the audit-controls vs information-system-activity-review distinction.
 - `chunks/07-addressable-decisions-and-evidence.md` — disposition records and the per-family evidence catalog.
-- `nist-csf-2` (sibling skill) — for the executive maturity narrative on top of Security Rule compliance; its healthcare HIPAA references point INTO this skill.
+- `nist-csf-2` (sibling skill) — for the executive maturity narrative on top of Security Rule compliance; it defers its healthcare industry view to its v1.0 — when it ships it will point INTO this skill rather than restate Subpart C facts.

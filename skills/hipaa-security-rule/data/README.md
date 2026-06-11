@@ -15,3 +15,6 @@
 
 No file in this directory contains PHI/ePHI — org-level synthetic facts only. Dates used in
 computations come from `as_of_date` seed fields, never the wall clock.
+
+Packaging note: the test suite (including the fact-sheet inventory-diff) runs from the full
+repo checkout; an installed copy of `skills/hipaa-security-rule/` alone cannot run it.

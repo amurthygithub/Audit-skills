@@ -47,13 +47,12 @@ appropriate. Every "Addressable" mention in this skill carries that decision log
 
 ## Penalty amounts adjust annually
 
-All civil monetary penalty amounts stated in this skill (chunk 08) are the **2025
-inflation-adjusted values per 45 CFR 102.3, as of 2026-06-10**: Tier 1 min $145 / Tier 2 min
-$1,461 / Tier 3 min $14,602, each max $73,011; Tier 4 min $73,011 max $2,190,294;
-calendar-year cap $2,190,294 per provision. **These amounts adjust annually** — check the
-current 45 CFR 102.3 table before quoting them. OCR's 2019 Notification of Enforcement
-Discretion (lower annual caps for tiers 1-3) is enforcement posture, not codified law, and is
-labeled as such wherever mentioned.
+Civil monetary penalty amounts are pinned in **one in-skill location only**:
+`chunks/08-enforcement-audit-and-nprm.md` §1 (the 2025 inflation-adjusted values, as of
+2026-06-10; adjusted annually per 45 CFR 102.3 [CFR-45-102]). This file deliberately restates
+none of them. **These amounts adjust annually** — check the current 45 CFR 102.3 table before
+quoting them. OCR's 2019 Notification of Enforcement Discretion (lower annual caps for tiers
+1-3) is enforcement posture, not codified law, and is labeled as such wherever mentioned.
 
 ## House conventions are engagement parameters, not regulatory requirements
 

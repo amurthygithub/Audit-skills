@@ -15,7 +15,7 @@ The **Security management process** standard — §164.308(a)(1)(i) [CFR-45-164-
 |------|-------|-------------|---------------------------|
 | §164.308(a)(1)(ii)(A) | Risk analysis | (Required) | "Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic protected health information held by the covered entity or business associate." |
 | §164.308(a)(1)(ii)(B) | Risk management | (Required) | "Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with § 164.306(a)." |
-| §164.308(a)(1)(ii)(C) | Sanction policy | (Required) | "Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures." |
+| §164.308(a)(1)(ii)(C) | Sanction policy | (Required) | "Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures of the covered entity or business associate." |
 | §164.308(a)(1)(ii)(D) | Information system activity review | (Required) | "Implement procedures to regularly review records of information system activity, such as audit logs, access reports, and security incident tracking reports." |
 
 Distinction that auditors probe: §164.312(b) (Audit controls) requires the *mechanisms* that record activity; §164.308(a)(1)(ii)(D) requires the *procedures and practice of reviewing* what those mechanisms record. Logging without review fails (D); review without logging is impossible. See `chunks/05-technical-safeguards.md`.

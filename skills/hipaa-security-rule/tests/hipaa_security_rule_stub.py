@@ -63,7 +63,9 @@ _SYSTEM_CHECKLIST = {
     ],
     "saas_ehr_access": [
         ("164.308(a)(4)", "Limit EHR access to the minimum accounts and roles the engagement requires", False, None),
-        ("164.312(d)", "Unique login plus MFA for every EHR session", False, None),
+        ("164.312(d)", "Authenticate every EHR session under the consultant's own identity — "
+         "enable MFA where the EHR offers it (good practice; an MFA mandate is NPRM-PROPOSED, "
+         "not current Subpart C)", False, None),
     ],
     "email": [
         ("164.312(e)(1)", "Use encrypted transmission for any message carrying ePHI", False, None),
@@ -115,6 +117,9 @@ def _uc01(payload: dict) -> dict:
             "decision_required": spec["decision_required"], "disposition": d,
             "alternative": spec.get("alternative"),
             "justification": spec.get("justification"),
+            # 164.306(d)(3)(ii)(B)(2): on the not-reasonable path the equivalent-
+            # alternative question must be answered even when the answer is "none".
+            "alternative_considered": spec.get("alternative_considered"),
         })
     enc = next((d for d in dispositions if d["spec_id"] == "164.312(a)(2)(iv)"),
                {"disposition": "not_assessed"})

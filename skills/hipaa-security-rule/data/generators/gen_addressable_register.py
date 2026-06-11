@@ -47,7 +47,10 @@ ADDRESSABLE_SPECS = [
 ]
 
 # Engagement assessment for CareSync Relay (fully remote 40-person SaaS BA on AWS).
-# spec_id -> (decision_required, reasonable_and_appropriate, alternative, justification)
+# spec_id -> (decision_required, reasonable_and_appropriate, alternative, justification,
+#             alternative_considered) — the last is required on the not-reasonable path:
+#             164.306(d)(3)(ii)(B)(2) demands the equivalent-alternative question be answered
+#             even when the answer is that none is reasonable and appropriate.
 ASSESSMENT = {
     "164.308(a)(3)(ii)(A)": (True, True, None,
         "Engineering leads supervise ePHI-adjacent work; access reviewed weekly"),
@@ -110,6 +113,19 @@ ASSESSMENT = {
 }
 
 
+# Why no equivalent alternative measure is reasonable and appropriate (NRD path only).
+ALTERNATIVE_CONSIDERED = {
+    "164.310(a)(2)(i)":
+        "No equivalent organization-side measure is reasonable and appropriate: there is no organization-controlled facility to operate contingency access for; the provider's data-center resilience controls (reviewed annually via its SOC 2 report) already cover the function",
+    "164.310(a)(2)(ii)":
+        "No equivalent organization-side measure is reasonable and appropriate: a facility security plan presupposes a facility; workstation-level protections are implemented under 164.310(b)-(c) as their own standards, not as an alternative to this spec",
+    "164.310(a)(2)(iii)":
+        "No equivalent organization-side measure is reasonable and appropriate: there is no facility access to control or validate; provider data-center access controls are inherited and reviewed annually",
+    "164.310(a)(2)(iv)":
+        "No equivalent organization-side measure is reasonable and appropriate: there are no organization-controlled physical security components to maintain; provider maintenance records are covered by its SOC 2 report",
+}
+
+
 def build_register() -> list[dict]:
     register = []
     for spec_id, name, family in ADDRESSABLE_SPECS:
@@ -122,6 +138,7 @@ def build_register() -> list[dict]:
             "reasonable_and_appropriate": ra,
             "alternative": alternative,
             "justification": justification,
+            "alternative_considered": ALTERNATIVE_CONSIDERED.get(spec_id),
         })
     return register
 

@@ -58,4 +58,4 @@ Yes — a health insurer, HMO, or insurance group writing health lines is a heal
 - `chunks/01-scope-and-general-rules.md` — who is a CE/BA; the §164.306(b)(2) flexibility factors a lean benefits team will lean on.
 - `use-cases/uc-02-ocr-readiness.md` — the 22-standard readiness method; swap the hospital system inventory for claims platforms and member portals.
 - `industries/healthcare.md` — the provider-side CE playbook insurers can largely reuse.
-- `nist-csf-2` (sibling skill, financial-services view) — the examiner-facing maturity narrative; its HIPAA touchpoints reference INTO this skill.
+- `nist-csf-2` (sibling skill, financial-services view) — the examiner-facing maturity narrative; any HIPAA touchpoint there references INTO this skill rather than restating Subpart C facts.

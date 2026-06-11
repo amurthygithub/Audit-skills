@@ -17,7 +17,7 @@ Technical policies and procedures "to allow access only to those persons or soft
 |------|-------|-------------|--------------------|
 | (a)(2)(i) | **Unique user identification** | **(Required)** | "Assign a unique name and/or number for identifying and tracking user identity" — shared accounts defeat this |
 | (a)(2)(ii) | **Emergency access procedure** | **(Required)** | Procedures "for obtaining necessary electronic protected health information during an emergency" (break-glass access, itself logged and reviewed) |
-| (a)(2)(iii) | Automatic logoff | (Addressable) | "Terminate an electronic session after a predetermined time of inactivity" |
+| (a)(2)(iii) | Automatic logoff | (Addressable) | Electronic procedures that "terminate an electronic session after a predetermined time of inactivity" |
 | (a)(2)(iv) | Encryption and decryption | (Addressable) | "Implement a mechanism to encrypt and decrypt electronic protected health information" — **data at rest** |
 
 **Evidence:** account inventory showing 1:1 identity mapping (service accounts justified and owned); break-glass procedure and usage log; session-timeout configuration; encryption-at-rest configuration or the documented disposition.

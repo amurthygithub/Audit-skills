@@ -24,7 +24,7 @@ oracle:
   - "by_band recomputed independently from uc-01-risks.json (likelihood x impact, house bands) == {High: 4, Medium: 6, Low: 5}; total == 15"
   - "exactly 22 dispositions — one per addressable spec in the register, none invented; every spec_id exists in the fact-sheet identifier list"
   - "disposition per spec recomputed from the seed's documented assessment (164.306(d)(3) logic) == stub output; summary foots: 15 implement / 3 alternative_measure / 4 not_reasonable_documented"
-  - "every alternative_measure row carries a non-empty alternative; every not_reasonable_documented row carries a justification"
+  - "every alternative_measure row carries a non-empty alternative; every not_reasonable_documented row carries a justification AND an alternative_considered answer (164.306(d)(3)(ii)(B))"
   - "decision_required_count == 12 (recounted from the seed); encryption_at_rest_disposition derived == implement"
 data_refs:
   - data/seeds/uc-01-input.json
@@ -79,7 +79,7 @@ Per §164.306(d)(3), **addressable never means optional**: assess each spec; imp
 
 **Disposition summary: 15 implement / 3 alternative_measure / 4 not_reasonable_documented.**
 
-The 4 `not_reasonable_documented` specs are all facility-related physical specs (§164.310(a)(2)(i)–(iv)): CareSync Relay is fully remote with no organization-controlled facility housing ePHI systems; data-center physical controls are inherited from the cloud provider and reviewed annually via the provider's SOC 2 report. The documentation of "why not" is itself the compliance artifact — the spec is not skipped, it is dispositioned.
+The 4 `not_reasonable_documented` specs are all facility-related physical specs (§164.310(a)(2)(i)–(iv)): CareSync Relay is fully remote with no organization-controlled facility housing ePHI systems; data-center physical controls are inherited from the cloud provider and reviewed annually via the provider's SOC 2 report. Each of the four why-not records also carries an explicit alternative-considered answer (the seed's `alternative_considered` field): per §164.306(d)(3)(ii)(B), the equivalent-alternative question is answered even though the answer is that none is reasonable and appropriate. The documentation of "why not" is itself the compliance artifact — the spec is not skipped, it is dispositioned.
 
 ## §4 The 12 decision-required specs, walked end-to-end
 
@@ -108,7 +108,7 @@ The engagement flagged 12 specs `decision_required` (the rest carry standing dis
 
 - Band counts recomputed from `uc-01-risks.json` with the house formula; asserted equal to the stub output AND to the expected seed (`High 4 / Medium 6 / Low 5`, total 15).
 - Disposition per spec recomputed from each register row's `reasonable_and_appropriate` / `alternative` fields via the §164.306(d)(3) logic; exactly 22 dispositions; summary foots to `15 / 3 / 4`.
-- Every `alternative_measure` row must carry a non-empty alternative; every `not_reasonable_documented` row must carry a justification.
+- Every `alternative_measure` row must carry a non-empty alternative; every `not_reasonable_documented` row must carry a justification AND a non-empty `alternative_considered` answer (§164.306(d)(3)(ii)(B)).
 - `decision_required_count` recounted == 12; encryption-at-rest disposition derived == `implement`.
 - Every `spec_id` must exist in the fact sheet §0 identifier list — no fabricated citations.
 

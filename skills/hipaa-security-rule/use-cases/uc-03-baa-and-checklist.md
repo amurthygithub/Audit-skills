@@ -72,7 +72,7 @@ Built per system from the seed (`laptop`, `saas_ehr_access`, `email`, `cloud_sto
 | 5 | 164.310(c) | Physically secure the workstation; auto-lock screen; full-disk encryption | no |
 | 6 | 164.312(a)(2)(iv) | Encrypt local storage (addressable — document the implement decision) | no |
 | 7 | 164.308(a)(4) | Limit EHR access to the minimum accounts and roles the engagement requires | no |
-| 8 | 164.312(d) | Unique login plus MFA for every EHR session | no |
+| 8 | 164.312(d) | Authenticate every EHR session under the consultant's own identity — enable MFA where the EHR offers it (good practice; an MFA mandate is NPRM-PROPOSED, not current Subpart C) | no |
 | 9 | 164.312(e)(1) | Use encrypted transmission for any message carrying ePHI | no |
 | 10 | 164.308(a)(7)(ii)(A) | Maintain retrievable exact copies of any ePHI the practice stores | **yes** — size factor 164.306(b)(2)(i): provider-managed versioned storage satisfies the backup requirement for a solo practice |
 
