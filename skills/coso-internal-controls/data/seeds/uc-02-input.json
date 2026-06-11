@@ -1,19 +1,61 @@
 {
-  "deficiency_description": "IT access provisioning for ERP system not properly controlled. Terminated employees retain access average 45 days. No quarterly access review. Affects expenditure and payroll.",
+ "use_case": "UC-02",
+ "deficiency": {
+  "description": "Terminated employees retain ERP access for an average of 45 days; no quarterly user-access review; no automated de-provisioning.",
+  "type": "itgc_logical_access",
+  "affected_systems": [
+   "ERP"
+  ],
+  "assertion_at_risk": "occurrence",
+  "secondary_assertions": [
+   "completeness",
+   "accuracy"
+  ],
   "affected_accounts": [
-    "Operating Expenses",
-    "Payroll Expense",
-    "Accounts Payable"
-  ],
-  "affected_assertions": [
-    "Existence",
-    "Completeness"
-  ],
-  "compensating_controls_candidates": [
-    "Bank reconciliation (monthly, precise)",
-    "Payroll reconciliation (monthly, precise)",
-    "Budget variance analysis (monthly, low precision)"
-  ],
-  "preliminary_classification": "Significant Deficiency",
-  "industry": "financial-services"
+   "Operating Expenses",
+   "Payroll Expense",
+   "Accounts Payable"
+  ]
+ },
+ "authority_of_retained_access": {
+  "can_create_vendors": true,
+  "can_approve_payments": true,
+  "payment_approval_limit": null,
+  "can_change_payroll": true
+ },
+ "materiality": 100000,
+ "compensating_controls_candidates": [
+  {
+   "control": "Bank reconciliation (monthly, independent)",
+   "assertions_addressed": [
+    "completeness",
+    "accuracy"
+   ],
+   "relies_on_ipe_from": "ERP",
+   "precision_for_own_assertion": "high"
+  },
+  {
+   "control": "Payroll reconciliation (monthly, independent)",
+   "assertions_addressed": [
+    "completeness",
+    "accuracy"
+   ],
+   "relies_on_ipe_from": "ERP",
+   "precision_for_own_assertion": "high"
+  },
+  {
+   "control": "Budget variance analysis (monthly)",
+   "assertions_addressed": [
+    "completeness"
+   ],
+   "relies_on_ipe_from": "ERP",
+   "precision_for_own_assertion": "low"
+  }
+ ],
+ "lookback": {
+  "performed": false,
+  "improper_transactions_found": null
+ },
+ "preliminary_classification": "Significant Deficiency",
+ "notes": "Audit logic per AS 2201 Steps 1-3 + compensating-control evaluation. A compensating control mitigates only if it (a) addresses the ASSERTION AT RISK and (b) is not itself impaired by the same deficiency (IPE drawn from the affected system). Magnitude is driven by the AUTHORITY of the retained access, not a per-transaction cap. Conclusion is gated on a LOOKBACK of actual terminated-user activity. House-convention labels for the precision/qualification analysis are not verbatim AS 2201 text."
 }

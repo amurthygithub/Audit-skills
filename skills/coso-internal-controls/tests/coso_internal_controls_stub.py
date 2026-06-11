@@ -103,38 +103,141 @@ def _uc01_icfr_assessment(inputs: dict) -> dict:
 
 
 def _uc02_deficiency_classification(inputs: dict) -> dict:
-    deficiency_desc = inputs.get("deficiency_description", "")
-    affected_accounts = inputs.get("affected_accounts", [])
-    affected_assertions = inputs.get("affected_assertions", [])
-    compensating_candidates = inputs.get("compensating_controls_candidates", [])
-    preliminary = inputs.get("preliminary_classification", "")
+    """Deficiency classification with an audit-SOUND compensating-control test
+    (SOX-641 rework). The classification is COMPUTED from the facts, not asserted.
 
-    classification = "Significant Deficiency"
+    Two tests a compensating control must pass to mitigate the deficiency:
+      1. Assertion-relevance: it must address the ASSERTION AT RISK. Improper
+         access threatens OCCURRENCE/validity (unauthorized but recorded
+         transactions). Reconciliations address completeness/accuracy — a
+         recorded-but-fraudulent transaction reconciles cleanly, so they do NOT
+         mitigate the occurrence risk.
+      2. Independence from the deficiency: a control that draws its IPE from the
+         same affected system is impaired by the very deficiency it is meant to
+         compensate for (the ERP whose access is uncontrolled also feeds the rec).
 
-    step1 = {"step": "Confirm deficiency exists", "finding": "Design defect confirmed.", "conclusion": "Deficiency exists."}
-    step2 = {"step": "Assess reasonable possibility", "finding": "Potential $50K-$200K exposure.", "conclusion": "Reasonable possibility exists."}
-    step3 = {"step": "Assess magnitude", "finding": "Compensating controls mitigate.", "conclusion": "Magnitude not material."}
+    Magnitude is driven by the AUTHORITY of the retained access (vendor creation,
+    unbounded payment approval), not a per-transaction cap. The conclusion is
+    gated on a LOOKBACK of actual terminated-user activity; absent it, the
+    conservative rebuttable presumption for an unmitigated pervasive ITGC with
+    material magnitude is a material weakness.
+    """
+    d = inputs.get("deficiency")
+    if not d or not d.get("assertion_at_risk"):
+        # Audit-correct: you cannot classify a deficiency that is not described.
+        return {
+            "classification": "INSUFFICIENT_INPUT",
+            "basis": "No deficiency with an identified assertion at risk was provided — "
+                     "describe the deficiency and the assertion it threatens before classifying.",
+            "compensating_control_analysis": [],
+            "qualifying_compensating_controls": [],
+            "preliminary_classification": inputs.get("preliminary_classification", ""),
+        }
+    assertion_at_risk = d["assertion_at_risk"]
+    affected_systems = set(d.get("affected_systems", []))
+    is_itgc = d.get("type", "").startswith("itgc")
+    auth = inputs.get("authority_of_retained_access", {})
+    materiality = inputs.get("materiality", 0)
+    lookback = inputs.get("lookback", {})
 
+    # Compensating-control analysis — each candidate tested on both axes.
     cca = []
-    for cc in compensating_candidates:
-        if "bank rec" in cc.lower():
-            cca.append({"control": "Bank reconciliation", "effective": True, "precision": "sufficient", "rationale": "Monthly bank rec by independent party."})
-        elif "payroll rec" in cc.lower():
-            cca.append({"control": "Payroll reconciliation", "effective": True, "precision": "sufficient", "rationale": "Detects unauthorized payments."})
-        elif "variance" in cc.lower():
-            cca.append({"control": "Budget variance analysis", "effective": True, "precision": "insufficient", "rationale": "Too high-level."})
+    for c in inputs.get("compensating_controls_candidates", []):
+        addresses_risk = assertion_at_risk in c.get("assertions_addressed", [])
+        ipe_impaired = c.get("relies_on_ipe_from") in affected_systems
+        qualifies = addresses_risk and not ipe_impaired
+        if not addresses_risk:
+            reason = (f"addresses {c.get('assertions_addressed')} — NOT the assertion at risk "
+                      f"({assertion_at_risk}); a recorded-but-unauthorized item reconciles cleanly")
+        elif ipe_impaired:
+            reason = (f"relies on IPE from {c.get('relies_on_ipe_from')} — the same system the "
+                      f"deficiency impairs; its own reliability is undermined")
+        else:
+            reason = "addresses the assertion at risk and is independent of the affected system"
+        cca.append({"control": c["control"], "addresses_assertion_at_risk": addresses_risk,
+                    "ipe_impaired_by_deficiency": ipe_impaired, "qualifies": qualifies,
+                    "reason": reason})
+    qualifying = [a for a in cca if a["qualifies"]]
+    # A qualifying control only MITIGATES if it is tested-effective AND precise enough to
+    # detect a material misstatement (chunk 07 Step 5 — no mechanical one-notch demotion;
+    # an untested or imprecise qualifying control does not reduce severity below SD).
+    mitigating = [c for c in inputs.get("compensating_controls_candidates", [])
+                  if assertion_at_risk in c.get("assertions_addressed", [])
+                  and c.get("relies_on_ipe_from") not in affected_systems
+                  and c.get("tested_effective")
+                  and c.get("precision_for_own_assertion") in ("high", "sufficient")]
+
+    # Magnitude from the AUTHORITY of the retained access — material and not capped at a
+    # per-transaction ceiling (vendor creation / uncapped payment approval). We do NOT
+    # assert a hard "unbounded" — exposure is bounded by window, volume, and detection.
+    not_capped = bool(auth.get("can_create_vendors")) or auth.get("payment_approval_limit") is None
+    magnitude_material = not_capped or (auth.get("payment_approval_limit") or 0) >= materiality
+
+    # Scenario fact (improper access + no detective review). Asserted, not derived — flagged.
+    reasonable_possibility = True
+    lookback_rules_out = bool(lookback.get("performed")) and lookback.get("improper_transactions_found") is False
+
+    # Classification — ordinary AS 2201 severity test (reasonable possibility + magnitude),
+    # NOT an AS 2201.69 indicator (none is present here). Demotion re-assesses residual risk.
+    if not qualifying:
+        if magnitude_material and reasonable_possibility and not lookback_rules_out:
+            classification = "Material Weakness"
+            basis = ("On the ordinary severity test: no compensating control addresses the "
+                     "occurrence assertion the access deficiency threatens (each addresses "
+                     "recording assertions and draws IPE from the affected ERP), the deficiency is "
+                     "a pervasive ITGC with material, authority-driven magnitude, there is a "
+                     "reasonable possibility of material misstatement, and no lookback rules out "
+                     "improper activity -> material weakness (a clean occurrence-focused lookback "
+                     "is the principal evidence that could rebut it).")
+        elif reasonable_possibility:
+            classification = "Significant Deficiency"
+            basis = "Unmitigated deficiency with reasonable possibility but less-than-material magnitude."
+        else:
+            classification = "Deficiency"
+            basis = "No reasonable possibility of material misstatement."
+    else:
+        # Qualifying control(s) exist -> re-assess residual risk; no mechanical demotion.
+        if mitigating and lookback_rules_out:
+            classification = "Deficiency"
+            basis = ("A tested, precise, assertion-relevant compensating control AND a clean "
+                     "occurrence-focused lookback reduce residual risk below the SD threshold.")
+        elif mitigating:
+            classification = "Significant Deficiency"
+            basis = ("A tested, precise, assertion-relevant compensating control exists, but "
+                     "residual magnitude remains material absent a clean lookback -> no demotion "
+                     "below significant deficiency.")
+        else:
+            classification = "Significant Deficiency"
+            basis = ("A qualifying compensating control exists but is not yet tested-effective or "
+                     "sufficiently precise; residual risk remains -> no mechanical demotion below "
+                     "significant deficiency (chunk 07 Step 5).")
 
     return {
         "classification": classification,
-        "preliminary_classification": preliminary,
-        "basis": "Compensating controls sufficient.",
-        "decision_tree": {"step1": step1, "step2": step2, "step3": step3},
+        "preliminary_classification": inputs.get("preliminary_classification", ""),
+        "basis": basis,
+        "assertion_at_risk": assertion_at_risk,
+        "itgc_pervasive": is_itgc,
+        "reasonable_possibility": {"value": reasonable_possibility,
+                                   "note": "scenario assumption (improper access, no detective review) — not derived"},
+        "magnitude": {"driver": "authority_of_retained_access", "material": magnitude_material,
+                      "basis": "material and not capped at a per-transaction ceiling (vendor creation / uncapped payment approval)"},
         "compensating_control_analysis": cca,
-        "mw_indicators": {"checked": ["AS 2201.69(a)-(h)"], "any_present": False},
-        "remediation": {"action": "Implement quarterly access review", "owner": "IT Security Manager", "timeline": "Q3 2026"},
-        "deficiency_description": deficiency_desc,
-        "affected_accounts": affected_accounts,
-        "affected_assertions": affected_assertions,
+        "qualifying_compensating_controls": [a["control"] for a in qualifying],
+        "lookback": {"performed": bool(lookback.get("performed")),
+                     "rules_out_occurrence": lookback_rules_out,
+                     "required_procedure": ("review all transactions initiated or approved by the "
+                        "terminated users during their retained-access window, focused on "
+                        "occurrence/authorization — independent of the ERP's automated controls")},
+        "recommended_procedures": [
+            "Occurrence-focused lookback of terminated-user transactions (the evidence that gates the conclusion)",
+            "Independent re-authorization / segregation-of-duties review of vendor and payroll changes in the window",
+            "Assess ITGC pervasiveness: identify every app control and IPE relying on the ERP, including the reconciliations themselves",
+        ],
+        "remediation": {"action": "Automated de-provisioning on termination + quarterly access certification",
+                        "owner": "IT Security Manager", "timeline": "Q3 2026"},
+        "deficiency_description": d.get("description", ""),
+        "affected_accounts": d.get("affected_accounts", []),
     }
 
 

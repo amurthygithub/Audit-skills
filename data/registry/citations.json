@@ -195,11 +195,11 @@
    ]
   },
   "COSO-GenAI-2026": {
-   "title": "Internal Control Over Generative AI and LLMs",
+   "title": "Achieving Effective Internal Control Over Generative AI (GenAI)",
    "publisher": "COSO",
-   "identifier": "2026",
-   "url": "https://www.coso.org/guidance-on-ic",
-   "retrieval_date": "2026-05-25",
+   "identifier": "2026 (released Feb 23, 2026)",
+   "url": "https://www.coso.org/generative-ai",
+   "retrieval_date": "2026-06-11",
    "cited_by": [
     "coso-internal-controls"
    ]
@@ -236,11 +236,11 @@
    ]
   },
   "COSO-RPA-2024": {
-   "title": "Internal Control Over Robotic Process Automation",
+   "title": "Achieving Effective Internal Control Over Robotic Process Automation",
    "publisher": "COSO",
-   "identifier": "2024",
+   "identifier": "2024 (issued December 2024)",
    "url": "https://www.coso.org/guidance-on-ic",
-   "retrieval_date": "2026-05-25",
+   "retrieval_date": "2026-06-11",
    "cited_by": [
     "coso-internal-controls"
    ]

@@ -207,8 +207,8 @@ See `use-cases/` for the complete walkthroughs.
 | COSO-Monitoring-2009 | Guidance on Monitoring Internal Control Systems | COSO | 2009 | 2026-05-25 | https://www.coso.org/monitoring-internal-control-system |
 | COSO-Fraud-2023 | Fraud Risk Management Guide, 2nd Edition | COSO/ACFE | May 2023 | 2026-05-25 | https://www.coso.org/frauddeterrence |
 | COSO-ICSR-2023 | Internal Control Over Sustainability Reporting (ICSR) | COSO | 2023 | 2026-05-25 | https://www.coso.org/new-icsr |
-| COSO-RPA-2024 | Internal Control Over Robotic Process Automation | COSO | 2024 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
-| COSO-GenAI-2026 | Internal Control Over Generative AI and LLMs | COSO | 2026 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
+| COSO-RPA-2024 | Achieving Effective Internal Control Over Robotic Process Automation | COSO | 2024 (Dec 2024) | 2026-06-11 | https://www.coso.org/guidance-on-ic |
+| COSO-GenAI-2026 | Achieving Effective Internal Control Over Generative AI (GenAI) | COSO | 2026 (Feb 2026) | 2026-06-11 | https://www.coso.org/generative-ai |
 | COSO-Blockchain-2020 | Blockchain and Internal Control | COSO | 2020 | 2026-05-25 | https://www.coso.org/guidance-on-ic |
 | PCAOB-AS-2201 | An Audit of Internal Control Over Financial Reporting That Is Integrated with an Audit of Financial Statements | PCAOB | Current | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201 |
 | PCAOB-AS-1305 | Communications About Control Deficiencies (supplemented by AS 2201.78-.84 for integrated audit) | PCAOB | Current | 2026-05-25 | https://pcaobus.org/oversight/standards/auditing-standards/details/AS1305 |

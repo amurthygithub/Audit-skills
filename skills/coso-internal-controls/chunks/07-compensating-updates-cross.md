@@ -19,8 +19,19 @@ Search for controls that: (a) address the SAME risk, (b) operate at the SAME or 
 
 Consider: reconciliation controls, analytical review, management review, monitoring controls, alternative authorization, IT application controls, physical controls.
 
-### Step 3: Evaluate Compensating Control Precision
-Is the control designed to address the same risk? Does it operate at sufficient precision to prevent/detect a material misstatement? Is the frequency sufficient to detect before financial statements are issued?
+### Step 3: Evaluate Compensating Control Precision — the two-part test
+A compensating control mitigates a deficiency only if it passes **both** tests. Failing either disqualifies it.
+
+1. **Assertion-relevance.** Does it address the **assertion actually at risk**, not merely *an* assertion? This is the most common error. Improper logical access threatens **occurrence/validity** (an unauthorized but *recorded* transaction). A reconciliation addresses **completeness and accuracy** — it catches *unrecorded* or *mismatched* items; a recorded-but-fraudulent transaction reconciles cleanly and is never flagged. So a reconciliation that draws its IPE from the affected system and matches only recording attributes does **not** compensate for an access deficiency, however precise it is. (A reconciliation matched against a *genuinely independent* source — e.g., cleared payees vs an independently maintained approved-vendor master — can be occurrence-relevant; the discriminator is IPE-independence and what is matched, not the control type.)
+2. **Independence from the deficiency.** Does the candidate draw its information (**IPE**) from the same system the deficiency impairs? A control that consumes data from the very ERP whose access is uncontrolled is itself undermined by that deficiency — it cannot serve as the independent check.
+
+Then the usual precision questions: sufficient precision to detect a *material* misstatement, and frequency soon enough to catch it before the financial statements are issued.
+
+**ITGC pervasiveness.** A deficient ITGC (logical access, change management, IT operations) is pervasive: it affects the reliability of **every** application control and **every** piece of IPE on that system — including the reconciliations offered as compensating controls. Always perform the dependency step: list what relies on the affected system before concluding any control compensates.
+
+**Magnitude from authority, not transaction size.** For an access deficiency, magnitude is driven by what the retained access can **authorize** (vendor creation → fictitious-vendor exposure is effectively unbounded; payment approval without an enforced ceiling; payroll changes), not by an assumed per-transaction cap.
+
+**The lookback gates the conclusion.** Before concluding, review the actual activity the deficiency exposed — e.g., all transactions initiated or approved by terminated users during their retained-access window, focused on occurrence and sourced independently of the affected system's automated controls. Absent the lookback, an unmitigated pervasive ITGC with material magnitude classifies as a **material weakness** on the ordinary severity test (reasonable possibility + magnitude — not an AS 2201.69 indicator); worked end-to-end in `use-cases/uc-02-deficiency-classification.md`. A qualifying compensating control demotes severity only when it is tested-effective and precise enough for a material misstatement — there is no mechanical one-notch rule (Step 5).
 
 PRECISION TEST: A reconciliation matching subsidiary detail to GL for the same account is generally precise enough. A high-level variance analysis of total revenue is generally NOT precise enough for a specific revenue recognition control failure.
 
