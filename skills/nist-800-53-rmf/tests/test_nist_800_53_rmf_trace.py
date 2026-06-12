@@ -31,6 +31,26 @@ def test_skill_md_referenced_sections_exist():
                 assert sec in body, f"UC {uc} references §{sec} but not found in SKILL.md"
 
 
+def test_non_federal_adoption_chunk_backs_state_rmf_promise():
+    """SOX-639: the SKILL.md "state-RMF" / non-federal activation promise must be backed by
+    chunks/10-non-federal-adoption.md (it routes there) and that chunk must carry the
+    non-federal authorization model + resource-constrained risk-based scoping — not an
+    unbacked claim that assumes federal-only AO machinery."""
+    chunk = Path(__file__).resolve().parent.parent / "chunks" / "10-non-federal-adoption.md"
+    assert chunk.exists(), "chunks/10-non-federal-adoption.md must exist to back the state-RMF promise"
+    ctext = chunk.read_text()
+    assert "chunk_id: 10-non-federal-adoption" in ctext
+    # The load-bearing content: who authorizes absent a federal AO + risk-based scoping.
+    assert "authorizing authority" in ctext.lower()
+    assert "absent a federal AO" in ctext or "without a federal AO" in ctext.lower() or "no automatic equivalent" in ctext
+    for term in ("family prioritization", "prior-evidence reuse", "multi-year"):
+        assert term.lower() in ctext.lower(), f"resource-constrained scoping missing '{term}'"
+    # SKILL.md must route to it and back the activation promise.
+    body = SKILL_MD.read_text()
+    assert "chunks/10-non-federal-adoption.md" in body, "SKILL.md must route to chunk 10"
+    assert "non-federal" in body.lower(), "SKILL.md activation must name the non-federal path"
+
+
 def test_use_cases_cite_skill_sections():
     """Each use case's procedure must cite real SKILL.md sections or chunks/ files.
 

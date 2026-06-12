@@ -4,6 +4,11 @@ All notable changes to this skill are documented here. Format follows [Keep a Ch
 
 ## [Unreleased]
 
+### Added (SOX-639 — non-federal adoption paths, 2026-06-11, M5)
+- New `chunks/10-non-federal-adoption.md`: the **non-federal authorization model** (who risk-accepts absent a federal AO — a state CISO / agency head / designated authorizing authority; the RMF decision logic is identical, only the signatory and governing policy change); state RMF adoption (CA SAM, TX DIR/TX-RAMP, NASCIO-aligned); **resource-constrained risk-based scoping** (family prioritization, control sampling, prior-evidence reuse, multi-year rotation per OMB A-130 ISCM) vs full enumeration; the non-federal authorization-decision report shape + a GAGAS C-C-C-E-R finding pointer to `audit-workpapers`.
+- The SKILL.md activation promise ("state-RMF") is now **backed** by chunk 10 and routed; `public-sector.md` points to chunk 10 for the non-federal authorization *mechanics* (it remains the federal/FedRAMP posture). New trace test gates the promise↔chunk wiring.
+- **Slice scope:** addresses the correctness core of SOX-639 (the unbacked state-RMF promise + the federal-only authorization assumption). Split to own tickets: data-specific federal overlays (IRS Pub 1075 / MARS-E / SSA benefits-eligibility) and the consumer affordances (SSP/CRM template links, sponsorship/3PAO/before-you-start, board-legible output). The full GAGAS Yellow Book report wrapper remains SOX-672.
+
 ### Fixed (SOX-637 — UC-03 data coherence, 2026-06-10, M2)
 - UC-03 headline restated to what the shipped data supports: curated-sample crosswalk (33 mappings, 39 unique control IDs after splitting comma entries) + representative 93-record gap register; the underivable "231 mapped / 71% overlap / 94 gaps" claims retired.
 - Stub now COMPUTES the UC-03 summary from the crosswalk + gap register; the oracle recomputes independently from the seeds (non-circular) and asserts footing invariants (totals foot; priorities sum; no overlap % emitted).
