@@ -55,7 +55,7 @@ v0.3.3 ships the library's **8th skill — pci-dss-assessment — and a measured
 
 | Skill | Status | Tests | Framework | Top use cases |
 |-------|--------|-------|-----------|---------------|
-| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.3.0 on Spine | 28 | NIST SP 800-53 Rev 5, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
+| **[nist-800-53-rmf](skills/nist-800-53-rmf/README.md)** | v0.3.0 on Spine | 29 | NIST SP 800-53 Rev 5, SP 800-37 Rev 2, FIPS 199, FedRAMP | FedRAMP Moderate categorization, agency ATO with conditions, non-federal/state-RMF adoption, SOC 2 → 800-53 crosswalk, CAIQ/SIG Lite reuse |
 | **[isaca-audit-methodology](skills/isaca-audit-methodology/README.md)** | v0.3.0 on Spine | 36 | ISACA CISA CRM, COBIT 2019 (11 design factors), ITAF 5th Ed, ISACA Code of Ethics | IT audit planning, ITGC/ITAC testing, COBIT maturity assessment, 5-part observation |
 | **[coso-internal-controls](skills/coso-internal-controls/README.md)** | v0.3.0 on Spine | 33 | COSO 2013 ICIF (17 principles, 71 PoF), COSO 2017 ERM, SOX 404, PCAOB AS 2201 | ICFR assessment, deficiency classification (MW/SD/D), walkthroughs, RCM (with Risk ID) |
 | **[aicpa-soc-reporting](skills/aicpa-soc-reporting/README.md)** | v0.3.0 on Spine | 25 | AICPA SOC 1/2/3, TSP §100 (33 common criteria, 61 total), SSAE 21 | SOC 1/2/3 examinations, TSC mapping, opinion determination, CUEC/CSOC |
@@ -66,7 +66,7 @@ v0.3.3 ships the library's **8th skill — pci-dss-assessment — and a measured
 | **[sox-302-disclosure-controls](skills/sox-302-disclosure-controls/README.md)** | v0.3.3 on Spine (born-vetted) | 56 | SOX §302 / SEC Rules 13a-14, 13a-15; Reg S-K Items 307/308 | MW→DC&P-conclusion interplay, newly-public first 302, multi-entity sub-cert cascade |
 | **[fedramp-authorization](skills/fedramp-authorization/README.md)** | v0.1.0 on Spine (born-vetted) | 65 | FedRAMP Rev 5 (Authorization Act 2022 / 44 U.S.C. 3607-3616; OMB M-24-15); baselines tailored from NIST SP 800-53 Rev 5 | Moderate via Agency Authorization, LI-SaaS eligibility, 3PAO finding→POA&M roll-up with inheritance |
 
-**677 tests repo-wide (479 skill-local + shared lint/consistency/registry/eval suites), 0 failures. All pass the Tier 0a linter. All 10 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
+**678 tests repo-wide (480 skill-local + shared lint/consistency/registry/eval suites), 0 failures. All pass the Tier 0a linter. All 10 skills have passed the G4.5 consumer-ready gate (persona vetting + live-source verification — see each skill's `docs/persona-review.md`).**
 
 ---
 
@@ -236,7 +236,7 @@ This repo is hardened for outside contributions.
 **On every PR (`.github/workflows/ci.yml`):**
 - `PR title convention` — must match `^(feat|fix|docs|chore)\([a-z0-9][a-z0-9-]+\): .+$`
 - `Lint skill structure` — runs `tools/lint_skill.py` on all 10 skills
-- `pytest` — runs `pytest skills/ tests/ -q` (677 tests)
+- `pytest` — runs `pytest skills/ tests/ -q` (678 tests)
 
 **Nightly (`.github/workflows/nightly.yml`):**
 - Link rot check on every URL in the §10 References & Citation Manifest sections
@@ -324,7 +324,7 @@ python tools/lint_skill.py $(ls -d skills/*/ | grep -v TEMPLATE)
 
 # 4. Run the test suite
 pytest skills/ tests/ -q
-# → 677 passed across all 10 skills
+# → 678 passed across all 10 skills
 
 # (Optional) Install all skills into opencode as full packages
 ./install.sh

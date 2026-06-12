@@ -67,6 +67,8 @@ Several states have adopted RMF-based frameworks that are **adaptations** of the
 
 These state adaptations share the core 800-53 control families and RMF process but have unique authorization boundaries, AO designations, and assessment cadences. Consult the state's authoritative publication for the specific overlay and process. [NIST-SP-800-53-Rev5]
 
+**For the non-federal authorization *mechanics*** — who risk-accepts absent a federal AO (a state CISO / agency head / designated authorizing authority), resource-constrained risk-based scoping for small shops (family prioritization, sampling, prior-evidence reuse, multi-year rotation), and the non-federal authorization-decision report shape — see **`chunks/10-non-federal-adoption.md`**. This industry view (above) covers the **federal / FedRAMP** posture; chunk 10 covers the state/local & non-federal adoption model.
+
 ## 7. References
 
 - NIST SP 800-37 Rev 2 — RMF

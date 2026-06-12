@@ -37,7 +37,7 @@ This `SKILL.md` is a **router**. The deep-dive content lives in `chunks/`. Load 
 - Performing (or supporting) a FedRAMP authorization (Low/Moderate/High) or agency ATO.
 - Mapping SOC 2 TSC / ISO 27001:2022 / PCI DSS v4.0 / HIPAA Security Rule / NIST CSF 2.0 → NIST 800-53.
 - Performing continuous monitoring (Step 7) — ISCM strategy, control assessments, POA&M management, configuration change management.
-- Responding to a federal, DoD, intelligence-community, or state-RMF assessment finding.
+- Responding to a federal, DoD, intelligence-community, or **state/local & non-federal** RMF assessment finding — including the **non-federal authorization model** (who risk-accepts absent a federal AO), state overlays (CA SAM, TX DIR/TX-RAMP, NASCIO), GAGAS finding context, and **resource-constrained risk-based scoping** for small shops (`chunks/10-non-federal-adoption.md`).
 - Inheritance analysis — which controls the system inherits from a cloud provider versus which it must implement itself.
 - Reusing NIST 800-53 / FedRAMP evidence for customer security questionnaires (CAIQ, SIG Lite, VSAQ).
 - Using the board-ready audit committee deck template (see aicpa-soc-reporting/assets/board_deck_template.md).
@@ -222,6 +222,7 @@ This is a router. Load chunks based on the user's intent.
 | "Full FedRAMP Moderate engagement" | chunks/02, 03, 04, 05, 06 | public-sector | UC-01 |
 | "Agency ATO with conditions" | chunks/02, 03, 04, 05, 06 | public-sector | UC-02 |
 | "CAIQ" / "SIG Lite" / "VSAQ" / "customer questionnaire" / "FedRAMP reuse" / "questionnaire evidence" | `chunks/08-questionnaire-reuse.md` | match industry | — |
+| "state RMF" / "state/local" / "non-federal" / "who authorizes without an AO" / "GAGAS finding" / "small shop" / "risk-based scoping" / "resource-constrained" | `chunks/10-non-federal-adoption.md` | public-sector | — |
 | "High-level question" / "framework overview" | this SKILL.md only | — | — |
 
 **Industries** (load matching file from `industries/`): public-sector, saas-technology, financial-services, healthcare, manufacturing, retail-ecommerce, energy-utilities, other.
